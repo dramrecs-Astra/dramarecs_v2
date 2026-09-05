@@ -1,0 +1,41 @@
+{
+  "name": "DramaRecs",
+  "tagline": "Find your next K-drama by how the last one felt",
+  "country": "US",
+  "countryLabel": "the United States",
+  "popular": [
+    {
+      "slug": "crash-landing-on-you"
+    },
+    {
+      "slug": "goblin"
+    },
+    {
+      "slug": "my-liberation-notes"
+    },
+    {
+      "slug": "reply-1988"
+    },
+    {
+      "slug": "queen-of-tears"
+    },
+    {
+      "slug": "vincenzo"
+    },
+    {
+      "slug": "its-okay-to-not-be-okay"
+    },
+    {
+      "slug": "business-proposal"
+    },
+    {
+      "slug": "hometown-cha-cha-cha"
+    },
+    {
+      "slug": "hospital-playlist"
+    },
+    {
+      "slug": "move-to-heaven"
+    }
+  ]
+}
