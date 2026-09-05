@@ -1,0 +1,700 @@
+{
+  "generated": "2026-09-05",
+  "method": "EDITORIAL.md section 5b. Four index sweeps (posts only, searchSort relevance), then two 24-URL runs with comments at maxCommentsPerPost 15.",
+  "subreddits_allowed": [
+    "r/KDRAMA",
+    "r/kdramas",
+    "r/kdramarecommends"
+  ],
+  "titles_with_usable_material": 24,
+  "threads": {
+    "its-okay-thats-love": [
+      {
+        "sub": "r/kdramas",
+        "title": "It's okay, that's love appreciation post!",
+        "score": 121,
+        "comments": 49,
+        "url": "https://www.reddit.com/r/kdramas/comments/1msj3xq/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "Why do people say that \"It's okay, that's love\" (2014) is frustrating?",
+        "score": 41,
+        "comments": 42,
+        "url": "https://www.reddit.com/r/kdramas/comments/1oyew54/",
+        "role": "caveat, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "It's Okay That's Love: Shall I finish it or not?",
+        "score": 10,
+        "comments": 18,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/12j9uze/",
+        "role": "spare"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "359th Korean Drama Review: It's Okay, That's Love (2014)",
+        "score": 10,
+        "comments": 1,
+        "url": "https://www.reddit.com/r/kdramas/comments/1vsjqdo/",
+        "role": "spare"
+      }
+    ],
+    "taxi-driver": [
+      {
+        "sub": "r/kdramas",
+        "title": "Taxi Driver S3 - From Hope to Total Disappointment",
+        "score": 23,
+        "comments": 33,
+        "url": "https://www.reddit.com/r/kdramas/comments/1qhflxg/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "I have just finished Taxi Driver which has no bad episodes imo",
+        "score": 41,
+        "comments": 69,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/10mlc5n/",
+        "role": "caveat, pulled"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "Lee Je Hoon in Taxi Driver will forever be the coolest guy",
+        "score": 236,
+        "comments": 31,
+        "url": "https://www.reddit.com/r/kdramas/comments/1sopmwo/",
+        "role": "spare"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "Taxi Driver season 4 hinted by cast",
+        "score": 171,
+        "comments": 28,
+        "url": "https://www.reddit.com/r/kdramas/comments/1vw5x7h/",
+        "role": "spare, news"
+      }
+    ],
+    "my-id-is-gangnam-beauty": [
+      {
+        "sub": "r/kdramas",
+        "title": "Why was this Kdrama very disliked?",
+        "score": 136,
+        "comments": 168,
+        "url": "https://www.reddit.com/r/kdramas/comments/1s0fow8/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Is My ID is Gangnam Beauty worth watching?",
+        "score": 18,
+        "comments": 29,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/oocp9e/",
+        "role": "caveat, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "My ID is gangnam beauty",
+        "score": 73,
+        "comments": 43,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/koa1nf/",
+        "role": "spare"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Dramas with feminist themes like My ID is Gangnam Beauty?",
+        "score": 42,
+        "comments": 41,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/10h3y96/",
+        "role": "spare, pick pool"
+      }
+    ],
+    "the-legend-of-the-blue-sea": [
+      {
+        "sub": "r/KDRAMA",
+        "title": "Why isn't The Legend of the Blue Sea as popular as My Love from the Star?",
+        "score": 108,
+        "comments": 58,
+        "url": "https://www.reddit.com/r/KDRAMA/comments/egth1q/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Is Legend of the Blue Sea worth it?",
+        "score": 77,
+        "comments": 52,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/j4fpnz/",
+        "role": "caveat, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Should I Watch Legend of the Blue Sea",
+        "score": 73,
+        "comments": 55,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/i4wp0q/",
+        "role": "spare"
+      },
+      {
+        "sub": "r/KDRAMA",
+        "title": "The Weekly Binge: The Legend Of The Blue Sea - Episodes 1 & 2",
+        "score": 65,
+        "comments": 244,
+        "url": "https://www.reddit.com/r/KDRAMA/comments/1aihjfj/",
+        "role": "spare, per-episode hook data"
+      }
+    ],
+    "extraordinary-you": [
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Watched Extraordinary You. Still can't get out of it.",
+        "score": 76,
+        "comments": 25,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/n2ee1s/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "Is Extraordinary You worth watching?",
+        "score": 18,
+        "comments": 32,
+        "url": "https://www.reddit.com/r/kdramas/comments/1l417a9/",
+        "role": "caveat, pulled"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "New K-Drama Fan Review #2: Extraordinary You",
+        "score": 17,
+        "comments": 39,
+        "url": "https://www.reddit.com/r/kdramas/comments/1uwv9pf/",
+        "role": "spare"
+      }
+    ],
+    "fight-for-my-way": [
+      {
+        "sub": "r/KDRAMA",
+        "title": "Fight For My Way",
+        "score": 240,
+        "comments": 50,
+        "url": "https://www.reddit.com/r/KDRAMA/comments/nd6268/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "What are Your Thoughts on 'Fight for my way'?",
+        "score": 53,
+        "comments": 25,
+        "url": "https://www.reddit.com/r/kdramas/comments/1q144vo/",
+        "role": "caveat, pulled"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "Just finished watching \"fight for my way\"",
+        "score": 158,
+        "comments": 24,
+        "url": "https://www.reddit.com/r/kdramas/comments/1lfnmc4/",
+        "role": "spare"
+      }
+    ],
+    "her-private-life": [
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Watching Her Private Life and Love the FL/ML - More like this?",
+        "score": 94,
+        "comments": 89,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/1k6plam/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "Watching HER PRIVATE LIFE and I find it cringe. Shall I continue or drop it?",
+        "score": 35,
+        "comments": 35,
+        "url": "https://www.reddit.com/r/kdramas/comments/1lpccna/",
+        "role": "caveat, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "If I really really enjoyed 'Her Private Life', what else would you recommend?",
+        "score": 78,
+        "comments": 95,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/1gjmuc1/",
+        "role": "spare, pick pool"
+      }
+    ],
+    "suspicious-partner": [
+      {
+        "sub": "r/kdramas",
+        "title": "Suspicious partner...never thought it would such great one!",
+        "score": 199,
+        "comments": 55,
+        "url": "https://www.reddit.com/r/kdramas/comments/1tfvgpl/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/KDRAMA",
+        "title": "Suspicious Partner was a disappointment",
+        "score": 121,
+        "comments": 71,
+        "url": "https://www.reddit.com/r/KDRAMA/comments/szl4p4/",
+        "role": "dissent, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Is Suspicious Partner Worth Watching?",
+        "score": 78,
+        "comments": 50,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/lbq5up/",
+        "role": "spare"
+      }
+    ],
+    "the-k2": [
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Is The K2 worth watching?",
+        "score": 53,
+        "comments": 82,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/153a6lc/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "The k2....Did anyone get disappointed with the story and the ending like me",
+        "score": 36,
+        "comments": 35,
+        "url": "https://www.reddit.com/r/kdramas/comments/1qr0uxd/",
+        "role": "dissent, pulled"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "53rd Korean Drama Review: The K2",
+        "score": 33,
+        "comments": 9,
+        "url": "https://www.reddit.com/r/kdramas/comments/1nf4i4n/",
+        "role": "spare"
+      }
+    ],
+    "touch-your-heart": [
+      {
+        "sub": "r/kdramarecommends",
+        "title": "is touch your heart worth watching ?",
+        "score": 52,
+        "comments": 41,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/197m19m/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "364th Korean Drama Review: Touch Your Heart (2019)",
+        "score": 43,
+        "comments": 22,
+        "url": "https://www.reddit.com/r/kdramas/comments/1vvxd7u/",
+        "role": "caveat, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "just started watching Touch Your Heart",
+        "score": 35,
+        "comments": 31,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/zgmm4i/",
+        "role": "spare"
+      }
+    ],
+    "vagabond": [
+      {
+        "sub": "r/kdramas",
+        "title": "VAGABOND S-02, Is it ever Happening or Not??",
+        "score": 94,
+        "comments": 96,
+        "url": "https://www.reddit.com/r/kdramas/comments/1jmojtw/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Vincenzo or Vagabond?",
+        "score": 51,
+        "comments": 81,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/ogxqdz/",
+        "role": "caveat, pulled"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "[Vagabond] Can we talk about how badass Bae Suzy was in this scene?",
+        "score": 215,
+        "comments": 43,
+        "url": "https://www.reddit.com/r/kdramas/comments/1uziwyo/",
+        "role": "spare"
+      }
+    ],
+    "cheese-in-the-trap": [
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Am I the only person who liked Cheese in the Trap?",
+        "score": 136,
+        "comments": 88,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/j67xqh/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Cheese in the trap worth it?",
+        "score": 32,
+        "comments": 65,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/oait80/",
+        "role": "caveat, pulled"
+      },
+      {
+        "sub": "r/KDRAMA",
+        "title": "I found Cheese in the trap to be one of the most interesting shows",
+        "score": 123,
+        "comments": 64,
+        "url": "https://www.reddit.com/r/KDRAMA/comments/pp9ev5/",
+        "role": "spare"
+      }
+    ],
+    "a-korean-odyssey": [
+      {
+        "sub": "r/kdramas",
+        "title": "A Korean Odyssey. Does it get better?",
+        "score": 25,
+        "comments": 71,
+        "url": "https://www.reddit.com/r/kdramas/comments/1jckwmy/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Is Korean odyssey worth watching? I'm a fan of Lee Seung-gi",
+        "score": 30,
+        "comments": 36,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/rfnsls/",
+        "role": "caveat, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "A Korean Odyssey",
+        "score": 21,
+        "comments": 52,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/o96gwo/",
+        "role": "spare"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Dramas like A Korean Odyssey",
+        "score": 16,
+        "comments": 19,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/1m2i722/",
+        "role": "spare, pick pool"
+      }
+    ],
+    "he-is-psychometric": [
+      {
+        "sub": "r/KDRAMA",
+        "title": "The Kdramas of the First Half of 2019 - A Review Series - Part 3 March",
+        "score": 20,
+        "comments": 14,
+        "url": "https://www.reddit.com/r/KDRAMA/comments/c49q4p/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "He is psychometric : worth watching ?",
+        "score": 8,
+        "comments": 17,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/11x3l6w/",
+        "role": "caveat, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "'He Is Psychometric' worth the watch?",
+        "score": 9,
+        "comments": 16,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/ubtkr4/",
+        "role": "spare"
+      }
+    ],
+    "moonlight-drawn-by-clouds": [
+      {
+        "sub": "r/KDRAMA",
+        "title": "[Discussion] Moonlight Drawn By Clouds [Ep 5 & 6]",
+        "score": 25,
+        "comments": 85,
+        "url": "https://www.reddit.com/r/KDRAMA/comments/51cj2e/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/KDRAMA",
+        "title": "[Discussion] Moonlight Drawn By Clouds [Ep 7 & 8]",
+        "score": 34,
+        "comments": 66,
+        "url": "https://www.reddit.com/r/KDRAMA/comments/52ewei/",
+        "role": "caveat, pulled"
+      },
+      {
+        "sub": "r/KDRAMA",
+        "title": "2016 gems: W, Moonlight, DOTS, Legend of the Blue Sea, Goblin, Scarlet Heart",
+        "score": 106,
+        "comments": 20,
+        "url": "https://www.reddit.com/r/KDRAMA/comments/fizyqd/",
+        "role": "spare, year context"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "The best sageuk you've ever seen",
+        "score": 66,
+        "comments": 116,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/wmu53b/",
+        "role": "spare, pick pool"
+      }
+    ],
+    "something-in-the-rain": [
+      {
+        "sub": "r/kdramas",
+        "title": "Something in the Rain has the most beautiful chemistry between the Leads",
+        "score": 350,
+        "comments": 65,
+        "url": "https://www.reddit.com/r/kdramas/comments/1t4bd3t/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "Planning on watching Something In the Rain; How bad will the mother be?",
+        "score": 93,
+        "comments": 120,
+        "url": "https://www.reddit.com/r/kdramas/comments/1ni9hu6/",
+        "role": "caveat, pulled"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "\"Something in the Rain\": anyone else thinks it's a top kdrama?",
+        "score": 221,
+        "comments": 85,
+        "url": "https://www.reddit.com/r/kdramas/comments/1pzjebg/",
+        "role": "spare"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Recommend cozy, mature K-dramas like Something in the Rain",
+        "score": 143,
+        "comments": 112,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/1fregfu/",
+        "role": "spare, pick pool"
+      }
+    ],
+    "kingdom": [
+      {
+        "sub": "r/kdramas",
+        "title": "Kingdom : Tempted to watch, but how scary is it?",
+        "score": 45,
+        "comments": 76,
+        "url": "https://www.reddit.com/r/kdramas/comments/1suoe1n/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "should i watch kingdom or not?",
+        "score": 10,
+        "comments": 55,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/smiz2o/",
+        "role": "caveat, pulled"
+      },
+      {
+        "sub": "r/KDRAMA",
+        "title": "Kingdom: Ashin Of The North",
+        "score": 257,
+        "comments": 169,
+        "url": "https://www.reddit.com/r/KDRAMA/comments/opgam0/",
+        "role": "spare, spin-off"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "My husband loved Kingdom. What do we watch now?",
+        "score": 42,
+        "comments": 62,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/j4ysc6/",
+        "role": "spare, pick pool"
+      }
+    ],
+    "romantic-doctor-teacher-kim": [
+      {
+        "sub": "r/KDRAMA",
+        "title": "Romantic Doctor, Teacher Kim 2 [Ep. 15 & 16] Discussion [Finale]",
+        "score": 33,
+        "comments": 55,
+        "url": "https://www.reddit.com/r/KDRAMA/comments/f8nctp/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "What do I watch after Romantic Doctor Teacher kim 1 & 2?",
+        "score": 5,
+        "comments": 13,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/g7tt6r/",
+        "role": "caveat, pulled, thin"
+      }
+    ],
+    "thirty-but-seventeen": [
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Thirty but Seventeen : when you need a heart warming story!",
+        "score": 164,
+        "comments": 36,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/gpvqqd/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Thirty But Seventeen",
+        "score": 106,
+        "comments": 36,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/hc6x79/",
+        "role": "second, pulled"
+      },
+      {
+        "sub": "r/KDRAMA",
+        "title": "Thirty But Seventeen (TBS)",
+        "score": 90,
+        "comments": 34,
+        "url": "https://www.reddit.com/r/KDRAMA/comments/mq45hl/",
+        "role": "spare"
+      }
+    ],
+    "memories-of-the-alhambra": [
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Will I like Memories of the Alhambra?",
+        "score": 52,
+        "comments": 60,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/mtjc2o/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/KDRAMA",
+        "title": "Memories of the Alhambra (Post-Finale Discussion)",
+        "score": 24,
+        "comments": 36,
+        "url": "https://www.reddit.com/r/KDRAMA/comments/ajzuoc/",
+        "role": "caveat, pulled"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "Why do high-concept KDramas like W or Memories of the Alhambra struggle in the second half?",
+        "score": 4,
+        "comments": 13,
+        "url": "https://www.reddit.com/r/kdramas/comments/1v083th/",
+        "role": "spare, gap signal"
+      }
+    ],
+    "sky-castle": [
+      {
+        "sub": "r/KDRAMA",
+        "title": "SKY Castle is an exceptional drama",
+        "score": 184,
+        "comments": 41,
+        "url": "https://www.reddit.com/r/KDRAMA/comments/ovhus9/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "Sky Castle - Irritated Thoughts",
+        "score": 8,
+        "comments": 12,
+        "url": "https://www.reddit.com/r/kdramas/comments/1ro6ml7/",
+        "role": "dissent, pulled"
+      },
+      {
+        "sub": "r/KDRAMA",
+        "title": "SKY Castle: how much is exaggerated and how much is real?",
+        "score": 32,
+        "comments": 29,
+        "url": "https://www.reddit.com/r/KDRAMA/comments/hjtqls/",
+        "role": "spare"
+      }
+    ],
+    "save-me": [
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Anyone else seen Save Me, because holy hell, is it good. (SPOILER-FREE)",
+        "score": 123,
+        "comments": 62,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/iddhfc/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Is \"save me\" worth watching?",
+        "score": 40,
+        "comments": 37,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/x5r477/",
+        "role": "caveat, pulled"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "how traumatic is the kdrama Save Me?",
+        "score": 34,
+        "comments": 14,
+        "url": "https://www.reddit.com/r/kdramas/comments/1nzoroa/",
+        "role": "spare, content warning"
+      }
+    ],
+    "chicago-typewriter": [
+      {
+        "sub": "r/KDRAMA",
+        "title": "Chicago Typewriter.. was so good.",
+        "score": 319,
+        "comments": 91,
+        "url": "https://www.reddit.com/r/KDRAMA/comments/g3o6p1/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "chicago typewriter aaaaaa (this is me screaming)",
+        "score": 188,
+        "comments": 56,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/o0uf84/",
+        "role": "second, pulled"
+      },
+      {
+        "sub": "r/kdramarecommends",
+        "title": "Chicago Typewriter...Why Did I Wait So Long?",
+        "score": 170,
+        "comments": 65,
+        "url": "https://www.reddit.com/r/kdramarecommends/comments/jendb5/",
+        "role": "spare"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "[Chicago Typewriter] One of the most underrated K-dramas I have ever watched",
+        "score": 96,
+        "comments": 27,
+        "url": "https://www.reddit.com/r/kdramas/comments/1v0l0iy/",
+        "role": "spare"
+      }
+    ],
+    "another-miss-oh": [
+      {
+        "sub": "r/KDRAMA",
+        "title": "Another Miss Oh a Delightful Kdrama with a Dash of Melancholy...",
+        "score": 163,
+        "comments": 89,
+        "url": "https://www.reddit.com/r/KDRAMA/comments/kkv0x5/",
+        "role": "verdict, pulled"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "Why does everyone like kdrama Another Miss Oh?",
+        "score": 7,
+        "comments": 67,
+        "url": "https://www.reddit.com/r/kdramas/comments/1tcgbg5/",
+        "role": "dissent, pulled"
+      },
+      {
+        "sub": "r/kdramas",
+        "title": "44th Korean Drama Review: Another Miss Oh",
+        "score": 32,
+        "comments": 24,
+        "url": "https://www.reddit.com/r/kdramas/comments/1ne83bj/",
+        "role": "spare, in Jack's own file"
+      }
+    ]
+  }
+}

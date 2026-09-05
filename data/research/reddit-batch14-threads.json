@@ -1,0 +1,119 @@
+{
+  "run_date": "2026-09-05",
+  "batch": 14,
+  "method": "4 index sweeps (1 unscoped '<Title> kdrama', 3 scoped bare-title) then 2 URL runs with comments on, 12 comments per post",
+  "items_approx": 1090,
+  "cost_approx_usd": 1.65,
+  "allowlist_used": [
+    "r/KDRAMA",
+    "r/kdramas",
+    "r/kdramarecommends",
+    "r/KdramaCasualTalk"
+  ],
+  "seeds": {
+    "my-love-from-another-star": [
+      "https://www.reddit.com/r/kdramarecommends/comments/hrxixv/my_love_from_another_star_is_it_recommended/",
+      "https://www.reddit.com/r/KDRAMA/comments/roqva7/my_love_from_another_star/"
+    ],
+    "reply-1997": [
+      "https://www.reddit.com/r/KDRAMA/comments/11a2lpb/reply_1997_is_a_treasure_i_missed/",
+      "https://www.reddit.com/r/kdramas/comments/1rdvp8y/is_reply_1988_really_the_best_reply_series/",
+      "https://www.reddit.com/r/kdramas/comments/1t16rts/reply_1997_maybe_not_as_good_as_i_remembered/"
+    ],
+    "lost": [
+      "https://www.reddit.com/r/kdramarecommends/comments/udk4b4/i_never_experienced_an_emotional_ride_like_i_did/",
+      "https://www.reddit.com/r/kdramarecommends/comments/qgoh9a/kdramas_or_movies_like_better_days_my_mister_or/"
+    ],
+    "tale-of-the-nine-tailed": [
+      "https://www.reddit.com/r/kdramarecommends/comments/12ardse/should_i_watch_tale_of_the_nine_tailed/",
+      "https://www.reddit.com/r/kdramas/comments/1ks1tmk/tale_of_the_nine_tailed_premise_is_disgusting/",
+      "https://www.reddit.com/r/kdramarecommends/comments/li85u6/is_tale_of_the_nine_tailed_worth_watching/"
+    ],
+    "mr-queen": [
+      "https://www.reddit.com/r/kdramarecommends/comments/10sazfc/worth_watching_mr_queen/",
+      "https://www.reddit.com/r/kdramas/comments/1t1ednd/just_finished_mr_queen_and_i_have_many_mixed/",
+      "https://www.reddit.com/r/kdramas/comments/1vodi5g/just_finished_mr_queen_and_her_acting_was_insane/"
+    ],
+    "mystic-pop-up-bar": [
+      "https://www.reddit.com/r/kdramarecommends/comments/ja2k5s/mystic_pop_up_bar/",
+      "https://www.reddit.com/r/kdramas/comments/1p81lib/tell_me_your_mystic_pop_up_bar_opinions/",
+      "https://www.reddit.com/r/kdramas/comments/1kkqsqs/im_done_watching_tomorrow_mystic_pop_up_bar_tale/"
+    ],
+    "run-on": [
+      "https://www.reddit.com/r/kdramarecommends/comments/lrwf6c/run_on_worth_it/",
+      "https://www.reddit.com/r/kdramarecommends/comments/q3c48k/is_run_on_confusing_for_you_too_should_i_keep/",
+      "https://www.reddit.com/r/kdramas/comments/1uengty/one_of_the_best_sl_couple_run_on/"
+    ],
+    "my-name": [
+      "https://www.reddit.com/r/KdramaCasualTalk/comments/1uoq5oq/the_glory_vs_my_name_which_kdrama_is_better/",
+      "https://www.reddit.com/r/kdramas/comments/1m2l07c/my_name_just_a_tab_bit_underwhelming/",
+      "https://www.reddit.com/r/kdramarecommends/comments/qenyek/my_name/"
+    ],
+    "mouse": [
+      "https://www.reddit.com/r/kdramas/comments/1l1wpqm/why_no_one_talks_about_mouse_kdrama/",
+      "https://www.reddit.com/r/KdramaCasualTalk/comments/1vuc62k/mouse_superhyped_kdrama_irrational_story/",
+      "https://www.reddit.com/r/kdramas/comments/1muip3x/just_finished_kdrama_mouse/"
+    ],
+    "law-school": [
+      "https://www.reddit.com/r/kdramarecommends/comments/o3i33m/law_school_is_it_good_enough/",
+      "https://www.reddit.com/r/kdramarecommends/comments/1eqoobr/i_really_liked_law_school_what_would_you/"
+    ],
+    "navillera": [
+      "https://www.reddit.com/r/kdramarecommends/comments/n4ttn5/navillera_the_underrated_masterpiece_you_need_to/",
+      "https://www.reddit.com/r/kdramarecommends/comments/ocivn9/started_watching_navillera_for_song_kang_but/",
+      "https://www.reddit.com/r/kdramas/comments/1mgkkgv/navillera_was_the_most_robbed_kdrama_in_2021/"
+    ],
+    "racket-boys": [
+      "https://www.reddit.com/r/kdramarecommends/comments/owgvtj/is_racket_boys_worth_watching/",
+      "https://www.reddit.com/r/kdramas/comments/1unf4h2/discussion_on_kdrama_racket_boys/"
+    ],
+    "youth-of-may": [
+      "https://www.reddit.com/r/KDRAMA/comments/t0n4f9/youth_of_may_destroyed_me_almost_review/",
+      "https://www.reddit.com/r/kdramas/comments/1u8ftav/youth_of_may_a_very_angry_review/"
+    ],
+    "at-a-distance-spring-is-green": [
+      "https://www.reddit.com/r/kdramarecommends/comments/u26rvk/is_at_a_distance_spring_is_green_worth_watching/",
+      "https://www.reddit.com/r/kdramarecommends/comments/1m0z81h/dramas_like_at_a_distance_spring_is_green/"
+    ],
+    "our-blues": [
+      "https://www.reddit.com/r/kdramarecommends/comments/10g2u2m/our_blues_worth_watching/",
+      "https://www.reddit.com/r/kdramas/comments/1nzxg51/did_you_struggle_to_watch_our_blues/"
+    ],
+    "reborn-rich": [
+      "https://www.reddit.com/r/kdramarecommends/comments/zrnmlw/is_reborn_rich_worth_watching/",
+      "https://www.reddit.com/r/kdramas/comments/1t61g66/reborn_rich_is_there_anyone_who_enjoyed_this_drama/",
+      "https://www.reddit.com/r/kdramas/comments/1t78n5b/reborn_rich_botched_ending_it_couldve_had_a/"
+    ],
+    "tomorrow": [
+      "https://www.reddit.com/r/kdramas/comments/1o4sz05/i_watched_tomorrow_the_kdrama/",
+      "https://www.reddit.com/r/KDRAMA/comments/uttfck/tomorrow_episodes_15_16/"
+    ],
+    "thirty-nine": [
+      "https://www.reddit.com/r/kdramarecommends/comments/wsni9u/is_thirtynine_worth_a_watch/",
+      "https://www.reddit.com/r/kdramarecommends/comments/yi1vjt/thirtynine_is_cringy/"
+    ],
+    "juvenile-justice": [
+      "https://www.reddit.com/r/kdramarecommends/comments/1lml3zk/is_juvenile_justice_good/",
+      "https://www.reddit.com/r/kdramas/comments/1u1zipc/propaganda_in_kdramas_teach_you_a_lessonjuvenile/"
+    ],
+    "through-the-darkness": [
+      "https://www.reddit.com/r/kdramas/comments/1m0gqlz/through_the_darkness_an_underrated_masterpiece/",
+      "https://www.reddit.com/r/kdramarecommends/comments/17gogjb/i_just_finished_through_the_darkness/"
+    ],
+    "if-you-wish-upon-me": [
+      "https://www.reddit.com/r/kdramas/comments/1nrpbjc/if_you_wish_upon_me_isnt_recommended_enough/",
+      "https://www.reddit.com/r/kdramarecommends/comments/1gfe059/kdramas_with_a_varied_tone_like_if_you_wish_upon/"
+    ],
+    "revenge-of-others": [
+      "https://www.reddit.com/r/kdramas/comments/1qy25w4/can_we_talk_about_revenge_of_others_this_drama_is/",
+      "https://www.reddit.com/r/kdramas/comments/1m7w3h9/revenge_of_others_is_just_ok_which_is_kind_of/",
+      "https://www.reddit.com/r/kdramarecommends/comments/17o5nwm/does_revenge_of_others_have_too_much_or_extreme/"
+    ],
+    "summer-strike": [
+      "https://www.reddit.com/r/kdramas/comments/1hokjqg/summer_strike_is_the_cosiest_drama_that_is_out/",
+      "https://www.reddit.com/r/kdramas/comments/1n44p9g/summer_strike_couldve_been_my_alltime_favorite/"
+    ]
+  },
+  "fetched_with_comments": 46,
+  "note": "Every URL above was returned by the index sweeps. The 46 marked fetched carry comments in this run; the extras are indexed leads for whoever writes the pages."
+}
