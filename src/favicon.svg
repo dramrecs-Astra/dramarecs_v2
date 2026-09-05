@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="DramaRecs">
+  <title>DramaRecs</title>
+  <rect width="100" height="100" fill="#2b211c"/>
+  <g fill="none" stroke="#f7f1e4" stroke-width="15" stroke-linecap="butt">
+    <path d="M30 84 V16 H52 A18 18 0 0 1 52 52 H33"/>
+    <path d="M47 52 L74 84"/>
+  </g>
+  <circle cx="84" cy="84" r="8" fill="#c8492b"/>
+</svg>

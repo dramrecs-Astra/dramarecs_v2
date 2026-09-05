@@ -1,0 +1,334 @@
+{
+  "schema_version": "3.0.0",
+  "last_updated": "2026-09-05",
+  "file_purpose": "PROJECT-STATE.json is the single source of truth for DramaRecs: what exists, what the numbers are, and which decisions are closed. It replaces every earlier similardramas-project-state*.json and every BATCH-*-NOTES / TEARDOWN-* / BYLINE-* / REBRAND-* / VERDICT-BACKFILL-* markdown file. There is exactly one of these files. Never create a second.",
+  "how_to_use_this_file": [
+    "Jack shares this file at the start of every session, whatever the session is about. Read it end to end before acting.",
+    "The repo is PRIVATE and the code arrives as a zip attached to the chat. Never try to fetch it from github.com or raw.githubusercontent.com, and never treat a 404 there as evidence about a file.",
+    "Two companion files, and only two. EDITORIAL.md holds the writing workflow, voice, schemas, meter derivation, research method and the write queue. PLANS.md holds roadmap, monetization, features, infrastructure and the plans that are dead. Ask for whichever the session needs.",
+    "VERIFY BEFORE YOU TRUST. Every number here was true when written. Open data/dramas.json and data/pages/ and count for yourself before quoting a figure back at Jack. Counting from a doc instead of the data is how the 112-pageless-entries error survived four batches.",
+    "closed_decisions is not advice. Do not reopen anything in it, and if a plan or checklist proposes reopening one, say so instead of doing it.",
+    "Update this file at the end of every session and ship it back inside the batch zip. Bump last_updated, correct the counts, add a batch block, re-cut open_items.",
+    "Zero em dashes and en dashes anywhere, including in this file."
+  ],
+  "owner": {
+    "name": "Jack",
+    "publishes_as": "Yuna, a pen name. See closed_decisions.byline.",
+    "role": "Solo founder, non-technical creator",
+    "location": "India",
+    "experience": "WordPress background. Reads code fine, does not write it.",
+    "domain_expertise": "Longtime Asian drama viewer who watches current releases. Trust him on airing status over your own knowledge.",
+    "working_style": [
+      "Wants complete copy-paste-ready files and click-by-click instructions, never fragments.",
+      "Explicitly delegates method: if you know a better way than the workflow he described, take it and say why.",
+      "Trusts editorial judgement on scope and cuts. Say what you would cut and why, then do it.",
+      "Does not need to approve every step. Keep moving without waiting for a reply.",
+      "Corrects factual errors directly."
+    ],
+    "no_terminal_rule": "Anything Jack runs himself must work from a browser or arrive as a finished file. Hand over complete copy-paste-ready files with the folder structure intact, never fragments and never diffs. Research tooling lives in GitHub Actions behind a Run workflow button."
+  },
+  "product": {
+    "brand": "DramaRecs. Wordmark renders as Drama<em>Recs</em>. Package name dramarecs. Contact hello@dramarecs.com, delivering as of 2026-09-03.",
+    "domain": "https://dramarecs.com, bought 2026-08-31. No www, no vercel.app. SITE_URL drives canonical tags, sitemap, og:url and every JSON-LD @id, so it is the single switch.",
+    "rebrand_note": "Renamed from Similar Dramas on 2026-08-31. similardramas.com was never purchased so there is nothing to redirect. The GitHub repo is now Dramarecs and the old similardramas repo has been deleted. Vercel follows the rename, nothing to reconnect.",
+    "search_intent": "People who finish a drama search 'dramas like X'. That is the entire traffic thesis.",
+    "competitive_edge": "An AI overview cannot be opinionated, cannot name a caveat, and cannot tell you which popular recommendation is wrong. That is the whole product.",
+    "monetization": "Affiliate on the where-to-watch rows first, then AdSense and programmatic display. See PLANS.md sections 1, 3 and 6.",
+    "content_scope": "K-dramas only. C-dramas and J-dramas are phase 2 and blocked until K-drama page coverage is nearer 80 percent.",
+    "streaming_regions": "Eight ship with a localStorage picker: US, GB, CA, AU, IN, PH, ID, BR. US is the crawler default.",
+    "workflow_philosophy": "Solo-founder leverage. AI generates structured editorial drafts offline, Jack reviews and commits. Zero runtime LLM cost."
+  },
+  "repository": {
+    "url": "https://github.com/PapayaOfficial/Dramarecs",
+    "visibility": "PRIVATE since 2026-09-05, deliberately, so the catalogue cannot be copied. It is not going back to public.",
+    "name_history": "The repo is Dramarecs. The old PapayaOfficial/similardramas repo was DELETED and does not exist at any URL. If any doc, comment or half-memory points at similardramas, it is stale. Fix the line, do not follow it.",
+    "branch": "main",
+    "how_you_get_the_code": "Jack attaches the repo zip to every chat and that zip is the source of truth for the session. Unzip it and read the real files.",
+    "never_fetch_over_http": "Do not try to reach the repo on the web. It is private, so raw.githubusercontent.com and the GitHub tree API both return 404, and that 404 tells you nothing about whether a file exists. The old raw_pattern and tree_api keys lived here and have been removed because they are dead ends now.",
+    "how_jack_commits": "Through the GitHub web UI. Uploading files cannot delete files, so anything that needs removing has to be handed to him as an explicit delete list.",
+    "deployment": "Vercel auto-build from main, about two minutes. A failed build leaves the live site untouched, so a broken commit cannot take the site down.",
+    "file_map": {
+      "PROJECT-STATE.json": "This file. Facts, counts, closed decisions, open items.",
+      "EDITORIAL.md": "Everything about writing content. Shipped updated with every batch.",
+      "PLANS.md": "Everything not about writing content.",
+      "README.md": "Deploy and publish instructions for Jack, plus the doc map.",
+      "build.mjs": "Zero-dependency Node static site generator. node build.mjs. Runs with no TMDB_TOKEN, enriches when it is set. AUTHOR const is at the top.",
+      "src/app.js": "Client JS: search autocomplete, filters, shelf, spoiler reveal.",
+      "src/styles.css": "All CSS.",
+      "src/editor.svg": "The editor's mark used as the byline avatar. Not a face.",
+      "data/dramas.json": "The catalog. 219 entries.",
+      "data/pages/": "One JSON per editorial page. 152 files. Filename equals the seed slug.",
+      "data/site.json": "Site name, country, the popular list on the homepage.",
+      "data/mdl-titles.txt": "Input list for the MDL scraper. Jack edits it in the GitHub web UI. 521 lines, covers 2010 to 2026.",
+      "data/mdl-cache.json": "Raw MDL responses. 497 titles, about 21MB. Parse it locally, never over HTTP.",
+      "data/mdl-digest.json": "Trimmed research digest, about 4MB.",
+      "tools/mdl-fetch.mjs": "MyDramaList fetcher.",
+      "tools/validate-pages.mjs": "Pre-commit validator. Fails on reported voice, dashes, filler and schema breaks. The ATTRIBUTION array at the top is authoritative.",
+      ".github/workflows/mdl-research.yml": "Actions > MDL research > Run workflow. Leave limit blank for a full rebuild.",
+      ".github/workflows/validate.yml": "Runs the validator on every push and pull request."
+    },
+    "zip_size_note": "The repo zip is about 8MB while the checkout is about 27MB. That is normal: JSON compresses roughly 3 to 1. Extracted, data/mdl-cache.json is 21MB again. This is not a failed upload."
+  },
+  "architecture": {
+    "version": "v1.1.0 static, plus an offline research pipeline",
+    "framework": "Custom zero-dependency Node static site generator. Node 20+, Node 22 verified.",
+    "database": "Flat JSON in the repo. No Postgres, Supabase, ORM or Redis.",
+    "tmdb": "Read token used ONLY at build time, for titles, posters, episode counts, runtime, air dates, ratings and watch providers. It overrides episodes, runtime and network from dramas.json, so rough catalog numbers are fine. The build never fails because of TMDB.",
+    "env_vars": "SITE_URL, TMDB_TOKEN, GA_ID set. ADSENSE_CLIENT and ADSENSE_SLOT_INLINE deliberately unset. Full table in PLANS.md section 7.",
+    "design": "The MARQUEE redesign is what ships. Bone paper, one persimmon accent, acid lime for live facts, ultramarine footer, Bricolage Grotesque 800 display, Schibsted Grotesk reading, per-title hue driving the colour block, rank numeral and match bar. Mobile-first, WCAG AA throughout. The older 'Hanji and Ink' celadon spec is superseded, see PLANS.md section 8."
+  },
+  "current_status": {
+    "status_date": "2026-09-05",
+    "catalog_entries": 219,
+    "season_entries": 20,
+    "later_season_entries_with_no_page_by_design": 11,
+    "pages_in_repo": 152,
+    "pageless_entries_excluding_later_seasons": 56,
+    "verdicts": "219 of 219 entries carry a verdict. Zero drama pages are noindexed.",
+    "build_status": "node build.mjs exits 0. 388 pages, 388 in sitemap.xml, 0 noindex, 0 broken picks.",
+    "validator_status": "node tools/validate-pages.mjs exits 0. 152 pages against 219 entries, 0 errors, 41 warnings, all of them the deliberate reciprocity kind and every one explained in EDITORIAL.md section 6.",
+    "internal_links": "Generated, never hand-maintained. 891 reverse links from drama pages to the lists that recommend them, 843 list-to-list relations, 237 anti-picks linked to pages we host. Batch 14 moved list-to-list 575 to 843 by cross-picking the pages that already picked each seed, which counts double. If any total drops after an edit, a link loop broke.",
+    "analytics": "CLOSED 2026-09-05, the check is no longer outstanding. Jack pulled a 7-day GA snapshot: 13 active users, 8 new, 25 page views, 83 events, 37s average engagement per active user. Sources: 6 direct, 2 google organic, the rest unattributed. All 9 new users arrived on the last two days of the window, which lines up with the deploys. Five of the twelve city-attributed users sit in datacenter cities (Ashburn, Council Bluffs, Glenview, Naaldwijk, Rotterdam) so real humans are nearer 7: Kuala Lumpur 2, Montreal 2, Abu Dhabi, Aksaray, Chicago. GA is confirmed firing. The number is tiny and that is the honest read, not a tracking fault.",
+    "search_console": "dramarecs.com verified and indexed, and the first Performance export landed 2026-09-05 (last 24 hours only, which is all the property had). 58 impressions, 0 clicks, weighted average position 19.4, impressions in 19 of 24 hours, 29 of them in the last 6. 29 impressions sit at position 10 or better. The split that matters: the dramas-like list pages average position 8.3 across 11 pages while the drama pages average 25.4 across 25, and the one collection impression ranked 3. Zero clicks at position 8 to 11 on 58 impressions is arithmetic, not a defect. Queries confirm the thesis twice over: five are explicit 'dramas like X' or 'similar' searches (kdramas like move to heaven at 8, dramas like 2521 at 10, more dramas like perfect crown at 11) and five are the factual questions the drama-page template answers (destined with you total ep at 2, reborn rookie how many episodes at 4, extraordinary attorney woo ending at 11). India leads impressions at 14 but at position 22.4, while the US, Philippines and South Korea sit at 6.2, 6.25 and 5.33. Mobile averages position 9.48 against desktop 27.2. Resubmit the sitemap: it went 365 to 388 with batch 14.",
+    "dns": "Settled. Vercel nameservers active, apex serves DramaRecs, www 301s to apex. Zoho MX, SPF, DKIM and verification records live in Vercel DNS. Do not move nameservers back to Hostinger and do not delete the Zoho records.",
+    "revenue_live": "None. No affiliate wrappers, no AdSense, no list. Affiliate wrappers are the one real P0 item left.",
+    "pages_research_status": "All 152 pages carry both sources. The 24 batch 13 pages were reworked from Reddit on 2026-09-05 and the 23 batch 14 pages were written Reddit-first the same day. The 105 pages written before batch 13 are still MDL-only and are the largest remaining editorial debt."
+  },
+  "research_data_status": {
+    "mdl_cache": "data/mdl-cache.json holds 497 titles, the most popular titles of every year 2010 to 2026. mdl-digest.json reports title_count 497, generated 2026-09-05T06:20Z. No further MDL run is needed for any year 2010 to 2026.",
+    "mdl_titles_txt": "521 lines. Both 'Mouse (2021)' and 'Mousetrap (2026)' are present.",
+    "per_title_fields": "details, native_title, aliases, genres, vote-ranked tags, director, screenwriter, cast, synopsis, the full per-episode rating curve, and 12 written reviews with per-category scores.",
+    "READ_IT_LOCALLY": "21MB cache and 4MB digest. Web-fetch tools truncate near 40KB and you cannot page through them over HTTP. Parse locally with a script and print only the fields you need.",
+    "known_bad_rows": "Four sequel lines resolved to their SEASON ONE pages and their data must be ignored until re-run with exact titles: Bloodhounds 2 (2026) to 701881-hounds (2023), A Shop for Killers 2 (2026) to the 2024 season one, Yumi's Cells 3 (2026) to the 2021 season one, Flex X Cop 2 (2026) to 746193-gold-spoon (2024).",
+    "unaired_rows": "Thirteen 2026 lines have zero score and zero reviews because they have not aired: Mousetrap, New Recruit 4, Four Hands Two Sonatas, Made in Korea 2, The Scandal, The Ordinary Jackpot, A Love Other Than Yours, 100 Days of Deception, The Perfect Lie, Portraits of Delusion, The Sacred Jewel, Tantara. Never write meters or an ending for these.",
+    "reddit": "harshmaur/reddit-scraper-pro via the Apify MCP credential named Reddit scraper. Works, zero blocks ever, and it is the primary fan-voice source for EVERY title, run before MyDramaList and never instead of it. Billed per item at about $1.50/1000, so budget in items and not in runs: runs are free. Full method, the subreddit map and the thirteen gotchas are in EDITORIAL.md section 5b and you must read them before running it. Stage 1 is THREE index sweeps now, not four, because the scoped r/KDRAMA run is redundant when the unscoped sweep already returns r/KDRAMA rows.",
+    "full_method": "EDITORIAL.md section 5.",
+    "reddit_subreddit_rule": "Jack's rule, 2026-09-05: no fixed allowlist. If the subreddit name says it is about dramas, it is in; otherwise discard the hit however good it looks. Core three are r/KDRAMA (archive, per-episode threads with nationwide ratings), r/kdramas (blunt verdicts and dissent), r/kdramarecommends (highest precision, the 'is X worth watching' threads). Standing additions: r/KdramaCasualTalk, r/KDramasWorld, r/KDRAMACHINGU, r/KDramaDiscussions, r/dramasect. r/manhwa and r/webtoons for adaptation divergence only. Never compare upvote counts across subreddits. Add new subs to the map in 5b with one line on what they were good for.",
+    "reddit_research_on_disk": "data/research/reddit-batch13-fan-voice.md (24 batch 13 seeds, worked into the pages 2026-09-05) and reddit-batch14-fan-voice.md (23 batch 14 seeds, worked into the pages 2026-09-05). Thread URLs for both are in the matching -threads.json so nobody re-searches. No Reddit run exists for tier 3, tier 4 or tier 5, so the next batch has to scrape before it writes.",
+    "cache_coverage_gaps": "Five catalog entries have NO row in mdl-cache.json or mdl-digest.json: lost, revenge-of-others, summer-strike, divorce-attorney-shin, bon-appetit-your-majesty. All five carry complete meters and verdicts from earlier batches, so they are writable. Separately, sky-castle is cached as 'Sky Castle (2018)' while its query field reads 'SKY Castle', so an exact-match lookup misses it. Lowercase the key. Found 2026-09-05 in batch 14."
+  },
+  "closed_decisions": {
+    "PREAMBLE": "Each of these cost real time to settle. Do not reopen, do not re-litigate, and if a plan file or a checklist proposes reopening one, say so instead of acting on it.",
+    "byline": "AUTHOR.name in build.mjs is 'Yuna'. That is Jack's own pen name, he is not comfortable publishing under his real name, and this is FINAL. What was fixed on 2026-09-03 was a different thing entirely: a fictional 19-year-old editor called Yona with an invented biography, an invented age, a drawn portrait and a sameAs link the site was told to go and plant her name on. That is gone and no part of it comes back. Rules still in force: age never stated anywhere, role is Editor and sole writer with no team implied, avatar is src/editor.svg and never a face, sameAs is empty, first person is allowed on /about/ only. Banned claims: that any specific title was watched to the end, any age, any team, and 'not a script pointed at an API'. The site claims a standard, not a viewing history. Full detail in PLANS.md section 2.",
+    "no_watched_flag": "No watched: true field and no per-title first-hand claim. A promise with no mechanism behind it is the same bug in a smaller box. Revisit only when there is genuinely a shelf of finished titles to mark.",
+    "no_ai_disclosure": "No 'AI-assisted' line. Jack's call and it holds. AdSense does not require it, and nothing on the site denies it either.",
+    "no_runtime_ai": "Zero runtime LLM cost is a real architectural advantage. A per-request call gives you a cost that scales with traffic and a quality floor you cannot control.",
+    "nextjs_stack_dead": "The Next.js, Drizzle, Supabase, Upstash and Hostinger roadmap is ABANDONED. Historical context only. Do not build against it.",
+    "meter_derivation_researched": "No public API or dataset exposes pace, romance, heaviness or comfort as numbers. Researched and closed. Derive from cached MDL signals per EDITORIAL.md section 4.",
+    "dns_architecture": "Settled. No migration, no nameserver change, no deleting Zoho records. The earlier parked-page response was stale edge or DNS caching.",
+    "batch_4_patch": "dramas-patch.json is unrecoverable and it does not matter. Audited 2026-09-04 against the cache: 186 of 195 entries matched and every episode count is right. The four apparent conflicts (Goblin, My Dearest, The Glory, Death's Game) are MDL splitting a run into parts or specials where our number is the full run. Closed.",
+    "one_page_per_show": "Rule 1b. One dramas-like page per show, not per season. Eleven later-season entries correctly get no page. See EDITORIAL.md 3b.",
+    "adsense_timing": "Not this week. Four to six weeks out. The blockers being closed is not the same as being ready. PLANS.md section 3.",
+    "affiliate_link_layer": "Built 2026-09-05 in build.mjs. ONE function, affiliate(brand, target). TMDB gives one JustWatch-backed link per REGION, not per provider, so it cannot be the affiliate target; each monetisable brand gets a title-scoped search URL on its own domain instead. Viki and Kocowa go through a Rakuten linksynergy deeplink, Prime Video through an Amazon Associates tag on the right regional storefront, Netflix stays plain because there is no programme. Links that pay carry rel=sponsored, links that do not carry plain rel=nofollow noopener. Do not rebuild this and do not add a second place that knows what a watch URL looks like.",
+    "affiliate_disclosure": "Gated on AFF_LIVE, which is derived from the env vars. With no ids set the links are plain and NO disclosure prints, because claiming a commission we do not earn is the same bug in the other direction. With ids set it prints in four places: the footer of every page, under the where-to-watch row on every detail page, a generated /privacy/ section, and /how-we-pick/. The brand names in that prose are generated from the config, never typed, for the same reason the ads wording is.",
+    "repo_url": "https://github.com/PapayaOfficial/Dramarecs, private. The similardramas repo is deleted. Settled 2026-09-05."
+  },
+  "open_items": {
+    "real_p0": [
+      "Create the affiliate accounts and set the env vars. The code is shipped and dormant: it needs RAKUTEN_ID plus RAKUTEN_MID_VIKI and RAKUTEN_MID_KOCOWA, and AMAZON_TAG. See PLANS.md section 1, which now carries the actual application requirements and the honest sequencing. Two things researched 2026-09-05 and worth not rediscovering: Rakuten network signup can be done today and takes about 1 to 5 business days, but individual advertisers routinely defer brand-new publishers and you may reapply after 15 days. Amazon Associates should NOT be applied for yet: the 180 day, three qualifying sale clock starts at signup and a miss closes the account and forfeits unpaid earnings. Also see known_issues.amazon_tag_is_single_locale.",
+      "Confirm GA Realtime shows a visit after the next Production deployment. Verification, not implementation."
+    ],
+    "editorial": [
+      "Batch 13 is COMPLETE. All 24 pages shipped 2026-09-05: its-okay-thats-love, taxi-driver and the 22 former part C entries.",
+      "Next by demand: my-love-from-another-star (2013) and reply-1997 (2012), the last two tier 1 evergreens. Both already have entries and verdicts, so they are pages only.",
+      "Then lost (2021), still pageless and still one of the four entries with no MDL digest row.",
+      "Tier 2 remainder is now the 2020 to 2022 block minus taxi-driver: tale-of-the-nine-tailed, mr-queen, mystic-pop-up-bar, run-on and the 2021 to 2022 lines in EDITORIAL.md section 7."
+    ],
+    "housekeeping": [
+      "Re-run MDL with exact titles on the four bad sequel rows.",
+      "Finish 2023: about 20 cached titles still have no entry.",
+      "Season group gaps: Secret Forest 2 has no entry, Sweet Home has no group, and adding kingdom left Kingdom Season 2 and Ashin of the North with no entries.",
+      "Resubmit the sitemap in Search Console now that it is 341 URLs.",
+      "One line in tools/validate-pages.mjs needs scoping. See known_issues.captivating_collision. Not urgent, but it silently blocks one catalog entry from ever being picked."
+    ],
+    "after_approval": "PLANS.md section 4, features in build order. Content notes is the highest-value item on the whole roadmap.",
+    "older_105_pages_have_no_fan_voice": "The 105 pages written before batch 13 are MDL-only. They pass every gate and they are half-sourced by the current rule. 152 pages exist now, so this is 69 percent of the site. Rework in year clusters once tier 3 is written, not before: new pages still earn more links than rewrites.",
+    "batch_15_tier_3_2024": "Highest value work available. 20 of the 21 pageless 2024 entries, writing only, meters and verdicts already exist. captivating-the-king is the 21st and it is BLOCKED until the validator BANNED check is scoped to the prose fields, because the seed slug itself trips it. Reddit has never been run on any of these, so this batch has to scrape first: budget roughly $1.65 for 20 titles at the batch 14 recipe.",
+    "validator_banned_scope_fix": "Ten lines in tools/validate-pages.mjs: run the BANNED check over the prose fields the way the ATTRIBUTION check already does, instead of JSON.stringify(page). Unblocks the captivating-the-king page and removes a trap that has now cost two batches. Only Jack can commit it.",
+    "search_console_resubmit_sitemap": "Sitemap went 365 to 388 with batch 14. Resubmit /sitemap.xml in Search Console after the deploy. Two minutes in a browser."
+  },
+  "season_architecture": {
+    "principle": "A later season is a separate product and gets its own catalog entry, so a reader who finished season one can find out whether season two is worth it.",
+    "authoritative_doc": "EDITORIAL.md section 3b",
+    "rules": [
+      "Season one KEEPS its slug and its plain title. Never rename a published slug.",
+      "Later seasons get their own slug and title, e.g. bloodhounds-season-2 / 'Bloodhounds Season 2'.",
+      "Every season entry carries season, seasonOf (always season one's slug) and seasonLabel, plus seriesYear for TMDB matching.",
+      "Each season needs its OWN meters, hook, hookNote, ending, endingText and verdict. A worse season must read worse.",
+      "ONE dramas-like page per show, not per season, unless the pick lists genuinely differ.",
+      "A pick list must never contain two seasons of the same show. The validator fails on this."
+    ],
+    "groups_done": [
+      "bloodhounds + bloodhounds-season-2",
+      "dp + dp-season-2",
+      "hospital-playlist + hospital-playlist-season-2",
+      "taxi-driver + taxi-driver-season-2 + taxi-driver-season-3",
+      "tale-of-the-nine-tailed + tale-of-the-nine-tailed-1938",
+      "weak-hero-class-1 + weak-hero-class-2",
+      "alchemy-of-souls + alchemy-of-souls-part-2",
+      "squid-game / squid-game-season-2 / squid-game-season-3",
+      "gyeongseong-creature / gyeongseong-creature-season-2"
+    ],
+    "gaps": "Secret Forest 2 (2020) has no entry. Sweet Home has no group at all and needs one before Sweet Home 2 can be added. Batch 12 added kingdom with no entry for Kingdom Season 2 or Kingdom: Ashin of the North. The Glory stays ONE entry."
+  },
+  "batch_history": {
+    "note": "One line per batch. Detail that still matters has been folded into EDITORIAL.md or closed_decisions. The per-batch markdown notes files were deleted in the 2026-09-05 reorganisation, and nothing durable was lost.",
+    "batch_14": {
+      "date": "2026-09-05",
+      "scope": "23 pages, zero catalog entries touched. Closes tier 2 and the two tier 1 evergreens, so every remaining pageless entry is 2024 or newer.",
+      "entries": "219, unchanged",
+      "pages": "129 to 152",
+      "shipped": [
+        "my-love-from-another-star",
+        "reply-1997",
+        "our-blues",
+        "thirty-nine",
+        "juvenile-justice",
+        "my-name",
+        "mouse",
+        "mr-queen",
+        "run-on",
+        "tale-of-the-nine-tailed",
+        "mystic-pop-up-bar",
+        "lost",
+        "law-school",
+        "navillera",
+        "racket-boys",
+        "youth-of-may",
+        "at-a-distance-spring-is-green",
+        "reborn-rich",
+        "tomorrow",
+        "through-the-darkness",
+        "if-you-wish-upon-me",
+        "revenge-of-others",
+        "summer-strike"
+      ],
+      "links": "sitemap 365 to 388, reverse 774 to 891, list-to-list 575 to 843, anti-picks 206 to 237. The list-to-list jump of 268 from 23 files is the largest per-page linking gain of any batch, and the cause is cross-picking: each seed's pick list was drawn first from the existing pages that already picked it, and a mutual seed pick counts double.",
+      "research": "Zero spend. Every page written from data/research/reddit-batch14-fan-voice.md first and the MDL cache second, which is the order EDITORIAL.md section 1 step 3 requires. 22 of 23 seeds had usable fan voice; lost had one usable finding, the My Mister pairing, and it is the anchor pick on that page.",
+      "method": "Ranking pass first (shared screenwriter, then director, then cast, then vote-ranked tags), then the research overruled it. It produced the top pick on only 3 of 20 rankable seeds against 16 of 24 in batch 13, because tier 2 is full of one-off writer and director teams. Written up as EDITORIAL.md section 5b gotcha 14.",
+      "warnings": "37 to 41. All four new ones are the deliberate one-way kind and are explained in EDITORIAL.md section 6: extraordinary-attorney-woo and juvenile-justice, its-okay-to-not-be-okay and navillera, reborn-rich with both vincenzo and misaeng.",
+      "plan_corrections": "Three. A missing cache row does not block a batch, five entries prove it. The attribution ranking is a weak signal on standalone titles. And captivating-the-king cannot have a page at all, not just a pick row, which was tested rather than assumed."
+    },
+    "batch_13": {
+      "date": "2026-09-05",
+      "scope": "24 pages, zero catalog entries touched. its-okay-thats-love, taxi-driver, and pages for all 22 batch 12 part C entries, which closes the deliberately-pageless list.",
+      "entries": "219, unchanged",
+      "pages": "105 to 129",
+      "shipped": "its-okay-thats-love, taxi-driver, my-id-is-gangnam-beauty, the-legend-of-the-blue-sea, extraordinary-you, fight-for-my-way, her-private-life, suspicious-partner, the-k2, touch-your-heart, vagabond, cheese-in-the-trap, a-korean-odyssey, he-is-psychometric, moonlight-drawn-by-clouds, something-in-the-rain, kingdom, romantic-doctor-teacher-kim, thirty-but-seventeen, memories-of-the-alhambra, sky-castle, save-me, chicago-typewriter, another-miss-oh",
+      "links": "sitemap 341 to 365, reverse 626 to 768, list-to-list 396 to 569, anti-picks 195 to 205",
+      "method": "Same ranking as part A: whole catalog scored against each seed by shared screenwriter, then director, then cast, then vote-ranked tag overlap, then meter distance. It produced the top pick on 16 of 24 pages before any judgement.",
+      "warnings": "25 to 37. The 12 new ones are all the deliberate one-way kind and are listed in EDITORIAL.md section 6.",
+      "plan_corrections": "Two. EDITORIAL.md section 7 said its-okay-thats-love needed an entry AND a page: it already had a full entry with meters and a verdict, so it was pages only. And batch 12 parts B and C were already complete in the repo, so the checklist that was still circulating was stale.",
+      "reddit": "SUPERSEDED 2026-09-05. The original batch 13 handoff recorded 'zero usable material' and that was a query-shape failure, not a fact about Reddit. Re-run with the corrected recipe: four index sweeps plus two 24-URL comment runs, about 1,270 items and $2, produced usable per-title threads and comment sections for 24 of 24 seeds, including the 2014 and 2016 titles. Findings are in data/research/reddit-batch13-fan-voice.md. The 24 batch 13 pages were written from MDL alone and each one now has fan-voice material waiting to be worked in."
+    },
+    "batch_12_part_a": {
+      "date": "2026-09-05",
+      "scope": "The 18 remaining part A pages, which closes batch 12. Pages only, zero catalog entries touched.",
+      "entries": "219, unchanged",
+      "pages": "87 to 105",
+      "shipped": "weightlifting-fairy-kim-bok-joo, w-two-worlds, moon-lovers-scarlet-heart-ryeo, dear-my-friends, while-you-were-sleeping, because-this-is-my-first-life, prison-playbook, just-between-lovers, tunnel, live, life-on-mars, hotel-del-luna, romance-is-a-bonus-book, when-the-camellia-blooms, strangers-from-hell, the-fiery-priest, one-spring-night, the-light-in-your-eyes",
+      "links": "sitemap 323 to 341, reverse 525 to 626, list-to-list 249 to 396, anti-picks 165 to 195",
+      "method": "Picks derived from the MDL cache, ranked by shared screenwriter, then shared director, then shared cast, then vote-ranked tag overlap, then meter distance. Writer and director overlap produced the strongest pages by a wide margin and should be the first thing checked on every future seed.",
+      "warnings": "18 to 25. The 7 new ones are all the deliberate one-way kind and are listed in EDITORIAL.md section 6.",
+      "gotcha_found": "known_issues.captivating_collision.",
+      "reddit": "Only 2 of the 18 pre-2020 seeds had usable Reddit material, and it was found by searching the thread series name rather than the drama title. See EDITORIAL.md section 5b gotcha 6."
+    },
+    "batch_12": {
+      "date": "2026-09-05",
+      "scope": "Pre-flight, part B (2 new seeds), part C (22 pick-support entries), 2 part A pages, misaeng rebuilt into the repo, Mouse re-derived.",
+      "entries": "195 to 219",
+      "pages": "83 to 87, added misaeng, whats-wrong-with-secretary-kim, strong-girl-bong-soon, descendants-of-the-sun",
+      "links": "sitemap 296 to 323, reverse 508 to 525, list-to-list 239 to 249, anti-picks 135 to 165",
+      "mouse_fixed": "Re-derived from the real Mouse (2021) row. runtime 70 to 75, pace 4 to 3, comfort 1 to 2, hook 3 to 2, ending Bittersweet to May divide viewers, verdict rewritten.",
+      "rule_change": "The rewatch-to-comfort mapping was amended after seven titles produced values that could not ship. Now in force in EDITORIAL.md section 4.",
+      "cache": "497 titles, digest generated 2026-09-05T06:20Z.",
+      "aliases_note": "Three titles are cached under a different MDL name: moonlight-drawn-by-clouds as Love in the Moonlight, thirty-but-seventeen as Still 17, romantic-doctor-teacher-kim as Dr. Romantic."
+    },
+    "batch_11": {
+      "date": "2026-08-26",
+      "scope": "The 2023 slate. 12 new entries, 19 new pages. 183 to 195 entries, 64 to 83 pages.",
+      "lesson": "The r/KDRAMA year-end roundup replaced a dozen per-title searches. Per-title keyword search inside r/KDRAMA failed even with comments on."
+    },
+    "batch_10": {
+      "date": "2026-08-26",
+      "scope": "Pages only, the 2024 slate. 54 to 64 pages, dramas.json untouched.",
+      "lesson": "Comments off returns episode threads and poster announcements: airing facts and volume, nothing about quality."
+    },
+    "batch_9": {
+      "date": "2026-08-26",
+      "scope": "The full 2024 line plus the Squid Game and Gyeongseong Creature season groups. 142 to 183 entries, 48 to 54 pages."
+    },
+    "batch_8": {
+      "date": "2026-08-25",
+      "scope": "2025 and 2026, every entry derived from the MDL cache. 89 to 142 entries, 31 to 48 pages.",
+      "note": "My Bias, My Boss (2026) deliberately skipped: still airing, ten reviews. Never write an ending label mid-run."
+    },
+    "earlier": "Batches 1 to 7 built the first 31 pages and the original catalog, plus the first season groups. The rebrand to DramaRecs landed 2026-08-31. The teardown rounds (2 to 4 September) closed the noindex gate, the privacy policy, the unsourced homepage search volumes, internal linking, search, ads.txt, the hook flag and the match explainer. The Yona persona was removed 2026-09-03. All 195 verdicts were backfilled 2026-09-04.",
+    "2026-09-05": {
+      "date": "2026-09-05",
+      "label": "Affiliate wrapper, plus the repo URL correction",
+      "content_changes": "None. Zero editorial files touched.",
+      "code_changes": "build.mjs: affiliate ids, providerTarget(), affiliate(), WATCH_TABLE, watchHref(), provChips() now renders anchors, watchRow() carries data-title, AFF_NOTE, footer and /privacy/ and /terms/ and /how-we-pick/ disclosures, build log reports which brands are monetised. src/app.js: the region swap reads window.DR_WATCH instead of inventing its own link. src/styles.css: .affnote and the footer disclosure row.",
+      "bug_fixed": "Server-rendered chips were plain spans while app.js turned them into links after a region switch, so the default-region visitor and the crawler got no link at all and a returning visitor got one. Both sides now read one table.",
+      "gates": "validate-pages.mjs exit 0 on 87 pages. build.mjs clean at 323 pages. Link totals unchanged at 525 reverse, 249 list-to-list, 165 anti-picks, as expected for a code-only batch.",
+      "verified_by": "Test build with synthetic provider rows in six regions, run in four config states: nothing set, Amazon only, Rakuten only, and both. Rakuten murl round-trip decoded back to the exact title, including an apostrophe title."
+    },
+    "batch_13_rework_and_batch_14_research_2026_09_05": {
+      "what": "No new pages. All 24 batch 13 pages rewritten to carry the Reddit fan voice that had been researched but never used, plus a full research pass on the next 23 titles.",
+      "pages_changed": 24,
+      "pages_total": 129,
+      "entries_touched": 0,
+      "links_before": "768 reverse, 569 list-to-list, 205 anti-picks",
+      "links_after": "774 reverse, 575 list-to-list, 206 anti-picks",
+      "new_picks_from_research": [
+        "king-the-land on touch-your-heart",
+        "marry-my-husband on her-private-life",
+        "its-okay-to-not-be-okay on save-me",
+        "strong-girl-bong-soon on he-is-psychometric",
+        "whats-wrong-with-secretary-kim on fight-for-my-way",
+        "chicago-typewriter on cheese-in-the-trap"
+      ],
+      "reordered": "alchemy-of-souls promoted to the top pick on a-korean-odyssey, ahead of hotel-del-luna, because it is the show fans send droppers to",
+      "new_anti_pick": "Goblin on the-legend-of-the-blue-sea, they aired opposite each other and that is half the reason Blue Sea reads as a disappointment",
+      "reddit_spend": "about 1,090 items, roughly $1.65, six runs, zero blocks",
+      "next": "Batch 14 is writing only: 23 pageless entries with complete meters, verdicts and research already on disk. Order is in EDITORIAL.md section 7."
+    }
+  },
+  "research_findings_worth_keeping": {
+    "why_this_matters": "Conclusions that cost real scraping and contradict what a model would assert from general knowledge. Reuse them, do not re-derive them.",
+    "lovely-runner": "MDL aggregate 8.9 from 108,438 ratings, written reviews average 3.08 overall and 1.08 rewatch value, top review titled THE DISAPPOINTMENT OF TOMORROW. The original crowd-versus-critic split.",
+    "alchemy-of-souls-part-2": "8.9 aggregate from 78,307, written reviews run 6.5, 6.5, 4, 3, 2, 1, 1, rewatch about 1.7. Per-episode ratings OPEN at their highest and slide, hence hook 1: there is no episode where it stops being work.",
+    "goblin": "Popularity #1 with 325,817 watchers, the most watched title in the catalog. Hook is episode 8, not 4: ratings sit at 8.8 to 9.1 for seven episodes then step to 9.2 and stay. Rewatch about 9.1, the joint highest researched.",
+    "the-wonderfools-2026": "8.5 aggregate but written reviews average 9.62 with 9.25 rewatch, the highest in the catalog. The first two episodes are the worst two, which is why hook is 3.",
+    "agent-kim-reactivated-2026": "Biggest broadcast hit of 2026: record 23.1 percent on episode 8, a 582-upvote Reddit post naming it the year's biggest hit, weekly r/KDRAMA threads for all ten episodes. Per-episode ratings drop to 7.0 and 7.2 at episodes 8 and 9 before recovering, and Reddit independently flagged the same dip. SBS is reportedly weighing sequels to this, Phantom Lawyer and My Royal Nemesis.",
+    "can-this-love-be-translated-2026": "Written by the Hong sisters (Hong Jung Eun and Hong Mi Ran), directed by Yoo Young Eun, shot largely in Kamakura and Enoshima. The magical realism in the back half is where the review scores split: acting averages 9.25 while story averages 7.83.",
+    "good-boy-2025": "8.4 aggregate from 27,287 ratings against 4.08 rewatch and 5.12 story. The complaint that repeats is structural: the same loop of fight, defeat, injury, recovery across sixteen episodes.",
+    "resident-playbook-2025": "The one 2025 spinoff that beat expectations: written reviews average 9.38 with 8.5 rewatch, the highest comfort score in the 2025 catalog, and people who work in operating theatres vouch for the medical accuracy.",
+    "why_generic_recs_fail": "Viewers do not search by genre, they search by exact emotional register and relational dynamic. For My Liberation Notes, recommending Hometown Cha-Cha-Cha fails because it lacks the existential weight. The community answer is Lost (2021) or My Mister.",
+    "family-by-choice": "8.6 aggregate from 44,000 ratings, written reviews 5.88 with a 4.17 rewatch, curve peaks 8.0 at episode 6 and falls to 6.1 by 16. The childhood half is excellent and the adult half undoes it.",
+    "the-trunk": "7.9 aggregate, story 5.54, rewatch 3.58, per-episode ratings 4.3 to 5.0 across the whole run. The lowest curve in the 2024 slate.",
+    "chicken-nugget": "6.5 aggregate but written reviews 7.83 with a 7.75 rewatch, the inverse of the usual gap. The people who finish it love it.",
+    "the-judge-from-hell": "9.08 rewatch and a flat 9.1 to 9.5 curve, while every independent Reddit review thread names the detective romance as forced and chemistry-free. Both true: great lead, unnecessary romance.",
+    "the-impossible-heir": "Written reviews 3.62 overall, 2.75 rewatch, curve collapses from 8.0 to 4.4 by episode 8. Named worst drama of 2024 in the r/KDRAMA roundup, tied with Dear Hyeri.",
+    "sequels_confirmed_2026_08_26": "From the batch 10 Reddit run, both to be treated as fact over any model's general knowledge: Flex X Cop 2 (SBS) premiered 7 August 2026 with Ahn Bo Hyun returning, Park Ji Hyun NOT returning due to scheduling, Jung Eun Chae joining and Yoo Seung Ho appearing, and it is probably still airing, so it gets no ending label yet. A Shop for Killers Season 2 (Disney+) premiered 22 July 2026 and ran eight episodes.",
+    "the-worst-of-evil-2023": "9.58 written-review overall and 9.08 rewatch, the highest pair in the catalog, against a modest 8.6 aggregate from 23,371 ratings. Underrated, not overrated. The spiritual successor to Cruel City.",
+    "my-demon-2023": "8.3 aggregate from 105,157 ratings against a 5.04 written average and a 3.29 rewatch: the widest crowd-versus-written gap in the catalog. First four hours fun, next twelve filler.",
+    "king-the-land-2023": "8.3 from 102,180 ratings, written reviews 6.62 overall with 4.62 rewatch, distribution bimodal (five 1s, four 8-plus). The 2023 archetype romcom, and the emptiest thing in the year.",
+    "welcome-to-samdal-ri-2023": "Per-episode curve climbs 8.7 to 9.3 and holds, but story scores 6.75 and rewatch 4.83. The first seven hours are a Seoul scandal plot the writing does not care about. Hook 8.",
+    "2023-as-a-year": "Industry contraction year: about 108 dramas produced against 160 in 2022, with the broadcasters winding down the Wednesday-Thursday slots. Low-risk, low-budget, tightly targeted shows. Twinkling Watermelon was the year's standout, King the Land inherited the Business Proposal blueprint, Strong Girl Namsoon and Heartbeat were the failures.",
+    "weightlifting-fairy-kim-bok-joo": "8.7 aggregate from 154,307 ratings against a 5.25 written-review rewatch average, which reads like a gap and is not one. The r/KDRAMA rewind threads name the exact thing being rewatched: the male lead works out he likes her and simply says so, with no jealousy beat and no power move, and that scene is what people return for. The mid-run objections are consistent and specific: the depression stretch around episodes 9 and 10, and the coach embezzlement subplot, which nobody defends. Sport is gone by the second half. Do not read the low rewatch number as low affection.",
+    "moon-lovers-scarlet-heart-ryeo": "Four r/KDRAMA rewind threads from March and April 2026, roughly 250 comments, and they agree on the shape: episodes 1 to 5 play as teen hijinks with a cheesy soundtrack, and the show people remember only starts once the succession begins killing people, which is why hook is 5 and not lower. Two objections repeat and both are usable: characters turn on a coin once they take the throne, and the couple never gets a single happy hour in twenty episodes. The rights history matters for the where-to-watch row: it vanished with DramaFever in 2018, returned on Viu in Asia, then on Viki elsewhere in 2025, so regional availability is genuinely patchy.",
+    "pre_2020_reddit_route": "CORRECTED 2026-09-05. The earlier claim that per-title relevance search is useless for pre-2020 titles was false and it came from sorting by 'top' and from adding angle words to unscoped queries. With searchSort 'relevance', '<Title> kdrama' unscoped plus bare-title sweeps inside r/KDRAMA, r/kdramas and r/kdramarecommends, pre-2020 seeds return plenty: It's Okay That's Love (2014) has a 121-upvote appreciation thread and a 'why do people say it's frustrating' thread, Another Miss Oh (2016) has a 163-upvote review plus a 67-comment argument, Moonlight Drawn by Clouds (2016) has all 18 per-episode threads with nationwide ratings tables in the post bodies. The thread-series route is a bonus for long retrospectives, not the main road.",
+    "reddit_thread_series_is_exhausted": "Confirmed 2026-09-05 with two index runs, 80 items, zero spend beyond that. The Lets Rewind index covers exactly eleven shows (Moon Lovers, I am Not A Robot, Faith, Secret Garden, The Heirs, The Package, Coffee Prince, Marriage Not Dating, Weightlifting Fairy, Reply 1997, Couple or Trouble) and the Review Megathread series is only nine real threads (Its Okay To Not Be Okay, Vincenzo, Extraordinary Attorney Woo, The King Eternal Monarch, Start-Up, Love Alarm, Hometown Cha-Cha-Cha, Moon Lovers, Marriage Not Dating), after which the relevance search degenerates into the stickied r/KDRAMA GUIDE post repeated twenty times. Both series are now fully enumerated and neither touched any of the 24 batch 13 seeds. The index route still works, the series are just small. Run the two indexes once per project, not once per batch. SCOPE CORRECTION 2026-09-05: this finding is about those two thread series ONLY. It was wrongly generalised into 'Reddit is exhausted' for whole batches. Per-title search is a separate, productive route and must always be run.",
+    "reddit_subreddit_allowlist_2026_09_05": "SUPERSEDED 2026-09-05 by Jack's name-tells-you rule, see research_data_status.reddit_subreddit_rule and EDITORIAL.md section 5b. Kept only as history: the original three-sub allowlist was r/KDRAMA, r/kdramas and r/kdramarecommends. Six more subs have since earned a place and the dead ends are named in 5b.",
+    "reddit_selection_rule_2026_09_05": "Two threads per title, fetched by URL with comments on at maxCommentsPerPost 15: one verdict thread and one caveat or dissent thread. Take the dissent thread even at 6 upvotes if it has a big comment count, because a 6-upvote post with 67 comments is an argument and arguments are what the prose needs. Weight by upvotes within a subreddit only; a thread whose comments all sit at 1-2 upvotes has no consensus, so report the split instead of picking a side. Strip any comment containing 'I am a bot': both recommends and kdramas AutoModerator reply to every post and the recommends bot quotes the whole OP back.",
+    "first_real_search_data_2026_09_05": "The first Search Console export, 24 hours, 58 impressions, 0 clicks. The finding worth keeping: dramas-like list pages average position 8.3 while drama pages average 25.4 on the same property in the same day. The lists are the ranking asset and the drama pages are support. It also confirms both halves of the content model are being searched: five queries are explicit similar-drama searches and five are the factual episode-count and ending questions the drama-page template exists to answer. Mobile averages position 9.48 against desktop 27.2, which is worth remembering before anybody redesigns for desktop."
+  },
+  "known_issues": {
+    "captivating_collision": "The BANNED filler array in tools/validate-pages.mjs is grepped against the whole page blob, and the word 'captivating' is on it, so the catalog title Captivating the King fails the validator with clean prose. CONFIRMED WIDER 2026-09-05 by test: it is not only pick rows. A page whose seed slug is captivating-the-king fails the moment the file exists, because the slug is in the blob. So that page cannot be written until the check is scoped to the prose fields the way the ATTRIBUTION check already is. Cost so far: one good Moon Lovers pick, swapped to youth-of-may, and one blocked page in tier 3. Fix is ten lines and it is in open_items.validator_banned_scope_fix.",
+    "reciprocity_warnings_are_load_bearing": "41 warnings, 0 errors is the current correct state, up from 37 with batch 14. Do not 'clean up' the contradiction warnings by deleting anti-picks. Taste travels one way, and every warning on the list is either inherited or deliberate. Each is explained in EDITORIAL.md section 6, grouped by the batch that introduced it.",
+    "amazon_tag_is_single_locale": "AMAZON_TAG is one string and build.mjs appends it to all eight regional storefronts in AMAZON_STORE (amazon.com, .co.uk, .ca, .com.au, .in, .com.br). Amazon Associates tracking ids are issued PER LOCALE: a US tag earns nothing on amazon.co.uk or amazon.in. Found 2026-09-05 while checking the application requirements. Fix when the account actually exists, and there are only two sane options: either join one locale, set AMAZON_TAG for it and leave the other storefronts unmonetised and plain, or join several and turn AMAZON_TAG into a per-country map keyed the same way AMAZON_STORE already is. The second is about ten lines. Do not ship one tag across six domains and count the clicks as earning.",
+    "kocowa_left_viki_nov_2025": "KOCOWA ended its distribution partnership with Rakuten Viki in November 2025, so Viki Pass Plus no longer carries KOCOWA titles and some shows moved to KOCOWA+. This is why the wrapper treats Viki and Kocowa as two separate brands rather than one, which is now correct. Provider rows come from TMDB at build time so they follow the change automatically, but it does mean older titles can move between the two rows without anything in the repo changing.",
+    "attribution_traps_that_landed_in_batch_13": "Three errors, all in the ATTRIBUTION array and all written unintentionally while quoting a real number: \"the crowd\" in a standfirst comparing aggregate to written reviews, and \"the audience\" twice in a pick where the sentence was about who is watching. Both phrases are the documented top traps. When writing about the gap signal, say \"the written reviews run above the aggregate\", never name the people holding either score."
+  }
+}
