@@ -1,0 +1,37 @@
+name: Validate pages
+
+# Runs on every pull request and on every push to main.
+# A red X here means the edit is broken. Fix it before merging, and the live site never sees it.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: JSON is parseable
+        run: |
+          node -e "
+          const fs=require('fs');
+          let bad=0;
+          const files=['data/dramas.json','data/site.json',...fs.readdirSync('data/pages').map(f=>'data/pages/'+f)];
+          for (const f of files) {
+            try { JSON.parse(fs.readFileSync(f,'utf8')); }
+            catch (e) { bad++; console.error('BROKEN JSON: '+f+' :: '+e.message); }
+          }
+          if (bad) process.exit(1);
+          console.log(files.length+' JSON files parsed cleanly');
+          "
+
+      - name: Validate pages
+        run: node tools/validate-pages.mjs
