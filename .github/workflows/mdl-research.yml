@@ -1,0 +1,58 @@
+name: MDL research
+
+# Run it from the browser: GitHub repo -> Actions -> "MDL research" -> Run workflow.
+# No terminal, no installs. GitHub runs it on their machine.
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "How many uncached titles to fetch this run (blank = all)"
+        required: false
+        default: ""
+      force:
+        description: "Re-fetch titles already in the cache"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Fetch MyDramaList data
+        env:
+          MDL_API: ${{ vars.MDL_API || 'https://kuryana.tbdh.app' }}
+          RECS_API: ${{ vars.RECS_API }}
+          MDL_DELAY: "1500"
+        run: |
+          ARGS=""
+          if [ -n "${{ inputs.limit }}" ]; then ARGS="$ARGS --limit ${{ inputs.limit }}"; fi
+          if [ "${{ inputs.force }}" = "true" ]; then ARGS="$ARGS --force"; fi
+          node tools/mdl-fetch.mjs $ARGS
+
+      - name: Upload digest as a download
+        uses: actions/upload-artifact@v4
+        with:
+          name: mdl-digest
+          path: |
+            data/mdl-digest.json
+            data/mdl-cache.json
+
+      - name: Commit the data back to the repo
+        run: |
+          git config user.name "mdl-research-bot"
+          git config user.email "actions@github.com"
+          git add data/mdl-cache.json data/mdl-digest.json
+          git diff --staged --quiet || git commit -m "chore(data): refresh MyDramaList research [skip ci]"
+          git pull --rebase origin main
+          git push
