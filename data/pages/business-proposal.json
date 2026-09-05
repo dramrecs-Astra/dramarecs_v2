@@ -1,0 +1,51 @@
+{
+  "seed": "business-proposal",
+  "reviewed": "2026-08-22",
+  "standfirst": "A blind date under a false name, a CEO who takes everything literally, and a second couple who quietly ran off with the show. Twelve episodes, no filler, no third-act separation. These six are the same deal: tropes played at full commitment by people who know exactly how silly it is.",
+  "picks": [
+    {
+      "slug": "whats-wrong-with-secretary-kim",
+      "match": 91,
+      "why": "<b>The template this was built on.</b> A vain, hyper-competent rich man, the woman who has been managing his life for nine years, and a workplace that treats their relationship as a spectator sport. Same webtoon-bright comedy and the same total absence of jeopardy. Difference: sixteen episodes rather than twelve, and it sags slightly in the middle where this never does."
+    },
+    {
+      "slug": "lovely-runner",
+      "match": 84,
+      "why": "The best-executed romcom on this list: a fated pair, a devoted male lead, and a comic ensemble that lands every beat. Difference: it has a real emotional undertow and will make you cry at least twice, which Business Proposal never attempts."
+    },
+    {
+      "slug": "weightlifting-fairy-kim-bok-joo",
+      "match": 79,
+      "why": "Friendship-first romance with a heroine who is allowed to be loud, hungry and unpolished. The same feeling of a show that likes its characters more than its plot. Difference: no rich-CEO fantasy and much lower gloss."
+    },
+    {
+      "slug": "romance-is-a-bonus-book",
+      "match": 74,
+      "why": "Grown-up office romcom with a publishing house full of people you would happily work with, and a second-lead situation handled kindly. Difference: slower, gentler, and it has an actual career story underneath."
+    },
+    {
+      "slug": "because-this-is-my-first-life",
+      "match": 70,
+      "why": "The contract-relationship trope taken seriously: same fake-arrangement setup, played as a study of two anxious adults instead of a comedy. Difference: dry and quiet, so if you were here for the shrieking it is the wrong dial."
+    },
+    {
+      "slug": "crash-course-in-romance",
+      "match": 66,
+      "why": "Same broad crowd-pleasing register with a bigger family ensemble and better food. Difference: a thriller subplot in the back half that lands much harder than the genre led you to expect."
+    }
+  ],
+  "against": [
+    {
+      "title": "Crash Landing on You",
+      "why": "The default romcom pick. It is sixteen long episodes with a war, a bereavement and a genuinely painful separation. If you liked Business Proposal because nothing hurt, this will ambush you."
+    },
+    {
+      "title": "True Beauty",
+      "why": "The nearest webtoon-adaptation neighbour, so it is always in the same list. But the love triangle is real and unresolved for hours, and the high-school setting makes the stakes teenage rather than delicious."
+    },
+    {
+      "title": "Queen of Tears",
+      "why": "Suggested because of the chaebol setting and the comedy in the first act. Then it turns into a terminal-illness melodrama. Completely different contract with the viewer."
+    }
+  ]
+}

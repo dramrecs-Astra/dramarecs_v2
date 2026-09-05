@@ -1,0 +1,51 @@
+{
+  "seed": "mr-plankton",
+  "reviewed": "2026-08-26",
+  "standfirst": "A dying man kidnaps his ex on her wedding day and drives her across the country, which plays funnier and meaner than that sentence suggests. Woo Do Hwan works hard at being unlovable and mostly wins, Lee You Mi matches him, and Oh Jung Se steals what is left. The structural problem is ten episodes of bickering while the show withholds the one conversation these two need, so the picks below are shows that let people say the thing out loud.",
+  "picks": [
+    {
+      "slug": "if-you-wish-upon-me",
+      "match": 90,
+      "why": "<b>A prickly young man with nothing to lose, parked inside a hospice, being useful against his will.</b> Same emotional trade as Mr. Plankton: terminal illness handled through errands and jokes rather than speeches, and a lead who is rude because being loved is harder than being difficult. The found family here does the work the road trip is supposed to do. <b>Difference:</b> it commits to the warmth instead of steering you into a cry at the end."
+    },
+    {
+      "slug": "thirty-nine",
+      "match": 88,
+      "why": "<b>Friends managing a death on a deadline.</b> If the last two episodes of Mr. Plankton are what you actually came for, this is sixteen episodes of that register, with the dying person allowed to be furious, practical and funny about it. The friendship is the love story. <b>Difference:</b> it is a melodrama and it knows it, so there is no comedy to hide behind when it turns."
+    },
+    {
+      "slug": "navillera",
+      "match": 85,
+      "why": "<b>A man near the end of his life doing the one thing he refused to do earlier.</b> Both shows are about somebody with a countdown deciding what the remaining time is for, and both put the answer in a partnership with someone much younger and much angrier. Twelve episodes and no wasted ones. <b>Difference:</b> it is gentle throughout and never engineers a twist out of a diagnosis."
+    },
+    {
+      "slug": "move-to-heaven",
+      "match": 83,
+      "why": "<b>Death as a job rather than a plot device.</b> Mr. Plankton keeps circling the question of who cleans up after you, and this is the show that answers it: each episode enters a life after it has ended and reassembles the person from what they left. Spare, unsentimental, devastating in the right places. <b>Difference:</b> the tone is steady from the first hour, so there is no comedy whiplash."
+    },
+    {
+      "slug": "the-light-in-your-eyes",
+      "match": 81,
+      "why": "<b>Time as the thing being spent, not the thing being travelled.</b> The Mr. Plankton conceit that a life can be lived out of order and still add up is the whole architecture here, and the last episode reframes everything in front of it. Twelve episodes, romance kept to the side. <b>Difference:</b> the reveal is doing heavy lifting, and knowing one is coming changes how the show reads."
+    },
+    {
+      "slug": "call-it-love",
+      "match": 78,
+      "why": "<b>Two people orbiting a loss they will not name.</b> Slow, cold, adult, and built on the same withheld conversation Mr. Plankton keeps postponing, except here the withholding is the point rather than a way to reach episode ten. <b>Difference:</b> almost nothing happens for long stretches, and the comedy relief simply is not there."
+    }
+  ],
+  "against": [
+    {
+      "title": "It's Okay to Not Be Okay",
+      "why": "Paired for the damaged lead and the caretaking romance, and it is a better show. It is also lush, stylised and fundamentally about healing, where Mr. Plankton is about running out of time and being bad company while it happens. Different appetite entirely."
+    },
+    {
+      "title": "Our Blues",
+      "why": "Paired because both are Netflix-adjacent ensemble melodramas with island weather. Our Blues hands each character a full arc and lets the community carry them. Mr. Plankton has two people in a van and no community at all, which is the reason it works and the reason it tires."
+    },
+    {
+      "title": "Uncontrollably Fond",
+      "why": "The other big terminal illness romance, played completely straight. If the thing you liked about Mr. Plankton was the refusal to be noble about dying, this one is the opposite: it wants the tears and it goes looking for them from episode one."
+    }
+  ]
+}

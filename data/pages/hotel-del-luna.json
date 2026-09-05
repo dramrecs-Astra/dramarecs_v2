@@ -1,0 +1,52 @@
+{
+  "seed": "hotel-del-luna",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like Hotel del Luna: six fantasy romances with real production design and a cruel streak underneath.",
+  "standfirst": "A hotel for the dead, a proprietor who has been punished for a thousand years, and a manager who can see all of it. The appeal is a specific combination: episodic ghost stories, Hong sisters wit, and a central romance that is fundamentally about a sentence being served. These six deliver parts of that, and we say which ones share the writing and which only share the ghosts.",
+  "picks": [
+    {
+      "slug": "a-korean-odyssey",
+      "match": 96,
+      "why": "<b>Same writers, same year either side, same bargain at the centre.</b> The Hong sisters rewriting Journey to the West as a contract between a demon and a woman who sees ghosts, with the best mythology they have built and Lee Seung Gi and Cha Seung Won having an enormous amount of fun. Difference: the production was famously troubled, the effects are rough in places you will notice, and it takes five episodes to become watchable."
+    },
+    {
+      "slug": "alchemy-of-souls",
+      "match": 91,
+      "why": "<b>The same writers at the height of their powers.</b> A sprawling fantasy with a soul-swap premise, an ensemble that clicks immediately, and the wit and world-building doing the work rather than the melodrama. Same pleasure of rules, curses and a debt that has to be paid. Difference: the romance is an adventure rather than a sentence, and the stakes reset between arcs, so it is far less melancholy."
+    },
+    {
+      "slug": "tale-of-the-nine-tailed",
+      "match": 86,
+      "why": "<b>Immortal, mortal, and an old debt.</b> A gumiho who has been waiting centuries, plus a brother rivalry that is more interesting than the love story and drives the whole run. Same episodic supernatural cases inside one long romance. Difference: it is a thriller with proper action, the visual design is nowhere near as good, and the sacrifice it stages is cheaper than this one's."
+    },
+    {
+      "slug": "destined-with-you",
+      "match": 81,
+      "why": "<b>A six-hundred-year curse, played as comedy.</b> A civil servant, an inherited book of spells and a lawyer who has been cursed since Joseon, committed to completely by both leads. Same structure of a supernatural obligation forcing two people together. Difference: it is silly on purpose and the fantasy has no teeth, so nobody is being punished for anything."
+    },
+    {
+      "slug": "can-this-love-be-translated",
+      "match": 76,
+      "why": "<b>The same writers, no fantasy at all.</b> The Hong sisters on an interpreter whose job is to be invisible and the star whose public voice he has been quietly rewriting, which is their sharpest premise in years. Same dialogue signature and the same interest in a person whose whole role is service. Difference: there is nothing supernatural in it, and the register is contemporary and restrained."
+    },
+    {
+      "slug": "my-demon",
+      "match": 71,
+      "why": "<b>The nearest thing to the same silhouette.</b> A demon without his powers, a cynical heiress as the human battery he needs, a contract signed, and four genuinely fun opening hours with Kim You Jung very good in the middle of it. Difference: it runs out of plot at the midpoint and the hook does not arrive until episode seven, where this one is confident from the first hour."
+    }
+  ],
+  "against": [
+    {
+      "title": "Goblin",
+      "why": "The default recommendation for beautiful immortal romance, and the visual comparison is fair. Its whole engine is consolation: the immortality exists so loss can be undone. Hotel del Luna is about a punishment being served to the end, and that is the difference in the mouth."
+    },
+    {
+      "title": "Doom at Your Service",
+      "why": "Paired for the doomed-supernatural-couple pitch. It is a short, soft melodrama with a countdown, and the fantasy has no world attached to it: no rules, no cases, no hotel full of other people's unfinished business."
+    },
+    {
+      "title": "The Master's Sun",
+      "why": "The older Hong sisters ghost romance, and the recommendation makes sense on the shelf. It is a romantic comedy where ghosts are the joke, so the grandeur, the design and the thousand-year sentence are all missing."
+    }
+  ]
+}

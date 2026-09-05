@@ -1,0 +1,52 @@
+{
+  "seed": "juvenile-justice",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like Juvenile Justice: cold, case-led Korean legal drama with no comic relief and no romance.",
+  "standfirst": "Ten episodes, no romance, no comic relief, and the hardest hour is the first one: survive episode one and you can survive the rest. Kim Hye Soo plays a judge who openly despises juvenile offenders and then has to sit in a court where every defendant is a child, and the writing never softens her. It is case-led and deliberately cold, so if you want characters to warm up and relationships to grow, this is not built for you. The last third loses grip, and the argument it starts about how a country punishes minors is the reason to finish it.",
+  "picks": [
+    {
+      "slug": "teach-you-a-lesson",
+      "match": 96,
+      "why": "<b>Same director, two of the same cast, and the opposite answer to the same question.</b> Hong Jong Chan on school violence again, with Lee Sung Min and Kim Moo Yul carrying a unit that arrives when the system has already failed. Difference: it is a revenge fantasy where this is a procedural, it films the bullying for maximum discomfort, and it wants you to cheer rather than to think."
+    },
+    {
+      "slug": "stranger",
+      "match": 91,
+      "why": "<b>The other great Korean drama with the feelings taken out.</b> Institutional rot examined at close range, a lead who cannot be moved by anything, and cases resolved by paperwork and pressure rather than heroics. Difference: sixteen episodes on a prosecutorial conspiracy, so the subject is the institution itself rather than the children passing through it."
+    },
+    {
+      "slug": "sky-castle",
+      "match": 86,
+      "why": "<b>The pressure factory that produces these children, seen from the parents' side.</b> Same interest in how respectable adults arrange the ruin of their own kids, and the same refusal to let anyone off. Difference: nineteen episodes of satire, and it is genuinely funny, so the horror arrives by comedy rather than by case file."
+    },
+    {
+      "slug": "dp",
+      "match": 81,
+      "why": "<b>Institutional cruelty with nobody available to fix it.</b> Same structure of an outsider forced to look at what everyone has agreed not to see, and the same flat, unsentimental camera. Difference: the setting is conscription, the young men are perpetrators and victims at once, and it indicts rather than adjudicates."
+    },
+    {
+      "slug": "pyramid-game",
+      "match": 76,
+      "why": "<b>Bullying as politics rather than plot.</b> A hierarchy set by anonymous monthly vote, ten cold episodes, and not one character asked to be likeable. Difference: it is a thriller with a game structure, so cruelty escalates by design where here it arrives as evidence already committed."
+    },
+    {
+      "slug": "law-school",
+      "match": 71,
+      "why": "<b>The other side of the same courtroom, with Lee Jung Eun in both.</b> Legal mechanics taken seriously, a professor who withholds sympathy on principle, and cases that turn on procedure. Difference: it is a whodunnit with jokes, a student ensemble and a romance-free but warm centre, so it is far easier company than this."
+    }
+  ],
+  "against": [
+    {
+      "title": "Extraordinary Attorney Woo",
+      "why": "The legal drama handed to everybody, and it is the wrong medicine right after this. Comfort 5, cases that resolve kindly, and a workplace where people are good to each other. Coming out of ten hours where no outcome feels like justice, being handed warmth is a dodge rather than a follow-up."
+    },
+    {
+      "title": "Miss Hammurabi",
+      "why": "Paired because it is the other judge drama, and the resemblance stops at the robes. It is an idealistic workplace show about young judges arguing over the right thing, with romance and comedy in the mix. This show is about a court that cannot win and a judge who does not want to be liked."
+    },
+    {
+      "title": "Prison Playbook",
+      "why": "Recommended as the other side of the justice system, and it runs on affection. Twenty hours of ensemble comedy where the prison is a place to make friends. Juvenile Justice never lets a room become comfortable, and that discipline is the whole point."
+    }
+  ]
+}

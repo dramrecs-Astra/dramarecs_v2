@@ -1,0 +1,51 @@
+{
+  "seed": "chicken-nugget",
+  "reviewed": "2026-08-26",
+  "standfirst": "A woman climbs into a machine and comes out as a chicken nugget, and her father and an intern spend ten half hour episodes trying to reverse it. The 6.5 aggregate reads like a failure because the premise looks like a one line joke, and the written reviews average 7.83 with a 7.75 rewatch, which is the inverse of the usual gap. It is a formal experiment played with a straight face and the funniest Korean drama of 2024. Below: shows with the same nerve.",
+  "picks": [
+    {
+      "slug": "the-fiery-priest",
+      "match": 88,
+      "why": "<b>Comedy staged with total commitment and no wink.</b> Same principle as Chicken Nugget: pick an absurd premise, then act it as though it were a crime drama, and let the tone whiplash do the work. Kim Nam Gil at full volume. <b>Difference:</b> the plot is a real conspiracy with real stakes, so it grounds itself in a way Chicken Nugget refuses to."
+    },
+    {
+      "slug": "the-wonderfools",
+      "match": 85,
+      "why": "<b>Nonsense with rules.</b> Both build a silly universe and then respect its physics completely, which is where the laughs actually come from, and both are willing to spend a whole scene on a bit. Comfort 5, and it earns it. <b>Difference:</b> it is an adventure comedy with a warm heart and a proper ending. Chicken Nugget would rather escalate than resolve."
+    },
+    {
+      "slug": "vincenzo",
+      "match": 83,
+      "why": "<b>Tonal whiplash treated as a feature.</b> A show that will put slapstick next to arson and expect you to keep up, which is exactly the Chicken Nugget contract. The building full of eccentrics is the same comic engine as the nugget household. <b>Difference:</b> twenty episodes, a revenge plot with genuine cruelty in it, and a romance."
+    },
+    {
+      "slug": "mystic-pop-up-bar",
+      "match": 81,
+      "why": "<b>A supernatural premise played for laughs and then quietly for feeling.</b> Same trick of a ridiculous setup used as a delivery mechanism for other people's misery, with a bad-tempered lead and an intern who did not ask for any of this. <b>Difference:</b> it resolves emotionally every episode, where Chicken Nugget is committed to being weird all the way down."
+    },
+    {
+      "slug": "good-boy",
+      "match": 79,
+      "why": "<b>A cast of oddballs and a show that trusts them.</b> Broad, silly, physically committed comedy with an ensemble doing bits, which is the register Chicken Nugget lives in for its full run. <b>Difference:</b> it is an action comedy with a team and a mission, so there is a spine holding it together."
+    },
+    {
+      "slug": "oh-my-ghost-clients",
+      "match": 77,
+      "why": "<b>Absurd workplace premise, real workplace anger.</b> A comedy about labour rights conducted through ghosts, which is the same manoeuvre as a nugget standing in for a missing daughter. Silly on the surface, pointed underneath. <b>Difference:</b> it is a case-of-the-week comedy with a moral, and the tone stays much safer."
+    }
+  ],
+  "against": [
+    {
+      "title": "The Sound of Magic",
+      "why": "Paired for the whimsy. It is a musical fantasy about wonder and adult disappointment, shot beautifully and played entirely sincerely. Chicken Nugget is a formal joke with no interest in wonder, and putting them next to each other flatters neither."
+    },
+    {
+      "title": "Zombie Detective",
+      "why": "Paired because it is the other Korean comedy with a ridiculous logline played straight. It is a gentle sitcom that finds a warm case-of-the-week rhythm within twenty minutes. Chicken Nugget keeps escalating on purpose and never settles into a rhythm at all."
+    },
+    {
+      "title": "Mask Girl",
+      "why": "Paired for the webtoon adaptation with a strange shape. It is a tragedy about disfigurement, fame and violence, told across three actresses. Deeply unfunny by design, and the last thing to hand somebody who liked the nugget."
+    }
+  ]
+}

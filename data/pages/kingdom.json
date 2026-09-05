@@ -1,0 +1,52 @@
+{
+  "seed": "kingdom",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like Kingdom: Kim Eun Hee's thrillers, Joseon horror, and the shows that treat an epidemic as politics.",
+  "standfirst": "A dead king, a plague nobody will name and a court that would rather manage the succession than the bodies. Calibration first, because it is the only thing worth knowing before you start: this is not frightening. It is tense and it is creepy, the zombies are heaviest in season one and nearly gone by season two, and what will actually put you off is the gore rather than the fear. An 8.8 aggregate from 52,977 ratings is deserved, and the honest limit is length: six episodes is an opening act, it stops mid-sprint, and season three has never come.",
+  "picks": [
+    {
+      "slug": "signal",
+      "match": 96,
+      "why": "<b>Same writer, and the same argument about institutions.</b> Kim Eun Hee's obsession is a system that knows the truth and buries it because acting on it would cost somebody powerful, and that is Kingdom's plot with the zombies removed. The undead were never the subject: the subject is a monarchy whose appetites are indistinguishable from theirs. Difference: it is a contemporary procedural with romance 1 and no horror, so the dread is bureaucratic rather than physical."
+    },
+    {
+      "slug": "revenant",
+      "match": 91,
+      "why": "<b>Her horror, and it is the better-built one.</b> Same writer, same structure of an inherited affliction that the authorities refuse to acknowledge, same slow reveal that the real monster is a family protecting its position. Difference: it is a contemporary possession story at pace 2, so the momentum and the set-piece scale of Kingdom are replaced by mounting unease."
+    },
+    {
+      "slug": "parasyte-the-grey",
+      "match": 86,
+      "why": "<b>Infection as a state-management problem.</b> Same interest in the machinery that responds to an outbreak, same willingness to let ordinary people be collateral, pace 5 and comfort 3 on both. Difference: it is modern and much more action-driven, with no political succession plot, so the court intrigue that gives Kingdom its spine is absent."
+    },
+    {
+      "slug": "gyeongseong-creature",
+      "match": 81,
+      "why": "<b>Period horror where the monster is the occupier's project.</b> Same combination of a historical setting, a created affliction and an institution doing the creating. Difference: it is a wartime melodrama with a central romance, so the cold political calculation here is warmed considerably."
+    },
+    {
+      "slug": "stranger",
+      "match": 76,
+      "why": "<b>A conspiracy that everyone in the room is complicit in.</b> Shared cast, and the same premise of an investigator working against the organisation employing him. Difference: romance 0, no horror and pace 3, so it is entirely talk and paperwork, which is the opposite of Kingdom's physical urgency."
+    },
+    {
+      "slug": "strangers-from-hell",
+      "match": 71,
+      "why": "<b>Confinement, contamination and nobody coming to help.</b> Same claustrophobic construction and the same refusal to grant relief, heavy 5. Difference: it is a contemporary psychological horror with no political layer and no scale at all, so the epic sweep is traded for a corridor."
+    }
+  ],
+  "against": [
+    {
+      "title": "Sweet Home",
+      "why": "The default Korean horror recommendation, and the mismatch is subject. It is a monster melodrama about grief in an apartment block, with each creature standing in for a person's pain. Kingdom is a political thriller where the plague is a governance failure, and that is not a taste this satisfies."
+    },
+    {
+      "title": "All of Us Are Dead",
+      "why": "Paired for the zombies, which is the least interesting thing about Kingdom. It is a school survival series aimed younger, with teenage relationship stakes and very little interest in who benefits from the outbreak. The court is the point here."
+    },
+    {
+      "title": "The Cursed",
+      "why": "Recommended for the Korean-supernatural-plus-corporate-rot combination, and it is closer than most. It is also contemporary, much smaller and built on a single supernatural gimmick. Kingdom's pleasure is scale plus succession politics, and neither survives the move."
+    }
+  ]
+}

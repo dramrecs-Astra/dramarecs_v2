@@ -1,0 +1,18 @@
+{
+  "seed": "light-shop",
+  "reviewed": "2026-08-26",
+  "standfirst": "It arrives dressed as horror and turns into something else entirely around the fifth hour: a story about the people waiting on the other side of an accident. If the turn is what got you, these are the shows that live in the same place, and none of them need a jump scare.",
+  "picks": [
+    { "slug": "move-to-heaven", "match": 92, "why": "Trauma cleaners entering rooms after the fact and reconstructing a life from what got left behind. Same conviction that grief is best shown through objects and small acts rather than speeches, and it is just as quietly devastating. <b>Difference:</b> no supernatural element at all, so the consolation has to come from the living." },
+    { "slug": "tomorrow", "match": 88, "why": "An afterlife agency intervening in the last minutes of a life, structured as cases and built on the same idea that dying is administrative and grief is not. The best episodes work exactly like your fifth hour. <b>Difference:</b> it is a case-per-week fantasy with action beats, so it never builds one reveal across a whole run." },
+    { "slug": "hotel-del-luna", "match": 84, "why": "A waystation for people who cannot move on, with the same soft rule that everybody who lingers has one unfinished thing. The design is gorgeous and the sadness is real underneath it. <b>Difference:</b> the centre is a centuries-long romance, so the ghosts are guests in somebody else's love story." },
+    { "slug": "mystic-pop-up-bar", "match": 80, "why": "Unresolved grudges settled through dreams, one customer at a time, with the same warmth toward strangers carrying something they cannot put down. It goes for comfort rather than dread. <b>Difference:</b> broad comedy runs through it, and the horror framing you started with is simply not there." },
+    { "slug": "the-light-in-your-eyes", "match": 76, "why": "A structural trick that recontextualises everything in front of it, then reveals that the subject was memory and loss the whole time. If the fifth episode reordered your understanding, this does it once more at feature length. <b>Difference:</b> it is a family drama about ageing, with no genre wrapper and no ghosts." },
+    { "slug": "oh-my-ghost-clients", "match": 71, "why": "The dead show up asking for the thing they were owed, and somebody living has to file it. Same everyday attitude toward the supernatural: a ghost is a person with unfinished paperwork. <b>Difference:</b> it is a light workplace procedural, so it aims for warmth and never tries to frighten you." }
+  ],
+  "against": [
+    { "title": "Sweet Home", "why": "Paired because Kang Full wrote both. That is the only connection: it is a creature-feature action series about a building full of monsters, and the grief here is scenery rather than subject." },
+    { "title": "Death's Game", "why": "The other big afterlife series. Its structure is a punishment loop through borrowed bodies, closer to an action anthology, and the sentiment arrives on a schedule instead of being earned once." },
+    { "title": "Hellbound", "why": "Recommended for the supernatural dread. It is an argument about crowds and divine punishment with no interest in individual mourning, which is the entire reason your show works." }
+  ]
+}

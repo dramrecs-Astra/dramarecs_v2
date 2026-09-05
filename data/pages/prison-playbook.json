@@ -1,0 +1,52 @@
+{
+  "seed": "prison-playbook",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like Prison Playbook: six ensemble shows about surviving an institution with your sense of humour intact.",
+  "standfirst": "A star pitcher jailed on the eve of leaving for the majors, a cell full of men with their own reasons for being there, and sixteen hours that are far funnier and far kinder than the premise allows. What works is the structure: a closed system, a newcomer with no standing, and an ensemble that accumulates. These six do that, and we say which ones keep the comedy and which take it away.",
+  "picks": [
+    {
+      "slug": "hospital-playlist",
+      "match": 96,
+      "why": "<b>The same director doing the same trick with better clothes.</b> Shin Won Ho again, plus Jung Kyung Ho, building a hangout show where the institution supplies the rhythm and almost nothing plot-shaped happens. Same generosity toward minor characters, same running gags that pay off ten hours later. Difference: everyone is competent, senior and comfortable, so the vulnerability that drives Prison Playbook is gone."
+    },
+    {
+      "slug": "racket-boys",
+      "match": 91,
+      "why": "<b>The same writer, same warmth, no walls.</b> Jung Bo Hoon on a rural badminton team, and the village around it is written with the same eye for people quietly rebuilding after failure. Same slow accumulation of an ensemble you would follow anywhere. Difference: the leads are kids and the stakes are matches, so nothing in it is about a system designed to reduce you."
+    },
+    {
+      "slug": "reply-1988",
+      "match": 86,
+      "why": "<b>Same director, one street instead of one wing.</b> Shin Won Ho's other great ensemble, where the setting does all the work and the emotional payoffs arrive from directions you were not watching. Same pleasure of a group of people whose company is the actual product. Difference: it is a nostalgia piece about families, and the central mystery it strings out for twenty episodes is the worst thing in it."
+    },
+    {
+      "slug": "misaeng",
+      "match": 81,
+      "why": "<b>The other great Korean drama about having no standing in a closed system.</b> A contract worker with no degree inside a trading company, learning the rules the hard way while an ensemble slowly makes room for him. Same faith that institutional detail is dramatic. Difference: it is not funny and it never lets anybody win, so the relief that Prison Playbook hands out every episode never arrives."
+    },
+    {
+      "slug": "live",
+      "match": 76,
+      "why": "<b>Rookies inside an institution, written by Noh Hee Kyung.</b> A patrol division staffed by people who had no other options, with the same attention to what colleagues say to each other when nothing is happening. Same structure of a newcomer being processed by a system. Difference: the jeopardy is physical and occasionally lethal, and the show is angrier than it is funny."
+    },
+    {
+      "slug": "dp",
+      "match": 71,
+      "why": "<b>The military version, with the comedy withdrawn on purpose.</b> Two military police catching deserters, and every case is a study of what the barracks did to the man before he ran. Same subject exactly: a closed institution and the people it grinds. Difference: it is funny for about twenty minutes and then it is not, and it has no interest in making the institution survivable."
+    }
+  ],
+  "against": [
+    {
+      "title": "Squid Game",
+      "why": "The other Korean show about men in matching outfits inside a system with rules, and the comparison is only ever structural. Prison Playbook is about how people build a small decent society inside a bad one. Squid Game is about a system that ensures they cannot."
+    },
+    {
+      "title": "Itaewon Class",
+      "why": "The default underdog-with-a-plan recommendation, and it starts in a prison cell too. It runs on revenge and a business scheme, so the institution is an obstacle to be beaten rather than a place to live in for sixteen hours."
+    },
+    {
+      "title": "Juvenile Justice",
+      "why": "Suggested for the closed-institution angle. It is a cold procedural about a judge, deliberately airless, with no ensemble warmth anywhere in it. The overlap is the setting and nothing else."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "seed": "when-the-camellia-blooms",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like When the Camellia Blooms: six warm small-town dramas with something harder running underneath.",
+  "standfirst": "A single mother running a bar in a small town that has already decided what she is, a policeman who admires her out loud, and a serial killer plot threaded through it that the show never lets go slack. The trick is the mix: the warmest ensemble here and a genuine thriller, both handled properly. These six get close, and we say which ones keep the danger.",
+  "picks": [
+    {
+      "slug": "when-life-gives-you-tangerines",
+      "match": 96,
+      "why": "<b>Same writer, sixty years instead of one.</b> Im Sang Choon again on a woman the world has decided to underestimate, with the same ear for how a village talks about somebody behind her back. It is one of the ten highest rated Korean dramas ever made and it earns that without doing anything clever. Difference: no thriller and no mystery, and it asks you to accept a loss and be grateful anyway."
+    },
+    {
+      "slug": "fight-for-my-way",
+      "match": 91,
+      "why": "<b>Same writer, younger and funnier.</b> Four friends in their late twenties who are not winning, written with the same generosity toward people who have been told to lower their expectations. Same instinct for a supporting cast you actually enjoy. Difference: no small town, no child and no threat, so it is comfort with nothing dark underneath it."
+    },
+    {
+      "slug": "hometown-cha-cha-cha",
+      "match": 86,
+      "why": "<b>The seaside village show that everything else gets measured against.</b> Eight or nine supporting characters with real arcs, and the setting doing half the emotional work. Same pleasure of a community deciding to be on somebody's side. Difference: the darkness is one late grief reveal rather than a live threat, so it is much safer television."
+    },
+    {
+      "slug": "welcome-to-samdal-ri",
+      "match": 81,
+      "why": "<b>Same director, the hometown half done properly.</b> Cha Young Hoon on Jeju, a disgraced woman returning home, and a village full of people with opinions about it. The back half is excellent and the per-episode ratings climb and stay up. Difference: the first seven episodes are a career scandal plot it should have dropped much earlier, and there is no crime anywhere in it."
+    },
+    {
+      "slug": "the-good-bad-mother",
+      "match": 76,
+      "why": "<b>Motherhood written as damage and love in the same gesture.</b> A woman who raised her son cruelly because the world was crueller, and Ra Mi Ran playing both halves at once. Same refusal to sentimentalise a mother who has been failed by everyone. Difference: it earns its tears with one unavoidable loss, so it is a considerably heavier watch than this one."
+    },
+    {
+      "slug": "our-blues",
+      "match": 71,
+      "why": "<b>The same community, split into chapters.</b> Jeju, an anthology, and middle-aged characters written with real patience, including a storyline about a woman the island has judged for decades. Difference: there is no continuous plot and no antagonist, so the propulsion that keeps Camellia moving is deliberately absent."
+    }
+  ],
+  "against": [
+    {
+      "title": "Hospital Playlist",
+      "why": "The reflex recommendation for anything warm, and it is warm. It is also entirely without threat, entirely without class pressure, and set among senior professionals. Camellia is about a woman with no standing and a man following her home."
+    },
+    {
+      "title": "Reply 1988",
+      "why": "Handed over for the neighbourhood-ensemble shape. Its conflicts are nostalgic and gentle by design, and its central mystery is which boy she married. Nothing in it is doing the work Camellia's thriller half is doing."
+    },
+    {
+      "title": "Mr. Queen",
+      "why": "Suggested because Shin Hye Sun leads both, which is where the resemblance ends. It is a palace farce with a modern soul in a queen's body, and the comedy is the point rather than the coating."
+    }
+  ]
+}

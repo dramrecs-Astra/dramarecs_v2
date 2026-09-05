@@ -1,0 +1,51 @@
+{
+  "seed": "divorce-attorney-shin",
+  "reviewed": "2026-08-26",
+  "standfirst": "A pianist turned divorce lawyer, three friends who behave like adults, and case work that treats separation as a logistics problem with feelings attached. The one law drama of 2023 worth the time. These six are for procedure plus friendship, without the courtroom theatrics.",
+  "picks": [
+    {
+      "slug": "good-partner",
+      "match": 89,
+      "why": "<b>Divorce law as the actual subject.</b> Same case structure, same interest in custody, assets and the moment a client stops pretending. Both are about the profession rather than one big trial. <i>Difference:</i> it is a mentor and junior story and it is much angrier about the men in it."
+    },
+    {
+      "slug": "extraordinary-attorney-woo",
+      "match": 86,
+      "why": "<b>A lawyer whose difference is the method.</b> Same weekly case rhythm, same warmth toward colleagues, same refusal to make the law heroic. <i>Difference:</i> it is far sunnier, and its emotional centre is a workplace learning to accommodate somebody."
+    },
+    {
+      "slug": "law-and-the-city",
+      "match": 84,
+      "why": "<b>Lawyers as people with commutes.</b> Same low-key register where the job is a job and the friendships carry the show. <i>Difference:</i> almost no case drives the plot, so it is closer to a slice-of-life ensemble than a procedural."
+    },
+    {
+      "slug": "beyond-the-bar",
+      "match": 82,
+      "why": "<b>The unglamorous mechanics of a firm.</b> Same pleasure in watching competent people handle other people's worst weeks. <i>Difference:</i> the focus is a trainee learning the trade, so the perspective is junior and the stakes are careers."
+    },
+    {
+      "slug": "my-mister",
+      "match": 79,
+      "why": "<b>Middle-aged decency as a plot.</b> Same interest in men who are tired, kind and specific, and in friendship as the thing that holds a life together. <i>Difference:</i> no case work at all, and the emotional weight is much heavier."
+    },
+    {
+      "slug": "phantom-lawyer",
+      "match": 75,
+      "why": "<b>Legal work with a comic engine attached.</b> Same appetite for a lawyer with an unorthodox method and a small loyal team. <i>Difference:</i> the premise is supernatural and the tone is broad, so nothing lands with real weight."
+    }
+  ],
+  "against": [
+    {
+      "title": "Law School",
+      "why": "The obvious legal recommendation, and a very different show: a closed campus mystery driven by a single death, with lectures instead of clients."
+    },
+    {
+      "title": "The Devil Judge",
+      "why": "Named for the law label. It is a dystopian spectacle about televised sentencing; Divorce Attorney Shin is about a woman deciding who keeps the apartment."
+    },
+    {
+      "title": "Vincenzo",
+      "why": "Paired because the lead is also a lawyer with an unusual background. That is a mob comedy with explosions. This one has three friends and a mediation room."
+    }
+  ]
+}

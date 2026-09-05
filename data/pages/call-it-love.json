@@ -1,0 +1,51 @@
+{
+  "seed": "call-it-love",
+  "reviewed": "2026-08-26",
+  "standfirst": "A woman moves in with the man whose father ruined her family, intending to take him apart, and then cannot. Sixteen hours of held breath, one of the best scores of 2023, and almost no jokes. These six are the same quiet, adult, melancholy register.",
+  "picks": [
+    {
+      "slug": "my-liberation-notes",
+      "match": 90,
+      "why": "<b>The exact emotional key.</b> Long silences, characters who cannot articulate what is wrong, and a slow admission that being alive is mostly endurance. If this show's stillness was the appeal, nothing matches it better. <i>Difference:</i> there is no revenge plot, and the family is the whole subject rather than the setting."
+    },
+    {
+      "slug": "one-spring-night",
+      "match": 88,
+      "why": "<b>Adults conducting a relationship with total gravity.</b> Same restraint, same insistence that ordinary decisions are dramatic enough, same low-lit visual grammar. <i>Difference:</i> the obstacle is a bad long-term relationship rather than inherited debt, and it ends with more relief."
+    },
+    {
+      "slug": "our-beloved-summer",
+      "match": 84,
+      "why": "<b>Two people who hurt each other and keep circling.</b> Same interest in the gap between what somebody says on camera and what they do afterwards. <i>Difference:</i> it is much funnier and structured around a documentary conceit, so the melancholy is broken up."
+    },
+    {
+      "slug": "melo-movie",
+      "match": 82,
+      "why": "<b>Grief, a dead parent and a romance nobody is ready for.</b> Same slow burn and the same trust that a quiet scene will hold. <i>Difference:</i> the hook is very late, around episode seven, and the film-world setting keeps it airier."
+    },
+    {
+      "slug": "run-on",
+      "match": 80,
+      "why": "<b>Two adults negotiating a relationship in complete sentences.</b> Same maturity and same refusal of romcom mechanics; the conflicts are about work, class and language. <i>Difference:</i> nobody is planning revenge, and the pace is gentler still."
+    },
+    {
+      "slug": "the-trunk",
+      "match": 76,
+      "why": "<b>Intimacy conducted as a transaction with rules.</b> Same cool surface over a real wound and the same interest in what an arrangement conceals. <i>Difference:</i> it is a four-hour mystery, chilly by design, and the ending withholds."
+    }
+  ],
+  "against": [
+    {
+      "title": "Something in the Rain",
+      "why": "The default slow adult romance recommendation. Its central problem is a mother and a workplace; here it is a debt and a lie, and the show is far quieter about both."
+    },
+    {
+      "title": "Nevertheless",
+      "why": "Paired for the muted romance and the moody styling. That show is about attraction without intention. Call It Love is about intention curdling into something like love."
+    },
+    {
+      "title": "Twenty-Five Twenty-One",
+      "why": "Named as the other tender option. It is a nostalgic youth romance with an unreliable frame; this is a story about two exhausted adults and a court case."
+    }
+  ]
+}

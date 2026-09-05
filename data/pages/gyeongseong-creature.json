@@ -1,0 +1,51 @@
+{
+  "seed": "gyeongseong-creature",
+  "reviewed": "2026-08-26",
+  "standfirst": "1945 Gyeongseong, a pawnshop owner who can find anybody, a detective's daughter looking for her mother, and a hospital doing something in the basement. The history is the horror here, and the show is clear about it. These six keep the period, the creature or the confinement.",
+  "picks": [
+    {
+      "slug": "parasyte-the-grey",
+      "match": 86,
+      "why": "<b>A body used as a laboratory by an institution.</b> Same premise of an organisation that knows exactly what it has made and keeps it filed, and the same use of creature horror to indict administration. <i>Difference:</i> it is contemporary, six episodes, and the emotional core is one isolated woman."
+    },
+    {
+      "slug": "mr-sunshine",
+      "match": 84,
+      "why": "<b>Occupation-era Korea taken seriously as a setting.</b> Same period, same weight given to collaboration and resistance, same interest in who profits. <i>Difference:</i> no monster, no genre relief, and the pace is stately across twenty four hours."
+    },
+    {
+      "slug": "my-dearest",
+      "match": 82,
+      "why": "<b>A romance conducted while the country is being taken apart.</b> Same balance of melodrama and history, with a lead who is flippant about everything except one person. <i>Difference:</i> it is a sageuk with no horror element and much better writing in its second half."
+    },
+    {
+      "slug": "moving",
+      "match": 80,
+      "why": "<b>Ordinary bodies weaponised by people with offices.</b> Both split their attention between a present-day search and what an older generation was forced to do. <i>Difference:</i> it is a superpower family saga with a 1990s spy half, and it is far more optimistic."
+    },
+    {
+      "slug": "the-haunted-palace",
+      "match": 77,
+      "why": "<b>Historical setting, literal monster, romance intact.</b> Same commitment to a creature with folklore behind it and a couple at the centre. <i>Difference:</i> it is a sageuk fantasy with comedy, so the dread never accumulates."
+    },
+    {
+      "slug": "dear-hongrang",
+      "match": 75,
+      "why": "<b>Period mystery about what a family buried.</b> Same interest in an era's secrets and in an identity that does not check out. <i>Difference:</i> no creature and no institution, just one house and a very uncomfortable relationship."
+    }
+  ],
+  "against": [
+    {
+      "title": "Sweet Home",
+      "why": "The reflex creature-horror pick. It is a contemporary siege in an apartment block with monsters as metaphor for despair, and none of the colonial history that makes this specific."
+    },
+    {
+      "title": "Kingdom",
+      "why": "Named as the historical horror standard. It is a political thriller with zombies and an excellent script; Gyeongseong Creature is a romance with a monster and a much softer spine."
+    },
+    {
+      "title": "Squid Game",
+      "why": "Recommended because it is the Netflix Korean default. There is no game, no allegory and no ensemble here, and the villain is a documented occupying force."
+    }
+  ]
+}

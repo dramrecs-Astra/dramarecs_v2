@@ -1,0 +1,51 @@
+{
+  "seed": "parasyte-the-grey",
+  "reviewed": "2026-08-26",
+  "standfirst": "Six episodes, one clever rule (the parasite can only surface for fifteen minutes at a time, which turns every fight into a countdown) and no fat on it. Jeon So Nee plays two things inside one body without ever blurring them, Koo Kyo Hwan is the reason to stay, and the task force scenes are stock. The gore is heavy enough to matter if that matters to you. Below: Korean genre at the same length and temperature.",
+  "picks": [
+    {
+      "slug": "a-shop-for-killers",
+      "match": 90,
+      "why": "<b>Eight episodes, one house, zero padding.</b> The other 2024 piece that treats runtime as a resource rather than a quota, built on the same trick of a body that already knows how to survive before its owner does. Both are cut by somebody who understands momentum. <b>Difference:</b> no horror and no supernatural element. The threat is entirely human and the structure is a flashback puzzle."
+    },
+    {
+      "slug": "gyeongseong-creature",
+      "match": 88,
+      "why": "<b>A monster made in a lab, and the people who built it walking away clean.</b> Shares the exact political layer that makes Parasyte more than a chase: the institution studying the infection is worse than the infection. Strong creature design, real production money. <b>Difference:</b> it is a period drama with a romance at its centre, and it runs far longer than it needs to."
+    },
+    {
+      "slug": "strangers-from-hell",
+      "match": 85,
+      "why": "<b>Contamination as an argument about what a person turns into.</b> Both take a quiet protagonist and ask how much of the monster was already in there, and both are willing to let the answer be unpleasant. Ten tight episodes, escalating claustrophobia. <b>Difference:</b> there is nothing supernatural in it. The horror is a building full of tenants, and the ending is genuinely grim."
+    },
+    {
+      "slug": "blood-free",
+      "match": 83,
+      "why": "<b>Biotech that got ahead of the people running it.</b> Same cold, procedural approach to a science fiction premise: rules first, then consequences, with a corporation acting as the real antagonist. Ju Ji Hoon is excellent in it. <b>Difference:</b> almost no action. It is a talk-heavy thriller and its pace is deliberately slow."
+    },
+    {
+      "slug": "if-wishes-could-kill",
+      "match": 81,
+      "why": "<b>Body horror with a hard rule at the centre.</b> Both build their dread out of a mechanism you understand perfectly and the characters keep testing, and both use gore as punctuation rather than decoration. <b>Difference:</b> it is a youth horror with a curse rather than an organism, so the tone is closer to a slasher than to science fiction."
+    },
+    {
+      "slug": "mercy-for-none",
+      "match": 78,
+      "why": "<b>Momentum as the point.</b> If what you liked was the refusal to waste a scene, this is the same discipline aimed at a gang structure: one target per episode, no romance, no comic relief. <b>Difference:</b> no genre element at all, and it is bleaker in the last hour than anything Parasyte does."
+    }
+  ],
+  "against": [
+    {
+      "title": "Sweet Home",
+      "why": "The pairing that gets made every time, and it is the wrong shape. Sweet Home is a sprawling apartment-block ensemble with sentimental monologues and a saggy middle. Parasyte is six episodes of forward motion with a rule you can hold in your head."
+    },
+    {
+      "title": "All of Us Are Dead",
+      "why": "Paired for the outbreak. It is a school-set survival ensemble with teenage romance subplots and twelve hours of running down corridors. The pleasure is completely different: crowds and chaos, not a single infected hand doing arithmetic."
+    },
+    {
+      "title": "Hellbound",
+      "why": "Paired for the supernatural apocalypse and the institutional response. Hellbound is a theology seminar with two demonstrations, and it is much more interested in the cult than in the creatures. Nobody watching Parasyte for the countdown fights wants that."
+    }
+  ]
+}

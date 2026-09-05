@@ -1,0 +1,52 @@
+{
+  "seed": "my-name",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like My Name: eight-episode revenge, real fight choreography, and the shows that plot it better.",
+  "standfirst": "Eight episodes, one revenge, and the most physical hand-to-hand work Netflix has funded in Korea. The plot is predictable, the killer reveal is a shrug, and the last episode inserts a romance nobody asked for. What carries it is Han So Hee taking punishment and the relationship with the crime boss who takes her in, which is the actual subject of the show, not the revenge. If The Glory is the comparison in your head, that one is the better written show and this is the more visceral one.",
+  "picks": [
+    {
+      "slug": "the-glory",
+      "match": 96,
+      "why": "<b>The comparison worth making, and the one that wins it.</b> Same appetite for a woman who has organised her entire adult life around one debt, and the same refusal to let her come out of it whole. Difference: it works by manipulation rather than fists, sixteen patient episodes of a plan being executed, where this is eight hours of a body being thrown at a wall."
+    },
+    {
+      "slug": "the-worst-of-evil",
+      "match": 91,
+      "why": "<b>Undercover, and in love with the people you are betraying.</b> Same central bind of an identity taken on for a mission and then worn too long, and the same willingness to make the criminal the most sympathetic person on screen. Difference: 1995 period Gangnam, twelve episodes, and the violence is sustained and ugly with no relief valve."
+    },
+    {
+      "slug": "a-shop-for-killers",
+      "match": 86,
+      "why": "<b>A woman who was trained for this without being told.</b> Same pleasure of watching somebody who should not survive keep surviving, staged rather than edited. Difference: the structure is the trick, a present-day siege cut against a childhood of quiet preparation, so every flashback pays off as ammunition instead of grief."
+    },
+    {
+      "slug": "little-women",
+      "match": 81,
+      "why": "<b>Women against a class that has never lost.</b> Same shape of an ordinary person walking into an organisation that eats people, with money in place of a syndicate. Difference: it is a plot machine at pace 4 rather than a body under strain, and the danger is legal and financial before it is physical."
+    },
+    {
+      "slug": "flex-x-cop",
+      "match": 76,
+      "why": "<b>Same writer, and the exact opposite mood.</b> Kim Ba Da again, with Ahn Bo Hyun again, on a partnership that grows without a romance being forced into it. Difference: it is a comedy procedural with cases that close cleanly, so it is fun where this is grief, and nobody is asked to lose their name."
+    },
+    {
+      "slug": "bloodhounds",
+      "match": 71,
+      "why": "<b>Fists as the primary language, filmed like they matter.</b> Same commitment to real choreography over cutting, same world of loan sharks and men with no legal options. Difference: it runs on friendship rather than revenge and it ends happy, so it is warm in a way this show has no interest in being."
+    }
+  ],
+  "against": [
+    {
+      "title": "Vincenzo",
+      "why": "The default revenge recommendation, and it is a comedy. A lawyer takes on a conglomerate with cartoon henchmen, running jokes and a plaza full of tenants. My Name is grief with a knife in it. The tonal gap is the whole problem."
+    },
+    {
+      "title": "Sweet Home",
+      "why": "Paired for the Netflix action shelf and the apartment-block claustrophobia. It is a creature show with prosthetics and set pieces, and its interest is survival horror rather than choreography. Nothing in it does what a fight in this does."
+    },
+    {
+      "title": "Itaewon Class",
+      "why": "Recommended because of Ahn Bo Hyun, and it is a business drama with a moral hero at its centre. Sixteen episodes of a small bar taking on a conglomerate, warm and hopeful. The reason to watch My Name is that nobody in it gets to keep their dignity."
+    }
+  ]
+}

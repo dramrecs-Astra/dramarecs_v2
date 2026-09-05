@@ -1,0 +1,52 @@
+{
+  "seed": "w-two-worlds",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like W: Two Worlds: six high-concept thrillers with real rules, and an honest note on which ones keep them.",
+  "standfirst": "A surgeon pulled inside her father's webtoon, a hero who works out he is being written, and four opening episodes that are the best high-concept hour Korean television has produced. The appeal is the rule set: a world with laws, and a plot that obeys them. These six scratch that, and we are blunt about which ones break their own rules in the back half, because W does.",
+  "picks": [
+    {
+      "slug": "memories-of-the-alhambra",
+      "match": 96,
+      "why": "<b>Same writer, same trick, same failure mode.</b> Song Jae Jung again building a second reality with hard rules, this time an augmented-reality game bleeding into Granada, and for twelve episodes it is the most exciting thing she has written. Hyun Bin is excellent as a man who cannot tell what is rendered. Difference: where W buys its happy ending, this one withholds an ending altogether, so you trade one kind of unsatisfying last act for another."
+    },
+    {
+      "slug": "extraordinary-you",
+      "match": 91,
+      "why": "<b>The other drama about a character discovering she is drawn.</b> A schoolgirl realises she is a background extra in a comic and starts fighting the author for her own scenes, which is W's premise from the page's point of view rather than the reader's. For ten half-hour episodes the rule-mechanics are genuinely thrilling. Difference: it is a teen romance in a school uniform, so the thriller weight and the gun violence are gone entirely."
+    },
+    {
+      "slug": "signal",
+      "match": 86,
+      "why": "<b>If the part you loved was the rules holding.</b> A walkie-talkie connects a profiler to a detective twenty years back, and the time travel logic is actually consistent, which makes it the strongest plotted thing on the site. Same pleasure of a mechanism you can reason about. Difference: no romance, no fantasy gloss, and it never lets the mechanism off the hook to get somebody out of trouble."
+    },
+    {
+      "slug": "marry-my-husband",
+      "match": 81,
+      "why": "<b>A second chance with the pacing of a thriller.</b> She dies, wakes up ten years earlier and starts redirecting her own murder inside the first hour, which is the closest anything here gets to W's opening velocity. Every trap is set up and paid off. Difference: it is a revenge fantasy with no interest in subtlety, and the concept is a delivery system for satisfaction rather than a puzzle."
+    },
+    {
+      "slug": "while-you-were-sleeping",
+      "match": 76,
+      "why": "<b>Lee Jong Suk again, in the gentler version of the same problem.</b> Dreams that show a crime before it happens, and a legal system that has to be dragged into acting on them. The mechanic is used to withhold context rather than to hand over answers, which is W's best habit. Difference: it is warm where W is cold, and it resolves its cases rather than escalating them."
+    },
+    {
+      "slug": "reborn-rich",
+      "match": 71,
+      "why": "<b>Same director, one impossible premise, played completely straight.</b> Jeong Dae Yun shooting a man reborn into the family that killed him, and the show treats the conceit as a business thriller rather than a fantasy. Same appetite for a smart lead exploiting a rule nobody else can see. Difference: the fantasy is one line of setup and the remaining twenty hours are boardrooms, plus a final episode that undoes more than it should."
+    }
+  ],
+  "against": [
+    {
+      "title": "The King: Eternal Monarch",
+      "why": "The standard recommendation for two-worlds fantasy and the reason people give up on the genre. It has the parallel-world premise and none of the discipline: the rules are announced rather than demonstrated, and by the midpoint nothing that happens is constrained by anything."
+    },
+    {
+      "title": "Alice",
+      "why": "Paired with W constantly for the science-fiction romance shape. It spends its runtime explaining a time machine instead of using one, and the emotional core it is actually built on is a mother-son story rather than the thriller the first episode advertises."
+    },
+    {
+      "title": "Sisyphus: The Myth",
+      "why": "Sold as the next high-concept Korean blockbuster, with the budget to match. The premise is strong for two hours and then the plot mechanics contradict each other openly, which is precisely the failure W only commits in its final third."
+    }
+  ]
+}

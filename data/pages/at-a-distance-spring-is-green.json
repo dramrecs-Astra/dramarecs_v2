@@ -1,0 +1,52 @@
+{
+  "seed": "at-a-distance-spring-is-green",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like At a Distance, Spring Is Green: campus dramas where the male friendship carries it, not the romance.",
+  "standfirst": "A campus drama with a depression story hidden inside a friendship story, and the friendship is the better half by a wide margin. The romance is the weak strand and it never catches up: what holds twelve episodes together is two damaged young men and the performance each of them keeps up in public. The male lead is morally grey and the show forgives him faster than the writing has earned. Nothing gets cured, and both of them end up saying out loud that they need help, which is what this show counts as progress. Small, uneven, and honest about the things it gets right.",
+  "picks": [
+    {
+      "slug": "weak-hero-class-1",
+      "match": 96,
+      "why": "<b>Male friendship as the actual love story, under much worse pressure.</b> Same subject of a boy who cannot ask for help and the one person who works out that he needs it, and the same interest in what a school does to somebody it has decided about. Difference: violence is the engine, the ending is tragic, and it is far harder to watch."
+    },
+    {
+      "slug": "move-to-heaven",
+      "match": 91,
+      "why": "<b>A young man and the guardian who will not perform sympathy at him.</b> Same treatment of trauma as a fact to be lived with rather than a plot to be resolved, same quiet camera. Difference: eight episodes structured around the dead at heavy 5, so it is gentler in tone and much sadder in effect."
+    },
+    {
+      "slug": "daily-dose-of-sunshine",
+      "match": 86,
+      "why": "<b>Depression treated with actual procedure instead of atmosphere.</b> Same insistence that this is an illness rather than a mood, and the same care not to make anybody's suffering picturesque. Difference: it is set in a psychiatric ward with a patient per episode, so treatment is on screen where here it is a decision made in the final hour."
+    },
+    {
+      "slug": "just-between-lovers",
+      "match": 81,
+      "why": "<b>Two survivors behaving badly before they behave well.</b> Same patience with people who push help away, same reading of grief as something physical. Difference: it is a full romance and it commits to recovery, so the love story does the work the romance here never manages."
+    },
+    {
+      "slug": "cheese-in-the-trap",
+      "match": 76,
+      "why": "<b>The campus, and a male lead you cannot settle on.</b> Same unease about somebody charming whose kindness might be management, and the same university setting rendered with real social detail. Difference: unease is the whole flavour and it ends unfinished, so it offers no equivalent of the reconciliation here."
+    },
+    {
+      "slug": "family-by-choice",
+      "match": 71,
+      "why": "<b>Damaged kids raised into each other's lives.</b> Same tenderness toward young people covering for absent parents, and the same reliance on a trio rather than a couple. Difference: the childhood half is the good half and the adult half becomes a love triangle, which is the mistake this show makes in miniature."
+    }
+  ],
+  "against": [
+    {
+      "title": "Twenty-Five Twenty-One",
+      "why": "The default campus-youth recommendation, and its subject is nostalgia. Warm, wistful, filmed in gold light, with a narration frame that softens everything. This show is about two young men who are not okay, and there is nothing wistful about it."
+    },
+    {
+      "title": "Nevertheless",
+      "why": "Paired for the university setting and the moodiness, and it is about desire rather than depression. Beautiful, ambiguous and mostly concerned with two people refusing to commit. The bromance and the recovery, the two reasons to watch this, are absent."
+    },
+    {
+      "title": "Love Alarm",
+      "why": "Recommended for the young cast and the app premise, and it is a gimmick romance with a love triangle and no interior life. Whatever this show gets right about isolation, that one turns into a notification."
+    }
+  ]
+}

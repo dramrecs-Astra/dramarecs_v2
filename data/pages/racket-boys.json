@@ -1,0 +1,52 @@
+{
+  "seed": "racket-boys",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like Racket Boys: no-villain ensembles, rural comfort viewing, and the friendship dramas that match it.",
+  "standfirst": "The first two episodes are the worst two and they are why this gets dropped: the family is written inconsistently and the badminton has not started mattering yet. Stay to episode four. What it becomes is the best show about friendship of the Reply era, hiding inside a rural sports drama with no villain, no crisis and zero kisses across sixteen episodes. The village is the real subject: parents rebuilding after failure, kids growing up without noticing. Breakfast television in the best sense, and the confidence of the lead boy is the recurring pleasure.",
+  "picks": [
+    {
+      "slug": "prison-playbook",
+      "match": 96,
+      "why": "<b>Same writer, same method: a dozen faces you cannot tell apart, then cannot bear to lose.</b> Jung Bo Hoon again on a closed community, a sport used as structure, and comedy grown from routine rather than jokes. Difference: it is set in a prison, the cast are adults, and the laughs come from institutional cruelty rather than from teenagers being teenagers."
+    },
+    {
+      "slug": "reply-1988",
+      "match": 91,
+      "why": "<b>The neighbourhood as the point, kids and parents given equal weight.</b> Same rhythm of small stakes stretched over twenty hours, same warmth toward adults who are quietly failing, same guarantee that nobody irredeemable lives here. Difference: it has a romance mystery driving it and a nostalgia frame, and it will make you cry properly."
+    },
+    {
+      "slug": "hospital-playlist",
+      "match": 86,
+      "why": "<b>Comfort with no antagonist, which is the hardest thing to write.</b> Same ensemble construction where each hour hands out five small arcs, same use of a shared activity as the reason everybody is in the room. Difference: adults with careers and a band, and the stakes are patients, so the show has real mortality where this one has a tournament."
+    },
+    {
+      "slug": "twinkling-watermelon",
+      "match": 81,
+      "why": "<b>Choi Hyun Wook again, and the same generosity toward teenagers.</b> Same interest in kids who are better people than the adults expect, and the same willingness to let a friend group carry an hour with no plot. Difference: a time-travel premise and a family tragedy give it a much bigger emotional swing than badminton ever attempts."
+    },
+    {
+      "slug": "weightlifting-fairy-kim-bok-joo",
+      "match": 76,
+      "why": "<b>Student athletes, and nothing bad will happen.</b> Same low-stakes training world, same comedy from physical embarrassment, comfort 5 and heavy 1. Difference: it is a romance and the sport is the setting rather than the subject, so the team never matters the way this village does."
+    },
+    {
+      "slug": "resident-playbook",
+      "match": 71,
+      "why": "<b>Ordinary competence, warm and constant, the highest comfort score in the 2025 catalog.</b> Same pleasure of watching four beginners get better at something specific while looking after each other. Difference: a hospital, adults and emergencies every hour, so it has real jeopardy where this one has a scoreline."
+    }
+  ],
+  "against": [
+    {
+      "title": "Weak Hero Class 1",
+      "why": "Paired because it is the other school-and-friendship drama, and it is brutal. Sustained violence, a tragic ending and a friendship that costs everything. Racket Boys is a show you put on at breakfast, and this will take your morning away from you."
+    },
+    {
+      "title": "Twenty-Five Twenty-One",
+      "why": "Recommended for the youth sport, and the sport is a lie. It is a first-love romance with a fencing team attached and an ending built to hurt you. If zero kisses and no crisis was the appeal, this will spend its last four hours undoing both."
+    },
+    {
+      "title": "Dream High",
+      "why": "The other underdog-training ensemble, and it is a 2011 idol vehicle with plot twists every episode, rivalries and a villain. Broad where this is patient. The reason Racket Boys works is that nobody in it is trying to be a star."
+    }
+  ]
+}

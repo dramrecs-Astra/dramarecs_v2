@@ -1,0 +1,51 @@
+{
+  "seed": "goblin",
+  "reviewed": "2026-08-22",
+  "standfirst": "A 939-year-old man who cannot die, a woman who was born to end him, and a grim reaper who forgot his own name. What made it hurt was never the fantasy rules. It was the arithmetic: one person ages, the other does not, and the show refuses to pretend that is fine. These six sit with that arithmetic.",
+  "picks": [
+    {
+      "slug": "hotel-del-luna",
+      "match": 90,
+      "why": "<b>The closest structural match in the genre.</b> An immortal tethered to a place by an old debt, a mortal who walks in and starts costing her something, and a supporting cast of the dead who each get one perfect episode. Same lush production, same bittersweet contract honoured at the end. Difference: grief-comedy rather than fate-comedy, and the female lead drives everything."
+    },
+    {
+      "slug": "tale-of-the-nine-tailed",
+      "match": 84,
+      "why": "Korean folklore played straight, a centuries-old being in a modern city, and a love that keeps getting reincarnated into worse circumstances. Faster and pulpier than Goblin, with a brother rivalry that is the best thing in it. Difference: it pays a lower emotional price. The sacrifice happens and then the show finds a way around it."
+    },
+    {
+      "slug": "alchemy-of-souls",
+      "match": 80,
+      "why": "If the part you loved was the world: sworn fates, a magic system with actual rules, and an ensemble that turns into a family. The Hong sisters write comedy into every scene the mythology will allow. Difference: twenty episodes across two parts, and part one ends on a cliff that will annoy you if you stop there."
+    },
+    {
+      "slug": "mr-sunshine",
+      "match": 76,
+      "why": "Kim Eun-sook again, and the one to watch if what got you was the imagery and the doomed grandeur rather than the fantasy. Every frame is composed, every love is on a clock. Difference: no supernatural escape hatch, and the ending is unambiguously tragic."
+    },
+    {
+      "slug": "my-love-from-another-star",
+      "match": 71,
+      "why": "The same premise with the immortality relocated to another planet: he has waited centuries, she has one lifetime, and the comedy is what keeps it bearable. Difference: much sillier by design, and it resolves the impossible gap with a shrug rather than a cost."
+    },
+    {
+      "slug": "move-to-heaven",
+      "match": 66,
+      "why": "Goblin is secretly a show about what a death leaves behind in a room. This is that thread with the fantasy stripped out entirely: two people clearing the homes of the newly dead. Ten episodes, no romance, and the single cleanest hit of that specific ache. Difference: no fantasy, no comic ensemble and no sweep. It is documentary-plain where Goblin is operatic."
+    }
+  ],
+  "against": [
+    {
+      "title": "Descendants of the Sun",
+      "why": "Same writer, same gloss, so it gets paired constantly. But it is a workplace romance in a disaster zone. Nothing is fated, nothing is owed, and the mythology that made Goblin ache is simply absent."
+    },
+    {
+      "title": "The King: Eternal Monarch",
+      "why": "The obvious pick: Kim Eun-sook plus a fantasy premise. It is also the one that fails at the only thing that matters here, because the emotional logic never clicks the way the fate logic does."
+    },
+    {
+      "title": "Crash Landing on You",
+      "why": "The other great tragic-obstacle romance, in name only. The obstacle there is a border and a bureaucracy, which can be negotiated. Goblin's obstacle is time, which cannot. Different genre of hopelessness."
+    }
+  ]
+}

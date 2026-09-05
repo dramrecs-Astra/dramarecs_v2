@@ -1,0 +1,51 @@
+{
+  "seed": "my-dearest",
+  "reviewed": "2026-08-26",
+  "standfirst": "The best sageuk of 2023: the Qing invasion, a man who refuses to be noble about anything except one person, and a second half that keeps raising the price. An 8.9 from 21,000 ratings, and it earns every point of it. These six are for the historical romance that costs something.",
+  "picks": [
+    {
+      "slug": "mr-sunshine",
+      "match": 92,
+      "why": "<b>History as the thing that decides whether love is allowed.</b> Same structure: a nation being taken apart and a romance that has to be conducted in the gaps. Both are beautiful and both are cruel about it. <i>Difference:</i> it is slower, more political, and the ending is final in a way My Dearest is not."
+    },
+    {
+      "slug": "the-red-sleeve",
+      "match": 89,
+      "why": "<b>Devotion inside a court that forbids it.</b> Both are about a man with power who cannot use it to get the one thing he wants, and both stage restraint better than most shows stage passion. <i>Difference:</i> it stays inside the palace, so there is no war and no separation across a country."
+    },
+    {
+      "slug": "moon-lovers-scarlet-heart-ryeo",
+      "match": 86,
+      "why": "<b>Doomed love with a body count.</b> Same appetite for a romance where politics keeps winning, and the same willingness to let the leads lose. <i>Difference:</i> the fantasy framing and the time-slip device soften the history into legend."
+    },
+    {
+      "slug": "youth-of-may",
+      "match": 84,
+      "why": "<b>Two people trying to have a private life during a national event.</b> Same collision of tenderness and state violence, compressed into twelve hours. <i>Difference:</i> it is set in 1980 and the ending is not survivable, so it hits harder and faster."
+    },
+    {
+      "slug": "the-tale-of-lady-ok",
+      "match": 81,
+      "why": "<b>A woman rebuilding her own status inside a rigid system.</b> Same pleasure in period competence and in a romance that has to be negotiated around class. <i>Difference:</i> the tone is adventurous and the stakes are personal rather than national."
+    },
+    {
+      "slug": "dear-hongrang",
+      "match": 78,
+      "why": "<b>Period melodrama with an unresolvable relationship at its centre.</b> Same mournful key and the same interest in what a family will conceal to survive. <i>Difference:</i> it is a mystery first, and the romance is deliberately uncomfortable."
+    }
+  ],
+  "against": [
+    {
+      "title": "Moonlight Drawn by Clouds",
+      "why": "The light sageuk default. It is a cheerful palace romance for a young audience; My Dearest spends its second half on famine, captivity and separation."
+    },
+    {
+      "title": "Alchemy of Souls",
+      "why": "Paired because it is also a costume drama with a huge following. The magic system and the school comedy have nothing in common with a war melodrama."
+    },
+    {
+      "title": "Under the Queen's Umbrella",
+      "why": "Named as the other prestige sageuk of the period. It is a palace politics comedy about mothers and succession, with no romance to speak of."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "seed": "life-on-mars",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like Life on Mars: six cold, careful crime dramas that trust you to sit with an unanswered question.",
+  "standfirst": "A modern profiler wakes up in 1988 with no forensics, a squad that solves cases with its fists, and a mystery about his own situation the show refuses to explain cleanly. The pull is the mix: proper period procedure, real ambiguity, and a lead who cannot tell whether any of it means anything. These six sit near that, and we say which ones give you an answer.",
+  "picks": [
+    {
+      "slug": "stranger",
+      "match": 96,
+      "why": "<b>The same coldness, held for sixteen episodes without blinking.</b> A prosecutor who feels almost nothing works a corruption case with a detective who feels everything, and the script trusts you to follow a genuinely complicated conspiracy unaided. Same refusal to reward you with a tidy moral. Difference: no period setting and no fantasy premise, and the institution is the antagonist rather than the era."
+    },
+    {
+      "slug": "signal",
+      "match": 91,
+      "why": "<b>Two eras, one case, rules that hold.</b> A radio link across twenty years, cold cases reopened, and the tightest plotting on the site. Same idea that policing changes but the crimes do not. Difference: it commits fully to its mechanism where Life on Mars keeps its own deliberately unresolved, and it is far more emotional about the loss at the centre."
+    },
+    {
+      "slug": "tunnel",
+      "match": 86,
+      "why": "<b>The exact mirror image.</b> A 1986 detective chases a serial killer into 2017, which is this premise reversed, and the case work is patient and satisfying across sixteen episodes. Same interest in old policing as method. Difference: it is warm, it resolves everything, and the partnership becomes affectionate, none of which Life on Mars is willing to give you."
+    },
+    {
+      "slug": "through-the-darkness",
+      "match": 81,
+      "why": "<b>Period profiling, done as unglamorous work.</b> Korea's first profiler in the 1990s, building a method from nothing while the institution resists him, and the interview sequences carry it. Same faith that procedure is enough tension. Difference: no genre device at all, and it is a much slower, flatter watch."
+    },
+    {
+      "slug": "beyond-evil",
+      "match": 76,
+      "why": "<b>Ambiguity as the whole design.</b> Two policemen each convinced the other is a murderer, and the show keeps that unresolved far longer than seems possible, with the best acting in this catalog. Same pleasure of never being sure what you are looking at. Difference: the setting is contemporary and small-town, and the answers do eventually arrive in full."
+    },
+    {
+      "slug": "chief-detective-1958",
+      "match": 71,
+      "why": "<b>The same era-policing, played for entertainment.</b> 1958 Seoul, a squad assembling fast, and a case-a-week rhythm with the period detail worn lightly. Same enjoyment of detectives who work without any modern tools. Difference: it is a comedy with a clean moral spine, so the dread and the ambiguity are entirely absent."
+    }
+  ],
+  "against": [
+    {
+      "title": "Good Boy",
+      "why": "Same writer, and that is the whole basis for the recommendation. It is a broad action comedy about Olympic medallists joining the police, built on a repeating loop of fight, injury and recovery. Nothing in it wants the discomfort Life on Mars is made of."
+    },
+    {
+      "title": "Vagabond",
+      "why": "Recommended as serious Korean crime with scale. It is a conspiracy action thriller with a body count and an ending that services a second season that never arrived. Procedure is not in it anywhere."
+    },
+    {
+      "title": "Voice",
+      "why": "Suggested for the OCN thriller lineage. It goes at violence as spectacle, with a villain designed to be enjoyed, where Life on Mars keeps its crimes small, grubby and period-accurate."
+    }
+  ]
+}

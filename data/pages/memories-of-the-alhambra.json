@@ -1,0 +1,52 @@
+{
+  "seed": "memories-of-the-alhambra",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like Memories of the Alhambra: game rules as reality, Song Jae Jung's puzzles, and thrillers with an ending that holds.",
+  "standfirst": "An augmented-reality game that starts killing people, staged in Granada with the best production design of 2018. The per-episode ratings peaking at 9.4 and finishing at 8.1 is the exact shape of the problem: it abandons its own rules, the last two hours answer none of the questions it spent twelve episodes asking, and the female lead is a passenger in her own story. The honest recommendation is narrow. Watch it for Hyun Bin, watch it if you have ever played the kind of game it is about, and consider stopping at episode twelve.",
+  "picks": [
+    {
+      "slug": "w-two-worlds",
+      "match": 96,
+      "why": "<b>Same writer, and the rules are enforced.</b> Song Jae Jung again on a fictional world that leaks into the real one, with a protagonist who has to learn the mechanics to survive them, and shared cast on top. The two shows are permanently paired because they share the same failure mode in different amounts: a high concept that stops obeying itself once the second half needs a plot. Difference: pace 5 and a murder mystery at the centre, and crucially it commits to its own logic much further, which makes it the better first watch of the two."
+    },
+    {
+      "slug": "stranger",
+      "match": 91,
+      "why": "<b>Same director, and the same cold precision.</b> Ahn Gil Ho again on a protagonist who cannot read other people and solves things by pattern instead, with the same grey, expensive look. Difference: romance 0, no fantasy element and pace 3, so it is entirely procedural and demands you keep track of names."
+    },
+    {
+      "slug": "the-glory",
+      "match": 86,
+      "why": "<b>His most-watched, and the same architecture of a plan executed to the letter.</b> Same director, same interest in a protagonist who has spent years building a system to defeat other people. Difference: heavy 5 and no genre element, so the sci-fi delight is replaced by cruelty, and it is far more satisfying to finish."
+    },
+    {
+      "slug": "deaths-game",
+      "match": 81,
+      "why": "<b>Rules imposed on a person who did not consent to them.</b> Same premise of an ordinary man forced to play by a mechanic he cannot escape, with lives spent as currency. Difference: pace 5 and heavy 5, and it is an anthology of bodies rather than one continuous world, so the location-based obsession here has no equivalent."
+    },
+    {
+      "slug": "the-8-show",
+      "match": 76,
+      "why": "<b>A game with published rules and people exploiting them.</b> Same pleasure of watching participants reverse-engineer a system, same escalation as the mechanics get abused. Difference: it is satire with comfort 1 and no romance, so the emotional through-line that Alhambra attempts is not offered at all."
+    },
+    {
+      "slug": "pyramid-game",
+      "match": 71,
+      "why": "<b>A ranking system running inside an institution.</b> Same interest in what people do once a scoring mechanic is imposed on them, pace 5. Difference: it is a school thriller with no fantasy technology, so the spectacle is stripped out and what remains is social cruelty."
+    }
+  ],
+  "against": [
+    {
+      "title": "Sisyphus: The Myth",
+      "why": "The most-made comparison for the high-concept-collapse shape, and it repeats Alhambra's actual defect: a superb premise, expensive execution, and rules that stop applying in the final act. Watching it back to back is watching the same disappointment twice."
+    },
+    {
+      "title": "The King: Eternal Monarch",
+      "why": "Paired for the parallel-world mechanics and the scale. It never establishes rules to break in the first place, so there is nothing to reverse-engineer. Half the pleasure of Alhambra is the first ten episodes making sense."
+    },
+    {
+      "title": "Alice",
+      "why": "Recommended for the sci-fi-plus-mystery combination and the 2020 slot. It is a time-travel melodrama that resolves into a family reveal, and the genre apparatus is a delivery system for that. Alhambra is at its best when it is being cold and technical."
+    }
+  ]
+}

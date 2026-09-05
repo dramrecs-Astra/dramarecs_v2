@@ -1,0 +1,51 @@
+{
+  "seed": "mask-girl",
+  "reviewed": "2026-08-26",
+  "standfirst": "Three actresses, one woman, twenty years of appearance as a currency that ruins everybody who trades in it. Mask Girl is structured like a relay race, and each handover resets the genre. These six share its cruelty about status and its refusal to let anybody off.",
+  "picks": [
+    {
+      "slug": "the-glory",
+      "match": 91,
+      "why": "<b>Revenge built over decades, executed coldly.</b> Both start from a humiliation that a system declined to punish and follow the arithmetic all the way out. Both are also about what the pursuit does to the pursuer's face and body. <i>Difference:</i> The Glory keeps one protagonist and one moral position; Mask Girl swaps both, twice."
+    },
+    {
+      "slug": "little-women",
+      "match": 87,
+      "why": "<b>Women, money and the exact price of climbing.</b> The same noir logic: a woman decides to want more than she was allotted, and the show tracks every favour that decision costs her. <i>Difference:</i> it is sisters against a dynasty rather than one woman against her own reflection, and it stays stylish where Mask Girl gets ugly."
+    },
+    {
+      "slug": "pyramid-game",
+      "match": 85,
+      "why": "<b>Appearance as a ranking system.</b> Both take the idea that being looked at is a form of violence and build a machine out of it, and both are strongest when the victim starts playing. <i>Difference:</i> a closed classroom setting and a 12 episode arc, so it is tighter and much less explicit."
+    },
+    {
+      "slug": "the-8-show",
+      "match": 83,
+      "why": "<b>Status as a game with rules you can read.</b> The same black comic distance and the same willingness to make you complicit in watching somebody degrade themselves for money. <i>Difference:</i> it is a single allegorical space with no timeline, so nobody gets the twenty year consequence Mask Girl insists on."
+    },
+    {
+      "slug": "the-frog",
+      "match": 80,
+      "why": "<b>Bleak Korean crime with no comfort offered.</b> Both centre a woman whose interior life the show declines to explain, and both let dread do the work that plot usually does. <i>Difference:</i> The Frog withholds an answer entirely, where Mask Girl over-explains its final chapter."
+    },
+    {
+      "slug": "hierarchy",
+      "match": 78,
+      "why": "<b>Beauty and money as an enforcement mechanism.</b> The surfaces are the point in both: a school that ranks by wealth and looks, shot like an advertisement, with a revenge plot underneath. <i>Difference:</i> Hierarchy styles the cruelty and stops there, while Mask Girl follows it to a prison and a daughter."
+    }
+  ],
+  "against": [
+    {
+      "title": "Celebrity",
+      "why": "The other 2023 Netflix series about internet fame, and the pairing everybody makes. It sets up the same rot then softens into a whodunnit, and its heroine stays likeable, which is the one thing Mask Girl refuses to do."
+    },
+    {
+      "title": "Extracurricular",
+      "why": "Paired for the moral bleakness. That show is about teenagers making one criminal decision under pressure; Mask Girl is about twenty years of adult self-loathing and its consequences for a child."
+    },
+    {
+      "title": "Squid Game",
+      "why": "Named because it is Korean, on Netflix and violent. There is no game, no ensemble and no allegory here, just one face and what the world does to it."
+    }
+  ]
+}

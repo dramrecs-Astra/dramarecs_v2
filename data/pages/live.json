@@ -1,0 +1,52 @@
+{
+  "seed": "live",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like Live: six shows about doing an underpaid job properly, and what it costs.",
+  "standfirst": "A patrol division staffed by people who took the job because nothing else was available, and eighteen hours of shift work that is small, thankless and occasionally lethal. Noh Hee Kyung writes it as labour rather than heroism: the uniform does not make anybody safe, and the institution does not reward anybody fairly. These six share that, and we say which ones keep the job at the centre.",
+  "picks": [
+    {
+      "slug": "misaeng",
+      "match": 96,
+      "why": "<b>The same argument in an office instead of a patrol car.</b> A contract worker with no degree inside a trading company, and twenty episodes about hierarchy, paperwork and the exact mechanics of being expendable. Same refusal to hand out a promotion as a reward for suffering. Difference: no physical danger and no ensemble comedy, so it is the bleaker of the two by some distance."
+    },
+    {
+      "slug": "our-blues",
+      "match": 91,
+      "why": "<b>Same writer, same director, whole lives instead of one shift.</b> Noh Hee Kyung and Kim Kyu Tae on Jeju, handing chapters to people whose work defines them, written with the patience the genre almost never grants middle-aged characters. Difference: it is an anthology about family and money rather than one workplace, and it lets everybody land somewhere gentle."
+    },
+    {
+      "slug": "dear-my-friends",
+      "match": 86,
+      "why": "<b>Same writer, the same eye, pointed at old age.</b> A group of women in their seventies and the writer recording them, all of it about people the story usually looks past. Same dialogue rhythms and the same conviction that ordinary want is enough plot. Difference: no institution and no procedure, so the structure Live leans on is absent."
+    },
+    {
+      "slug": "prison-playbook",
+      "match": 81,
+      "why": "<b>The other great ensemble about a closed system with rules.</b> A newcomer with no standing dropped inside an institution and slowly learning how it actually works, surrounded by an ensemble that accumulates. Difference: it is deliberately funny and it lets people be kind to each other in ways Live's shift pattern never allows."
+    },
+    {
+      "slug": "hospital-playlist",
+      "match": 76,
+      "why": "<b>Professionals doing a hard job, with the anger removed.</b> The medical work is real and the show is genuinely about competence, and the friendship carries the runtime. Difference: everyone is senior, comfortable and admired, so none of Live's material about pay, rank and being disposable exists here."
+    },
+    {
+      "slug": "extraordinary-attorney-woo",
+      "match": 71,
+      "why": "<b>A rookie inside a profession that was not built for her.</b> Case-of-the-week structure, a junior finding out how the institution really works, and a workplace that has to adjust around her rather than the reverse. Difference: it is warm and largely consoling, and the institution eventually behaves, which Live is clear-eyed enough never to promise."
+    }
+  ],
+  "against": [
+    {
+      "title": "Stranger",
+      "why": "The default recommendation for serious Korean police drama, and it is a better script. It is also about prosecutors, conspiracies and institutional power at the top. Live is about the bottom rung of the same organisation, where nobody has any leverage at all."
+    },
+    {
+      "title": "Signal",
+      "why": "Handed over for the police-procedural shape. It is a puzzle box with a fantasy device, and the pleasure is the plotting. Live has almost no plot on purpose, because a shift does not have one."
+    },
+    {
+      "title": "Beyond Evil",
+      "why": "Suggested because it is the best acted police drama here. It is a two-hander psychological thriller about whether either man is a murderer, and the job in it is a setting rather than a subject."
+    }
+  ]
+}

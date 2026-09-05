@@ -1,0 +1,51 @@
+{
+  "seed": "pyramid-game",
+  "reviewed": "2026-08-26",
+  "standfirst": "A girls' school ranked by anonymous monthly vote, which is the sharpest structural idea any Korean school drama has had. Ten episodes that treat bullying as politics rather than melodrama, so every alliance shifts for a reason and the hierarchy is always one vote from collapse. Bo Na and Jang Da A are both excellent and neither is written to be liked. It is hard to sit through in places. Below: the shows that take the same subject seriously.",
+  "picks": [
+    {
+      "slug": "weak-hero-class-1",
+      "match": 93,
+      "why": "<b>School violence filmed as a power structure, not a morality tale.</b> Same clarity as Pyramid Game about who holds what and why, with the fights doing the work the vote does: everybody knows the ranking and everybody is managing their position in it. The best written school drama Korea has made. <b>Difference:</b> the ending is genuinely tragic where Pyramid Game leaves a system broken and its people standing."
+    },
+    {
+      "slug": "the-glory",
+      "match": 91,
+      "why": "<b>Bullying as something that never expires.</b> Pyramid Game shows the machine running; The Glory shows the bill arriving eighteen years later, with the same understanding that the cruelty was organised and social rather than random. Song Hye Kyo is glacial and precise. <b>Difference:</b> it is a baroque adult revenge drama, and its pleasures are cold and slow where Pyramid Game is tense and fast."
+    },
+    {
+      "slug": "revenge-of-others",
+      "match": 87,
+      "why": "<b>A school where a death gets filed as a suicide and somebody refuses to accept it.</b> Same institutional rot as Pyramid Game: the teachers are useless by design, the students run their own courts, and the truth is a matter of who has leverage. <b>Difference:</b> it is a whodunnit with a twin at the centre, so the tension comes from a mystery rather than from a standing hierarchy."
+    },
+    {
+      "slug": "the-8-show",
+      "match": 84,
+      "why": "<b>A ranking system that everybody agrees to, then cannot leave.</b> The adult version of the Pyramid Game premise: floors instead of grades, money instead of votes, and the same slow proof that people will enforce a hierarchy against their own interest. <b>Difference:</b> it is a satire with graphic violence and no hope in it, and the final hours lose their nerve."
+    },
+    {
+      "slug": "squid-game",
+      "match": 81,
+      "why": "<b>Voluntary participation in a system that is obviously rigged.</b> Shares the one insight Pyramid Game is built on, that the vote is what makes the cruelty legitimate. If the monthly poll was the part that got under your skin, this is that mechanic at scale. <b>Difference:</b> the stakes are lethal and the tone is much broader, with allegory doing the heavy lifting."
+    },
+    {
+      "slug": "juvenile-justice",
+      "match": 78,
+      "why": "<b>The paperwork after the violence.</b> Ten episodes on what actually happens to teenagers who do damage to each other, with a judge who has no patience for the schools that covered it up. It answers the question Pyramid Game leaves hanging. <b>Difference:</b> it is a procedural, cold and adult, with no students at the centre and no catharsis."
+    }
+  ],
+  "against": [
+    {
+      "title": "Hierarchy",
+      "why": "The obvious pairing, since both are 2024 Korean school dramas about a ranked student body. Hierarchy tried this exact idea and failed: the elite are glossy, the class politics collapse into a love triangle, and the bullying is styled rather than dissected. Pyramid Game is what it wanted to be."
+    },
+    {
+      "title": "Bitch X Rich",
+      "why": "Paired for the girls' school power struggle, and it is fun in a trashy way. It is also a murder mystery in designer uniforms, with the ranking used for set dressing. Pyramid Game makes the ranking the entire mechanism, which is why it holds."
+    },
+    {
+      "title": "Sky Castle",
+      "why": "Paired because it is the other famous Korean drama about a school system eating children. It is a satire about parents, and the kids are collateral. Nothing in it is about the private government that students run among themselves."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "seed": "crash-course-in-romance",
+  "reviewed": "2026-08-26",
+  "standfirst": "The best romcom of 2023, and the one with something underneath it: a burnt-out star tutor, a side-dish shop owner who feeds him, and a stalker thread that keeps the whole thing from floating away. These six are for romance with an actual second engine.",
+  "picks": [
+    {
+      "slug": "when-the-camellia-blooms",
+      "match": 89,
+      "why": "<b>Warm romance with a genuine threat running under it.</b> Same architecture: a competent woman, a man who decides early and stays decided, and a thriller subplot that gives every soft scene a floor. <i>Difference:</i> the danger is a serial killer rather than a fixation, and the town is a character."
+    },
+    {
+      "slug": "hometown-cha-cha-cha",
+      "match": 87,
+      "why": "<b>A prickly professional and the person who feeds the neighbourhood.</b> Same pleasure in a couple negotiated through small daily services rather than declarations. <i>Difference:</i> no crime plot at all, so the tension is entirely internal and the pace is slower."
+    },
+    {
+      "slug": "welcome-to-samdal-ri",
+      "match": 84,
+      "why": "<b>Career collapse, family kitchen, childhood proximity.</b> Same 2023 warmth and the same use of food and family as the site of the romance. <i>Difference:</i> the first half is padded, and the obstacle is reputation rather than a threat to anybody's safety."
+    },
+    {
+      "slug": "love-scout",
+      "match": 82,
+      "why": "<b>Two adults with jobs, negotiating a relationship around them.</b> Same grown-up register where the work is real and the romance has to fit into it. <i>Difference:</i> it is a workplace comedy with a single father subplot, and nothing outside the office is at risk."
+    },
+    {
+      "slug": "the-potato-lab",
+      "match": 79,
+      "why": "<b>Bickering competence as courtship.</b> If the tutor and shop owner arguing was the reason you stayed, this runs the same dynamic for twelve tighter hours. <i>Difference:</i> lower stakes, no family ensemble, and a dry tone that never reaches for warmth."
+    },
+    {
+      "slug": "brewing-love",
+      "match": 76,
+      "why": "<b>Food, a small business and a romance built out of labour.</b> Same setting-forward charm and the same interest in a woman running something. <i>Difference:</i> it is much slighter, and it has no interest in the pressure that makes this show sting."
+    }
+  ],
+  "against": [
+    {
+      "title": "Sky Castle",
+      "why": "The obvious pairing for the education plot, and a completely different animal. It is an icy satire about parents destroying children; Crash Course keeps a romance and a warm family at its centre."
+    },
+    {
+      "title": "Business Proposal",
+      "why": "Named as the safe romcom next step. There is no mystery, no adolescent pressure and no cooking in it, so it hands back exactly one of the three things this show is made of."
+    },
+    {
+      "title": "Doctor Cha",
+      "why": "Paired as the other 2023 adult jTBC-flavoured drama about a woman restarting. It is a divorce comedy about medical hierarchy, and the romance is not the point."
+    }
+  ]
+}

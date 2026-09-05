@@ -1,0 +1,51 @@
+{
+  "seed": "flex-x-cop",
+  "reviewed": "2026-08-26",
+  "standfirst": "A chaebol heir gets dumped into a violent crimes unit as punishment, and sixteen episodes follow that never once forget they are supposed to be fun. Cases actually close, the action is staged rather than edited, the dialogue is snappy, and the partnership grows without a romance bolted onto it. The per-episode curve climbs from 8.6 to a 9.7 finale, which is rare and says everything. Below: picked for that exact pleasure, not for depth.",
+  "picks": [
+    {
+      "slug": "the-fiery-priest",
+      "match": 94,
+      "why": "<b>The same engine: an impossible man forced onto a team that cannot fire him.</b> Action comedy played at full speed, with a case structure that pays off weekly and a supporting cast built for reaction shots. If Jin I Su's mix of arrogance and competence is what you came for, the priest is the purest version of it on Korean television. <b>Difference:</b> it is angrier and more political under the comedy, and the villains are institutions rather than individuals."
+    },
+    {
+      "slug": "vincenzo",
+      "match": 90,
+      "why": "<b>A rich outsider who solves crime with money and bad manners.</b> Both shows enjoy their own hero far too much and are correct to, both put a competent woman opposite him without making the show about the pairing, and both stage set pieces properly. <b>Difference:</b> Vincenzo is twenty episodes and its tonal swings are much wider, with real cruelty sitting next to the jokes."
+    },
+    {
+      "slug": "the-trauma-code",
+      "match": 88,
+      "why": "<b>An arrogant specialist who is always right, in a system built to slow him down.</b> Eight episodes at a sprint, comedy timed like an action beat, and the same satisfaction of watching somebody excellent be rude to the incompetent. The best pure fun on this list. <b>Difference:</b> it is medical rather than criminal, and the stakes reset every case with no season arc to speak of."
+    },
+    {
+      "slug": "chief-detective-1958",
+      "match": 85,
+      "why": "<b>Case of the week, done with real craft.</b> Same procedural pleasures as Flex X Cop with the gloss swapped for period grime: a squad that works, a lead who refuses the easy route, and endings that land inside the hour. <b>Difference:</b> it is set in 1958 and the tone is dryer, with less comedy and more weight on the crimes themselves."
+    },
+    {
+      "slug": "taxi-driver",
+      "match": 83,
+      "why": "<b>Rich resources aimed at cases the police cannot close.</b> Both are revenge-adjacent procedurals where the fun is in the operation: the disguise, the plan, the moment the target realises. Pace 5, and it never apologises for being pulpy. <b>Difference:</b> the crimes are far nastier and drawn from real cases, so the comedy has to work harder around them."
+    },
+    {
+      "slug": "the-auditors",
+      "match": 81,
+      "why": "<b>An outsider parachuted into an institution to embarrass it.</b> Same structure as Flex X Cop with a spreadsheet instead of a service weapon, and Shin Ha Kyun playing the same kind of unbearable competence. Tight twelve episodes. <b>Difference:</b> the setting is corporate, the action is verbal, and the partnership is mentor to junior rather than equals."
+    }
+  ],
+  "against": [
+    {
+      "title": "Stranger",
+      "why": "Paired constantly because both are Korean police procedurals, which is the only thing they share. Stranger is a cold, quiet study of prosecutorial corruption with a lead who cannot feel emotion. It is a better show and it is the opposite of a good time. Do not hand it to somebody who wants more Flex X Cop."
+    },
+    {
+      "title": "Signal",
+      "why": "Paired for the case-of-the-week structure. Signal is a grief machine with a time paradox, and its cases exist to break your heart about the ones that were not solved. Flex X Cop is built so that you finish an episode feeling good."
+    },
+    {
+      "title": "The Impossible Heir",
+      "why": "Paired for the chaebol angle, which is the shallowest possible match. It is a bleak class-conflict thriller where wealth is a cage and everybody loses. There is no fun in it at all, deliberately."
+    }
+  ]
+}

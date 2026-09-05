@@ -1,0 +1,52 @@
+{
+  "seed": "my-id-is-gangnam-beauty",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like My ID Is Gangnam Beauty: campus romance that treats appearance as a system, not a makeover montage.",
+  "standfirst": "A 7.6 aggregate from 102,026 ratings against a written-review average of 8.83 is the tell, and both numbers are defensible. It is a campus romance where the surgery is the premise rather than the payoff, and it is also a very common first Korean drama, which flatters it in memory and rarely survives a rewatch. The male lead is played so still that whether it reads as restraint or as blankness is a coin toss, his early treatment of her looks worse the second time, and the themes it raises about appearance are dropped before they are finished.",
+  "picks": [
+    {
+      "slug": "weightlifting-fairy-kim-bok-joo",
+      "match": 95,
+      "why": "<b>The closest thing in the catalog, and it is about the same wound.</b> A young woman whose body is public property, a first love with somebody who already knew her, and a campus that keeps ranking people. Both refuse to make the transformation the point, and both are funniest when the friend group takes over. Difference: it is far warmer and comfort 5 against comfort 4, with no bullying flashbacks, so the ache here is nostalgic rather than raw."
+    },
+    {
+      "slug": "cheese-in-the-trap",
+      "match": 90,
+      "why": "<b>The same university, read as a threat.</b> Webtoon source, Korean campus hierarchy, group projects as power plays, and a male lead whose kindness is a question rather than a fact. Both shows understand that most of the cruelty at that age is procedural. Difference: it is a psychological study with no comfort in it, and the adaptation abandons its own ending, so do not come here for the resolution this one gives you."
+    },
+    {
+      "slug": "twenty-five-twenty-one",
+      "match": 84,
+      "why": "<b>Youth written by somebody who remembers it hurting.</b> Same interest in a young woman deciding what she is worth outside other people's assessment, same slow-burn first love, same friend group doing the heavy lifting. Difference: it is framed by an adult looking back, and the frame is sad on purpose, so the ending recolours everything in front of it."
+    },
+    {
+      "slug": "extraordinary-you",
+      "match": 79,
+      "why": "<b>A school story about being cast in somebody else's plot.</b> Both take a girl who has been assigned a role by everybody around her and let her fight the assignment, and both are webtoon adaptations that use a high school as a machine for ranking people. Difference: the fantasy premise takes over completely, so the social realism that makes Gangnam Beauty sting is replaced by rules and twists."
+    },
+    {
+      "slug": "run-on",
+      "match": 74,
+      "why": "<b>The adult version of the same quiet.</b> Two people who communicate carefully, a university and a sports world that both punish anyone who steps out of line, and a romance built from consideration rather than tension. Difference: the pace is genuinely slow and there is no bullying plot or comic ensemble, so it asks more patience and gives less relief."
+    },
+    {
+      "slug": "twinkling-watermelon",
+      "match": 69,
+      "why": "<b>Youth, difference, and a kid learning what his parents survived.</b> Same tenderness toward a teenager who has been treated as a problem, same use of a school as the arena. Difference: it is a time-travel fantasy with a music-club heart, so the social critique is replaced by sentiment, and it is aimed younger."
+    }
+  ],
+  "against": [
+    {
+      "title": "True Beauty",
+      "why": "The obvious pick, and it is the opposite film with the same logline. The makeover works, the secret is a farce engine, and the show is never interested in why anyone needed it. Gangnam Beauty puts the surgery in episode one precisely so it cannot be the ending."
+    },
+    {
+      "title": "Boys Over Flowers",
+      "why": "Still the default campus recommendation, and it will read as a period piece. The hierarchy is a fantasy about wealth rather than a study of appearance, and the male lead's cruelty is styled as romance. That is the exact convention this show was written against."
+    },
+    {
+      "title": "Love Alarm",
+      "why": "Paired for the school setting and the webtoon origin, and the reason it fails is that it has no interest in its own premise. An app that reveals attraction is a great idea used for a love triangle and then dropped. The social machinery here is the subject, not the gimmick."
+    }
+  ]
+}

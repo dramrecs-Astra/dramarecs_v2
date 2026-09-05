@@ -1,0 +1,52 @@
+{
+  "seed": "just-between-lovers",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like Just Between Lovers: six melodramas about damage, and two people carrying it together.",
+  "standfirst": "Two survivors of the same building collapse, both of them still living inside it years later, and a romance built out of recognition rather than attraction. This is the specific shape: grief that has not been processed, work that will not stop, and comfort arriving from the only other person who was there. These six sit in that register, and we say which ones offer relief and which do not.",
+  "picks": [
+    {
+      "slug": "its-okay-to-not-be-okay",
+      "match": 96,
+      "why": "<b>The same argument with a much bigger budget.</b> Two damaged people plus a brother, all three of them treating trauma as something to be lived with rather than solved, and the show is unusually honest about caretaking as a job. Same structure of love as mutual recognition. Difference: it is deliberately theatrical and about a third longer than its story, and it loses its nerve late, swapping the harder ending for a kind one."
+    },
+    {
+      "slug": "its-okay-thats-love",
+      "match": 91,
+      "why": "<b>The version that did it first, and did it better.</b> A novelist, a psychiatrist and a shared house, with the illness at the centre written as a condition rather than a plot device, and funny throughout without ever undercutting itself. Difference: the sadness is a diagnosis rather than a disaster, and it has a lightness Just Between Lovers never reaches for."
+    },
+    {
+      "slug": "call-it-love",
+      "match": 86,
+      "why": "<b>Two exhausted people and a plan that quietly dissolves.</b> A revenge scheme that turns into a habit of showing up for each other, played at the slowest speed anything here manages, and the payoff is quiet rather than dramatic. Same conviction that healing is undramatic and takes ages. Difference: the pain is a family betrayal rather than a shared catastrophe, and it is colder to sit through."
+    },
+    {
+      "slug": "my-liberation-notes",
+      "match": 81,
+      "why": "<b>If what you wanted was the weight, not the romance.</b> Three siblings and a stranger drinking their way out of the specific exhaustion of a life that is fine and unbearable at once. Same faith that saying one true sentence to another person is the whole event. Difference: there is no disaster and no plot, and the first four episodes are close to nothing happening."
+    },
+    {
+      "slug": "one-spring-night",
+      "match": 76,
+      "why": "<b>Adult melodrama with the same patience and none of the trauma.</b> A pharmacist and a librarian who both already have lives, moving carefully because leaving is expensive. Same long silences, same treatment of family as pressure rather than support. Difference: the obstacle is social rather than psychological, so nobody in it is trying to survive something."
+    },
+    {
+      "slug": "when-life-gives-you-tangerines",
+      "match": 71,
+      "why": "<b>The same loyalty, stretched across sixty years.</b> One Jeju family, four seasons, and a marriage built on the pair of them being the only ones who know what the other lost. Same reading of love as two people carrying the same weight. Difference: it is a life story rather than a two-hander, and it asks you to accept a loss and be grateful anyway."
+    }
+  ],
+  "against": [
+    {
+      "title": "Uncontrollably Fond",
+      "why": "The go-to recommendation whenever somebody wants to cry, and the mechanism is entirely different. It manufactures its sadness from a terminal diagnosis and a secret withheld for effect. Just Between Lovers starts with the damage already done and needs no twist to make it hurt."
+    },
+    {
+      "title": "Doom at Your Service",
+      "why": "Paired with it for the two-broken-people pitch. The brokenness there is a fantasy contract with a deadline attached, so the pain is decorative. Nothing in it is about the ordinary daily work of being a person who survived."
+    },
+    {
+      "title": "Something in the Rain",
+      "why": "Suggested for the slow adult melodrama shape, and the first nine episodes deserve the comparison. It then spends its back half repeating the same argument, and the exhaustion it produces is with the show rather than with the world."
+    }
+  ]
+}

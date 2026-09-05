@@ -1,0 +1,51 @@
+{
+  "seed": "a-shop-for-killers",
+  "reviewed": "2026-08-26",
+  "standfirst": "Eight episodes of a woman defending a house full of weapons she was trained to use without ever being told she was being trained, cut against the childhood where the training quietly happened. The structure is the whole trick: every flashback arrives as ammunition. Kim Hye Jun carries it, Lee Dong Wook is rationed and used well, and some of the assassins are cartoons. Below: Korean action that respects the clock.",
+  "picks": [
+    {
+      "slug": "my-name",
+      "match": 92,
+      "why": "<b>A young woman turned into a weapon by a man who claimed to be protecting her.</b> Same premise, opposite method: My Name shows the training and the cost of it in full rather than withholding it, and the fight choreography is the best in this bracket. Both end up asking what a guardian owes the child he shaped. <b>Difference:</b> there is no puzzle box here. It is linear, and much heavier on the emotional damage."
+    },
+    {
+      "slug": "mercy-for-none",
+      "match": 90,
+      "why": "<b>One man walking through a criminal structure, floor by floor.</b> If the appeal was the mechanical clarity of Ji An's house siege, this is that discipline stretched across a gang war: each episode a target, no fat, no romance, no jokes. Pace 5 and it holds. <b>Difference:</b> the ending is bleak where A Shop for Killers leaves a door open, and there is no family warmth anywhere in it."
+    },
+    {
+      "slug": "bloodhounds",
+      "match": 88,
+      "why": "<b>Loan sharks, a fortress, and two people who can genuinely fight.</b> Both are built around physical competence being the only currency that matters, and both stage their violence so you can see it. The bromance does the job Ji An's uncle does: somebody chose you and now you owe them. <b>Difference:</b> it is warmer and more moral, with clean heroes and a villain who is simply enjoying himself."
+    },
+    {
+      "slug": "parasyte-the-grey",
+      "match": 86,
+      "why": "<b>Six episodes, one rule, no padding.</b> The other 2024 Korean genre piece that treats runtime as a resource. Both hinge on a body that knows things the mind does not, and both are edited by somebody who has watched an action film. <b>Difference:</b> it is horror with real gore, and the emotional core is a truce rather than an inheritance."
+    },
+    {
+      "slug": "taxi-driver",
+      "match": 83,
+      "why": "<b>An operation, a plan, and the moment the target understands.</b> Shares the pulpy pleasure of watching preparation pay off, with a support team doing the surveillance work Ji An has to do alone. Twenty episodes of it, so there is plenty. <b>Difference:</b> it is episodic and case-driven, and the cases are drawn from real crimes, which makes it uglier than the house siege."
+    },
+    {
+      "slug": "nine-puzzles",
+      "match": 80,
+      "why": "<b>A childhood that has to be reconstructed before the present makes sense.</b> Same shape as the flashback spine of A Shop for Killers: the answer sits in a house somebody grew up in, and the adult version has to be told what happened to them. <b>Difference:</b> it is a procedural mystery, not an action show. Nobody here can fight."
+    }
+  ],
+  "against": [
+    {
+      "title": "Squid Game",
+      "why": "The default Korean thriller recommendation and a bad fit. It is a satire about debt where the violence is imposed on people who cannot fight back. A Shop for Killers is a competence fantasy: the entire pleasure is watching somebody discover she was armed the whole time."
+    },
+    {
+      "title": "Sweet Home",
+      "why": "Paired for the one-building siege. The building is where the resemblance stops. Sweet Home is a monster ensemble with heavy prosthetics and a lot of moral speeches, and its pacing sags in the middle third. Nothing about it is tight."
+    },
+    {
+      "title": "The Killer's Shopping List",
+      "why": "Named because it shares an English title shape and a convenience store. It is a light comic mystery about a mother and son solving a neighbourhood murder. Genuinely charming, completely unrelated, and it will feel like a joke after this."
+    }
+  ]
+}

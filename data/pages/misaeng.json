@@ -1,0 +1,52 @@
+{
+  "seed": "misaeng",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like Misaeng: six shows about work, dignity and being the person nobody makes room for.",
+  "standfirst": "A contract worker with no degree inside a trading company that has no space for him, and sixteen hours in which the only victories are small competences nobody notices. No romance, no rescue, no villain who gets punished. These six are the closest anyone gets to that, and we say plainly where each one softens it.",
+  "picks": [
+    {
+      "slug": "my-mister",
+      "match": 94,
+      "why": "<b>The same director, and the same argument.</b> Kim Won Seok shoots both of these the same way: long takes, unbearable silences, a camera that trusts an office corridor to carry a scene. Both are about a man being ground down at work and refusing to be broken quietly, and both treat dignity at a desk as a real subject. Difference: My Mister has a second person listening to every word, so it has a warmth Misaeng never offers."
+    },
+    {
+      "slug": "my-liberation-notes",
+      "match": 89,
+      "why": "<b>The commute as the whole tragedy.</b> Park Hae Young writing the same conviction: that being unhappy at work is not a character flaw and that the way out is smaller than anyone promises. The Sanpo siblings do the office scenes Misaeng does, from the other end of the train line. Difference: it is far more interior and far less procedural, and nothing in it is about learning to do a job well."
+    },
+    {
+      "slug": "the-auditors",
+      "match": 83,
+      "why": "<b>If the part you liked was the competence.</b> An internal audit team inside a construction firm, built on the pleasure of watching people who are extremely good at paperwork corner people who are not. Same faith that corporate process is dramatic. Difference: it is a much more conventional workplace thriller with wins you can point at, where Misaeng's whole method is that nothing resolves."
+    },
+    {
+      "slug": "prison-playbook",
+      "match": 78,
+      "why": "<b>The other great Korean ensemble about surviving an institution.</b> Same shape: a newcomer with no standing dropped inside a closed system with its own rules, learning them the hard way while an ensemble accumulates around him. Difference: it is funny, deliberately and often, and it lets people be kind to each other in a way Misaeng does not."
+    },
+    {
+      "slug": "live",
+      "match": 73,
+      "why": "<b>Work as the plot, not the backdrop.</b> A patrol division staffed by people who took the job because nothing else was available, and every shift is small, thankless and badly paid. It has Misaeng's respect for the bottom rung of an organisation. Difference: the stakes are physical and occasionally lethal, so it gets a jeopardy Misaeng deliberately refuses."
+    },
+    {
+      "slug": "beyond-the-bar",
+      "match": 68,
+      "why": "<b>The junior with no standing, updated.</b> A first-year at a corporate law firm handed the cases nobody senior wants, and the show is about competence being invisible until it is not. Same lens on hierarchy. Difference: much lighter and much more optimistic about the institution, and it is a career story rather than a story about being disposable."
+    }
+  ],
+  "against": [
+    {
+      "title": "Itaewon Class",
+      "why": "The default pairing for a working-class Korean drama, and the wrong trade. Itaewon Class is a revenge fantasy where hard work is rewarded and the antagonist is punished on schedule. Misaeng is about a system that does not care and does not lose. Taste runs one way here: Itaewon Class to Misaeng is an upgrade, and the reverse is the opposite trade."
+    },
+    {
+      "title": "King the Land",
+      "why": "Paired because both are set at work. One is a hotel chain as backdrop for a chaebol romance, the other is a trading company as the subject itself. Nothing about the pleasure of one is available in the other."
+    },
+    {
+      "title": "Reborn Rich",
+      "why": "The other big show about a conglomerate, and the opposite proposition. Reborn Rich is a wish fulfilment about having the power to reorganise a chaebol from the top. Misaeng is about having none. Same industry, opposite fantasy."
+    }
+  ]
+}

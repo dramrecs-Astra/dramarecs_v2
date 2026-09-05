@@ -1,0 +1,52 @@
+{
+  "seed": "one-spring-night",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like One Spring Night: six slow adult romances where the obstacle is a life already in progress.",
+  "standfirst": "A librarian with a long-term boyfriend, a pharmacist raising a son alone, and thirty two half-hours in which the drama is entirely about how expensive it is to leave. Ahn Pan Seok shoots it like a film: long takes, no music cues, and two adults handling something ordinary and unbearable. These six sit near that, and we say which ones move faster and which do not move at all.",
+  "picks": [
+    {
+      "slug": "something-in-the-rain",
+      "match": 96,
+      "why": "<b>The same writer, the same director, the same lead, one year earlier.</b> Kim Eun and Ahn Pan Seok with Jung Hae In again, on an office romance shot the same way: silences, coffee cups, a camera that will not cut away, and family pressure as the actual antagonist. The first nine episodes are the best adult romance in this catalog. Difference: it repeats itself badly in the back half and skips the conversation the whole show was building toward, which One Spring Night does not."
+    },
+    {
+      "slug": "my-liberation-notes",
+      "match": 91,
+      "why": "<b>The slowest thing here, and the closest in temperature.</b> Three siblings, a long commute, and a romance that consists mostly of two people drinking in silence until one of them says something true. Same conviction that the smallest possible event is enough. Difference: it is about work and exhaustion rather than about a relationship ending, and it is even less interested in plot."
+    },
+    {
+      "slug": "our-blues",
+      "match": 86,
+      "why": "<b>Han Ji Min again, in an anthology built at the same speed.</b> Noh Hee Kyung on Jeju, handing chapters to adults with histories and money problems and treating their wants at full size. Same patience with people in the middle of their lives. Difference: it is twenty episodes of separate stories, so it gives you resolution every few hours rather than making you wait for one."
+    },
+    {
+      "slug": "because-this-is-my-first-life",
+      "match": 81,
+      "why": "<b>Two adults negotiating out loud, with a contract instead of a crisis.</b> A housemate arrangement that becomes a marriage of convenience, plus two supporting couples working through the same questions about money and independence. Same dry register and same absence of a villain. Difference: it is a comedy, and it is about starting something rather than ending something."
+    },
+    {
+      "slug": "the-light-in-your-eyes",
+      "match": 76,
+      "why": "<b>Han Ji Min again, and the same interest in time being spent.</b> A young woman who can bend time and ages decades in an instant, so the show becomes about being looked past and running out of it. Same quiet melancholy and the same jTBC restraint. Difference: it is built on a fantasy device and a twist that recasts everything, and it is a much heavier watch."
+    },
+    {
+      "slug": "call-it-love",
+      "match": 71,
+      "why": "<b>Glacial on purpose, and it works.</b> A revenge plan that dissolves into a habit of showing up for each other, played out over sixteen episodes with almost no incident. Same faith that two exhausted people deciding something quietly is a satisfying ending. Difference: the obstacle is a family betrayal rather than a partner and a mother, so the social pressure that drives this one is absent."
+    }
+  ],
+  "against": [
+    {
+      "title": "Crash Landing on You",
+      "why": "The recommendation everyone reaches for when a romance is described as grown-up. It is a big-hearted comedy adventure with soldiers, a border and a hit squad. One Spring Night's whole subject is that nothing external happens and the decision still has to be made."
+    },
+    {
+      "title": "Nevertheless",
+      "why": "Suggested for the slow, quiet, morally messy pitch. It is a mood piece about attraction with characters who never articulate anything, where One Spring Night is about adults doing the difficult talking on screen."
+    },
+    {
+      "title": "Encounter",
+      "why": "Paired for the melancholy-adult-romance shelf. Its obstacle is class, publicity and a political family, so the pressure is external and dramatic rather than the ordinary weight of a relationship that has simply gone on too long."
+    }
+  ]
+}

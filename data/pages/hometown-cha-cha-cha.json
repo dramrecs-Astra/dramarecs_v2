@@ -1,0 +1,51 @@
+{
+  "seed": "hometown-cha-cha-cha",
+  "reviewed": "2026-08-22",
+  "standfirst": "A dentist who moves to a seaside village she does not understand, a jack-of-all-trades who has decided ambition is a trap, and roughly forty grandmothers with opinions. What worked was the village, not the meet-cute. These six put you back in a small town where nobody is in a hurry.",
+  "picks": [
+    {
+      "slug": "summer-strike",
+      "match": 86,
+      "why": "<b>The purest version of the fantasy.</b> A woman quits Seoul, moves to a coastal town and deliberately does nothing, and the town slowly assembles around her anyway. Same library-and-harbour rhythm, same cast of locals who let themselves in. Difference: much slower and much quieter, with a low-key mystery instead of a romance engine."
+    },
+    {
+      "slug": "our-blues",
+      "match": 82,
+      "why": "Jeju rather than Gongjin, and the same conviction that a market town is a full cast of protagonists. If your favourite Hometown episodes were the ones about the villagers rather than the couple, this is ten of those in a row. Difference: it is genuinely sad in stretches, and the warmth is earned rather than assumed."
+    },
+    {
+      "slug": "when-life-gives-you-tangerines",
+      "match": 78,
+      "why": "A whole life on Jeju, from a stubborn girl to a grandmother, with the same reverence for ordinary endurance and the same seaside light. Difference: the emotional swings are enormous and it will take a real toll, where Hometown mostly cushioned you."
+    },
+    {
+      "slug": "because-this-is-my-first-life",
+      "match": 74,
+      "why": "Two guarded people in their thirties negotiating a life together because Seoul rent is a horror story. Same dry, adult, unhurried romance with a small found family around it. Difference: city-bound, and the humour is drier and more anxious."
+    },
+    {
+      "slug": "weightlifting-fairy-kim-bok-joo",
+      "match": 70,
+      "why": "If it was the sunniness you came for: an unglamorous heroine, a closed community, and a romance built entirely out of friendship and shared meals. Difference: campus rather than village, and the concerns are early-twenties rather than mid-thirties."
+    },
+    {
+      "slug": "one-spring-night",
+      "match": 66,
+      "why": "Two adults leaving the wrong lives on their own timetable, told in glances and pharmacy small talk. Same conviction that undramatic decisions deserve screen time. Difference: no ensemble comedy at all. It is two people and their families."
+    }
+  ],
+  "against": [
+    {
+      "title": "Welcome to Samdal-ri",
+      "why": "The obvious clone, and it is close on paper: same seaside village, same childhood-friends structure, sold as the spiritual successor. It is louder, more melodramatic, and the village functions as scenery rather than as a character."
+    },
+    {
+      "title": "It's Okay to Not Be Okay",
+      "why": "Filed as a healing drama, which is a category error. It is about caregiving trauma and it is the heaviest show in this neighbourhood. Save it for a week when you can take it."
+    },
+    {
+      "title": "Reply 1988",
+      "why": "Paired for the community warmth, and it has that in abundance. But it is a nostalgia piece with no romance urgency and a deliberately withheld payoff. Different appetite entirely."
+    }
+  ]
+}

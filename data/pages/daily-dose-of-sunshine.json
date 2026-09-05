@@ -1,0 +1,51 @@
+{
+  "seed": "daily-dose-of-sunshine",
+  "reviewed": "2026-08-26",
+  "standfirst": "A nurse moves to the psychiatric ward and the show hands each hour to a different patient, with animation standing in for what illness feels like from the inside. It looks like comfort viewing and it is not. These six sit in the same key: institutional kindness, honestly costed.",
+  "picks": [
+    {
+      "slug": "hospital-playlist",
+      "match": 90,
+      "why": "<b>Medicine as a workplace rather than a crisis.</b> Same pleasure in competent colleagues covering for each other, same episodic structure where a patient arrives and something small is repaired. <i>Difference:</i> it is genuinely comforting, and nobody on staff falls apart the way this show insists they do."
+    },
+    {
+      "slug": "resident-playbook",
+      "match": 88,
+      "why": "<b>Junior staff being ground down and looking after each other anyway.</b> The exhaustion is the subject in both, and both are exact about the hierarchy that produces it. <i>Difference:</i> obstetrics and comedy, so the tone stays light even when the hours are terrible."
+    },
+    {
+      "slug": "its-okay-to-not-be-okay",
+      "match": 86,
+      "why": "<b>Mental illness given a full production instead of a subplot.</b> Both refuse to treat a diagnosis as a personality and both put a carer at the centre. <i>Difference:</i> it is a romance with fairytale styling, so the emotional register is much larger."
+    },
+    {
+      "slug": "move-to-heaven",
+      "match": 83,
+      "why": "<b>Small mercies performed as a job.</b> Same structure of one story per episode, each about a person the system processed and nobody sat with. <i>Difference:</i> the dead are the clients, and the central relationship is a guardianship rather than a ward."
+    },
+    {
+      "slug": "our-unwritten-seoul",
+      "match": 81,
+      "why": "<b>Burnout treated as an injury, not a weakness.</b> Same patience with somebody who cannot go back to work yet and the same refusal to schedule a recovery. <i>Difference:</i> no medical setting, and the engine is two sisters swapping lives."
+    },
+    {
+      "slug": "if-you-wish-upon-me",
+      "match": 78,
+      "why": "<b>Care work as the whole plot.</b> A hospice team, a damaged young man, and the slow discovery that being useful is a treatment. <i>Difference:</i> it is about dying rather than living with illness, and the pace is slower still."
+    }
+  ],
+  "against": [
+    {
+      "title": "It's Okay, That's Love",
+      "why": "The obvious mental-health pairing from a decade earlier. Its clinical framing has aged badly and its romance drives everything, where this show keeps the ward at the centre."
+    },
+    {
+      "title": "Extraordinary Attorney Woo",
+      "why": "Recommended because both are gentle and both concern neurology and stigma. That one is a legal procedural about competence being recognised; this one is about staff and patients getting through a shift."
+    },
+    {
+      "title": "Doctor Slump",
+      "why": "Named as the other recent burnout drama. It plays depression as a romcom obstacle to be cleared by episode twelve, which is precisely the move this show declines to make."
+    }
+  ]
+}

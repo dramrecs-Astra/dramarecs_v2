@@ -1,0 +1,52 @@
+{
+  "seed": "our-blues",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like Our Blues: Noh Hee Kyung's other ensembles, Jeju, and where to start if the first chapter lost you.",
+  "standfirst": "Twenty episodes on Jeju, and it is not one story: each chapter belongs to a different couple or family and owns its own two or three hours. The opening chapter is the weakest, which is why so many attempts stop at episode two. Push to episode three, where it closes and hands you the whole island, or skip straight to four and lose nothing important. What follows is Noh Hee Kyung writing middle-aged people with a patience the genre almost never grants them, and the teenagers-and-their-fathers arc is the one that lands hardest.",
+  "picks": [
+    {
+      "slug": "dear-my-friends",
+      "match": 96,
+      "why": "<b>Same writer, and the closest thing she has made to this.</b> An ensemble of older people whose lives are already mostly decided, given the screen time and the interiority a genre this age-obsessed normally refuses them. Difference: no romance holding the chapters together and no island, and it is far blunter about dying, so the softness here is traded for something closer to a reckoning."
+    },
+    {
+      "slug": "when-life-gives-you-tangerines",
+      "match": 91,
+      "why": "<b>The other great Jeju drama, and the one to watch if the island was the draw.</b> Same weather, same sea, same interest in ordinary people being quietly heroic about money and family. Difference: it is one couple followed across decades rather than an anthology, so it builds instead of resetting, and it will take more out of you."
+    },
+    {
+      "slug": "live",
+      "match": 86,
+      "why": "<b>Same writer, same director, same belief that working people are worth twenty hours.</b> Noh Hee Kyung and Kim Kyu Tae on an ensemble of colleagues where nobody is exceptional and everybody is tired. Difference: the police station gives it a procedural spine and a case every week, so it has somewhere to put its plot, where Our Blues just has the island."
+    },
+    {
+      "slug": "its-okay-thats-love",
+      "match": 81,
+      "why": "<b>The same pair, aimed at one couple instead of a community.</b> Noh Hee Kyung writing damage without pity, and Kim Kyu Tae shooting it in warm light that makes the hard parts land softer. Difference: it is a romance with a mental-illness plot at its centre, so the structure is a single arc and the reveal does real work."
+    },
+    {
+      "slug": "my-liberation-notes",
+      "match": 76,
+      "why": "<b>Small lives, long silences, and no interest in being exciting.</b> Same conviction that people who never leave their hometown are worth a whole series, with the same suspicion of anything that looks like a plot. Difference: pace 1 and much colder, a family that mostly does not speak, and no ensemble warmth to fall back on."
+    },
+    {
+      "slug": "hometown-cha-cha-cha",
+      "match": 71,
+      "why": "<b>The seaside village version with the sadness turned down.</b> A community that absorbs an outsider, neighbours used as cushioning, and a guarantee that nothing irreversible will happen. Difference: it is a romcom with comfort 5, so the grief that gives Our Blues its weight is replaced by a soft landing you can see from episode one."
+    }
+  ],
+  "against": [
+    {
+      "title": "Mr. Sunshine",
+      "why": "The Lee Byung Hun recommendation people reach for next, and it could not be further from this. Twenty-four hours of occupation, formality and doomed nationhood, shot like an opera. Our Blues is about a fishmonger, a bus driver and a school run. Nothing in the register carries over."
+    },
+    {
+      "title": "The Trunk",
+      "why": "Same director, and that is the entire connection. Kim Kyu Tae made it cold, airless and enclosed, a two-hander about a contract marriage where the pleasure is unease. The reason to watch Our Blues is that it lets a crowd of people be kind to each other in daylight."
+    },
+    {
+      "title": "Chocolate",
+      "why": "Paired for the healing melodrama shelf and the food. It is a soapier, tidier show that engineers its tears with a childhood coincidence and a terminal diagnosis, and its emotional beats arrive on schedule. Our Blues earns its sadness by making you live in a place first."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "seed": "king-the-land",
+  "reviewed": "2026-08-26",
+  "standfirst": "The archetype romcom of 2023: chaebol heir, hotel floor, a smile he does not believe until he does. King the Land is expensive, effortless and structurally empty, and that is exactly the mood it serves. These six are the same drink with different garnishes.",
+  "picks": [
+    {
+      "slug": "business-proposal",
+      "match": 93,
+      "why": "<b>The direct blueprint.</b> Boss and employee, a deception that lasts precisely as long as the jokes need, and a supporting couple with better chemistry than the leads. If King the Land was your comfort watch, this is the one it was copied from. <i>Difference:</i> it is a full parody of its own tropes, so it plays faster and funnier."
+    },
+    {
+      "slug": "whats-wrong-with-secretary-kim",
+      "match": 90,
+      "why": "<b>Office proximity as the whole romance.</b> Same pleasure: a man with no self-awareness, a woman who has managed his life for years, and sixteen hours of that arrangement collapsing. <i>Difference:</i> a childhood trauma reveal carries the back half, which King the Land never bothers with."
+    },
+    {
+      "slug": "love-scout",
+      "match": 88,
+      "why": "<b>Competent woman, useless heir, workplace.</b> The 2025 version of the same formula, with the balance tipped: she runs the company and he learns to be a person. <i>Difference:</i> a single father subplot gives it actual stakes, so the middle episodes have somewhere to go."
+    },
+    {
+      "slug": "the-potato-lab",
+      "match": 85,
+      "why": "<b>Bickering colleagues in a glossy corporate setting.</b> Same low-conflict pleasure and the same trust that two attractive people arguing is enough of a plot. <i>Difference:</i> the comedy is drier and the leads start from mutual contempt rather than mutual confusion."
+    },
+    {
+      "slug": "dynamite-kiss",
+      "match": 83,
+      "why": "<b>A workplace lie that has to be maintained daily.</b> The deception engine King the Land uses in its first half, run for the whole show. <i>Difference:</i> it is far broader, and the male lead is a boss you would report to HR rather than one you would date."
+    },
+    {
+      "slug": "no-gain-no-love",
+      "match": 80,
+      "why": "<b>A fake relationship negotiated like a contract.</b> The same clean romcom architecture where every episode advances one small concession. <i>Difference:</i> the female lead is calculating from the first minute, which gives it a spine King the Land does not have."
+    }
+  ],
+  "against": [
+    {
+      "title": "Crash Landing on You",
+      "why": "The default recommendation for anyone who liked a Korean romance. It is a war-adjacent melodrama with real stakes and a body count; King the Land's entire risk profile is a delayed hotel promotion."
+    },
+    {
+      "title": "Queen of Tears",
+      "why": "Paired for the chaebol marriage. That show is about a marriage dying and an illness that will not be negotiated with. Reaching for it after King the Land is a category error."
+    },
+    {
+      "title": "Hotel del Luna",
+      "why": "Recommended purely because of the hotel. One is a fantasy about a thousand years of guilt, the other is a workplace romcom with a very good concierge desk."
+    }
+  ]
+}

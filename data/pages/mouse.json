@@ -1,0 +1,52 @@
+{
+  "seed": "mouse",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like Mouse: thrillers to watch unspoiled, profiling done straight, and what the twist costs.",
+  "standfirst": "Read nothing about this before you start, including the poster, which gives away the thing the first quarter is built on. Twenty episodes, a reveal that reframes everything in front of it, and Lee Seung Gi playing two people inside one body with his posture as much as his face. It is four episodes too long, the editing shows you scenes that never happened without giving you the tools to doubt them, and the final hour argues a position on who deserves to be born that the sixteen hours before it never earned. Weekly beats bingeing: taken in a block it turns into a jumble.",
+  "picks": [
+    {
+      "slug": "through-the-darkness",
+      "match": 96,
+      "why": "<b>The same question, answered by method instead of by twist.</b> Both are about sitting across from someone who has done the unthinkable and working out what is happening behind the face, and both refuse to make that comfortable. Difference: twelve slow episodes with no reveal at all, built out of interviews and archive work, so it explains killers without ever excusing one."
+    },
+    {
+      "slug": "beyond-evil",
+      "match": 91,
+      "why": "<b>Two men circling each other, and both of them look guilty.</b> Same structure of a hunt where the hunter is a suspect, and the same trick of making a small town feel like an accomplice. Difference: sixteen hours of atmosphere and character rather than plot mechanics, and it never reaches for a genetic explanation to close its argument."
+    },
+    {
+      "slug": "flower-of-evil",
+      "match": 86,
+      "why": "<b>A hidden man, and the detective who lives with him.</b> Same premise of a monster in a domestic setting and the same escalating dread of the moment the household finds out. Difference: it plays fair, never editing to mislead, and there is a real marriage at the centre, so the show has something to lose besides a twist."
+    },
+    {
+      "slug": "signal",
+      "match": 81,
+      "why": "<b>Cold cases, and the paperwork that solves them.</b> Same interest in the profiler's job as a job, and the same structure of decades-old crime reopened by somebody nobody wants to listen to. Difference: the time-travel radio is a thriller device rather than a psychological one, and the cruelty is never staged for effect."
+    },
+    {
+      "slug": "stranger",
+      "match": 76,
+      "why": "<b>Everything Mouse feels, with the feeling surgically removed.</b> Same fascination with a mind that processes violence differently from everyone in the room, and the same institutional obstruction. Difference: nothing supernatural, no serial-killer showmanship, and the enemy is a prosecutor's office rather than a person."
+    },
+    {
+      "slug": "tunnel",
+      "match": 71,
+      "why": "<b>A decades-long hunt for one killer, and a detective who ages into it.</b> Same long game of a case that outlives the people working it, same small-city police work. Difference: it is warm and often funny, the time-slip is used for family rather than horror, and it ends happy, which this show would consider a betrayal."
+    }
+  ],
+  "against": [
+    {
+      "title": "Voice",
+      "why": "The obvious next thriller, and it is the version of this with the ideas taken out. Sensational set pieces, a new sadist every arc and gore used as punctuation. The reason Mouse holds up at all is that the structure is doing something; this one only escalates."
+    },
+    {
+      "title": "Strangers from Hell",
+      "why": "Paired for the dread and the unreliable narration. It is claustrophobia rather than puzzle: one building, one man losing his grip, no case to solve. If the reveal is what kept you in twenty episodes here, this offers nothing to solve."
+    },
+    {
+      "title": "Squid Game",
+      "why": "The default Netflix thriller handed to everybody, and it is a satire with a body count. Rules, games, colour and allegory. Mouse is a procedural about one killer and one hunter, and its pleasures are forensic rather than spectacular."
+    }
+  ]
+}

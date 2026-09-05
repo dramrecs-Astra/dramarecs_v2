@@ -1,0 +1,52 @@
+{
+  "seed": "law-school",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like Law School: legal procedure taken seriously, cold courtrooms, and campus ensembles that earn it.",
+  "standfirst": "A professor dies in a mock trial classroom before the opening credits and the sixteen episodes rarely let go for long. It is not bingeable and that turns out to be a feature: every episode closes with enough weight that you can stop. The flaws are real and specific: the whodunnit is spottable inside two hours, the time jumps are confusing, the sung score keeps stepping on scenes, one student's plotline runs too long and another's too short, and the final trial is smaller than the build deserved. There is no confession and no kiss, which is the best decision the show makes.",
+  "picks": [
+    {
+      "slug": "stranger",
+      "match": 96,
+      "why": "<b>Legal procedure with the sentiment removed.</b> Same trust that statute, evidence and institutional pressure are dramatic on their own, and the same lead who is impossible to warm to and better for it. Difference: prosecutors rather than students, sixteen episodes on a conspiracy inside the office, and there is no campus to soften the hours."
+    },
+    {
+      "slug": "extraordinary-attorney-woo",
+      "match": 91,
+      "why": "<b>The same appetite for a case built properly, from the other end of the temperature range.</b> Firm politics, junior lawyers finding their feet, and legal mechanics plausible enough to carry the twists. Difference: comfort 5, cases that resolve kindly, and a show designed for everybody, so the tension never sits on your chest."
+    },
+    {
+      "slug": "juvenile-justice",
+      "match": 86,
+      "why": "<b>Where these cases actually end up, with Lee Jung Eun in both.</b> Same interest in the law as a machine that produces outcomes rather than justice, and the same refusal of comic relief when a hearing is in progress. Difference: ten Netflix hours, no student ensemble, no jokes, and episode one is the hardest hour in either show."
+    },
+    {
+      "slug": "sky-castle",
+      "match": 81,
+      "why": "<b>Elite education and what it costs the people inside it.</b> Same world of entrance exams, ranked futures and parents who will trade a child for a place, seen one stage earlier. Difference: nineteen episodes of satire with the adults at the centre, and it is funny, so the horror sneaks up rather than being filed as evidence."
+    },
+    {
+      "slug": "misaeng",
+      "match": 76,
+      "why": "<b>Competence, hierarchy and no romance at all.</b> Same pleasure of watching juniors learn a professional language and the same care with procedural detail. Difference: there is no crime, the antagonist is the job, and the stakes are a contract renewal, so it trades thriller pacing for accuracy."
+    },
+    {
+      "slug": "suspicious-partner",
+      "match": 71,
+      "why": "<b>Legal training with a murder mystery threaded through it.</b> Same setup of trainees, a mentor and a case that follows them home. Difference: it is a romcom first and the mystery is furniture, so the tone is light where this one keeps the pressure on for sixteen hours."
+    }
+  ],
+  "against": [
+    {
+      "title": "Divorce Attorney Shin",
+      "why": "Recommended as the other law drama, and it is a warm case-of-the-week show with a piano. Clients get helped, friendships get made, and nothing hangs over the season. This one is a thriller in a lecture hall, and the constant pressure is the reason to watch."
+    },
+    {
+      "title": "The Devil Judge",
+      "why": "Paired for the courtroom, and it is a stylised dystopia with televised trials and a cathedral set. Spectacle over statute. The whole appeal of Law School is legal mechanics that hold up, and this one abandons them on purpose."
+    },
+    {
+      "title": "Innocent Defendant",
+      "why": "The other wrongful-accusation thriller, and it is an eighteen-episode melodrama built on amnesia and a mob boss. The plotting is loud and the emotions are bigger than the law. If the appeal was procedure done cleanly, this is the wrong shelf."
+    }
+  ]
+}

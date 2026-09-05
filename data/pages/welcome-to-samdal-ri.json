@@ -1,0 +1,51 @@
+{
+  "seed": "welcome-to-samdal-ri",
+  "reviewed": "2026-08-26",
+  "standfirst": "Jeju, a photographer whose career collapses in public, and the weather forecaster who has loved her since childhood. The back half is excellent and the per-episode ratings climb every week to prove it. Getting there means seven hours of a Seoul scandal plot the writing does not care about.",
+  "picks": [
+    {
+      "slug": "our-blues",
+      "match": 91,
+      "why": "<b>The same island, doing more with it.</b> Jeju as an economy and a set of family obligations rather than scenery, with a haenyeo culture that is treated as work. <i>Difference:</i> it is an anthology, so no single couple carries it and no episode is padded."
+    },
+    {
+      "slug": "hometown-cha-cha-cha",
+      "match": 90,
+      "why": "<b>City woman, seaside village, a man everybody already trusts.</b> The template Samdal-ri is working in, executed with a tighter script and a warmer ensemble. <i>Difference:</i> the male lead's grief is the actual plot, so the back half deepens instead of resolving."
+    },
+    {
+      "slug": "when-the-camellia-blooms",
+      "match": 87,
+      "why": "<b>A hometown that will not stop talking about you.</b> Both are about a woman returning to a place that has already decided who she is, and both make the gossip a real antagonist. <i>Difference:</i> a serial killer thread runs underneath it, which gives every warm scene a floor of dread."
+    },
+    {
+      "slug": "love-next-door",
+      "match": 85,
+      "why": "<b>Childhood friends, mothers who are best friends, and a career failure nobody wants to admit.</b> Nearly the same premise from the next year, right down to the return home in disgrace. <i>Difference:</i> the mothers get equal screen time, and the show is honest that the parents caused most of it."
+    },
+    {
+      "slug": "our-unwritten-seoul",
+      "match": 83,
+      "why": "<b>Two lives, one hometown, and the question of who got to leave.</b> Same interest in what a small place does to ambition, and the same slow, kind pacing. <i>Difference:</i> the central relationship is between sisters, and it is far more rigorous about work."
+    },
+    {
+      "slug": "castaway-diva",
+      "match": 80,
+      "why": "<b>An island, a dream deferred, and a comeback nobody is rooting for yet.</b> Same 2023 warmth and the same trust that a competent woman rebuilding is enough. <i>Difference:</i> the premise is high concept, and the family violence in it is handled bluntly."
+    }
+  ],
+  "against": [
+    {
+      "title": "When Life Gives You Tangerines",
+      "why": "Recommended because it is also Jeju and also about families. It is a four-decade portrait of poverty and loss that will wreck you. Samdal-ri is a romance with a village attached."
+    },
+    {
+      "title": "Hospital Playlist",
+      "why": "The reflex comfort pick. There is no hometown, no returning failure and no childhood promise in it; the pleasure is competence among friends, which is a different appetite."
+    },
+    {
+      "title": "Once Upon a Small Town",
+      "why": "Named as the generic countryside romance. It is much slighter, and it has none of the family history that makes Samdal-ri's second half work."
+    }
+  ]
+}

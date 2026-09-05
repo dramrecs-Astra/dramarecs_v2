@@ -1,0 +1,52 @@
+{
+  "seed": "chicago-typewriter",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like Chicago Typewriter: a debt owed across lifetimes, the 1930s resistance, and past-and-present braids that pay off.",
+  "standfirst": "A blocked bestselling author, a ghostwriter who should not exist, and a story from the colonial period that all three of them lived. It got buried in a crowded 2017 and never found the size of audience it earned. Two specifics: the OST is a feature rather than a garnish, and the second lead is written as a friend and a brother rather than a romantic obstacle, which is why the trio works and why the bromance carries more heat than the romance. The per-episode curve climbing to 9.6 and holding is rare in this catalog. The honest limit is the first four episodes, which are slow, and a present-day half that drags whenever the 1930s are off screen.",
+  "picks": [
+    {
+      "slug": "twinkling-watermelon",
+      "match": 96,
+      "why": "<b>Same writer, same structure, same trick.</b> Jin Soo Wan again braiding a present-day protagonist into a past he did not live through, and both shows are really about learning what the previous generation paid. Identical meters across pace, romance, weight and comfort. Difference: it is a youth fantasy about parents rather than a political one about a nation, so it is lighter and much less angry."
+    },
+    {
+      "slug": "mr-sunshine",
+      "match": 91,
+      "why": "<b>The occupation taken absolutely seriously.</b> Same period, same subject of people choosing resistance knowing the cost, and the same conviction that the country's history is worth a prestige budget. Difference: heavy 5 and comfort 1 against heavy 3 and comfort 4, with pace 2, so it is slow, enormous and genuinely bleak."
+    },
+    {
+      "slug": "my-dearest",
+      "match": 86,
+      "why": "<b>Romance under an occupation, and it does not soften the ending.</b> Same premise that the love story and the historical catastrophe cannot be separated, same willingness to spend a whole season on a promise. Difference: it is a war melodrama with no supernatural frame and no comedy, so the buoyancy of the present-day half here has no counterpart."
+    },
+    {
+      "slug": "flower-of-evil",
+      "match": 81,
+      "why": "<b>Same director, and the same command of a dual timeline.</b> Kim Chul Gyu again cutting between a past that explains everything and a present that cannot see it. Difference: it is a contemporary thriller about a marriage built on a lie, so the historical romance is replaced by suspense."
+    },
+    {
+      "slug": "the-light-in-your-eyes",
+      "match": 76,
+      "why": "<b>A life rewritten, and time as the antagonist.</b> Same structural game of a narrative that turns out to be authored, and the same emotional payload delivered by a late reveal. Difference: heavy 5 and comfort 2, it is a devastating contemporary drama about ageing, so the period adventure is entirely absent."
+    },
+    {
+      "slug": "hotel-del-luna",
+      "match": 71,
+      "why": "<b>An obligation carried across lifetimes until it is settled.</b> Same idea that somebody has been waiting a very long time and the story is the discharge of that debt. Difference: it is a fantasy hotel procedural with an episodic structure, so the single historical narrative that Chicago Typewriter is built on is replaced by cases."
+    }
+  ],
+  "against": [
+    {
+      "title": "Goblin",
+      "why": "The default reincarnation-romance recommendation, and the two shows want opposite things. Goblin is about being unable to die and wanting release. Chicago Typewriter is about a promise between friends being kept, and the friendship is the love story, which Goblin has no room for."
+    },
+    {
+      "title": "Bulgasal: Immortal Souls",
+      "why": "Paired for the across-lifetimes structure, and it is a cold revenge fantasy with an unhappy grammar. The warmth of the 1930s ensemble is the reason people finish Chicago Typewriter, and there is no equivalent here."
+    },
+    {
+      "title": "The King: Eternal Monarch",
+      "why": "Recommended for the two-timelines-plus-fated-love shape. It spends its runtime on world mechanics that never cohere and has no interest in history. The colonial period is the actual subject here, not a costume."
+    }
+  ]
+}

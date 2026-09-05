@@ -1,0 +1,51 @@
+{
+  "seed": "hospital-playlist",
+  "reviewed": "2026-08-22",
+  "standfirst": "Five friends who met in medical school, a band that is not very good, and patients whose stories resolve inside an hour. The surgery was never the point. The point was watching competent adults be quietly kind to each other for eighty hours. These six are the same trick, run in different buildings.",
+  "picks": [
+    {
+      "slug": "prison-playbook",
+      "match": 92,
+      "why": "<b>Same writer, same director, same DNA.</b> Shin Won-ho and Lee Woo-jung again: an institution, an ensemble of men who start as types and end as people, and comedy that never punches down. Swap the hospital for a cell block. Difference: sharper edges and real menace at the margins, though it stays warmer than the setting suggests."
+    },
+    {
+      "slug": "reply-1988",
+      "match": 88,
+      "why": "The same team at full strength, and the same core belief that an ensemble beats a plot. A whole alley of families, no villain, and hours that exist purely so you can spend time with people. Difference: it is a nostalgia piece, and its will-they-won't-they framing device is a cheat it never quite earns."
+    },
+    {
+      "slug": "live",
+      "match": 80,
+      "why": "Noh Hee-kyung writing beat cops at a neighbourhood station: shift work, gallows humour, and colleagues who become the only people who understand your day. The closest thing to Hospital Playlist's workplace texture outside the Shin Won-ho universe. Difference: considerably heavier, and the cases leave marks."
+    },
+    {
+      "slug": "our-blues",
+      "match": 76,
+      "why": "An ensemble where the connective tissue is a place rather than a profession, told in overlapping chapters. Same generosity toward ordinary adults, same refusal to rank whose problem matters most. Difference: it cries openly and often, where Hospital Playlist earns tears roughly twice a season."
+    },
+    {
+      "slug": "dear-my-friends",
+      "match": 72,
+      "why": "Friendship as the actual subject, thirty years further down the line. A group who have known each other too long to be polite about it. Difference: the group is in their seventies, so the stakes are mortality rather than career, and it is a much harder watch."
+    },
+    {
+      "slug": "romance-is-a-bonus-book",
+      "match": 68,
+      "why": "The low-stakes workplace comfort watch: a publishing house, a team you would like to work with, and problems solved by competent people talking. Difference: it is a romance first and an ensemble second, so the friendship texture is thinner."
+    }
+  ],
+  "against": [
+    {
+      "title": "Dr. Romantic",
+      "why": "The other famous Korean hospital show, and the one recommended by algorithms. It is a high-adrenaline medical melodrama with a shouting genius mentor. Great fun, but tension is the product, and here calm was the product."
+    },
+    {
+      "title": "Twenty-Five Twenty-One",
+      "why": "The other warm nostalgic ensemble, and the first half delivers. Then the ending takes it back, which is the opposite of what a comfort pick should do."
+    },
+    {
+      "title": "Crash Landing on You",
+      "why": "Fine show, wrong shape. It is one central couple driving one plot. Hospital Playlist has no plot to speak of, and that absence is what people mean when they call it the best thing they have watched."
+    }
+  ]
+}

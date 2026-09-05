@@ -1,0 +1,51 @@
+{
+  "seed": "moving",
+  "reviewed": "2026-08-26",
+  "standfirst": "Twenty hours that start as a high school superpower story and turn into a 1990s spy melodrama about the parents. What makes Moving work is not the flying, it is that every power is a family inheritance somebody is trying to hide. These six keep the inherited burden and the scale.",
+  "picks": [
+    {
+      "slug": "light-shop",
+      "match": 92,
+      "why": "<b>Same writer, same trick.</b> Kang Full wrote both, and both spend half their runtime letting you think you are watching one genre before revealing the structure underneath. The grief that powers Moving's middle stretch is the whole engine here. <i>Difference:</i> eight quiet hours instead of twenty loud ones, and nobody throws a punch."
+    },
+    {
+      "slug": "the-atypical-family",
+      "match": 89,
+      "why": "<b>Powers as a family illness.</b> An inherited gift that has gone dormant, a parent who used it wrongly, and a house full of people who cannot say what they need out loud. It hits the same nerve as the Bong Seok and Mi Hyun scenes. <i>Difference:</i> the tone is romantic and gentle, and it asks for patience until episode seven."
+    },
+    {
+      "slug": "a-shop-for-killers",
+      "match": 87,
+      "why": "<b>A teenager inheriting a parent's secret war.</b> The structure is the same as Moving's back half: the child spends the present decoding what the adult did in the past, and the answer is always a body count. <i>Difference:</i> no supernatural element at all, and the action is close-quarters and mean rather than spectacular."
+    },
+    {
+      "slug": "weak-hero-class-1",
+      "match": 85,
+      "why": "<b>School bodies used as weapons.</b> The early Moving episodes are about what it costs a fifteen year old to be physically exceptional and hide it. This does that with nothing but a satchel and a physics textbook. <i>Difference:</i> zero warmth and no parents worth having, so the family layer that softens Moving is simply absent."
+    },
+    {
+      "slug": "parasyte-the-grey",
+      "match": 82,
+      "why": "<b>The other Korean adaptation that commits to its budget.</b> Same appetite for large-scale set pieces built around one abnormal body, same willingness to make the state the real antagonist. <i>Difference:</i> it is horror, six episodes long, and the emotional core is one lonely woman rather than three families."
+    },
+    {
+      "slug": "gyeongseong-creature",
+      "match": 79,
+      "why": "<b>Period Korea as a place where the powerful make monsters.</b> Moving's 1990s flashbacks and this share a specific idea: the men in offices weaponise ordinary bodies and then file the paperwork. <i>Difference:</i> the horror is literal and the romance is front and centre, so it plays much broader."
+    }
+  ],
+  "against": [
+    {
+      "title": "Squid Game",
+      "why": "The default Korean Netflix answer to anything with scale. Moving is a family melodrama that occasionally flies; Squid Game is a closed-box allegory with no interest in parents, powers or history."
+    },
+    {
+      "title": "Alchemy of Souls",
+      "why": "Paired for the fantasy label. Nothing else transfers: one is 1990s Seoul with government agents and body counts, the other is a costumed magic academy romance."
+    },
+    {
+      "title": "Sweet Home",
+      "why": "Recommended because both put ordinary bodies through something inhuman. Sweet Home is a siege in one building with monsters as metaphor. Moving spends its best hours on a courtship in a chicken shop."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "seed": "he-is-psychometric",
+  "reviewed": "2026-09-05",
+  "meta": "Dramas like He Is Psychometric: a power that reads the past, cold cases, and young leads carrying real weight.",
+  "standfirst": "A boy who reads an object's history by touching it, used to reopen a fire nobody wanted investigated. Watch it as a two-act show, because that is what it is: a light procedural romcom until roughly episode thirteen, then an abrupt hand-brake turn into mystery and grief that squeezes half the plot into four episodes. The per-episode curve climbing to 9.6 by the end says the turn works. The twist is guessable a long way out, the corporate villain never develops, and one death in the back half buys the story nothing.",
+  "picks": [
+    {
+      "slug": "while-you-were-sleeping",
+      "match": 96,
+      "why": "<b>The closest match in the catalog, and it is the same trade.</b> A power that shows you something about a crime, a prosecutor who has to act on it without evidence, and young leads doing melodrama and procedure in the same hour. Difference: the visions are of the future rather than the past, and it is pace 4 with a far more intricate legal structure, so it is busier and better plotted."
+    },
+    {
+      "slug": "signal",
+      "match": 91,
+      "why": "<b>Cold cases and the guilt of the people who closed them.</b> Same engine of information arriving by impossible means, same institutional complicity, same focus on a fire or a file that ruined a family. Difference: no romance and comfort 2, and it is a genuine mystery with a hard, unsentimental ending rather than a hopeful one."
+    },
+    {
+      "slug": "life-on-mars",
+      "match": 86,
+      "why": "<b>A detective forced to work a case with the wrong tools.</b> Shared cast, and the same structure of a present-day investigator reaching into a past he cannot legally access. Difference: romance 0 and much bleaker, with a period setting and a bitter joke about policing that this show has no interest in making."
+    },
+    {
+      "slug": "moving",
+      "match": 81,
+      "why": "<b>Powers inherited, hidden, and eventually used to protect a child.</b> Same treatment of an ability as a burden passed down rather than a gift, same tenderness toward young people carrying something adult. Difference: it is a large-scale action series with a state antagonist, so the intimate two-hander at the centre of this show is replaced by scale."
+    },
+    {
+      "slug": "a-korean-odyssey",
+      "match": 76,
+      "why": "<b>Same director, and the same genre-blending appetite.</b> Kim Byung Soo again mixing supernatural rules, crime and romance, with identical meters across pace, romance, weight and comfort. Difference: it is a fantasy epic with a demon-king mythology, and it is much messier, so the tight sixteen-episode discipline here is not on offer."
+    },
+    {
+      "slug": "the-atypical-family",
+      "match": 71,
+      "why": "<b>An ability that stops working when the person is unwell.</b> Same idea that a power is tied to a psychological state and costs something to use, same gentle handling of young people who did not ask for it. Difference: it is domestic comedy-drama with no crime plot, so the investigation that structures this show is absent."
+    },
+    {
+      "slug": "strong-girl-bong-soon",
+      "match": 66,
+      "why": "<b>The same trade, weighted the other way.</b> A young person with an inconvenient gift, a police-adjacent investigation, a serial predator plot and a romance played broad, and the two shows get compared constantly for exactly that recipe. Difference: it puts the comedy and the romance first and treats the crime as the frame, where this one abandons the comedy at the halfway mark and never picks it back up."
+    }
+  ],
+  "against": [
+    {
+      "title": "Memorist",
+      "why": "The most-made comparison, and it is the same premise executed worse. A police officer who reads minds, a serial killer, and a plot that collapses in its second half. If the tight construction is what you liked here, this is the cautionary version."
+    },
+    {
+      "title": "Alice",
+      "why": "Recommended for the young-leads-plus-mystery combination and the sci-fi frame. It is a time-travel melodrama that spends its runtime on a mother-son reveal and gets confused about its own rules. The pleasure here is a clean investigation, not a puzzle box."
+    },
+    {
+      "title": "Tale of the Nine Tailed",
+      "why": "Paired for the supernatural-plus-crime blend and the idol-adjacent casting. It is a romance-driven action fantasy with immortals, and the crime element is a device. He Is Psychometric is a procedural first, and losing that flips the show."
+    }
+  ]
+}

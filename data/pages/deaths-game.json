@@ -1,0 +1,51 @@
+{
+  "seed": "deaths-game",
+  "reviewed": "2026-08-26",
+  "standfirst": "A man who has failed at everything takes his own life and is sentenced to die twelve more times in twelve borrowed bodies. Eight fast hours, an absurd cast, and a moral argument you may want to throw something at. These six share the structure or the appetite for consequence.",
+  "picks": [
+    {
+      "slug": "tomorrow",
+      "match": 88,
+      "why": "<b>Death as a bureaucracy with a rescue mandate.</b> Same afterlife framing and the same interest in the specific reasons somebody decides to stop. Both put a supernatural agency in charge of despair. <i>Difference:</i> Tomorrow is episodic and openly therapeutic, where Death's Game is a thriller that turns preachy at the end."
+    },
+    {
+      "slug": "squid-game",
+      "match": 85,
+      "why": "<b>Debt, humiliation and a game with a rulebook.</b> The same starting point of a man written off by every institution he touched, and the same use of a lethal structure to make him legible. <i>Difference:</i> it is an ensemble allegory about capital; Death's Game stays inside one man's head for eight hours."
+    },
+    {
+      "slug": "the-8-show",
+      "match": 83,
+      "why": "<b>A closed system that pays out for suffering.</b> Same black-comic distance and the same escalation logic where the rules are simple and the people are not. <i>Difference:</i> nobody comes back, so its arithmetic is one-way and considerably nastier."
+    },
+    {
+      "slug": "light-shop",
+      "match": 81,
+      "why": "<b>Twelve strangers, one afterlife corridor.</b> Both use death as a switchboard: separate lives that turn out to be one story about who was left behind. <i>Difference:</i> the horror framing is a feint and the payload is grief, delivered quietly."
+    },
+    {
+      "slug": "if-you-wish-upon-me",
+      "match": 78,
+      "why": "<b>Dying treated as something you can still act on.</b> Same idea that a wasted life can be redeemed in its final stretch, handled with far more patience. <i>Difference:</i> it is a hospice drama with no genre machinery, so the emotion is earned rather than engineered."
+    },
+    {
+      "slug": "mr-plankton",
+      "match": 76,
+      "why": "<b>A man with a terminal clock and nothing to lose.</b> Same fatalism and the same structure of a countdown forcing overdue conversations. <i>Difference:</i> it is a road trip romance, and the withheld conversation is the whole point."
+    }
+  ],
+  "against": [
+    {
+      "title": "Sweet Home",
+      "why": "Paired for the platform and the genre swing. It is a monster siege with a fixed location and no metaphysics; the pleasure it offers has nothing to do with mortality."
+    },
+    {
+      "title": "Hellbound",
+      "why": "Named because both stage divine judgement. Hellbound is about institutions and crowds reacting to the supernatural. Death's Game never leaves the perspective of the man being judged."
+    },
+    {
+      "title": "The Uncanny Counter",
+      "why": "Recommended for the supernatural-agency premise. It is a warm ensemble action show about found family, and it will feel weightless straight after this."
+    }
+  ]
+}

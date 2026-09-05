@@ -1,0 +1,18 @@
+{
+  "seed": "when-the-phone-rings",
+  "reviewed": "2026-08-26",
+  "standfirst": "A marriage held together by a lie, and a thriller plot that will not let either party leave the room. What made twelve episodes fly was the collision of the two: every romantic beat doubles as a piece of evidence. These keep that structure.",
+  "picks": [
+    { "slug": "flower-of-evil", "match": 94, "why": "The purest version of the same setup: a spouse who is not who they claim to be, and a partner whose job is finding people exactly like that. The domestic scenes carry more menace than the crime scenes, which is precisely why the phone call worked. <b>Difference:</b> the crime is serial murder and the tone is much colder, so the comfort of a happy household is never really available." },
+    { "slug": "queen-of-tears", "match": 89, "why": "A marriage on the way to divorce, a husband hiding what he actually feels, and a wife hiding what is actually happening to her. Same engine of two people negotiating through half-truths, played for melodrama rather than menace. <b>Difference:</b> it is sixteen hours of family and money instead of twelve hours of plot, and it cries where your show clenched." },
+    { "slug": "marry-my-husband", "match": 85, "why": "The other 2024 show that treats a bad marriage as a puzzle to be solved with information. Tight plotting, escalating traps, and a heroine who stops asking permission early. <b>Difference:</b> the fantasy premise is up front and the villains are broad, so it plays as satisfaction rather than suspense." },
+    { "slug": "nine-puzzles", "match": 81, "why": "If the pull was the withheld information and the drip feed of who knew what, this is that at a professional level: a cold case, a suspect nobody can clear, and a structure built on partial answers. <b>Difference:</b> there is no marriage and barely any romance, so the tension is entirely procedural." },
+    { "slug": "buried-hearts", "match": 77, "why": "Betrayal inside a family business, with a lead who has to keep performing loyalty to people trying to destroy him. Same pleasure in watching somebody hold two faces at once. <b>Difference:</b> it is money and power rather than intimacy, and it takes until the back half to get properly moving." },
+    { "slug": "dear-hongrang", "match": 72, "why": "A stranger arrives claiming an identity nobody can verify, and an entire household decides to believe him anyway. The best scenes are two people lying to each other while falling for each other. <b>Difference:</b> it is a Joseon melodrama with a much slower pulse and an ending that refuses to be kind." }
+  ],
+  "against": [
+    { "title": "Business Proposal", "why": "The default romcom pick for anybody who liked the leads. It is bright, weightless and built on misunderstanding rather than danger, which is exactly the opposite of a show where the plot can kill somebody." },
+    { "title": "The Trunk", "why": "Paired for the contract marriage premise. It has the same idea and none of the momentum: eight episodes of atmosphere, a mystery that could be summarised in a sentence, and scenes that end before anybody says anything." },
+    { "title": "Mine", "why": "Suggested for the wealthy-household intrigue. It is an ensemble drama about the women of a chaebol family, closer to a slow character study, and the thriller mechanics you came for are decoration in it." }
+  ]
+}
