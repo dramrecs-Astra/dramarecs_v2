@@ -1,374 +1,212 @@
-/* DramaRecs - client behaviour. No dependencies. */
+/* DramaRecs browser interactions. No runtime AI, accounts or third-party dependencies. */
 (function () {
-  var toastEl;
-  function toast(msg) {
-    if (!toastEl) {
-      toastEl = document.createElement('div');
-      toastEl.className = 'toast';
-      toastEl.setAttribute('role', 'status');
-      document.body.appendChild(toastEl);
-    }
-    toastEl.textContent = msg;
-    toastEl.classList.add('up');
-    clearTimeout(toastEl._t);
-    toastEl._t = setTimeout(function () { toastEl.classList.remove('up'); }, 2600);
+  'use strict';
+  var core = window.DRCore, notice, undoAction, catalog, catalogPromise;
+  var $ = function (s) { return document.querySelector(s); };
+  var $$ = function (s) { return Array.from(document.querySelectorAll(s)); };
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function toast(text, undo) {
+    if (!notice) { notice = document.createElement('div'); notice.className = 'toast up'; notice.setAttribute('role', 'status'); document.body.appendChild(notice); }
+    notice.replaceChildren(document.createTextNode(text)); notice.classList.add('up');
+    if (undo) { var b = document.createElement('button'); b.type = 'button'; b.textContent = 'Undo'; b.addEventListener('click', function () { undo(); notice.replaceChildren(document.createTextNode('Undone.')); }); notice.appendChild(b); }
+    clearTimeout(notice._timer);
+    if (!undo) notice._timer = setTimeout(function () { notice.classList.remove('up'); }, 6000);
   }
-
-  var input = document.getElementById('q');
-  if (input) {
-    var box = document.getElementById('sug');
-    var index = [], cursor = -1, list = [];
-    fetch('/assets/search.json').then(function (r) { return r.json(); }).then(function (d) { index = d; });
-
-    function target(item) {
-      return item.page ? '/dramas-like/' + item.slug + '/' : '/dramas/' + item.slug + '/';
-    }
-    /* Same normalisation the build uses when it writes search.json. */
-    function nrm(v) {
-      return String(v).toLowerCase().replace(/[\u2019'`.,:;!?]/g, '').replace(/\s+/g, ' ').trim();
-    }
-    /* Levenshtein with a ceiling, so one typo still finds the show. Bails as soon as the best
-       possible result is worse than the ceiling, which keeps 195 titles per keystroke cheap. */
-    function dist(a, b, max) {
-      if (a === b) return 0;
-      if (Math.abs(a.length - b.length) > max) return max + 1;
-      var prev = [], cur = [], i, j;
-      for (j = 0; j <= b.length; j++) prev[j] = j;
-      for (i = 1; i <= a.length; i++) {
-        cur[0] = i;
-        var best = cur[0];
-        for (j = 1; j <= b.length; j++) {
-          cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1));
-          if (cur[j] < best) best = cur[j];
-        }
-        if (best > max) return max + 1;
-        for (j = 0; j <= b.length; j++) prev[j] = cur[j];
-      }
-      return prev[b.length];
-    }
-    /* Title beats alias, alias beats typo. Nothing scores unless it earns it, so an empty
-       result set still says so rather than showing seven near-random shows. */
-    function score(it, q) {
-      var n = it.n || '', a = it.a || '';
-      if (n === q) return 100;
-      if (n.indexOf(q) === 0) return 92;
-      if ((' ' + n).indexOf(' ' + q) > -1) return 84;
-      if (n.indexOf(q) > -1) return 74;
-      var alts = a ? a.split('|') : [];
-      for (var i = 0; i < alts.length; i++) {
-        var t = alts[i];
-        if (!t) continue;
-        if (t === q) return 88;
-        if (t.indexOf(q) === 0) return 78;
-        if ((' ' + t).indexOf(' ' + q) > -1) return 66;
-        if (q.length > 3 && t.indexOf(q) > -1) return 58;
-      }
-      if (q.length >= 4) {
-        var tol = q.length <= 5 ? 1 : q.length <= 9 ? 2 : 3;
-        var best = dist(q, n.length > q.length + tol ? n.slice(0, q.length + tol) : n, tol);
-        var words = n.split(' ');
-        for (var w = 0; w < words.length && best > 0; w++) {
-          if (Math.abs(words[w].length - q.length) <= tol) best = Math.min(best, dist(q, words[w], tol));
-        }
-        if (best <= tol) return 46 - best * 6;
-      }
-      return 0;
-    }
-    function draw() {
-      var q = nrm(input.value);
-      list = [];
-      if (q.length > 0) {
-        var hits = [];
-        for (var i = 0; i < index.length; i++) {
-          var sc = score(index[i], q);
-          if (sc > 0) hits.push({ it: index[i], s: sc, i: i });
-        }
-        hits.sort(function (x, y) { return y.s - x.s || y.it.page - x.it.page || x.i - y.i; });
-        for (var h = 0; h < hits.length && list.length < 7; h++) list.push(hits[h].it);
-      }
-      if (!list.length) {
-        /* The highest-intent visitor on the site is the one who types the show that wrecked them
-           and is not in the catalog. That used to return silence. Now it returns the nearest
-           things we have written and a one-click way to put the title in the queue. */
-        if (q.length < 3 || !index.length) { box.classList.remove('open'); input.setAttribute('aria-expanded', 'false'); return; }
-        var typed = input.value.trim();
-        var near = index.filter(function (it) { return it.page; }).sort(function (a, b) {
-          return (b.y || 0) - (a.y || 0) || a.t.localeCompare(b.t);
-        }).slice(0, 3);
-        box.innerHTML = '<div class="nomatch">' +
-          '<p class="nm-h">We have not written <b>' + typed.replace(/[<>&]/g, '') + '</b> yet.</p>' +
-          '<p class="nm-s">Pages get written in the order people ask for them, so asking genuinely moves it up. Newest lists we have written:</p>' +
-          near.map(function (it) {
-            return '<a role="option" href="' + target(it) + '"><span class="t">' + it.t + '</span><span class="tag">written</span><span class="y tnum">' + it.y + '</span></a>';
-          }).join('') +
-          '<a class="nm-req" href="mailto:hello@dramarecs.com?subject=' + encodeURIComponent('Page request: ' + typed) +
-          '&body=' + encodeURIComponent('Please write a dramas-like page for: ' + typed) + '">Ask for this one next &rarr;</a>' +
-          '<a class="nm-alt" href="/collections/">Or browse by how you want to feel &rarr;</a></div>';
-        box.classList.add('open');
-        input.setAttribute('aria-expanded', 'true');
-        return;
-      }
-      box.innerHTML = list.map(function (it, i) {
-        return '<a role="option" href="' + target(it) + '" class="' + (i === cursor ? 'cursor' : '') + '">' +
-          '<span class="t">' + it.t + '</span>' +
-          (it.page ? '<span class="tag">written</span>' : '') +
-          '<span class="y tnum">' + it.y + '</span></a>';
-      }).join('');
-      box.classList.add('open');
-      input.setAttribute('aria-expanded', 'true');
-    }
-    function submit() {
-      if (cursor >= 0 && list[cursor]) { location.href = target(list[cursor]); return; }
-      if (list.length) { location.href = target(list[0]); return; }
-      if (input.value.trim()) { draw(); toast('Not written yet. Ask for it and it moves up the queue.'); }
-    }
-    input.addEventListener('input', function () { cursor = -1; draw(); });
-    input.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowDown') { e.preventDefault(); cursor = Math.min(cursor + 1, list.length - 1); draw(); }
-      else if (e.key === 'ArrowUp') { e.preventDefault(); cursor = Math.max(cursor - 1, 0); draw(); }
-      else if (e.key === 'Enter') { e.preventDefault(); submit(); }
-      else if (e.key === 'Escape') { box.classList.remove('open'); }
-    });
-    var goBtn = document.getElementById('gobtn');
-    if (goBtn) goBtn.addEventListener('click', submit);
-    document.addEventListener('click', function (e) {
-      if (!box.contains(e.target) && e.target !== input) box.classList.remove('open');
-    });
-  }
-
-  document.querySelectorAll('.spoiler').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      if (btn.classList.contains('shown')) return;
-      btn.classList.add('shown');
-      btn.innerHTML = '<b style="font-weight:600">' + btn.dataset.label + '.</b>&nbsp; ' + btn.dataset.text;
-    });
-  });
   window.__sdToast = toast;
-})();
-
-(function () {
-  var toast = window.__sdToast || function () {};
-
-  var chips = document.querySelectorAll('.refine .chip');
-  if (chips.length) {
-    var rows = Array.prototype.slice.call(document.querySelectorAll('.rec'));
-    var countEl = document.querySelector('.refine .count');
-    var clearEl = document.querySelector('.clearall');
-    var emptyEl = document.getElementById('nofilterhits');
-    var tests = {
-      light: function (d) { return +d.heavy <= 3; },
-      short: function (d) { return +d.eps < 16; },
-      netflix: function (d) { return (d.provs || '').indexOf('Netflix') > -1; },
-      romance: function (d) { return +d.romance >= 3; },
-      slow: function (d) { return +d.pace <= 2; }
+  function storageWarning(text) {
+    var el = $('#storagewarning');
+    if (!el) { el = document.createElement('p'); el.id = 'storagewarning'; el.className = 'wrap storagewarning'; el.setAttribute('role', 'status'); $('#main').prepend(el); }
+    el.textContent = text;
+  }
+  var storage;
+  try { storage = window.localStorage; } catch (_) { storage = {getItem:function(){throw new Error('Denied');}}; }
+  var state = core.createState(storage, storageWarning);
+  function loadIndex() {
+    if (catalog) return Promise.resolve(catalog);
+    if (!catalogPromise) catalogPromise = core.fetchIndex(window.fetch.bind(window)).then(function (data) { catalog = data; return data; }).catch(function (e) { catalogPromise = null; throw e; });
+    return catalogPromise;
+  }
+  function snapshotAction(field, slug, button) {
+    var before = state.read()[field].includes(slug);
+    state.toggle(field, slug); sync();
+    if (button && button.closest('[hidden]')) { var f = $('#hidewatched'); if (f) f.focus(); }
+    toast((field === 'watched' ? (before ? 'Marked unwatched.' : 'Marked watched. Your bookmark is unchanged.') : (before ? 'Removed from your shelf.' : 'Saved to your shelf.')) + (state.sessionOnly() ? ' This page session only.' : ''), function () {
+      var next = state.read(); next[field] = next[field].filter(function (s) { return s !== slug; }); if (before) next[field].push(slug); state.write(next); sync();
+    });
+  }
+  function actionButtons(slug) {
+    return '<button type="button" class="shelf" data-slug="' + esc(slug) + '" aria-pressed="false">Save for later</button> <button type="button" class="watched" data-slug="' + esc(slug) + '" aria-pressed="false">Already watched</button>';
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('button.shelf,button.watched');
+    if (b) snapshotAction(b.classList.contains('watched') ? 'watched' : 'saved', b.dataset.slug, b);
+  });
+  // Search keeps listbox options separate from status/retry/alternative actions.
+  var input = $('#q'), box = $('#sug'), resultList = [], cursor = -1, searchState = 'loading', searchWanted = false, searchStatus;
+  function target(it) { return (it.page ? '/dramas-like/' : '/dramas/') + it.slug + '/'; }
+  function closeSearch() { searchWanted = false; box.classList.remove('open'); box.innerHTML = ''; input.setAttribute('aria-expanded', 'false'); input.removeAttribute('aria-activedescendant'); cursor = -1; if (searchStatus) searchStatus.hidden = true; }
+  function drawSearch() {
+    if (!input) return;
+    var q = input.value.trim();
+    if (!q || !searchWanted) { closeSearch(); return; }
+    input.removeAttribute('aria-activedescendant');
+    resultList = searchState === 'ready' ? core.search(catalog, q) : [];
+    box.innerHTML = ''; box.classList.remove('open'); input.setAttribute('aria-expanded', 'false');
+    searchStatus.hidden = false;
+    if (searchState === 'loading') { searchStatus.textContent = 'Loading titles...'; return; }
+    if (searchState === 'error') { searchStatus.innerHTML = 'Could not load titles. <button type="button" id="searchretry">Retry search</button>'; $('#searchretry').onclick = startSearch; return; }
+    if (!resultList.length) { searchStatus.innerHTML = 'No matching title. <a href="/collections/">Browse collections</a> or <a href="/contact/">request a title</a>.'; return; }
+    searchStatus.textContent = resultList.length + ' suggestions. Use the arrow keys to choose.';
+    if (cursor >= resultList.length) cursor = -1;
+    box.innerHTML = resultList.map(function (it, i) {
+      return '<a id="suggestion-' + i + '" role="option" aria-selected="' + (i === cursor) + '" href="' + target(it) + '" class="' + (i === cursor ? 'cursor' : '') + '"><span class="t">' + esc(it.t) + '</span><span class="tag">' + (it.page ? 'Recommendations' : 'Review') + (state.read().watched.includes(it.slug) ? ' · Watched' : '') + '</span><span class="y tnum">' + esc(it.y) + '</span></a>';
+    }).join('');
+    box.classList.add('open'); input.setAttribute('aria-expanded', 'true');
+    if (cursor >= 0) input.setAttribute('aria-activedescendant', 'suggestion-' + cursor);
+  }
+  function startSearch() {
+    searchState = 'loading'; drawSearch();
+    loadIndex().then(function () { searchState = 'ready'; drawSearch(); }).catch(function () { searchState = 'error'; drawSearch(); });
+  }
+  if (input) {
+    input.maxLength = 160; input.setAttribute('aria-autocomplete', 'list');
+    searchStatus = document.createElement('div'); searchStatus.className = 'searchstatus'; searchStatus.id = 'searchstatus'; searchStatus.setAttribute('role', 'status'); box.after(searchStatus);
+    input.setAttribute('aria-describedby', 'searchstatus');
+    input.addEventListener('input', function () { searchWanted = true; cursor = -1; drawSearch(); });
+    input.addEventListener('focus', function () { searchWanted = true; drawSearch(); });
+    function submit() { if (resultList.length && searchState === 'ready' && searchWanted) location.href = target(resultList[Math.max(0, cursor)]); else { searchWanted = true; drawSearch(); } }
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); searchWanted = true; cursor = Math.max(0, Math.min(cursor + (e.key === 'ArrowDown' ? 1 : -1), resultList.length - 1)); drawSearch(); }
+      else if (e.key === 'Enter') { e.preventDefault(); submit(); }
+      else if (e.key === 'Escape') closeSearch();
+    });
+    if ($('#gobtn')) $('#gobtn').onclick = submit;
+    document.addEventListener('click', function (e) { if (!e.target.closest('.searchblock')) closeSearch(); });
+    document.addEventListener('focusin', function (e) { if (!e.target.closest('.searchblock')) closeSearch(); });
+    startSearch();
+  }
+  // Saved, watched and reader preferences are independent.
+  var rows = $$('.rec'), filterChips = $$('.refine .chip'), refine = $('.refine-in');
+  if (refine) {
+    var hide = document.createElement('button'); hide.type = 'button'; hide.id = 'hidewatched'; hide.className = 'chip'; hide.textContent = "Hide dramas I've watched"; hide.setAttribute('aria-pressed', 'false'); refine.appendChild(hide);
+    hide.onclick = function () { var next = state.read(); next.hideWatched = !next.hideWatched; state.write(next); sync(); };
+  }
+  var activeReason = null;
+  function applyFilters() {
+    var prefs = state.read(), on = filterChips.filter(function (c) { return c.getAttribute('aria-pressed') === 'true'; }).map(function (c) { return c.dataset.f; });
+    var tests = { light:function(d){return +d.heavy<=3;}, short:function(d){return +d.eps<=12;}, netflix:function(d){return (d.provs||'').split(',').some(function(p){return /^Netflix(?: |$)/i.test(p);});}, romance:function(d){return +d.romance>=3;}, slow:function(d){return +d.pace<=2;} };
+    var visible = 0;
+    rows.forEach(function (r) { r.hidden = (activeReason && !activeReason.picks.some(function(p){return p.slug === r.dataset.slug;})) || (prefs.hideWatched && prefs.watched.includes(r.dataset.slug)) || !on.every(function (f) { return tests[f] && tests[f](r.dataset); }); if (!r.hidden) visible++; });
+    var count = $('.refine .count'); if (count) { count.textContent = visible + ' of ' + rows.length; count.setAttribute('role', 'status'); }
+    if ($('.clearall')) $('.clearall').hidden = on.length === 0 && !activeReason;
+    if ($('#nofilterhits')) $('#nofilterhits').hidden = visible !== 0;
+    if ($('#hidewatched')) $('#hidewatched').setAttribute('aria-pressed', String(prefs.hideWatched));
+    // No ad requests or refreshes on filter interaction. Ads are disabled in this repair release.
+  }
+  var reasonPicker = $('.reasonpicker');
+  if (reasonPicker) {
+    var reasons = []; try { reasons = JSON.parse(reasonPicker.dataset.reasons); } catch (_) {}
+    $('#reasonchoice').onchange = function () {
+      activeReason = reasons.find(function (r) { return r.id === $('#reasonchoice').value; }) || null;
+      var order = activeReason ? activeReason.picks.map(function (p) { return rows.find(function (r) { return r.dataset.slug === p.slug; }); }).filter(Boolean) : rows;
+      rows.forEach(function (r) { var old = r.querySelector('.reasonfit'); if (old) old.remove(); });
+      order.concat(rows.filter(function (r) { return !order.includes(r); })).forEach(function (r,i) { $('.recs').appendChild(r); r.querySelector('.rank').textContent = String(i+1).padStart(2,'0'); });
+      if (activeReason) activeReason.picks.forEach(function (p) { var r=rows.find(function(r){return r.dataset.slug===p.slug;}); if(r){var note=document.createElement('p');note.className='reasonfit';note.textContent=p.why;r.querySelector('.recbody').prepend(note);} });
+      applyFilters();
     };
-    function apply() {
-      var on = [];
-      chips.forEach(function (c) { if (c.getAttribute('aria-pressed') === 'true') on.push(c.dataset.f); });
-      var shown = 0;
-      rows.forEach(function (r) {
-        var ok = on.every(function (f) { return tests[f](r.dataset); });
-        r.hidden = !ok;
-        if (ok) shown++;
-      });
-      if (countEl) countEl.textContent = shown + ' of ' + rows.length;
-      if (clearEl) clearEl.hidden = on.length === 0;
-      if (emptyEl) emptyEl.hidden = shown !== 0;
-    }
-    chips.forEach(function (c) {
-      c.addEventListener('click', function () {
-        c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
-        apply();
-      });
-    });
-    function reset() {
-      chips.forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
-      apply();
-    }
-    if (clearEl) clearEl.addEventListener('click', reset);
-    var emptyClear = document.getElementById('emptyclear');
-    if (emptyClear) emptyClear.addEventListener('click', reset);
-    window.__sdRefine = apply;
-    apply();
   }
-
-  var KEY = 'sd.shelf';
-  function shelf() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
-  function paint(btn, on) {
-    btn.setAttribute('aria-pressed', String(on));
-    btn.textContent = on ? 'On your shelf' : 'Save for later';
-    btn.setAttribute('title', on ? 'Remove from your shelf' : 'Save to your shelf');
+  filterChips.forEach(function (c) { c.onclick = function () { c.setAttribute('aria-pressed', String(c.getAttribute('aria-pressed') !== 'true')); applyFilters(); }; });
+  function clearFilters() { if ($('#reasonchoice')) { $('#reasonchoice').value=''; $('#reasonchoice').onchange(); } filterChips.forEach(function (c) { c.setAttribute('aria-pressed', 'false'); }); applyFilters(); }
+  if ($('.clearall')) $('.clearall').onclick = clearFilters;
+  if ($('#emptyclear')) $('#emptyclear').onclick = clearFilters;
+  if ($('#nofilterhits')) $('#nofilterhits').insertAdjacentHTML('beforeend', '<p>Already watched everything? Turn off “Hide dramas I\'ve watched” above, or <a href="/collections/">try a different collection</a>. Your watched history is kept.</p>');
+  // Shelf: bounded posters, explicit controls, recoverable fetches, safe sharing.
+  var mount = $('#shelfmount'), sharedSlugs = null, shareError = '', shelfReady = false;
+  if (mount) { try { sharedSlugs = core.shared(location.hash); } catch (e) { shareError = e.message; } }
+  function renderShelf() {
+    if (!mount || !shelfReady) return;
+    if (shareError) { mount.innerHTML = '<div class="empty"><h2>Cannot open this shared shelf</h2><p>' + esc(shareError) + '</p><a href="/my-shelf/">Open your own shelf</a></div>'; return; }
+    var ids = sharedSlugs === null ? state.read().saved : sharedSlugs;
+    var items = ids.map(function (slug) { return catalog.find(function (it) { return it.slug === slug; }); }).filter(Boolean);
+    var missing = ids.length - items.length;
+    mount.innerHTML = (sharedSlugs !== null ? '<div class="sharedbar"><p><b>Shared shelf.</b> These titles do not replace your own shelf.</p><button class="btn" id="keepshelf" type="button">Add these to my shelf</button> <a href="/my-shelf/">Back to mine</a></div>' : '') +
+      (missing ? '<p role="status">' + missing + ' saved titles are not in this catalog version. Their saved IDs are retained.</p>' : '') +
+      (!items.length ? '<div class="empty"><h2>' + (sharedSlugs !== null ? 'No recognized shared titles.' : 'Your shelf is empty.') + '</h2><p>Save something you want to come back to.</p><a class="btn" href="/">Find a drama</a></div>' : '<div class="gridlist shelfgrid">' + items.map(function (it) {
+        var img = /^https:\/\/image\.tmdb\.org\/t\/p\//.test(it.img || '') ? '<img class="pix" src="' + esc(it.img) + '" srcset="' + esc(it.img.replace('/w500/', '/w185/')) + ' 185w, ' + esc(it.img.replace('/w500/', '/w342/')) + ' 342w, ' + esc(it.img) + ' 500w" sizes="(max-width: 480px) 42vw, 190px" alt="" loading="lazy" width="500" height="750">' : '<div class="pix"><span class="fallback">' + esc(it.t) + '</span></div>';
+        return '<article class="shelfitem" data-item="' + it.slug + '" style="--hue:' + (Number(it.hue) || 40) + '"><a class="gitem" href="/dramas/' + it.slug + '/"><div class="plate">' + img + '</div><h3>' + esc(it.t) + '</h3><p class="m tnum">' + esc(it.y) + '</p></a><div class="shelfactions">' + actionButtons(it.slug) + '</div></article>';
+      }).join('') + '</div>');
+    if ($('#keepshelf')) $('#keepshelf').onclick = function () { var next = state.read(); next.saved = core.slugs(next.saved.concat(items.map(function (it) { return it.slug; }))); state.write(next); syncButtons(); toast('Shared titles added.' + (state.sessionOnly() ? ' This page session only.' : '')); };
   }
-  var saved = shelf();
-  document.querySelectorAll('.shelf').forEach(function (btn) {
-    paint(btn, saved.indexOf(btn.dataset.slug) > -1);
-    btn.addEventListener('click', function () {
-      var cur = shelf(), i = cur.indexOf(btn.dataset.slug);
-      if (i > -1) { cur.splice(i, 1); } else { cur.push(btn.dataset.slug); }
-      localStorage.setItem(KEY, JSON.stringify(cur));
-      paint(btn, i === -1);
-      toast(i === -1 ? btn.dataset.title + ' saved to your shelf.' : btn.dataset.title + ' removed.');
-    });
-  });
-
-  /* A shelf that only exists in localStorage is invisible to everyone, including us. The hash
-     carries the slugs, so a reader can post their shelf and the person who opens it can keep it. */
-  function sharedSlugs() {
-    var m = /[#&]s=([^&]+)/.exec(location.hash || '');
-    return m ? decodeURIComponent(m[1]).split(',').filter(Boolean) : null;
+  function startShelf() {
+    mount.innerHTML = '<p role="status">Loading your shelf...</p>';
+    loadIndex().then(function () { shelfReady = true; renderShelf(); syncButtons(); }).catch(function () { mount.innerHTML = '<div class="empty"><h2>Could not load your shelf</h2><p>Your saved titles are unchanged.</p><button type="button" class="btn" id="shelfretry">Retry</button></div>'; $('#shelfretry').onclick = startShelf; });
   }
-
-  var shareBtn = document.getElementById('shelfshare');
-  if (shareBtn) shareBtn.addEventListener('click', function () {
-    var cur = sharedSlugs() || shelf();
-    if (!cur.length) { toast('Nothing on the shelf to share yet.'); return; }
-    var url = location.origin + '/my-shelf/#s=' + encodeURIComponent(cur.join(','));
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(url).then(function () { toast('Link copied. ' + cur.length + ' titles.'); },
-        function () { toast(url); });
-    } else { toast(url); }
-  });
-
-  var mount = document.getElementById('shelfmount');
-  if (mount) {
-    fetch('/assets/search.json').then(function (r) { return r.json(); }).then(function (index) {
-      var shared = sharedSlugs();
-      var cur = shared || shelf();
-      var items = index.filter(function (it) { return cur.indexOf(it.slug) > -1; });
-      if (shared && items.length) {
-        var bar = document.createElement('div');
-        bar.className = 'sharedbar';
-        bar.innerHTML = '<p><b>Someone else&rsquo;s shelf.</b> ' + items.length + ' titles, shared by link.</p>' +
-          '<button class="btn" type="button" id="keepshelf">Keep these on my shelf</button> <a class="btn btn--ghost" href="/my-shelf/">Back to mine</a>';
-        mount.parentNode.insertBefore(bar, mount);
-        bar.querySelector('#keepshelf').addEventListener('click', function () {
-          var mine = shelf();
-          items.forEach(function (it) { if (mine.indexOf(it.slug) < 0) mine.push(it.slug); });
-          localStorage.setItem(KEY, JSON.stringify(mine));
-          toast(items.length + ' titles kept. Opening your shelf.');
-          setTimeout(function () { location.href = '/my-shelf/'; }, 700);
-        });
-      }
-      if (!items.length) {
-        mount.innerHTML = '<div class="empty"><h2>Your shelf is empty.</h2>' +
-          '<p>Hit save on anything you want to come back to. It stays on this device. No account, no email.</p>' +
-          '<div class="actions"><a class="btn-solid" href="/">Find something</a></div></div>';
-        return;
-      }
-      mount.innerHTML = '<div class="grid-list">' + items.map(function (it) {
-        return '<a class="gitem" href="/dramas/' + it.slug + '/" style="--hue:' + (it.hue || 40) + '">' +
-          '<div class="plate">' + (it.img
-            ? '<img class="pix" src="' + it.img + '" alt="" loading="lazy" width="500" height="750">'
-            : '<div class="pix"><span class="fallback">' + it.t + '</span></div>') +
-          '</div><h3>' + it.t + '</h3><p class="m tnum">' + it.y + '</p></a>';
-      }).join('') + '</div>';
-    });
-  }
-})();
-
-
-/* ---------------- streaming region ----------------
-   Every provider row ships with the data for eight regions in a data attribute, so switching is
-   instant, costs no request, and works on a static host. US stays the default for crawlers and
-   for anyone who has not chosen, which is why the row is server-rendered too. */
-(function () {
-  var toast = window.__sdToast || function () {};
-  var KEY = 'sd.region';
-  var LABEL = {
-    US: 'the United States', GB: 'the United Kingdom', CA: 'Canada', AU: 'Australia',
-    IN: 'India', PH: 'the Philippines', ID: 'Indonesia', BR: 'Brazil'
+  if (mount) startShelf();
+  if ($('#shelfshare')) $('#shelfshare').onclick = function () {
+    if (shareError) { toast(shareError); return; }
+    var ids = sharedSlugs === null ? state.read().saved : sharedSlugs;
+    if (!ids.length) { toast('Nothing to share yet.'); return; }
+    var url = location.origin + '/my-shelf/#s=' + encodeURIComponent(ids.join(','));
+    if (url.length > 16000) { toast('This shelf is too large for a share link. Share a smaller selection.'); return; }
+    var field = $('#sharelink');
+    if (!field) { var label = document.createElement('label'); label.className = 'sharecopy'; label.textContent = 'Anyone with this link can see these titles. Copy the link:'; field = document.createElement('input'); field.id = 'sharelink'; field.readOnly = true; label.appendChild(field); $('.shelfbar').appendChild(label); }
+    field.value = url; field.focus(); field.select();
+    if (navigator.clipboard) navigator.clipboard.writeText(url).then(function () { toast('Link copied. Anyone with it can see the shared titles.'); }).catch(function () { toast('Select and copy the link shown beside Share.'); });
   };
-  var rows = document.querySelectorAll('.watch[data-watch]');
-  var sels = document.querySelectorAll('.regionsel');
-  if (!rows.length && !sels.length) return;
-
-  function stored() { try { return localStorage.getItem(KEY) || ''; } catch (e) { return ''; } }
-  function esc(v) { return String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
-
-  /* This file used to decide on its own what a provider chip links to, using the single TMDB link
-     for every brand in the row. That meant the markup after a region switch did not match the
-     markup the build had rendered, and it silently ignored the affiliate wrapping entirely.
-     The build now ships one resolved table in window.DR_WATCH and this reads it, so there is
-     exactly one place that knows what a watch link looks like. See build.mjs, affiliate(). */
-  var TABLE = window.DR_WATCH || {};
-
-  function href(brand, code, title) {
-    var row = TABLE[brand];
-    if (!row) return null;
-    var cell = row.r ? row.r[code] : row;
-    if (!cell || !cell.h) return null;
-    return {
-      href: cell.h
-        .replace('{qq}', encodeURIComponent(encodeURIComponent(title || '')))
-        .replace('{q}', encodeURIComponent(title || '')),
-      paid: cell.s === 1
-    };
+  // Ending tones opt-in. Ending details always require an explicit, reversible reveal.
+  var spoilerButtons = $$('.spoiler');
+  if (spoilerButtons.length) {
+    var label = document.createElement('label'); label.className = 'endingpref wrap'; label.innerHTML = '<input type="checkbox" id="endingtones"> Show ending tone labels (spoilers)'; $('#main').prepend(label);
+    $('#endingtones').onchange = function () { var next = state.read(); next.showEndingTones = this.checked; state.write(next); spoilerButtons.forEach(function (b) { b.dataset.open = 'false'; }); syncSpoilers(); };
   }
-
-  function paint(el, code) {
-    var data = {};
-    try { data = JSON.parse(el.getAttribute('data-watch') || '{}'); } catch (e) { data = {}; }
-    var list = (data.p || {})[code] || [];
-    var fallback = (data.l || {})[code] || '';
-    var title = el.getAttribute('data-title') || '';
-    el.setAttribute('data-region', code);
-    if (list.length) {
-      el.innerHTML = list.map(function (p) {
-        var hit = href(p, code, title);
-        var url = hit ? hit.href : fallback;
+  function syncSpoilers() {
+    var show = state.read().showEndingTones; if ($('#endingtones')) $('#endingtones').checked = show;
+    spoilerButtons.forEach(function (b) { var open = b.dataset.open === 'true'; b.classList.toggle('shown', open); b.setAttribute('aria-expanded', String(open)); b.textContent = open ? b.dataset.label + '. ' + b.dataset.text + ' (Hide ending)' : (show ? 'Ending: ' + b.dataset.label + ' (reveal details)' : 'Reveal ending (spoiler)'); });
+  }
+  spoilerButtons.forEach(function (b) { b.onclick = function () { b.dataset.open = b.dataset.open === 'true' ? 'false' : 'true'; syncSpoilers(); }; });
+  // Region changes use the same resolved destination table as static HTML.
+  var regions = {US:'the United States',GB:'the United Kingdom',CA:'Canada',AU:'Australia',IN:'India',PH:'the Philippines',ID:'Indonesia',BR:'Brazil'};
+  function paintRegion(code) {
+    $$('.watch[data-watch]').forEach(function (el) {
+      var data; try { data = JSON.parse(el.dataset.watch); } catch (_) { data = {}; }
+      var providers = (data.p || {})[code] || [], fallback = (data.l || {})[code] || '', title = el.dataset.title || '';
+      el.dataset.region = code;
+      el.innerHTML = providers.length ? providers.map(function (p) {
+        var row = (window.DR_WATCH || {})[p], cell = row && (row.r ? row.r[code] : row), link = cell && cell.h;
+        var url = link ? link.replace('{qq}', encodeURIComponent(encodeURIComponent(title))).replace('{q}', encodeURIComponent(title)) : fallback;
         if (!url) return '<span class="prov">' + esc(p) + '</span>';
-        var paid = !!(hit && hit.paid);
-        return '<a class="prov prov--link' + (paid ? ' prov--aff' : '') + '" href="' + esc(url) +
-          '" rel="' + (paid ? 'sponsored nofollow noopener' : 'nofollow noopener') +
-          '" target="_blank" aria-label="' + esc((title ? title + ' on ' : '') + p +
-          (paid ? ', affiliate link' : '') + ', opens in a new tab') + '">' + esc(p) + '</a>';
-      }).join('');
-    } else {
-      el.innerHTML = '<span class="prov prov--none">Not streaming in ' +
-        esc(LABEL[code] || 'your region') + ' right now</span>';
-    }
-    var rec = el.closest ? el.closest('.rec') : null;
-    if (rec) rec.dataset.provs = list.join(',');
-  }
-
-  function apply(code, announce) {
-    for (var i = 0; i < rows.length; i++) paint(rows[i], code);
-    for (var j = 0; j < sels.length; j++) sels[j].value = code;
-    var names = document.querySelectorAll('.regionname');
-    for (var k = 0; k < names.length; k++) names[k].textContent = LABEL[code] || code;
-    if (typeof window.__sdRefine === 'function') window.__sdRefine();
-    if (announce) toast('Streaming rows now show ' + (LABEL[code] || code) + '.');
-  }
-
-  var start = stored();
-  if (start && LABEL[start]) apply(start, false);
-
-  for (var s = 0; s < sels.length; s++) {
-    sels[s].addEventListener('change', function (e) {
-      var code = e.target.value;
-      try { localStorage.setItem(KEY, code); } catch (err) {}
-      apply(code, true);
+        return '<a class="prov prov--link" href="' + esc(url) + '" target="_blank" rel="' + (cell && cell.s ? 'sponsored ' : '') + 'nofollow noopener">' + (link ? 'Search ' : 'Check availability: ') + esc(p) + '</a>';
+      }).join('') : '<span class="prov prov--none">Availability unconfirmed in ' + esc(regions[code]) + '</span>';
+      var rec = el.closest('.rec'); if (rec) rec.dataset.provs = providers.join(',');
     });
+    $$('.regionsel').forEach(function (s) { s.value = code; }); $$('.regionname').forEach(function (n) { n.textContent = regions[code]; }); applyFilters();
   }
-})();
-
-/* Consent choices. The privacy policy promises the choice can be withdrawn at any time, so the
-   footer link has to actually reopen the CMP. Only rendered when ads are switched on. */
-(function () {
-  var btn = document.getElementById('cookiechoices');
-  if (!btn) return;
-  btn.addEventListener('click', function () {
-    if (window.googlefc && window.googlefc.callbackQueue) {
-      window.googlefc.callbackQueue.push({
-        CONSENT_DATA_READY: function () {
-          if (window.googlefc.showRevocationMessage) window.googlefc.showRevocationMessage();
-        }
-      });
-      if (window.googlefc.showRevocationMessage) window.googlefc.showRevocationMessage();
-    } else if (window.__tcfapi) {
-      window.__tcfapi('displayConsentUi', 2, function () {});
-    } else if (window.__sdToast) {
-      window.__sdToast('Consent settings are not loaded on this page.');
-    }
-  });
+  var initialRegion; try { initialRegion = storage.getItem('sd.region'); } catch (_) {}
+  if (regions[initialRegion]) paintRegion(initialRegion);
+  $$('.regionsel').forEach(function (s) { s.onchange = function () { if (!regions[s.value]) return; try { storage.setItem('sd.region', s.value); } catch (_) { storageWarning('Region preference lasts for this page session only.'); } paintRegion(s.value); toast('Streaming rows updated. Fixed-region collections do not change membership.'); }; });
+  // Small comparison uses the same rendered facts. No new editorial or rating claims.
+  var compare = [], compareMount;
+  if (rows.length) {
+    compareMount = document.createElement('section'); compareMount.className = 'wrap comparison'; compareMount.hidden = true; compareMount.id = 'comparison'; $('.recs').parentNode.appendChild(compareMount);
+    rows.forEach(function (r) { var b = document.createElement('button'); b.type = 'button'; b.className = 'comparebtn'; b.textContent = 'Compare'; b.setAttribute('aria-pressed', 'false'); r.querySelector('.recfoot').appendChild(b); b.onclick = function () { var i = compare.indexOf(r); if (i >= 0) compare.splice(i, 1); else if (compare.length < 3) compare.push(r); else { toast('Choose up to three dramas. Remove one first.'); return; } b.setAttribute('aria-pressed', String(compare.includes(r))); renderCompare(); toast(compare.length + ' selected. Comparison is below the recommendations.'); }; });
+  }
+  function renderCompare() {
+    if (!compareMount) return;
+    compareMount.hidden = !compare.length;
+    compareMount.innerHTML = '<h2>Compare your shortlist</h2><p>Same catalog facts, no ending spoilers. Up to three titles.</p><div class="comparegrid">' + compare.map(function (r) { return '<article><h3>' + r.querySelector('.rectitle').innerHTML + '</h3><p>' + esc((r.querySelector('.commitment') || r.querySelector('.recmeta')).textContent) + '</p><p>' + esc(r.querySelector('.why').textContent) + '</p><p>' + esc(r.querySelector('.difference') ? r.querySelector('.difference').textContent : 'Read the full comparison for tradeoffs.') + '</p><p>' + (state.read().watched.includes(r.dataset.slug) ? 'Watched' : 'Not marked watched') + '</p>' + actionButtons(r.dataset.slug) + '</article>'; }).join('') + '</div>';
+    syncButtons();
+  }
+  function syncButtons() {
+    var prefs = state.read();
+    $$('button.shelf').forEach(function (b) { var saved = prefs.saved.includes(b.dataset.slug); b.setAttribute('aria-pressed', String(saved)); b.textContent = saved ? (b.closest('#shelfmount') ? 'Remove' : 'On your shelf') : 'Save for later'; });
+    $$('button.watched').forEach(function (b) { var watched = prefs.watched.includes(b.dataset.slug); b.setAttribute('aria-pressed', String(watched)); b.textContent = watched ? 'Watched (undo)' : 'Already watched'; });
+  }
+  function sync() {
+    var focus = document.activeElement, slug = focus && focus.dataset.slug, watchedAction = focus && focus.classList.contains('watched');
+    renderShelf(); syncButtons(); applyFilters(); syncSpoilers(); renderCompare();
+    if (mount && slug) { var replacement = mount.querySelector('[data-slug="' + slug + '"].' + (watchedAction ? 'watched' : 'shelf')); if (replacement) replacement.focus(); else { mount.tabIndex = -1; mount.focus(); } }
+    if (input && searchWanted) drawSearch();
+  }
+  window.addEventListener('storage', function (e) { if (e.key === 'dr.state.v1' || e.key === null) { state.refresh(); sync(); } });
+  sync();
 })();

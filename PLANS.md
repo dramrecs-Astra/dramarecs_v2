@@ -1,3 +1,5 @@
+> Repair-pass notice (2026-09-06): historical guidance below may conflict with the supplied source and this repair. Current counts and acceptance status are in INVENTORY.json and BACKLOG-STATUS.md. Do not treat old match percentages, exactly-three anti-picks, full-viewing claims or environment-variable monetization activation as current behavior. No full editorial audit has been completed.
+
 # PLANS.md
 
 **The one file for everything that is not editorial.** Roadmap, monetization, infrastructure,

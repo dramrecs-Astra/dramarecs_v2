@@ -1,0 +1,162 @@
+[
+  {
+    "file": ".env.example",
+    "change": "added",
+    "sha256": "6ca6f38b44cd3fd9a71269f90dea513bb0362cf4ca8a2657ac82d3d472d80810"
+  },
+  {
+    "file": ".github/workflows/validate.yml",
+    "change": "modified",
+    "sha256": "fbd0ded6a4709c240ec4d8ddd408885b91f8dcb0e1bf61c6ba573424b9398785"
+  },
+  {
+    "file": ".gitignore",
+    "change": "added",
+    "sha256": "65dfaa7b86b9d3a519587339bbf297758e76e0f3bbb9b58442c429ae1795047e"
+  },
+  {
+    "file": "BACKLOG-STATUS.md",
+    "change": "added",
+    "sha256": "dbf5017fd5b21542518474d28d61fd9d17fcf788dfe127245a08365652f1602d"
+  },
+  {
+    "file": "DramaRecs-action-plan.xlsx",
+    "change": "modified",
+    "sha256": "c89a6206b87a0443ba0ef6173d6afefa59b41f031f7d964a55646c3ed06a787f"
+  },
+  {
+    "file": "EDITORIAL-REVIEW-QUEUE.json",
+    "change": "added",
+    "sha256": "e84990bee3035bddf1d692a7979443650a663e68f2001bf5c134932283fccd93"
+  },
+  {
+    "file": "EDITORIAL.md",
+    "change": "modified",
+    "sha256": "f27ef3d5928c996704334b4579676446489a1ee55e060e7b1f32f46016cf7db4"
+  },
+  {
+    "file": "INVENTORY.json",
+    "change": "added",
+    "sha256": "afe679f385c835d0b4b3f4e206665f2630422935aa79c2738d3b080677b1412c"
+  },
+  {
+    "file": "PLANS.md",
+    "change": "modified",
+    "sha256": "e14a6b771270a7167687379676810378c5991a4239f934b6d91fbe550338ab42"
+  },
+  {
+    "file": "PROJECT-STATE.json",
+    "change": "modified",
+    "sha256": "a49b41be2157f8c95b15db9517d82137b03d9dd34dc659cd025f0e6ac54ccdb9"
+  },
+  {
+    "file": "README.md",
+    "change": "modified",
+    "sha256": "66fad7b0f75365426f93ea7e18831f96fbb03067f59d5d31743cead31508b26a"
+  },
+  {
+    "file": "RELEASE-NOTES.md",
+    "change": "added",
+    "sha256": "fea5c2c55acf8df0ece359ff1df2417ceffa6928f14b5891b15afddfae9bf534"
+  },
+  {
+    "file": "TEST-RESULTS.md",
+    "change": "added",
+    "sha256": "bc8f0c410fcb0207606d84405d7a3c44199959177e5477258322b731c8430618"
+  },
+  {
+    "file": "backlog-status.json",
+    "change": "added",
+    "sha256": "c574447e92e8e3863a17ffa95bb52c242635244c0ff5b928ef9771bdc9128c52"
+  },
+  {
+    "file": "build.mjs",
+    "change": "modified",
+    "sha256": "feac074a9fc0efaf67ec8d13c051876329d027ac7abcb21b080dc329ae1543aa"
+  },
+  {
+    "file": "data/dramas.json",
+    "change": "modified",
+    "sha256": "bb703005f47868b827f9c2a51e568b046a25c48f4eedaf3f55383b705073281d"
+  },
+  {
+    "file": "data/pages/my-liberation-notes.json",
+    "change": "modified",
+    "sha256": "a76eac3f3d9e5d95cbc509d6fa93fe59cc22bd2c2744a546a84bcbbbee99e815"
+  },
+  {
+    "file": "lib/data-quality.mjs",
+    "change": "added",
+    "sha256": "faec4d525c8b90c0c5ba764510b482b86aa18227edb110b8e913aee131462596"
+  },
+  {
+    "file": "package.json",
+    "change": "modified",
+    "sha256": "f23922c75e6bb11e912f1c0ca490b126f071d58616c7a9a7ada7675a36ae1dd1"
+  },
+  {
+    "file": "src/app.js",
+    "change": "modified",
+    "sha256": "86c6b8e740e07d13af00b49a641dd8464264761d7307c21cf492e014d5c6d500"
+  },
+  {
+    "file": "src/core.js",
+    "change": "added",
+    "sha256": "018768d5faea2c03b179193e93737e992ca67fd1941736100cc78e311dcc599f"
+  },
+  {
+    "file": "src/styles.css",
+    "change": "modified",
+    "sha256": "d2cedf9bbef4a9aa0e21790c9ab02a958e6d9c6bdc20201115a06e9b74e30a8a"
+  },
+  {
+    "file": "tests/browser-smoke.mjs",
+    "change": "added",
+    "sha256": "5db14b42cf6fa8d106eddc75f800262982451275de406b7d2ed5871ebb54830e"
+  },
+  {
+    "file": "tests/client.test.mjs",
+    "change": "added",
+    "sha256": "67821aa40ee0d0eeb7257192ed8c0b63cdc0df0934767b378aae6d05f99c6b47"
+  },
+  {
+    "file": "tests/core.test.mjs",
+    "change": "added",
+    "sha256": "b3e23a5c349b4b3770f638727af0930203d964efda3a474b1671e37e53e5baf2"
+  },
+  {
+    "file": "tests/data-quality.test.mjs",
+    "change": "added",
+    "sha256": "8183dcd4860752e9bffd55e009c384361a1c00155a3d2a77c427958911e7e926"
+  },
+  {
+    "file": "tools/inventory.mjs",
+    "change": "added",
+    "sha256": "cbb29fae7d19f98e8f345247b6fb53b319136ba7d05f15fa355ecc7cf6501d6f"
+  },
+  {
+    "file": "tools/release-build.mjs",
+    "change": "added",
+    "sha256": "cbc2b08a055ce266b5a3c0b8af454b1adf92ebe2729bcf411f69b144f8cb1fcd"
+  },
+  {
+    "file": "tools/smoke.mjs",
+    "change": "added",
+    "sha256": "0eb988094e97f3da1ef923e5221dac16bb5e3a9ecdb18b7af3222ef10e0dfd54"
+  },
+  {
+    "file": "tools/validate-data.mjs",
+    "change": "added",
+    "sha256": "654845d3af420b984409e3187267cfca01d462201156bb0af4284ba82e2293f7"
+  },
+  {
+    "file": "tools/validate-pages.mjs",
+    "change": "modified",
+    "sha256": "7b2d72bc964b182bb8ebcf635aa01dd4538d08645c4b9c9e93c1b950627acfe9"
+  },
+  {
+    "file": "vercel.json",
+    "change": "modified",
+    "sha256": "65dffc9b6517f407cefacbb264c3ee7d03305e4f527939ccb49f5de207b85fe1"
+  }
+]

@@ -1,15 +1,12 @@
 {
   "schema_version": "3.0.0",
-  "last_updated": "2026-09-05",
-  "file_purpose": "PROJECT-STATE.json is the single source of truth for DramaRecs: what exists, what the numbers are, and which decisions are closed. It replaces every earlier similardramas-project-state*.json and every BATCH-*-NOTES / TEARDOWN-* / BYLINE-* / REBRAND-* / VERDICT-BACKFILL-* markdown file. There is exactly one of these files. Never create a second.",
+  "last_updated": "2026-09-06",
+  "file_purpose": "Current project handoff plus clearly labeled history. Objective counts are regenerated into INVENTORY.json; implementation status is in BACKLOG-STATUS.md.",
   "how_to_use_this_file": [
-    "Jack shares this file at the start of every session, whatever the session is about. Read it end to end before acting.",
-    "The repo is PRIVATE and the code arrives as a zip attached to the chat. Never try to fetch it from github.com or raw.githubusercontent.com, and never treat a 404 there as evidence about a file.",
-    "Two companion files, and only two. EDITORIAL.md holds the writing workflow, voice, schemas, meter derivation, research method and the write queue. PLANS.md holds roadmap, monetization, features, infrastructure and the plans that are dead. Ask for whichever the session needs.",
-    "VERIFY BEFORE YOU TRUST. Every number here was true when written. Open data/dramas.json and data/pages/ and count for yourself before quoting a figure back at Jack. Counting from a doc instead of the data is how the 112-pageless-entries error survived four batches.",
-    "closed_decisions is not advice. Do not reopen anything in it, and if a plan or checklist proposes reopening one, say so instead of doing it.",
-    "Update this file at the end of every session and ship it back inside the batch zip. Bump last_updated, correct the counts, add a batch block, re-cut open_items.",
-    "Zero em dashes and en dashes anywhere, including in this file."
+    "Use current_status for this source snapshot. Historical sections are not current verification.",
+    "Run node tools/release-build.mjs fixture to regenerate objective counts and tests.",
+    "Consult BACKLOG-STATUS.md for implemented code versus pending acceptance checks.",
+    "No GitHub repository or deployment was changed by this repair pass."
   ],
   "owner": {
     "name": "Jack",
@@ -78,34 +75,29 @@
     "design": "The MARQUEE redesign is what ships. Bone paper, one persimmon accent, acid lime for live facts, ultramarine footer, Bricolage Grotesque 800 display, Schibsted Grotesk reading, per-title hue driving the colour block, rank numeral and match bar. Mobile-first, WCAG AA throughout. The older 'Hanji and Ink' celadon spec is superseded, see PLANS.md section 8."
   },
   "current_status": {
-    "status_date": "2026-09-05",
+    "status_date": "2026-09-06",
     "catalog_entries": 219,
+    "pages_in_repo": 101,
     "season_entries": 20,
-    "later_season_entries_with_no_page_by_design": 11,
-    "pages_in_repo": 152,
-    "pageless_entries_excluding_later_seasons": 56,
-    "verdicts": "219 of 219 entries carry a verdict. Zero drama pages are noindexed.",
-    "build_status": "node build.mjs exits 0. 388 pages, 388 in sitemap.xml, 0 noindex, 0 broken picks.",
-    "validator_status": "node tools/validate-pages.mjs exits 0. 152 pages against 219 entries, 0 errors, 41 warnings, all of them the deliberate reciprocity kind and every one explained in EDITORIAL.md section 6.",
-    "internal_links": "Generated, never hand-maintained. 891 reverse links from drama pages to the lists that recommend them, 843 list-to-list relations, 237 anti-picks linked to pages we host. Batch 14 moved list-to-list 575 to 843 by cross-picking the pages that already picked each seed, which counts double. If any total drops after an edit, a link loop broke.",
-    "analytics": "CLOSED 2026-09-05, the check is no longer outstanding. Jack pulled a 7-day GA snapshot: 13 active users, 8 new, 25 page views, 83 events, 37s average engagement per active user. Sources: 6 direct, 2 google organic, the rest unattributed. All 9 new users arrived on the last two days of the window, which lines up with the deploys. Five of the twelve city-attributed users sit in datacenter cities (Ashburn, Council Bluffs, Glenview, Naaldwijk, Rotterdam) so real humans are nearer 7: Kuala Lumpur 2, Montreal 2, Abu Dhabi, Aksaray, Chicago. GA is confirmed firing. The number is tiny and that is the honest read, not a tracking fault.",
-    "search_console": "dramarecs.com verified and indexed, and the first Performance export landed 2026-09-05 (last 24 hours only, which is all the property had). 58 impressions, 0 clicks, weighted average position 19.4, impressions in 19 of 24 hours, 29 of them in the last 6. 29 impressions sit at position 10 or better. The split that matters: the dramas-like list pages average position 8.3 across 11 pages while the drama pages average 25.4 across 25, and the one collection impression ranked 3. Zero clicks at position 8 to 11 on 58 impressions is arithmetic, not a defect. Queries confirm the thesis twice over: five are explicit 'dramas like X' or 'similar' searches (kdramas like move to heaven at 8, dramas like 2521 at 10, more dramas like perfect crown at 11) and five are the factual questions the drama-page template answers (destined with you total ep at 2, reborn rookie how many episodes at 4, extraordinary attorney woo ending at 11). India leads impressions at 14 but at position 22.4, while the US, Philippines and South Korea sit at 6.2, 6.25 and 5.33. Mobile averages position 9.48 against desktop 27.2. Resubmit the sitemap: it went 365 to 388 with batch 14.",
-    "dns": "Settled. Vercel nameservers active, apex serves DramaRecs, www 301s to apex. Zoho MX, SPF, DKIM and verification records live in Vercel DNS. Do not move nameservers back to Hostinger and do not delete the Zoho records.",
-    "revenue_live": "None. No affiliate wrappers, no AdSense, no list. Affiliate wrappers are the one real P0 item left.",
-    "pages_research_status": "All 152 pages carry both sources. The 24 batch 13 pages were reworked from Reddit on 2026-09-05 and the 23 batch 14 pages were written Reddit-first the same day. The 105 pages written before batch 13 are still MDL-only and are the largest remaining editorial debt."
+    "build_status": "Fixture build: 338 sitemap entries, 341 HTML files including utility/404 variants. All local links pass. No real posters without token or snapshot.",
+    "validator_status": "0 errors, 26 retained warnings. 29 Node unit/DOM-mock tests pass. Not browser or screen-reader certification.",
+    "research_status": "Legacy research coverage is not certified. Zero verified identity mappings; one dated episode source. See generated review queue.",
+    "analytics": "No independently verified exports in this session. Do not infer bots from cities. GA and product events disabled in repair release.",
+    "internal_links": "Shared counts are set intersections. Link quantity is not a release goal.",
+    "monetization": "Ads, analytics and affiliates safely disabled even if old environment variables exist. Consent/program/contract acceptance testing still pending.",
+    "domain_and_license": "Treated as resolved per owner instructions, not reverified.",
+    "source_note": "Uploaded archive already contains 101, not the historical 152 lists. This repair did not remove recommendation JSON files.",
+    "current_artifacts": [
+      "INVENTORY.json",
+      "BACKLOG-STATUS.md",
+      "RELEASE-NOTES.md",
+      "EDITORIAL-REVIEW-QUEUE.json"
+    ]
   },
   "research_data_status": {
-    "mdl_cache": "data/mdl-cache.json holds 497 titles, the most popular titles of every year 2010 to 2026. mdl-digest.json reports title_count 497, generated 2026-09-05T06:20Z. No further MDL run is needed for any year 2010 to 2026.",
-    "mdl_titles_txt": "521 lines. Both 'Mouse (2021)' and 'Mousetrap (2026)' are present.",
-    "per_title_fields": "details, native_title, aliases, genres, vote-ranked tags, director, screenwriter, cast, synopsis, the full per-episode rating curve, and 12 written reviews with per-category scores.",
-    "READ_IT_LOCALLY": "21MB cache and 4MB digest. Web-fetch tools truncate near 40KB and you cannot page through them over HTTP. Parse locally with a script and print only the fields you need.",
-    "known_bad_rows": "Four sequel lines resolved to their SEASON ONE pages and their data must be ignored until re-run with exact titles: Bloodhounds 2 (2026) to 701881-hounds (2023), A Shop for Killers 2 (2026) to the 2024 season one, Yumi's Cells 3 (2026) to the 2021 season one, Flex X Cop 2 (2026) to 746193-gold-spoon (2024).",
-    "unaired_rows": "Thirteen 2026 lines have zero score and zero reviews because they have not aired: Mousetrap, New Recruit 4, Four Hands Two Sonatas, Made in Korea 2, The Scandal, The Ordinary Jackpot, A Love Other Than Yours, 100 Days of Deception, The Perfect Lie, Portraits of Delusion, The Sacred Jewel, Tantara. Never write meters or an ending for these.",
-    "reddit": "harshmaur/reddit-scraper-pro via the Apify MCP credential named Reddit scraper. Works, zero blocks ever, and it is the primary fan-voice source for EVERY title, run before MyDramaList and never instead of it. Billed per item at about $1.50/1000, so budget in items and not in runs: runs are free. Full method, the subreddit map and the thirteen gotchas are in EDITORIAL.md section 5b and you must read them before running it. Stage 1 is THREE index sweeps now, not four, because the scoped r/KDRAMA run is redundant when the unscoped sweep already returns r/KDRAMA rows.",
-    "full_method": "EDITORIAL.md section 5.",
-    "reddit_subreddit_rule": "Jack's rule, 2026-09-05: no fixed allowlist. If the subreddit name says it is about dramas, it is in; otherwise discard the hit however good it looks. Core three are r/KDRAMA (archive, per-episode threads with nationwide ratings), r/kdramas (blunt verdicts and dissent), r/kdramarecommends (highest precision, the 'is X worth watching' threads). Standing additions: r/KdramaCasualTalk, r/KDramasWorld, r/KDRAMACHINGU, r/KDramaDiscussions, r/dramasect. r/manhwa and r/webtoons for adaptation divergence only. Never compare upvote counts across subreddits. Add new subs to the map in 5b with one line on what they were good for.",
-    "reddit_research_on_disk": "data/research/reddit-batch13-fan-voice.md (24 batch 13 seeds, worked into the pages 2026-09-05) and reddit-batch14-fan-voice.md (23 batch 14 seeds, worked into the pages 2026-09-05). Thread URLs for both are in the matching -threads.json so nobody re-searches. No Reddit run exists for tier 3, tier 4 or tier 5, so the next batch has to scrape before it writes.",
-    "cache_coverage_gaps": "Five catalog entries have NO row in mdl-cache.json or mdl-digest.json: lost, revenge-of-others, summer-strike, divorce-attorney-shin, bon-appetit-your-majesty. All five carry complete meters and verdicts from earlier batches, so they are writable. Separately, sky-castle is cached as 'Sky Castle (2018)' while its query field reads 'SKY Castle', so an exact-match lookup misses it. Lowercase the key. Found 2026-09-05 in batch 14."
+    "status": "Unverified legacy coverage",
+    "source": "historical_pre_repair_status.research_data_status",
+    "next": "Audit current 101 relationship files and 219 catalog entries with dated claim sources; do not equate research with personal viewing."
   },
   "closed_decisions": {
     "PREAMBLE": "Each of these cost real time to settle. Do not reopen, do not re-litigate, and if a plan file or a checklist proposes reopening one, say so instead of acting on it.",
@@ -124,28 +116,20 @@
     "repo_url": "https://github.com/PapayaOfficial/Dramarecs, private. The similardramas repo is deleted. Settled 2026-09-05."
   },
   "open_items": {
-    "real_p0": [
-      "Create the affiliate accounts and set the env vars. The code is shipped and dormant: it needs RAKUTEN_ID plus RAKUTEN_MID_VIKI and RAKUTEN_MID_KOCOWA, and AMAZON_TAG. See PLANS.md section 1, which now carries the actual application requirements and the honest sequencing. Two things researched 2026-09-05 and worth not rediscovering: Rakuten network signup can be done today and takes about 1 to 5 business days, but individual advertisers routinely defer brand-new publishers and you may reapply after 15 days. Amazon Associates should NOT be applied for yet: the 180 day, three qualifying sale clock starts at signup and a miss closes the account and forfeits unpaid earnings. Also see known_issues.amazon_tag_is_single_locale.",
-      "Confirm GA Realtime shows a visit after the next Production deployment. Verification, not implementation."
+    "before_merge": [
+      "Review this change set on a v2 preview branch, not live main.",
+      "Run supplied optional browser matrix plus screen-reader checks.",
+      "Verify metadata IDs, duration/season scope and spoiler-safe editorial fields."
     ],
-    "editorial": [
-      "Batch 13 is COMPLETE. All 24 pages shipped 2026-09-05: its-okay-thats-love, taxi-driver and the 22 former part C entries.",
-      "Next by demand: my-love-from-another-star (2013) and reply-1997 (2012), the last two tier 1 evergreens. Both already have entries and verdicts, so they are pages only.",
-      "Then lost (2021), still pageless and still one of the four entries with no MDL digest row.",
-      "Tier 2 remainder is now the 2020 to 2022 block minus taxi-driver: tale-of-the-nine-tailed, mr-queen, mystic-pop-up-bar, run-on and the 2021 to 2022 lines in EDITORIAL.md section 7."
+    "before_ads": [
+      "Configure and test certified consent integration.",
+      "Review actual TMDB logo/attribution contract requirements.",
+      "Implement page-level ad policy and visible-content placement before enabling tags.",
+      "Verify any affiliate program and region tracking separately."
     ],
-    "housekeeping": [
-      "Re-run MDL with exact titles on the four bad sequel rows.",
-      "Finish 2023: about 20 cached titles still have no entry.",
-      "Season group gaps: Secret Forest 2 has no entry, Sweet Home has no group, and adding kingdom left Kingdom Season 2 and Ashin of the North with no entries.",
-      "Resubmit the sitemap in Search Console now that it is 341 URLs.",
-      "One line in tools/validate-pages.mjs needs scoping. See known_issues.captivating_collision. Not urgent, but it silently blocks one catalog entry from ever being picked."
-    ],
-    "after_approval": "PLANS.md section 4, features in build order. Content notes is the highest-value item on the whole roadmap.",
-    "older_105_pages_have_no_fan_voice": "The 105 pages written before batch 13 are MDL-only. They pass every gate and they are half-sourced by the current rule. 152 pages exist now, so this is 69 percent of the site. Rework in year clusters once tier 3 is written, not before: new pages still earn more links than rewrites.",
-    "batch_15_tier_3_2024": "Highest value work available. 20 of the 21 pageless 2024 entries, writing only, meters and verdicts already exist. captivating-the-king is the 21st and it is BLOCKED until the validator BANNED check is scoped to the prose fields, because the seed slug itself trips it. Reddit has never been run on any of these, so this batch has to scrape first: budget roughly $1.65 for 20 titles at the batch 14 recipe.",
-    "validator_banned_scope_fix": "Ten lines in tools/validate-pages.mjs: run the BANNED check over the prose fields the way the ATTRIBUTION check already does, instead of JSON.stringify(page). Unblocks the captivating-the-king page and removes a trap that has now cost two batches. Only Jack can commit it.",
-    "search_console_resubmit_sitemap": "Sitemap went 365 to 388 with batch 14. Resubmit /sitemap.xml in Search Console after the deploy. Two minutes in a browser."
+    "future": [
+      "Complete the remaining items in BACKLOG-STATUS.md; do not mark partial items closed."
+    ]
   },
   "season_architecture": {
     "principle": "A later season is a separate product and gets its own catalog entry, so a reader who finished season one can find out whether season two is worth it.",
@@ -330,5 +314,62 @@
     "amazon_tag_is_single_locale": "AMAZON_TAG is one string and build.mjs appends it to all eight regional storefronts in AMAZON_STORE (amazon.com, .co.uk, .ca, .com.au, .in, .com.br). Amazon Associates tracking ids are issued PER LOCALE: a US tag earns nothing on amazon.co.uk or amazon.in. Found 2026-09-05 while checking the application requirements. Fix when the account actually exists, and there are only two sane options: either join one locale, set AMAZON_TAG for it and leave the other storefronts unmonetised and plain, or join several and turn AMAZON_TAG into a per-country map keyed the same way AMAZON_STORE already is. The second is about ten lines. Do not ship one tag across six domains and count the clicks as earning.",
     "kocowa_left_viki_nov_2025": "KOCOWA ended its distribution partnership with Rakuten Viki in November 2025, so Viki Pass Plus no longer carries KOCOWA titles and some shows moved to KOCOWA+. This is why the wrapper treats Viki and Kocowa as two separate brands rather than one, which is now correct. Provider rows come from TMDB at build time so they follow the change automatically, but it does mean older titles can move between the two rows without anything in the repo changing.",
     "attribution_traps_that_landed_in_batch_13": "Three errors, all in the ATTRIBUTION array and all written unintentionally while quoting a real number: \"the crowd\" in a standfirst comparing aggregate to written reviews, and \"the audience\" twice in a pick where the sentence was about who is watching. Both phrases are the documented top traps. When writing about the gap signal, say \"the written reviews run above the aggregate\", never name the people holding either score."
+  },
+  "historical_pre_repair_status": {
+    "warning": "Historical source notes, not verified current facts. Includes inconsistent counts and unsupported analytics inferences. Do not use for current planning.",
+    "current_status": {
+      "status_date": "2026-09-05",
+      "catalog_entries": 219,
+      "season_entries": 20,
+      "later_season_entries_with_no_page_by_design": 11,
+      "pages_in_repo": 152,
+      "pageless_entries_excluding_later_seasons": 56,
+      "verdicts": "219 of 219 entries carry a verdict. Zero drama pages are noindexed.",
+      "build_status": "node build.mjs exits 0. 388 pages, 388 in sitemap.xml, 0 noindex, 0 broken picks.",
+      "validator_status": "node tools/validate-pages.mjs exits 0. 152 pages against 219 entries, 0 errors, 41 warnings, all of them the deliberate reciprocity kind and every one explained in EDITORIAL.md section 6.",
+      "internal_links": "Generated, never hand-maintained. 891 reverse links from drama pages to the lists that recommend them, 843 list-to-list relations, 237 anti-picks linked to pages we host. Batch 14 moved list-to-list 575 to 843 by cross-picking the pages that already picked each seed, which counts double. If any total drops after an edit, a link loop broke.",
+      "analytics": "CLOSED 2026-09-05, the check is no longer outstanding. Jack pulled a 7-day GA snapshot: 13 active users, 8 new, 25 page views, 83 events, 37s average engagement per active user. Sources: 6 direct, 2 google organic, the rest unattributed. All 9 new users arrived on the last two days of the window, which lines up with the deploys. Five of the twelve city-attributed users sit in datacenter cities (Ashburn, Council Bluffs, Glenview, Naaldwijk, Rotterdam) so real humans are nearer 7: Kuala Lumpur 2, Montreal 2, Abu Dhabi, Aksaray, Chicago. GA is confirmed firing. The number is tiny and that is the honest read, not a tracking fault.",
+      "search_console": "dramarecs.com verified and indexed, and the first Performance export landed 2026-09-05 (last 24 hours only, which is all the property had). 58 impressions, 0 clicks, weighted average position 19.4, impressions in 19 of 24 hours, 29 of them in the last 6. 29 impressions sit at position 10 or better. The split that matters: the dramas-like list pages average position 8.3 across 11 pages while the drama pages average 25.4 across 25, and the one collection impression ranked 3. Zero clicks at position 8 to 11 on 58 impressions is arithmetic, not a defect. Queries confirm the thesis twice over: five are explicit 'dramas like X' or 'similar' searches (kdramas like move to heaven at 8, dramas like 2521 at 10, more dramas like perfect crown at 11) and five are the factual questions the drama-page template answers (destined with you total ep at 2, reborn rookie how many episodes at 4, extraordinary attorney woo ending at 11). India leads impressions at 14 but at position 22.4, while the US, Philippines and South Korea sit at 6.2, 6.25 and 5.33. Mobile averages position 9.48 against desktop 27.2. Resubmit the sitemap: it went 365 to 388 with batch 14.",
+      "dns": "Settled. Vercel nameservers active, apex serves DramaRecs, www 301s to apex. Zoho MX, SPF, DKIM and verification records live in Vercel DNS. Do not move nameservers back to Hostinger and do not delete the Zoho records.",
+      "revenue_live": "None. No affiliate wrappers, no AdSense, no list. Affiliate wrappers are the one real P0 item left.",
+      "pages_research_status": "All 152 pages carry both sources. The 24 batch 13 pages were reworked from Reddit on 2026-09-05 and the 23 batch 14 pages were written Reddit-first the same day. The 105 pages written before batch 13 are still MDL-only and are the largest remaining editorial debt."
+    },
+    "research_data_status": {
+      "mdl_cache": "data/mdl-cache.json holds 497 titles, the most popular titles of every year 2010 to 2026. mdl-digest.json reports title_count 497, generated 2026-09-05T06:20Z. No further MDL run is needed for any year 2010 to 2026.",
+      "mdl_titles_txt": "521 lines. Both 'Mouse (2021)' and 'Mousetrap (2026)' are present.",
+      "per_title_fields": "details, native_title, aliases, genres, vote-ranked tags, director, screenwriter, cast, synopsis, the full per-episode rating curve, and 12 written reviews with per-category scores.",
+      "READ_IT_LOCALLY": "21MB cache and 4MB digest. Web-fetch tools truncate near 40KB and you cannot page through them over HTTP. Parse locally with a script and print only the fields you need.",
+      "known_bad_rows": "Four sequel lines resolved to their SEASON ONE pages and their data must be ignored until re-run with exact titles: Bloodhounds 2 (2026) to 701881-hounds (2023), A Shop for Killers 2 (2026) to the 2024 season one, Yumi's Cells 3 (2026) to the 2021 season one, Flex X Cop 2 (2026) to 746193-gold-spoon (2024).",
+      "unaired_rows": "Thirteen 2026 lines have zero score and zero reviews because they have not aired: Mousetrap, New Recruit 4, Four Hands Two Sonatas, Made in Korea 2, The Scandal, The Ordinary Jackpot, A Love Other Than Yours, 100 Days of Deception, The Perfect Lie, Portraits of Delusion, The Sacred Jewel, Tantara. Never write meters or an ending for these.",
+      "reddit": "harshmaur/reddit-scraper-pro via the Apify MCP credential named Reddit scraper. Works, zero blocks ever, and it is the primary fan-voice source for EVERY title, run before MyDramaList and never instead of it. Billed per item at about $1.50/1000, so budget in items and not in runs: runs are free. Full method, the subreddit map and the thirteen gotchas are in EDITORIAL.md section 5b and you must read them before running it. Stage 1 is THREE index sweeps now, not four, because the scoped r/KDRAMA run is redundant when the unscoped sweep already returns r/KDRAMA rows.",
+      "full_method": "EDITORIAL.md section 5.",
+      "reddit_subreddit_rule": "Jack's rule, 2026-09-05: no fixed allowlist. If the subreddit name says it is about dramas, it is in; otherwise discard the hit however good it looks. Core three are r/KDRAMA (archive, per-episode threads with nationwide ratings), r/kdramas (blunt verdicts and dissent), r/kdramarecommends (highest precision, the 'is X worth watching' threads). Standing additions: r/KdramaCasualTalk, r/KDramasWorld, r/KDRAMACHINGU, r/KDramaDiscussions, r/dramasect. r/manhwa and r/webtoons for adaptation divergence only. Never compare upvote counts across subreddits. Add new subs to the map in 5b with one line on what they were good for.",
+      "reddit_research_on_disk": "data/research/reddit-batch13-fan-voice.md (24 batch 13 seeds, worked into the pages 2026-09-05) and reddit-batch14-fan-voice.md (23 batch 14 seeds, worked into the pages 2026-09-05). Thread URLs for both are in the matching -threads.json so nobody re-searches. No Reddit run exists for tier 3, tier 4 or tier 5, so the next batch has to scrape before it writes.",
+      "cache_coverage_gaps": "Five catalog entries have NO row in mdl-cache.json or mdl-digest.json: lost, revenge-of-others, summer-strike, divorce-attorney-shin, bon-appetit-your-majesty. All five carry complete meters and verdicts from earlier batches, so they are writable. Separately, sky-castle is cached as 'Sky Castle (2018)' while its query field reads 'SKY Castle', so an exact-match lookup misses it. Lowercase the key. Found 2026-09-05 in batch 14."
+    },
+    "open_items": {
+      "real_p0": [
+        "Create the affiliate accounts and set the env vars. The code is shipped and dormant: it needs RAKUTEN_ID plus RAKUTEN_MID_VIKI and RAKUTEN_MID_KOCOWA, and AMAZON_TAG. See PLANS.md section 1, which now carries the actual application requirements and the honest sequencing. Two things researched 2026-09-05 and worth not rediscovering: Rakuten network signup can be done today and takes about 1 to 5 business days, but individual advertisers routinely defer brand-new publishers and you may reapply after 15 days. Amazon Associates should NOT be applied for yet: the 180 day, three qualifying sale clock starts at signup and a miss closes the account and forfeits unpaid earnings. Also see known_issues.amazon_tag_is_single_locale.",
+        "Confirm GA Realtime shows a visit after the next Production deployment. Verification, not implementation."
+      ],
+      "editorial": [
+        "Batch 13 is COMPLETE. All 24 pages shipped 2026-09-05: its-okay-thats-love, taxi-driver and the 22 former part C entries.",
+        "Next by demand: my-love-from-another-star (2013) and reply-1997 (2012), the last two tier 1 evergreens. Both already have entries and verdicts, so they are pages only.",
+        "Then lost (2021), still pageless and still one of the four entries with no MDL digest row.",
+        "Tier 2 remainder is now the 2020 to 2022 block minus taxi-driver: tale-of-the-nine-tailed, mr-queen, mystic-pop-up-bar, run-on and the 2021 to 2022 lines in EDITORIAL.md section 7."
+      ],
+      "housekeeping": [
+        "Re-run MDL with exact titles on the four bad sequel rows.",
+        "Finish 2023: about 20 cached titles still have no entry.",
+        "Season group gaps: Secret Forest 2 has no entry, Sweet Home has no group, and adding kingdom left Kingdom Season 2 and Ashin of the North with no entries.",
+        "Resubmit the sitemap in Search Console now that it is 341 URLs.",
+        "One line in tools/validate-pages.mjs needs scoping. See known_issues.captivating_collision. Not urgent, but it silently blocks one catalog entry from ever being picked."
+      ],
+      "after_approval": "PLANS.md section 4, features in build order. Content notes is the highest-value item on the whole roadmap.",
+      "older_105_pages_have_no_fan_voice": "The 105 pages written before batch 13 are MDL-only. They pass every gate and they are half-sourced by the current rule. 152 pages exist now, so this is 69 percent of the site. Rework in year clusters once tier 3 is written, not before: new pages still earn more links than rewrites.",
+      "batch_15_tier_3_2024": "Highest value work available. 20 of the 21 pageless 2024 entries, writing only, meters and verdicts already exist. captivating-the-king is the 21st and it is BLOCKED until the validator BANNED check is scoped to the prose fields, because the seed slug itself trips it. Reddit has never been run on any of these, so this batch has to scrape first: budget roughly $1.65 for 20 titles at the batch 14 recipe.",
+      "validator_banned_scope_fix": "Ten lines in tools/validate-pages.mjs: run the BANNED check over the prose fields the way the ATTRIBUTION check already does, instead of JSON.stringify(page). Unblocks the captivating-the-king page and removes a trap that has now cost two batches. Only Jack can commit it.",
+      "search_console_resubmit_sitemap": "Sitemap went 365 to 388 with batch 14. Resubmit /sitemap.xml in Search Console after the deploy. Two minutes in a browser."
+    }
   }
 }

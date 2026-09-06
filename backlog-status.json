@@ -1,0 +1,296 @@
+[
+  {
+    "id": "DR-01",
+    "status": "Implemented; browser QA pending",
+    "changed": "Restored populated shelf to gridlist; 190px poster cap, fixed 2:3 proportions, two mobile columns.",
+    "checked": "Static CSS/source review; optional browser matrix supplied.",
+    "remaining": "Run 360/390/768/1366/1440px at 0/1/2/6/30 saved titles."
+  },
+  {
+    "id": "DR-02",
+    "status": "Implemented; browser QA pending",
+    "changed": "Independent saved/watched state; persistent hide-watched filter; watched search badges; clear filters retains history.",
+    "checked": "State persistence unit tests and watched-search DOM test.",
+    "remaining": "Run multi-page real-browser watched/undo/focus tests."
+  },
+  {
+    "id": "DR-03",
+    "status": "Implemented; browser QA pending",
+    "changed": "Separate shelf title links, Remove and Already watched controls, persistent Undo action; shared import merges.",
+    "checked": "Source review; optional browser action test supplied.",
+    "remaining": "Check keyboard focus and undo on actual browsers."
+  },
+  {
+    "id": "DR-04",
+    "status": "Implemented",
+    "changed": "Versioned state, validated slug arrays, legacy migration, safe read/write, verification and visible session-only fallback.",
+    "checked": "Malformed legacy state, denied storage, quota and discarded-write tests.",
+    "remaining": "Cross-device persistence is intentionally not provided; private browsing may vary."
+  },
+  {
+    "id": "DR-05",
+    "status": "Implemented",
+    "changed": "Shared catalog loader has HTTP/schema/error/12-second timeout handling; shelf Retry retains IDs; no-JS explanation.",
+    "checked": "HTTP/JSON/timeout tests and actual client DOM-mock error test.",
+    "remaining": "Test slow/failed requests in a real browser."
+  },
+  {
+    "id": "DR-06",
+    "status": "Implemented; browser QA pending",
+    "changed": "Validated/bounded/deduplicated shared slugs; damaged-link screen; persistent copyable input; clear disclosure.",
+    "checked": "Share parser tests; clipboard fallback source review.",
+    "remaining": "Real-browser blocked-clipboard and shared import checks."
+  },
+  {
+    "id": "DR-07",
+    "status": "Implemented",
+    "changed": "Search redraws on asynchronous completion and distinguishes loading, failure/retry and no match.",
+    "checked": "Delayed-index and HTTP-failure tests against the actual app script.",
+    "remaining": "Real network/device behavior remains to be checked."
+  },
+  {
+    "id": "DR-08",
+    "status": "Implemented",
+    "changed": "Natural query normalization, aliases and typo matching; Recommendations/Review labels; homepage missing-list destinations corrected.",
+    "checked": "Title/alias/typo/phrase unit tests and full local-link scan.",
+    "remaining": "No actor-name search added; unrecognized titles stay unrecognized."
+  },
+  {
+    "id": "DR-09",
+    "status": "Implemented; assistive QA pending",
+    "changed": "Option IDs, selected state, active descendant and synchronized closing. Retry/alternatives live outside listbox.",
+    "checked": "Arrow/Escape DOM tests, including Escape before delayed completion.",
+    "remaining": "Screen-reader and focus-navigation testing still required."
+  },
+  {
+    "id": "DR-10",
+    "status": "Partial",
+    "changed": "Wide rows retained; short fit and caveat extracted from existing prose; full comparison expandable; commitment separated.",
+    "checked": "Generated markup smoke check; existing fonts/palette preserved.",
+    "remaining": "Automated extraction is not an editorial rewrite. Manually refine summaries and test layouts."
+  },
+  {
+    "id": "DR-11",
+    "status": "Experimental pilot",
+    "changed": "My Liberation Notes has three reason-specific subsets and explicit connection explanations; original order always available.",
+    "checked": "Schema/source checks; optional browser pilot test supplied.",
+    "remaining": "One seed only. Fan testing and human editorial approval required before extending."
+  },
+  {
+    "id": "DR-12",
+    "status": "Implemented",
+    "changed": "Removed visible match percentages and probability-like method copy; retained legacy numbers only as internal source data.",
+    "checked": "All 341 generated HTML files scanned for match percentages.",
+    "remaining": "Editorial quality of each fit/caveat remains a separate review."
+  },
+  {
+    "id": "DR-13",
+    "status": "Implemented",
+    "changed": "Own curated picks take precedence; fallback co-occurrences rank deterministically and disclose the relationship basis.",
+    "checked": "Curated preference and file-order invariance unit tests.",
+    "remaining": "Fallback explanation is overlap, not a personalized taste claim."
+  },
+  {
+    "id": "DR-14",
+    "status": "Partial",
+    "changed": "Conditional section framing; zero to three anti-picks permitted by validation.",
+    "checked": "Validator passes; title/slug data excluded from prose lint.",
+    "remaining": "Existing individual negative comparisons need human rewriting; reciprocity warnings retained."
+  },
+  {
+    "id": "DR-15",
+    "status": "Partial",
+    "changed": "Ending buttons default hidden, reveal/hide reversibly; persisted tone preference; ending labels removed from collection cards; ending-collection warnings.",
+    "checked": "Default-output smoke checks; optional browser toggle checks.",
+    "remaining": "Legacy verdicts and some fit/caveat prose can still spoil endings. Full spoiler-safe editorial audit NOT completed."
+  },
+  {
+    "id": "DR-16",
+    "status": "Partial",
+    "changed": "Uniform 12-or-fewer episode filter; removed weekend-length promise; approximate total hours on recommendations and details.",
+    "checked": "Unit tests protect editorial episode/runtime precedence.",
+    "remaining": "Most durations and season scope still need verification; approximate totals are not verified viewing times."
+  },
+  {
+    "id": "DR-17",
+    "status": "Implemented; browser QA pending",
+    "changed": "Detail title and verdict now precede sidebar in source; mobile filter strip is non-sticky at narrow widths.",
+    "checked": "Generated detail source-order smoke check.",
+    "remaining": "Check 200% zoom, sticky controls and focused elements on devices."
+  },
+  {
+    "id": "DR-18",
+    "status": "Known correction implemented",
+    "changed": "Removed incorrect shared-director claim; retained traceable source URLs and correction scope/date.",
+    "checked": "Fresh public credits checked; regression guard for the known claim.",
+    "remaining": "Other writer/director/cast claims remain in the review queue."
+  },
+  {
+    "id": "DR-19",
+    "status": "Partial",
+    "changed": "Editorial episode/runtime values take precedence, season fallback cannot take whole-series counts; Trauma Code stays at eight with Netflix source.",
+    "checked": "Metadata precedence/season tests and generated Trauma Code smoke check.",
+    "remaining": "Catalog-wide season/broadcast normalization and identity pins still pending."
+  },
+  {
+    "id": "DR-20",
+    "status": "Partial",
+    "changed": "No first-result fallback: auto candidates require exact title/alias, year and KR origin; ambiguity declines a match; identity review status explicit.",
+    "checked": "Exact/ambiguous identity unit tests.",
+    "remaining": "ZERO catalog mappings certified as verified. Manually confirm IDs and provenance."
+  },
+  {
+    "id": "DR-21",
+    "status": "Partial",
+    "changed": "Removed Melo Movie batch/rating superlative; rewrote method/footer claims to disclose research/AI-draft and review limits.",
+    "checked": "Data gate rejects leaked batch wording; reviewed source text.",
+    "remaining": "No full 219-title factual or authorship certification; owner must confirm public process wording."
+  },
+  {
+    "id": "DR-22",
+    "status": "Partial",
+    "changed": "Prose-only style lint; attributed reporting no longer banned; dated-source requirements for structured factualClaims and verified identities.",
+    "checked": "Validator and data-check pipeline.",
+    "remaining": "Legacy unstructured claims are not automatically proven or rejected. Review queue flags are hints, not verified errors."
+  },
+  {
+    "id": "DR-23",
+    "status": "Implemented; upstream QA pending",
+    "changed": "Empty data is availability unconfirmed, with source links; dated/stale notes and last-good fallback implemented.",
+    "checked": "Generated text check and provider coverage safety tests.",
+    "remaining": "Real API failure/staleness integration still needs network testing."
+  },
+  {
+    "id": "DR-24",
+    "status": "Implemented",
+    "changed": "Netflix collection explicitly fixed to US metadata; no in-your-region/today promise; unknown coverage has an honest empty state.",
+    "checked": "Generated fixed-US page smoke check; source region filter verified.",
+    "remaining": "No live region-dependent collection membership; that is deliberately not promised."
+  },
+  {
+    "id": "DR-25",
+    "status": "Partial",
+    "changed": "Channel/reseller identity retained; no four-brand truncation; raw provider IDs and purchase models preserved in metadata records.",
+    "checked": "Provider record test verifies ID/name/model preservation.",
+    "remaining": "UI still focuses subscription/free/ad-supported options, not full rent/buy model presentation."
+  },
+  {
+    "id": "DR-26",
+    "status": "Implemented for current plain links",
+    "changed": "Shared resolver retained; destination copy says Search or Check availability; tracking disabled.",
+    "checked": "Generated/client source consistency review and tracking-tag scans.",
+    "remaining": "Verified direct title URLs and approved affiliate locale tests remain external."
+  },
+  {
+    "id": "DR-27",
+    "status": "Partial",
+    "changed": "Request timeout/retry, timestamped 24-hour cache, last-good snapshot support, 95% poster floor and catastrophic provider-loss gate.",
+    "checked": "Quality-gate unit tests; no-token production build correctly fails.",
+    "remaining": "No token/network available here. Durable snapshot persistence and scheduled refresh need deployment setup; this archive has no real poster snapshot."
+  },
+  {
+    "id": "DR-28",
+    "status": "Partial",
+    "changed": "TMDB notice/link retained and visible JustWatch attribution/source check added.",
+    "checked": "Generated footer/provider template review.",
+    "remaining": "Approved TMDB logo asset and commercial-contract-specific requirements still need confirmation. Licensing itself was treated as resolved."
+  },
+  {
+    "id": "DR-29",
+    "status": "Safeguarded; integration pending",
+    "changed": "Ads, CMP, GA and tracking are intentionally disabled in this repair release even if old environment variables are present.",
+    "checked": "Build with sample ad/GA/affiliate variables produced no tracking tags.",
+    "remaining": "This is NOT a functioning certified CMP implementation. Consent acceptance/denial/withdrawal/failure testing is still required before monetization."
+  },
+  {
+    "id": "DR-30",
+    "status": "Partial",
+    "changed": "Policy describes local state, share disclosure, IP/hosting/contact processing, disabled analytics and uncertain retention honestly.",
+    "checked": "Generated policy and source behavior reviewed.",
+    "remaining": "Owner/legal review and actual hosting/contact retention settings remain pending."
+  },
+  {
+    "id": "DR-31",
+    "status": "Safeguarded",
+    "changed": "All routes are currently ad-ineligible because monetization is disabled globally, including utility pages and staging.",
+    "checked": "341 generated HTML files scanned for ad/analytics scripts, including configured-variable fixture build.",
+    "remaining": "Per-page eligibility must be implemented and tested before re-enabling ads; noindex is not being used as an ad gate."
+  },
+  {
+    "id": "DR-32",
+    "status": "Deferred; ads disabled",
+    "changed": "No live ad slots are emitted in this release.",
+    "checked": "No-ad smoke check.",
+    "remaining": "Actual reserved sizes, uniform labels, no-fill and consent layout tests remain unimplemented."
+  },
+  {
+    "id": "DR-33",
+    "status": "Safeguarded; placement work pending",
+    "changed": "Client filter changes cannot request or refresh ads; no active ad units are shipped.",
+    "checked": "No-ad smoke check and client source review.",
+    "remaining": "Visible-content-aware placement must be implemented before monetization; disabling ads is not completion of that feature."
+  },
+  {
+    "id": "DR-34",
+    "status": "External; safely disabled",
+    "changed": "Affiliate environment variables cannot activate tracking in this release.",
+    "checked": "Sample-variable build confirms no affiliate wrappers.",
+    "remaining": "Program acceptance, allowed destinations and country-specific tracking must be verified externally."
+  },
+  {
+    "id": "DR-35",
+    "status": "Deferred; planning corrected",
+    "changed": "Unsupported current analytics/bot conclusions moved out of current status and labeled unverified history; telemetry remains off.",
+    "checked": "Generated inventory and current planning reviewed.",
+    "remaining": "No analytics exports available and no consent-aware funnel shipped. Instrument only after consent integration."
+  },
+  {
+    "id": "DR-36",
+    "status": "Partial",
+    "changed": "Netflix inventory no longer claims best-to-worst curation or current local availability.",
+    "checked": "Generated copy inspected.",
+    "remaining": "Genuinely selected need-based shortlists for collections remain editorial work."
+  },
+  {
+    "id": "DR-37",
+    "status": "Implemented",
+    "changed": "Vercel/CI run validation, 29 regression tests, build, generated-link checks and inventory. Pure logic extracted into shared modules.",
+    "checked": "Full dependency-free fixture pipeline passes; production metadata failure blocks as expected.",
+    "remaining": "Actual Vercel rollback and deploy remain untested; no repository or deployment was changed."
+  },
+  {
+    "id": "DR-38",
+    "status": "Implemented",
+    "changed": "Displayed shared-pick count is set intersection; ranking cross-links kept separately; lower link totals no longer treated as automatic breakage in current notes.",
+    "checked": "Intersection/ranking unit test.",
+    "remaining": "Editorial suitability still outranks graph metrics."
+  },
+  {
+    "id": "DR-39",
+    "status": "Partial",
+    "changed": "Responsive TMDB srcset/sizes, lazy shelf images, intrinsic image dimensions; self-hosted fonts retained.",
+    "checked": "Source/generated markup review; optional browser matrix supplied.",
+    "remaining": "No real-browser screenshots or measured LCP/INP/CLS; above-fold image priority still needs profiling."
+  },
+  {
+    "id": "DR-40",
+    "status": "Deferred",
+    "changed": "Existing email/contact fallback retained; no fake form success or unconfigured server endpoint shipped.",
+    "checked": "No external messages sent.",
+    "remaining": "A server-side submission destination, anti-spam/rate limits and success/failure tests must be configured."
+  },
+  {
+    "id": "DR-41",
+    "status": "Partial",
+    "changed": "Generated counts and review queue; current state corrected to 219/101; historical contradictory counts and completion claims explicitly separated.",
+    "checked": "Inventory matches 338 sitemap entries in fixture build and 26 existing validator warnings.",
+    "remaining": "Legacy research notes and content priorities still need owner reconciliation; no old history silently erased."
+  },
+  {
+    "id": "DR-42",
+    "status": "Comparison pilot implemented; discovery deferred",
+    "changed": "Up to three recommendation comparisons using current commitment, fit/caveat and watched/saved state; no ending outcomes copied into comparison controls.",
+    "checked": "Source reviewed; optional browser tests.",
+    "remaining": "Actual source prose may still contain spoilers. Verified actor/couple schema and pages intentionally not fabricated."
+  }
+]

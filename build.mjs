@@ -1,11 +1,17 @@
 /**
  * DramaRecs static site builder.
  * Reads editorial data from /data, enriches it from TMDB, writes plain HTML to /dist.
- * Zero dependencies. Runs on Node 20+. Never fails the build because of TMDB.
+ * Zero dependencies. Runs on Node 20+. Production blocks catastrophic metadata loss.
  */
 import { readFile, writeFile, mkdir, readdir, copyFile, rm } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
+import { resolveIdentity, preserveEditorial, secondaryPicks, relatedLists, providerRecords, assertProductionQuality } from './lib/data-quality.mjs';
+const PRODUCTION = process.env.VERCEL_ENV === 'production' || process.env.BUILD_MODE === 'production';
+if (PRODUCTION && process.env.BUILD_MODE === 'fixture') throw new Error('Fixture mode cannot be deployed to production');
+// Monetization stays disabled until certified CMP integration and its browser matrix are reviewed.
+// Existing environment variables cannot accidentally activate ads, analytics or affiliate tracking.
+if (process.env.ADSENSE_CLIENT || process.env.GA_ID || process.env.AMAZON_TAG || process.env.RAKUTEN_ID) console.warn('Repair release: ads, analytics and affiliate tracking are intentionally disabled. See RELEASE-NOTES.md.');
 
 const OUT = 'dist';
 const TOKEN = (process.env.TMDB_TOKEN || '').trim();
@@ -22,14 +28,14 @@ const AUTHOR = {
   url: '/about/',
   image: '/assets/editor.svg'
 };
-const ADSENSE = (process.env.ADSENSE_CLIENT || '').trim();
+const ADSENSE = ''; // DR-29/31: fail closed until consent integration is independently tested
 /* Google Funding Choices / Privacy & messaging. Set FC_ID once the message is published in the
    AdSense UI (Privacy & messaging -> GDPR). Without a certified CMP you may not serve
    personalised ads to the EEA, the UK or Switzerland, and the privacy policy on this site
    promises a prompt, so the promise and the tag ship together. */
-const FC_ID = (process.env.FC_ID || '').trim();
+const FC_ID = '';
 const ADS_LIVE_DATE = (process.env.ADS_LIVE_DATE || '').trim();
-const GA_ID = (process.env.GA_ID || '').trim();
+const GA_ID = '';
 
 /* ---------------- affiliate ids ----------------
    The where-to-watch rows are the highest-intent clicks on the site and until now they were plain
@@ -45,12 +51,12 @@ const GA_ID = (process.env.GA_ID || '').trim();
    AMAZON_TAG              Amazon Associates tracking tag, appended as tag= on the store URL.
    AFF_LIVE_DATE           optional override for the /privacy/ date, like ADS_LIVE_DATE.
    Netflix, Disney+, Apple TV+ and Hulu have no programme worth taking here. Plain on purpose. */
-const RAKUTEN_ID = (process.env.RAKUTEN_ID || '').trim();
+const RAKUTEN_ID = '';
 const RAKUTEN_MID = {
   Viki: (process.env.RAKUTEN_MID_VIKI || '').trim(),
   Kocowa: (process.env.RAKUTEN_MID_KOCOWA || '').trim()
 };
-const AMAZON_TAG = (process.env.AMAZON_TAG || '').trim();
+const AMAZON_TAG = ''; // Do not reuse a US tracking tag across regional storefronts.
 const AFF_LIVE_DATE = (process.env.AFF_LIVE_DATE || '').trim();
 const IMG = 'https://image.tmdb.org/t/p/';
 const CACHE = '.tmdb-cache.json';
@@ -101,7 +107,7 @@ function brandOf(name) {
   let n = String(name || '').trim();
   n = n.replace(/\s*\((?:with )?ads?\)$/i, '');
   n = n.replace(/\s+(?:Standard|Basic|Premium|Essential)?\s*with\s+Ads?$/i, '');
-  n = n.replace(/\s+(?:Amazon|Apple TV|Roku(?: Premium)?|Prime Video)\s+Channel$/i, '');
+  // Retain reseller/channel identity; it is not the standalone subscription.
   if (/^amazon prime video$/i.test(n)) n = 'Prime Video';
   if (/^rakuten viki$/i.test(n)) n = 'Viki';
   if (/^kocowa\+?$/i.test(n)) n = 'Kocowa';
@@ -122,7 +128,7 @@ function pickProviders(region) {
       out.push(brand);
     }
   }
-  return out.slice(0, 4);
+  return out;
 }
 
 /* ---------------- affiliate links ----------------
@@ -225,56 +231,66 @@ function watchHref(brand, code, title) {
 let cache = {};
 if (existsSync(CACHE)) { try { cache = await readJson(CACHE); } catch { cache = {}; } }
 
+const TTL = 24 * 60 * 60 * 1000;
 async function tmdb(pathname, params = {}) {
-  if (!TOKEN) return null;
   const url = new URL('https://api.themoviedb.org/3' + pathname);
-  for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
-  const key = url.toString();
-  if (cache[key]) return cache[key];
-  try {
-    const res = await fetch(key, { headers: { Authorization: 'Bearer ' + TOKEN, accept: 'application/json' } });
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const json = await res.json();
-    cache[key] = json;
-    return json;
-  } catch (err) {
-    console.warn('  ! TMDB ' + pathname + ' failed: ' + err.message);
-    return null;
+  for (const [k,v] of Object.entries(params)) url.searchParams.set(k,v);
+  const key = url.toString(), cached = cache[key];
+  const saved = cached?.data && cached?.fetchedAt ? cached : null;
+  if (saved && Date.now() - Date.parse(saved.fetchedAt) < TTL) return saved.data;
+  if (!TOKEN) return saved?.data || null;
+  for (let attempt=0; attempt<2; attempt++) {
+    try {
+      const res = await fetch(key, {headers:{Authorization:'Bearer ' + TOKEN,accept:'application/json'},signal:AbortSignal.timeout(10000)});
+      if (!res.ok) throw new Error('HTTP '+res.status);
+      const data = await res.json(); cache[key] = {data,fetchedAt:new Date().toISOString()}; return data;
+    } catch (e) { console.warn('TMDB request failed for '+pathname+': '+e.message); if (!attempt) await new Promise(r=>setTimeout(r,400)); }
   }
+  return saved?.data || null;
 }
+let lastGood = {};
+if (existsSync('data/metadata-snapshot.json')) { try { lastGood = await readJson('data/metadata-snapshot.json'); } catch {} }
 
 async function enrich(d, country) {
   let id = d.tmdb_id;
   if (!id) {
     const found = await tmdb('/search/tv', { query: d.query || d.title, include_adult: 'false', language: 'en-US' });
-    const wantYear = d.seriesYear || d.year;
-    const hit = found?.results?.find((r) => !wantYear || String(r.first_air_date || '').startsWith(String(wantYear))) || found?.results?.[0];
-    if (hit) { id = hit.id; console.log('  resolved ' + d.slug + ' -> tmdb ' + id); }
+    id = resolveIdentity(d, found?.results || []);
+    if (id) console.log('  candidate identity (needs review): ' + d.slug + ' -> ' + id);
   }
-  const out = { ...d, tmdb_id: id, poster: d.poster || null, backdrop: null, overview: '', genres: [], providers: [], providersByRegion: {}, watchLinks: {}, tmdbRating: null };
+  const previous = lastGood[d.slug];
+  const safePrevious = previous && (!id || previous.tmdb_id === id) ? previous : {};
+  const out = { poster: null, backdrop: null, overview: '', genres: [], providers: [], providersByRegion: {}, watchLinks: {}, tmdbRating: null, ...safePrevious, ...d, tmdb_id: id || safePrevious.tmdb_id, metadataStatus: d.identity?.status === 'verified' ? 'verified' : 'unverified', availabilityStatus: safePrevious.availabilityCheckedAt ? 'stale' : 'unconfirmed' };
+  id = out.tmdb_id;
   if (!id) { console.warn('  ! no TMDB match for ' + d.slug + ' (using editorial data only)'); return out; }
 
   const details = await tmdb('/tv/' + id, { language: 'en-US', append_to_response: 'watch/providers' });
-  if (details) {
+  if (details && Number(details.id) === Number(id)) {
     if (details.poster_path) out.poster = IMG + 'w500' + details.poster_path;
     if (details.backdrop_path) out.backdrop = IMG + 'w1280' + details.backdrop_path;
     out.overview = details.overview || '';
     out.genres = (details.genres || []).map((g) => g.name);
     out.tmdbRating = details.vote_average ? Math.round(details.vote_average * 10) / 10 : null;
-    if (details.number_of_episodes) out.episodes = details.number_of_episodes;
-    if (Array.isArray(details.episode_run_time) && details.episode_run_time[0]) out.runtime = details.episode_run_time[0];
+    Object.assign(out, preserveEditorial(d, details));
     if (Array.isArray(details.networks) && details.networks[0]?.name) out.network = details.networks[0].name;
-    const results = details['watch/providers']?.results || {};
+    const results = details['watch/providers']?.results;
+    if (results && typeof results === 'object') {
+    const record = cache[new URL('https://api.themoviedb.org/3/tv/' + id + '?language=en-US&append_to_response=watch%2Fproviders').toString()];
+    out.availabilityCheckedAt = record?.fetchedAt || safePrevious.availabilityCheckedAt || null;
+    out.availabilityStatus = out.availabilityCheckedAt && Date.now()-Date.parse(out.availabilityCheckedAt)<TTL ? 'checked' : 'stale';
+    out.providerRecordsByRegion = {};
     out.providersByRegion = {};
     out.watchLinks = {};
     for (const r of REGIONS) {
       const row = results[r.code];
+      out.providerRecordsByRegion[r.code] = providerRecords(row);
       const list = pickProviders(row);
       if (list.length) out.providersByRegion[r.code] = list;
       if (row?.link) out.watchLinks[r.code] = row.link;
     }
     out.providers = out.providersByRegion[country] || [];
     out.watchLink = out.watchLinks[country] || null;
+    }
   }
 
   // Season entries (see "Later-season entries" in EDITORIAL.md 3b) pull episode count,
@@ -282,7 +298,7 @@ async function enrich(d, country) {
   if (d.season) {
     const season = await tmdb('/tv/' + id + '/season/' + d.season, { language: 'en-US' });
     if (season) {
-      if (Array.isArray(season.episodes) && season.episodes.length) out.episodes = season.episodes.length;
+      if (!d.episodes && Array.isArray(season.episodes) && season.episodes.length) out.episodes = season.episodes.length;
       if (season.poster_path) out.poster = IMG + 'w500' + season.poster_path;
       if (season.overview) out.overview = season.overview;
       if (season.air_date) out.seasonAired = season.air_date;
@@ -329,7 +345,7 @@ function seasonNav(d) {
    mis-registered print layer. Degrades to a titled colour block with no image. */
 function plate(d, { link = true, lazy = true, cls = '' } = {}) {
   const inner = d.poster
-    ? `<img class="pix" src="${attr(d.poster)}" alt="${attr(d.title + ' poster')}" width="500" height="750"${lazy ? ' loading="lazy"' : ''} decoding="async">`
+    ? `<img class="pix" src="${attr(d.poster)}" ${d.poster.includes('/w500/') ? `srcset="${attr(d.poster.replace('/w500/', '/w185/'))} 185w, ${attr(d.poster.replace('/w500/', '/w342/'))} 342w, ${attr(d.poster)} 500w" sizes="(min-width: 1024px) 296px, (min-width: 640px) 200px, 42vw"` : ''} alt="${attr(d.title + ' poster')}" width="500" height="750"${lazy ? ' loading="lazy"' : ''} decoding="async">`
     : `<div class="pix"><span class="fallback">${esc(d.title)}<br><span class="tnum">${d.year}</span></span></div>`;
   const tag = link ? 'a' : 'div';
   const href = link ? ` href="/dramas/${d.slug}/"` : '';
@@ -462,11 +478,11 @@ ${mobilebar}
 <footer class="site"><div class="wrap fgrid">
   <div>
     <span class="mark">DramaRecs<span class="dot" aria-hidden="true"></span></span>
-    <p>K-drama recommendations, hand-written and hand-checked, not generated on request. No autoplay, no algorithm shrug.</p>
+    <p>Curated drama recommendations with reasons to watch and honest tradeoffs. No autoplay or recommendations generated on request.</p>
   </div>
   <div><h5>Start here</h5><ul>
     <li><a href="/dramas-like/my-liberation-notes/">Like My Liberation Notes</a></li>
-    <li><a href="/dramas-like/reply-1988/">Like Reply 1988</a></li>
+    <li><a href="/dramas/reply-1988/">Reply 1988 review</a></li>
     <li><a href="/collections/">Collections by mood</a></li>
     <li><a href="/dramas/">All dramas</a></li>
     <li><a href="/my-shelf/">Your shelf</a></li>
@@ -483,10 +499,11 @@ ${mobilebar}
 </div>
 <div class="wrap fbot">
   <span>&copy; ${new Date().getFullYear()} DramaRecs</span>
-  <span>Metadata and artwork from TMDB. This product uses the TMDB API but is not endorsed or certified by TMDB.</span>
+  <span>Metadata and artwork from <a href="https://www.themoviedb.org/">TMDB</a>. This product uses the TMDB API but is not endorsed or certified by TMDB. Streaming availability powered by <a href="https://www.justwatch.com/">JustWatch</a>. Coverage can be incomplete.</span>
   <span class="regionfoot">Streaming availability shown for <b class="regionname">${esc(REGION_LABEL[DEFAULT_REGION] || 'the United States')}</b>. ${regionSelect('regionfooter', 'regionpick--foot')}</span>
 </div>${AFF_LIVE ? `<div class="wrap fbot fbot--aff"><span>Some links to streaming services are affiliate links and DramaRecs may earn a commission if you subscribe. It costs you nothing extra, and it never buys a pick, a score or a place on a list. <a href="/privacy/">More in the privacy policy</a>.</span></div>` : ''}</footer>
 <script>window.DR_WATCH=${JSON.stringify(WATCH_TABLE)};window.DR_AFF=${AFF_LIVE ? 'true' : 'false'}</scr` + `ipt>
+<script src="/assets/core.js" defer></scr` + `ipt>
 <script src="/assets/app.js" defer></scr` + `ipt>
 </body>
 </html>`;
@@ -500,7 +517,7 @@ function searchField(placeholder = 'the drama you can\u2019t get over\u2026') {
     <button class="go" id="gobtn" type="button">Find similar</button>
   </div>
   <div class="suggest" id="sug" role="listbox"></div>
-  <p class="hint">Start with <a href="/dramas-like/my-liberation-notes/">My Liberation Notes</a>, <a href="/dramas-like/reply-1988/">Reply 1988</a> or <a href="/dramas-like/the-glory/">The Glory</a>.</p>
+  <p class="hint">Start with <a href="/dramas-like/my-liberation-notes/">My Liberation Notes</a>, <a href="/dramas/reply-1988/">Reply 1988</a> or <a href="/dramas/the-glory/">The Glory</a>.</p>
 </div>`;
 }
 
@@ -522,7 +539,7 @@ function adSlot(slotId) {
    the only version of this that is true. */
 function provChips(list, code, d) {
   if (!list || !list.length) {
-    return `<span class="prov prov--none">Not streaming in ${esc(REGION_LABEL[code] || 'your region')} right now</span>`;
+    return `<span class="prov prov--none">Availability unconfirmed in ${esc(REGION_LABEL[code] || 'your region')}</span>`;
   }
   const fallback = (d && d.watchLinks && d.watchLinks[code]) || '';
   const title = (d && d.title) || '';
@@ -533,7 +550,7 @@ function provChips(list, code, d) {
     const paid = Boolean(hit && hit.paid);
     const rel = paid ? 'sponsored nofollow noopener' : 'nofollow noopener';
     const label = `${title ? title + ' on ' : ''}${pv}${paid ? ', affiliate link' : ''}, opens in a new tab`;
-    return `<a class="prov prov--link${paid ? ' prov--aff' : ''}" href="${attr(href)}" rel="${rel}" target="_blank" aria-label="${attr(label)}">${esc(pv)}</a>`;
+    return `<a class="prov prov--link${paid ? ' prov--aff' : ''}" href="${attr(href)}" rel="${rel}" target="_blank" aria-label="${attr((hit ? 'Search ' : 'Check availability: ') + pv + ', opens in a new tab')}">${hit ? 'Search ' : 'Check availability: '}${esc(pv)}</a>`;
   }).join('');
 }
 
@@ -544,7 +561,7 @@ function provChips(list, code, d) {
 function watchRow(d, cls) {
   const byRegion = d.providersByRegion || {};
   const payload = attr(JSON.stringify({ p: byRegion, l: d.watchLinks || {} }));
-  return `<span class="watch${cls ? ' ' + cls : ''}" data-watch="${payload}" data-title="${attr(d.title || '')}" data-region="${DEFAULT_REGION}">${provChips(byRegion[DEFAULT_REGION], DEFAULT_REGION, d)}</span>`;
+  return `<span class="watch${cls ? ' ' + cls : ''}" data-watch="${payload}" data-title="${attr(d.title || '')}" data-region="${DEFAULT_REGION}">${provChips(byRegion[DEFAULT_REGION], DEFAULT_REGION, d)}</span><small class="availabilitynote">${d.availabilityCheckedAt ? `Availability data: ${esc(humanDate(d.availabilityCheckedAt))}${d.availabilityStatus === 'stale' ? ' (may be outdated)' : ''}. ` : 'Availability not verified. '}<a href="https://www.justwatch.com/" target="_blank" rel="noopener">Check JustWatch</a>.</small>`;
 }
 
 /* The disclosure. FTC wants it near the click, not only in the footer, so it ships in both places
@@ -565,23 +582,31 @@ function attrPanel(d) {
 
 /* One full-width row per recommendation at every viewport. A grid would
    truncate the explanation, and the explanation is the whole product. */
+function decisionCopy(why) {
+  const [fit, ...rest] = String(why || '').split(/Difference:/i);
+  const first = text => strip(text).match(/^.*?[.!?](?:\s|$)/)?.[0]?.trim() || strip(text);
+  const difference = rest.join('Difference:').trim();
+  return `<p class="why"><b>Why it fits:</b> ${esc(first(fit))}</p>${difference ? `<p class="difference"><b>Main difference:</b> ${esc(first(difference))}</p>` : ''}<details class="fullreason"><summary>Read the full comparison (may discuss the ending)</summary><p>${why}</p></details>`;
+}
+function watchedButton(d) { return `<button class="watched" type="button" data-slug="${d.slug}" aria-pressed="false">Already watched</button>`; }
+function commitment(d) { return `${d.seasonLabel ? esc(d.seasonLabel) + ': ' : ''}${d.episodes} episodes${d.runtime ? `, approximately ${Math.round(d.episodes*d.runtime/60*10)/10} hours in total` : ''}`; }
 function recRow(d, pick, rank, i, seedTitle) {
-  return `<article class="rec" style="--hue:${d.hue || 40};--i:${i}" data-heavy="${d.heavy}" data-eps="${d.episodes}" data-pace="${d.pace}" data-romance="${d.romance}" data-provs="${attr(d.providers.join(','))}">
+  return `<article class="rec" style="--hue:${d.hue || 40};--i:${i}" data-slug="${d.slug}" data-heavy="${d.heavy}" data-eps="${d.episodes}" data-pace="${d.pace}" data-romance="${d.romance}" data-provs="${attr(d.providers.join(','))}">
   ${plate(d)}
   <div class="rectop">
     <span class="rank tnum" aria-hidden="true">${String(rank).padStart(2, '0')}</span>
     <h3 class="rectitle"><a href="/dramas/${d.slug}/">${esc(d.title)}</a></h3>
     ${d.native ? `<span class="native" lang="ko">${esc(d.native)}</span>` : ''}
     <p class="recmeta"><span class="tnum">${d.year}</span><span class="dot" aria-hidden="true">/</span>${esc(d.network || 'Korea')}<span class="dot" aria-hidden="true">/</span><span class="tnum">${d.episodes}</span> ep<span class="dot" aria-hidden="true">/</span><span class="tnum">~${d.runtime}</span> min</p>
-    <div class="matchbar"><span class="pct tnum">${pick.match}% match</span><span class="track" aria-hidden="true"><span class="fill" style="width:${pick.match}%"></span></span></div>
+    <p class="commitment">${commitment(d)}</p>
   </div>
   <div class="recbody">
-    <p class="why">${pick.why}</p>
+    ${decisionCopy(pick.why)}
     ${attrPanel(d)}
     <div class="recfoot">
-      <button class="spoiler" type="button" data-label="${attr(d.ending)}" data-text="${attr(d.endingText)}">Ending: ${esc(d.ending)}</button>
+      <button class="spoiler" type="button" data-label="${attr(d.ending)}" data-text="${attr(d.endingText)}" aria-expanded="false">Reveal ending (spoiler)</button>
       ${watchRow(d)}
-      <button class="shelf" type="button" data-slug="${d.slug}" data-title="${attr(d.title)}" aria-pressed="false">Save for later</button>
+      <button class="shelf" type="button" data-slug="${d.slug}" data-title="${attr(d.title)}" aria-pressed="false">Save for later</button>${watchedButton(d)}
       ${d.hasLikePage ? `<a class="reclink" href="/dramas-like/${d.slug}/">Dramas like ${esc(d.title)} &rarr;</a>` : `<a class="reclink reclink--quiet" href="/dramas/${d.slug}/">Full write-up &rarr;</a>`}
       <a class="argue" href="mailto:hello@dramarecs.com?subject=${encodeURIComponent('Wrong pick: ' + d.title + (seedTitle ? ' on the ' + seedTitle + ' list' : ''))}&body=${encodeURIComponent('This pick does not hold up because:')}" title="Tell us why this pick is wrong">Wrong pick?</a>
     </div>
@@ -627,9 +652,9 @@ const HUBS = [
   },
   {
     slug: 'short-k-dramas', nav: 'moods',
-    word: 'One weekend', line: 'Twelve episodes or fewer. Start and finish it.',
-    h1: 'Short K-dramas', title: 'Short K-dramas: 12 episodes or fewer, no filler',
-    standfirst: 'Twelve episodes or fewer, which in Korean drama usually means a show that was written to a length rather than stretched to one. The whole thing fits in a weekend.',
+    word: 'Fewer episodes', line: 'Twelve episodes or fewer. Runtime still matters.',
+    h1: 'Short K-dramas', title: 'K-dramas with 12 episodes or fewer',
+    standfirst: 'Twelve episodes or fewer. Episode lengths vary, so use the approximate total hours on each detail page to judge the commitment. This is an episode-count filter, not a promise of a weekend watch.',
     criterion: '12 episodes or fewer.',
     where: (d) => (d.episodes || 99) <= 12,
     sort: (a, b) => (a.episodes || 99) - (b.episodes || 99) || (b.year || 0) - (a.year || 0)
@@ -656,7 +681,7 @@ const HUBS = [
     slug: 'k-dramas-that-will-wreck-you', nav: 'moods',
     word: 'Wreck me', line: 'Heavy on purpose. Clear your evening.',
     h1: 'K-dramas that will wreck you', title: 'K-dramas that will wreck you: heavy, and worth the damage',
-    standfirst: 'Emotional load 4 or 5. These are the ones people talk about for years, and none of them are background viewing. Ending labels are on every entry, because with these it matters most.',
+    standfirst: 'Emotional load 4 or 5. These are the ones people talk about for years, and none of them are background viewing. Ending details are available behind a spoiler button on each detail page.',
     criterion: 'Emotional load hand-set to 4 or 5 out of 5.',
     where: (d) => (d.heavy || 0) >= 4,
     sort: (a, b) => (b.heavy || 0) - (a.heavy || 0) || (b.year || 0) - (a.year || 0)
@@ -682,17 +707,17 @@ const HUBS = [
   {
     slug: 'best-k-dramas-on-netflix', nav: 'moods',
     word: 'On Netflix', line: 'Already in the subscription you pay for.',
-    h1: 'Best K-dramas on Netflix', title: 'Best K-dramas on Netflix right now, reviewed by hand',
-    standfirst: 'Everything in this catalog that Netflix carries in your region today, with pace, emotional load and a spoiler-safe ending label on each one. Streaming rights move, so this rebuilds with the site.',
-    criterion: 'Streaming on Netflix in the default region at build time.',
-    where: (d) => (d.providersByRegion?.[DEFAULT_REGION] || d.providers || []).some((x) => /netflix/i.test(x)),
+    h1: 'K-dramas on Netflix US', title: 'K-dramas on Netflix US, from the DramaRecs catalog',
+    standfirst: 'A fixed United States catalog snapshot, not a live availability guarantee or an overall best-to-worst ranking. Changing the streaming region elsewhere does not change membership here. Confirm availability before subscribing.',
+    criterion: 'Netflix United States (US) subscription availability in the available metadata snapshot.',
+    where: (d) => (d.providersByRegion?.US || []).some((x) => /^Netflix(?: |$)/i.test(x)),
     sort: (a, b) => (b.year || 0) - (a.year || 0)
   }
 ];
 const HUB_MIN = 6; // a collection with five entries is a thin page, and thin pages hurt the site
 
 const FILTERS = [
-  ['light', 'Easier on me'], ['short', 'Under 16 ep'], ['netflix', 'On Netflix'],
+  ['light', 'Easier on me'], ['short', '12 ep or fewer'], ['netflix', 'On Netflix'],
   ['romance', 'Romance-forward'], ['slow', 'Very slow burn']
 ];
 
@@ -721,13 +746,14 @@ ${trail.html}
   <div style="margin-top:var(--s4)">${byline(page.reviewed, picks.length + ' picks')}</div>
   ${seasonNav(seed)}
 </div></div>
+${page.reasons?.length ? `<div class="wrap reasonpicker" data-reasons="${attr(JSON.stringify(page.reasons))}"><label for="reasonchoice">What did you want more of?</label><select id="reasonchoice"><option value="">Original editorial order</option>${page.reasons.map(r=>`<option value="${attr(r.id)}">${esc(r.label)}</option>`).join('')}</select><p>Experimental pilot: focuses the existing comparisons on a specific connection. Other pages keep their original order.</p></div>` : ''}
 <div class="refine"><div class="wrap refine-in">
   <span class="lbl">Narrow it down</span>
   ${FILTERS.map(([id, label]) => `<button class="chip" type="button" data-f="${id}" aria-pressed="false">${label}</button>`).join('')}
   <button class="clearall" type="button" hidden>Clear all</button>
   <span class="count tnum">${picks.length} of ${picks.length}</span>
 </div></div>
-<div class="wrap"><p class="matchnote">The match number is our own call on how close two shows feel, not a score a machine worked out. <b class="tnum">90</b> and up is the same experience in a different costume, the <b class="tnum">80</b>s share one strong thread, the <b class="tnum">70</b>s get at the same feeling from a different angle.</p></div>
+<div class="wrap"><p class="matchnote">An editorial shortlist, not a statistical match score. Read the shared thread and the main difference before choosing.</p></div>
 <div class="wrap">
   <div class="recs">${picks.map((p, i) => {
     const row = recRow(p.drama, p, i + 1, i, seed.title);
@@ -742,8 +768,8 @@ ${trail.html}
   </div>
 </div>
 ${(page.against || []).length ? `<div class="band band--ink"><div class="wrap">
-  <span class="eyebrow">Skip these</span>
-  <div class="sechead" style="margin-top:var(--s3)"><h2>Commonly suggested, and wrong</h2></div>
+  <span class="eyebrow">Different tradeoffs</span>
+  <div class="sechead" style="margin-top:var(--s3)"><h2>Less suitable for the feeling described above</h2></div>
   ${(page.against || []).map((a) => {
     const hosted = CATALOG_BY_TITLE.get(normTitle(a.title));
     /* If we host the title, say so and link it. Telling someone to skip a show and then hiding
@@ -757,7 +783,7 @@ ${related.length ? `<div class="wrap"><div class="sechead" style="margin-top:var
   <div class="gridlist">${related.map((r) => `<a class="gitem" href="/dramas-like/${r.slug}/" style="--hue:${r.drama.hue || 40}">${plate(r.drama, { link: false })}<h3>Dramas like ${esc(r.drama.title)}</h3><p class="m tnum">${r.shared} picks in common</p></a>`).join('')}</div></div>` : ''}
 <div class="wrap"><div class="note">
   <span class="eyebrow eyebrow--flare">A note on method</span>
-  <p>Matching starts from attributes we set by hand: pace, how much romance drives the plot, emotional weight, comfort. Then a title only stays if it holds up against the whole run of the show and earns a one-sentence reason for being on this list. <a href="/how-we-pick/">Full method</a>.</p>
+  <p>Matching starts from attributes we set by hand: pace, how much romance drives the plot, emotional weight, comfort. Each relationship needs an explanation and a meaningful difference. Historical research coverage varies; title-by-title provenance is being reviewed. <a href="/how-we-pick/">Full method</a>.</p>
   <p>Disagree with a pick? <a href="/contact/">Tell us and we will revisit it.</a></p>
 </div></div>`;
   const mobilebar = `<div class="mobilebar"><a class="secondary" href="#main">Back to top</a><a class="primary" href="/#main">Change drama</a></div>`;
@@ -790,6 +816,8 @@ function pageDetail(d, likeExists, alsoLike, onLists = []) {
     ['Network', esc(d.network || 'Korea')],
     ['Episodes', `<span class="tnum">${d.episodes}</span>`],
     ['Runtime', `<span class="tnum">~${d.runtime}</span> min`],
+    ['Commitment', commitment(d)],
+    ['Metadata identity', d.metadataStatus === 'verified' ? 'Reviewed mapping' : 'Mapping needs review'],
     d.tmdbRating ? ['TMDB', `<span class="tnum">${d.tmdbRating}</span> / 10`] : null,
     d.genres.length ? ['Genres', esc(d.genres.join(', '))] : null
   ].filter(Boolean);
@@ -805,6 +833,18 @@ ${trail.html}
     ${reviewedOn ? `<p class="upd">Checked and re-read <time datetime="${attr(reviewedOn)}">${esc(humanDate(reviewedOn))}</time></p>` : ''}
   </div>
 
+  <div class="detailmain">
+    ${seasonNav(d)}
+    ${d.verdict ? `<div class="verdict"><span class="eyebrow eyebrow--flare">Is it worth it</span><p>${d.verdict}</p>${byline(reviewedOn)}</div>` : ''}
+    ${d.overview ? `<details><summary>Premise from TMDB (may contain spoilers)</summary><p class="overview">${esc(d.overview)}</p></details>` : ''}
+    ${adRow(process.env.ADSENSE_SLOT_DETAIL)}
+    <div class="feel"><span class="eyebrow">The feel of it</span>${attrPanel(d)}</div>
+    <div class="recfoot">
+      <button class="spoiler" type="button" data-label="${attr(d.ending)}" data-text="${attr(d.endingText)}" aria-expanded="false">Reveal ending (spoiler)</button>
+    </div>
+    ${hookLine(d)}
+  </div>
+
   <aside class="detailside">
     ${plate(d, { link: false, lazy: false })}
     <div class="sidewatch">
@@ -814,30 +854,19 @@ ${trail.html}
       ${AFF_NOTE}
     </div>
     ${likeExists ? `<a class="btn" href="/dramas-like/${d.slug}/">Dramas like this &rarr;</a>` : ''}
-    <button class="shelf" type="button" data-slug="${d.slug}" data-title="${attr(d.title)}" aria-pressed="false">Save for later</button>
+    <button class="shelf" type="button" data-slug="${d.slug}" data-title="${attr(d.title)}" aria-pressed="false">Save for later</button>${watchedButton(d)}
     <dl class="facts">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
   </aside>
 
-  <div class="detailmain">
-    ${seasonNav(d)}
-    ${d.overview ? `<p class="overview">${esc(d.overview)}</p>` : ''}
-    ${d.verdict ? `<div class="verdict"><span class="eyebrow eyebrow--flare">Is it worth it</span><p>${d.verdict}</p>${byline(reviewedOn)}</div>` : ''}
-    ${adRow(process.env.ADSENSE_SLOT_DETAIL)}
-    <div class="feel"><span class="eyebrow">The feel of it</span>${attrPanel(d)}</div>
-    <div class="recfoot">
-      <button class="spoiler" type="button" data-label="${attr(d.ending)}" data-text="${attr(d.endingText)}">Ending: ${esc(d.ending)}</button>
-    </div>
-    ${hookLine(d)}
-  </div>
 
 </div></div>
 ${onLists.length ? `<div class="band band--rule"><div class="wrap">
   <div class="sechead"><h2>Where we recommend it</h2><span class="more">${onLists.length === 1 ? 'On one list' : 'On ' + onLists.length + ' lists'}</span></div>
-  <ul class="onlists">${onLists.slice(0, 12).map((l) => `<li><a href="/dramas-like/${l.seed}/">Dramas like ${esc(l.title)}</a><span class="pct tnum">${l.match}% match</span></li>`).join('')}</ul>
+  <ul class="onlists">${onLists.slice(0, 12).map((l) => `<li><a href="/dramas-like/${l.seed}/">Dramas like ${esc(l.title)}</a><span class="pct">Editorial recommendation</span></li>`).join('')}</ul>
 </div></div>` : ''}
 ${alsoLike.length ? `<div class="band band--rule"><div class="wrap">
   <div class="sechead"><h2>Recommended alongside</h2><a class="more" href="/dramas/">All dramas &rarr;</a></div>
-  <div class="gridlist">${alsoLike.map((x) => `<a class="gitem" href="/dramas/${x.slug}/" style="--hue:${x.hue || 40}">${plate(x, { link: false })}<h3>${esc(x.title)}</h3><p class="m tnum">${x.year}</p></a>`).join('')}</div>
+  <div class="gridlist">${alsoLike.map((x) => `<a class="gitem" href="/dramas/${x.slug}/" style="--hue:${x.hue || 40}">${plate(x, { link: false })}<h3>${esc(x.title)}</h3><p class="m tnum">${x.year}</p><p>${esc(x.reason || '')}</p></a>`).join('')}</div>
 </div></div>` : ''}`;
   /* The verdict is the most distinctive thing on the page and it used to be marked up as nothing
      at all. It is a Review now, by a named Person, about this TVSeries. reviewRating is only
@@ -884,7 +913,7 @@ function pageHome(site, dramas, pages, built = []) {
       ${searchField()}
     </div>
     <div class="mosaic" aria-label="Most asked for dramas">
-      ${mosaic.map((d, i) => `<a class="pm" href="/dramas-like/${d.slug}/" style="--hue:${d.hue || 40};--i:${i}">${plate(d, { link: false, lazy: false })}<span class="cap">Like ${esc(d.title)}</span></a>`).join('')}
+      ${mosaic.map((d, i) => `<a class="pm" href="${d.hasLikePage ? `/dramas-like/${d.slug}/` : `/dramas/${d.slug}/`}" style="--hue:${d.hue || 40};--i:${i}">${plate(d, { link: false, lazy: false })}<span class="cap">${d.hasLikePage ? 'Like ' : 'Review: '}${esc(d.title)}</span></a>`).join('')}
     </div>
   </div>
 </div></div>
@@ -895,7 +924,7 @@ function pageHome(site, dramas, pages, built = []) {
   ${popular.map((p) => {
     const written = pages.some((pg) => pg.seed === p.slug);
     const href = written ? `/dramas-like/${p.slug}/` : `/dramas/${p.slug}/`;
-    return `<a class="poprow" href="${href}"><span class="q">Dramas like ${esc(bySlug[p.slug].title)}</span>${written ? '<span class="tag">written</span>' : ''}<span class="c tnum">${bySlug[p.slug].year}</span></a>`;
+    return `<a class="poprow" href="${href}"><span class="q">${written ? 'Dramas like ' : 'Review: '}${esc(bySlug[p.slug].title)}</span><span class="tag">${written ? 'Recommendations' : 'Review'}</span><span class="c tnum">${bySlug[p.slug].year}</span></a>`;
   }).join('')}
   </div>
 </div></section>
@@ -911,8 +940,8 @@ ${built.length ? `<section class="band band--tint"><div class="wrap">
   <div class="sechead" style="margin-top:var(--s3)"><h2>Why not just ask an AI</h2></div>
   <div class="steps">
     <div class="step"><span class="n tnum">01</span><div><h3 style="font-size:1.1875rem">It answers, we commit</h3><p>Every pick here is written down, dated, and revised when readers push back. Ask a chatbot twice and you get two different lists.</p></div></div>
-    <div class="step"><span class="n tnum">02</span><div><h3 style="font-size:1.1875rem">Spoiler-safe endings</h3><p>Labelled and hidden behind a click. You learn whether it ends kindly without learning who dies.</p></div></div>
-    <div class="step"><span class="n tnum">03</span><div><h3 style="font-size:1.1875rem">The stuff only fans track</h3><p>Which episode it stops being slow. How much it will cost you emotionally. Where to actually watch it today.</p></div></div>
+    <div class="step"><span class="n tnum">02</span><div><h3 style="font-size:1.1875rem">Spoiler-safe endings</h3><p>Ending buttons stay hidden until you choose to reveal them. Legacy review prose is still being checked for spoilers.</p></div></div>
+    <div class="step"><span class="n tnum">03</span><div><h3 style="font-size:1.1875rem">The stuff only fans track</h3><p>Which episode it stops being slow. How much it will cost you emotionally. Where availability has been reported, with a source check.</p></div></div>
   </div>
 </div></section>
 
@@ -968,7 +997,7 @@ function hubCard(d) {
   return `<a class="gitem gitem--hub" href="/dramas/${d.slug}/" style="--hue:${d.hue || 40}">${plate(d, { link: false })}
     <h3>${esc(d.title)}</h3>
     <p class="m tnum">${d.year} &middot; ${d.episodes} ep</p>
-    <p class="hubmeta">${esc(PACE_WORD(d))} pace &middot; ${esc(HEAVY_WORD(d))} &middot; ${esc(d.ending)}</p>
+    <p class="hubmeta">${esc(PACE_WORD(d))} pace &middot; ${esc(HEAVY_WORD(d))}</p>
     ${d.hook >= 3 ? '<p class="hubflag">Slow start</p>' : ''}</a>`;
 }
 
@@ -982,10 +1011,10 @@ ${trail.html}
   <span class="eyebrow eyebrow--flare">${esc(hub.word)}</span>
   <h1 style="font-size:var(--t-2xl);letter-spacing:-.04em;margin-top:var(--s3)">${esc(hub.h1)}</h1>
   <p class="standfirst" style="max-width:62ch;margin-top:var(--s3)"><span class="hi tnum">${entries.length} titles</span>. ${esc(hub.standfirst)}</p>
-  <p class="hubcrit">How this list is built: ${esc(hub.criterion)} Set by hand, checked against the full run, never generated on request. <a href="/how-we-pick/">Our method</a>.</p>
+  <p class="hubcrit">How this list is built: ${esc(hub.criterion)} Catalog attributes are editorial judgments; review coverage varies by title. <a href="/how-we-pick/">Our method</a>.</p>
   ${byline(lastmod, entries.length + ' titles')}
 </div>
-<section class="band"><div class="wrap"><div class="gridlist">${entries.map(hubCard).join('')}</div></div></section>
+<section class="band"><div class="wrap">${/endings/.test(hub.slug) ? '<p class="spoilerwarning">Spoiler warning: membership in this collection reveals the type of ending.</p>' : ''}${entries.length ? '' : '<p>Availability is unconfirmed in this build. This does not mean Netflix carries no matching dramas. Check Netflix or JustWatch directly.</p>'}<div class="gridlist">${entries.map(hubCard).join('')}</div></div></section>
 ${adSlot(process.env.ADSENSE_SLOT_LIST_FOOT)}
 ${seeds.length ? `<div class="band band--rule"><div class="wrap">
   <div class="sechead"><h2>Full write-ups from this collection</h2><a class="more" href="/collections/">All collections &rarr;</a></div>
@@ -1071,6 +1100,8 @@ async function main() {
   console.log(TOKEN ? 'TMDB token found. Enriching ' + raw.length + ' dramas...' : 'No TMDB_TOKEN set. Building with editorial data only.');
   const dramas = [];
   for (const d of raw) dramas.push(await enrich(d, site.country));
+  if (PRODUCTION) assertProductionQuality(dramas, Object.values(lastGood));
+
   const bySlug = Object.fromEntries(dramas.map((d) => [d.slug, d]));
 
   // Link every season of the same show to its siblings, ordered by season number.
@@ -1105,19 +1136,7 @@ async function main() {
      is, and the sort means the closest lists are the ones a reader sees. */
   const pickSets = new Map(pages.map((p) => [p.seed, new Set(p.picks.map((x) => x.slug))]));
   for (const page of pages) {
-    const mine = pickSets.get(page.seed);
-    const near = [];
-    for (const other of pages) {
-      if (other.seed === page.seed) continue;
-      const theirs = pickSets.get(other.seed);
-      let shared = 0;
-      for (const slug of theirs) if (mine.has(slug)) shared++;
-      if (mine.has(other.seed)) shared++;
-      if (theirs.has(page.seed)) shared++;
-      if (shared >= 2 && bySlug[other.seed]) near.push({ slug: other.seed, shared, drama: bySlug[other.seed] });
-    }
-    near.sort((a, b) => b.shared - a.shared || a.drama.title.localeCompare(b.drama.title));
-    RELATED_LISTS.set(page.seed, near.slice(0, 6));
+    RELATED_LISTS.set(page.seed, relatedLists(page, pages).map(r => ({...r,drama:bySlug[r.slug]})).filter(r=>r.drama));
   }
 
   await writeFile(CACHE, JSON.stringify(cache));
@@ -1125,6 +1144,7 @@ async function main() {
   await mkdir(path.join(OUT, 'assets'), { recursive: true });
   await copyFile('src/styles.css', path.join(OUT, 'assets/styles.css'));
   await copyFile('src/app.js', path.join(OUT, 'assets/app.js'));
+  await copyFile('src/core.js', path.join(OUT, 'assets/core.js'));
   await copyFile('src/editor.svg', path.join(OUT, 'assets/editor.svg'));
   await copyFile('src/favicon.svg', path.join(OUT, 'assets/favicon.svg'));
   await copyFile('src/favicon-32.png', path.join(OUT, 'assets/favicon-32.png'));
@@ -1147,7 +1167,7 @@ async function main() {
   const built = [];
   for (const hub of HUBS) {
     const entries = dramas.filter((d) => hasVerdict(d) && hub.where(d)).sort(hub.sort || ((a, b) => a.title.localeCompare(b.title)));
-    if (entries.length < HUB_MIN) { console.warn('  ! collection ' + hub.slug + ' skipped, only ' + entries.length + ' entries'); continue; }
+    if (entries.length < HUB_MIN && hub.slug !== 'best-k-dramas-on-netflix') { console.warn('  ! collection ' + hub.slug + ' skipped, only ' + entries.length + ' entries'); continue; }
     built.push({ hub, entries });
   }
 
@@ -1178,10 +1198,7 @@ async function main() {
   }
 
   for (const d of dramas) {
-    const also = pages.filter((p) => p.picks.some((x) => x.slug === d.slug))
-      .flatMap((p) => p.picks.map((x) => x.slug))
-      .filter((s) => s !== d.slug);
-    const alsoLike = [...new Set(also)].slice(0, 6).map((s) => bySlug[s]).filter(Boolean);
+    const alsoLike = secondaryPicks(d.slug, pages).map(p=>({...bySlug[p.slug],reason:p.reason})).filter(p=>p.slug);
     await write(path.join('dramas', d.slug), pageDetail(d, seedSlugs.has(d.slug), alsoLike, LISTS_BY_PICK.get(d.slug) || []));
     // Verdict-less pages stay crawlable but out of the sitemap. They join it when a verdict lands.
     if (hasVerdict(d)) urls.push({ loc: `${SITE_URL}/dramas/${d.slug}/`, lastmod: d.verdictUpdated || d.reviewed });
@@ -1209,8 +1226,8 @@ async function main() {
     body: `<div class="wrap crumbs"><a href="/">Home</a> / <span>Your shelf</span></div>
 <div class="wrap" style="padding-top:var(--s6)"><h1 style="font-size:clamp(2rem,4.4vw,3rem)">Your shelf</h1>
 <p class="standfirst" style="color:var(--ink-2);margin-top:var(--s3);max-width:56ch">Saved on this device only. Clear your browser and it goes with it.</p></div>
-<div class="wrap shelfbar"><button class="btn btn--ghost" type="button" id="shelfshare">Copy a link to this shelf</button><span class="hint" style="margin:0">Your shelf lives on this device. The link carries the titles, not you.</span></div>
-<section class="wrap" id="shelfmount"><div class="gridlist" aria-hidden="true"><div><div class="sk sk--plate"></div><div class="sk sk--line" style="margin-top:12px;width:80%"></div><div class="sk sk--line" style="width:40%"></div></div><div><div class="sk sk--plate"></div><div class="sk sk--line" style="margin-top:12px;width:80%"></div><div class="sk sk--line" style="width:40%"></div></div><div><div class="sk sk--plate"></div><div class="sk sk--line" style="margin-top:12px;width:80%"></div><div class="sk sk--line" style="width:40%"></div></div><div><div class="sk sk--plate"></div><div class="sk sk--line" style="margin-top:12px;width:80%"></div><div class="sk sk--line" style="width:40%"></div></div><div><div class="sk sk--plate"></div><div class="sk sk--line" style="margin-top:12px;width:80%"></div><div class="sk sk--line" style="width:40%"></div></div><div><div class="sk sk--plate"></div><div class="sk sk--line" style="margin-top:12px;width:80%"></div><div class="sk sk--line" style="width:40%"></div></div></div></section>`
+<div class="wrap shelfbar"><button class="btn btn--ghost" type="button" id="shelfshare">Copy a link to this shelf</button><span class="hint" style="margin:0">Your shelf lives on this device. Anyone with the link can see the titles. Sharing does not include watched history.</span></div>
+<noscript><p class="wrap">Your shelf needs JavaScript to read saved titles from this browser. You can still <a href="/dramas/">browse dramas</a>.</p></noscript><section class="wrap" id="shelfmount"><div class="gridlist" aria-hidden="true"><div><div class="sk sk--plate"></div><div class="sk sk--line" style="margin-top:12px;width:80%"></div><div class="sk sk--line" style="width:40%"></div></div><div><div class="sk sk--plate"></div><div class="sk sk--line" style="margin-top:12px;width:80%"></div><div class="sk sk--line" style="width:40%"></div></div><div><div class="sk sk--plate"></div><div class="sk sk--line" style="margin-top:12px;width:80%"></div><div class="sk sk--line" style="width:40%"></div></div><div><div class="sk sk--plate"></div><div class="sk sk--line" style="margin-top:12px;width:80%"></div><div class="sk sk--line" style="width:40%"></div></div><div><div class="sk sk--plate"></div><div class="sk sk--line" style="margin-top:12px;width:80%"></div><div class="sk sk--line" style="width:40%"></div></div><div><div class="sk sk--plate"></div><div class="sk sk--line" style="margin-top:12px;width:80%"></div><div class="sk sk--line" style="width:40%"></div></div></div></section>`
   }));
 
   await write('404', layout({
@@ -1248,7 +1265,7 @@ async function main() {
   await writeFile(path.join(OUT, 'feed.xml'),
     `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n<channel>\n` +
     `<title>DramaRecs: new and revised K-drama lists</title>\n<link>${SITE_URL}/</link>\n` +
-    `<description>Hand-written K-drama recommendations, with the reason spelled out. One entry per new or revised page.</description>\n` +
+    `<description>Curated K-drama recommendations, with the reason spelled out. One entry per new or revised page.</description>\n` +
     `<language>en</language>\n<atom:link href="${SITE_URL}/feed.xml" rel="self" type="application/rss+xml"/>\n` +
     `<lastBuildDate>${new Date().toUTCString()}</lastBuildDate>\n` +
     feedItems.map((it) => `<item>\n<title>${xesc(it.title)}</title>\n<link>${it.link}</link>\n<guid isPermaLink="true">${it.link}</guid>\n<pubDate>${new Date(it.date + 'T09:00:00Z').toUTCString()}</pubDate>\n<description>${xesc(it.desc)}</description>\n</item>`).join('\n') +
@@ -1280,6 +1297,7 @@ async function main() {
     : '  no affiliate ids set: watch links ship plain, no disclosure printed');
   const noPoster = dramas.filter((d) => !d.poster).length;
   if (noPoster) console.log(`  ${noPoster} dramas have no poster (TMDB unavailable or unmatched)`);
+  if (TOKEN && dramas.some(d=>d.poster)) await writeFile('data/metadata-snapshot.json', JSON.stringify(Object.fromEntries(dramas.map(d=>[d.slug,d])),null,2));
 }
 
 /* ---------------- editorial pages ----------------
@@ -1287,37 +1305,16 @@ async function main() {
 ---------------------------------------------------*/
 const PROSE = [
 {
-  slug: 'how-we-pick', nav: 'method', updated: '2026-09-03',
+  slug: 'how-we-pick', nav: 'method', updated: '2026-09-06',
   title: 'How we pick', h1: 'How we pick',
-  description: 'The method behind every DramaRecs recommendation: hand-set attributes, checks against the complete run of a show, and spoiler-safe ending labels.',
-  html: `
-<p>Every recommendation on this site is hand-written and hand-checked, not generated on request. That is the whole difference. A search engine can tell you what shares a genre tag. It cannot tell you that two shows share a feeling.</p>
-<h2>1. We describe the feeling, not the genre</h2>
-<p>Genre labels are close to useless for drama fans. <em>Reply 1988</em> and <em>Business Proposal</em> are both filed under romance and comedy, and nobody who has watched both would recommend one to a fan of the other.</p>
-<p>So instead we score four things by hand for every title:</p>
-<ul>
-  <li><b>Pace</b>, from glacial to fast. How long the show makes you wait.</li>
-  <li><b>Romance</b>, from none to the whole point. How much the plot depends on a couple.</li>
-  <li><b>Emotional load</b>, from light to devastating. What it will cost you.</li>
-  <li><b>Comfort rewatch</b>, from no to always. Whether you can put it on again while cooking.</li>
-</ul>
-<h2>2. Nothing gets recommended on half a run</h2>
-<p>No pick is made from a synopsis, a trailer or the first two hours. Every title is checked against the complete run before it ships: how the show is judged once it is over, where reception climbs or slides episode by episode, and the long arguments that outlive the finale. Plenty of dramas are excellent for eight episodes and then fall apart, and a recommendation written at episode four is worthless.</p>
-<h2>3. We tell you how long it takes to start working</h2>
-<p>Slow-burn dramas lose people in the first two hours. So every entry names the episode where it stops being work. If a show needs four episodes of patience, we say four episodes, and it carries a <b>slow start</b> flag so you can see it before you commit an evening.</p>
-<p>Most shows do not need that flag. Roughly half of the catalog is working by the end of the first episode, and where that is true the entry says <b>hooks early</b> and leaves it alone. A warning that fires for everything is not a warning.</p>
-<h2>4. Endings are labelled, then hidden</h2>
-<p>Fans want to know whether a show ends kindly before committing twenty hours. Almost nobody wants to know how. Every drama gets a one-word label (happy, hopeful, bittersweet, tragic, may divide viewers) and a spoiler-safe paragraph behind a click. No character names, no deaths, no reveals.</p>
-<h2>5. We say what is wrong, too</h2>
-<p>Each page carries a &ldquo;commonly suggested, and wrong&rdquo; section: popular picks that circulate on Reddit and get repeated by chatbots, plus a sentence on why we think they miss. Being useful sometimes means disagreeing with the crowd.</p>
-<h2>6. Where the data comes from</h2>
-<p>Titles, posters, episode counts and streaming availability come from <a href="https://www.themoviedb.org/" rel="noopener">TMDB</a> and refresh when the site rebuilds. Everything subjective, which is to say every word of judgement, is ours.</p>
-<h2>7. One person signs off on all of it</h2>
-<p>No team, no rotating pool of freelancers, no page that publishes itself. Every page here is read, edited and signed off by a human before it goes live, and corrections get dated. That is the promise the rest of this list rests on.</p>
-${AFF_LIVE ? `<h2>8. Money never moves a pick</h2>
-<p>Some of the where-to-watch links earn a commission. That is how the site pays for itself, and it changes nothing above this line. Every pick, every match score and every list order is written and fixed before a single streaming row is generated, and those rows are built from TMDB availability with no knowledge of which service pays.${FREE_BRANDS.length ? ` ${esc(andList(FREE_BRANDS))} pay us nothing at all and get identical treatment.` : ''} If a paid link ever looked like it was shaping a recommendation, the recommendation is the thing that would go. Details in the <a href="/privacy/">privacy policy</a>.</p>
-<h2>9. Corrections</h2>` : `<h2>8. Corrections</h2>`}
-<p>Streaming rights move constantly and taste is arguable. If a pick is wrong or a provider is out of date, <a href="/contact/">tell us</a>. Pages are dated so you can see when they were last reviewed.</p>`
+  description: 'Editorial recommendations, shared qualities, differences, sources and review limits.',
+  html: `<p>DramaRecs publishes a curated catalog, not recommendations generated on request. A useful recommendation explains both what connects two dramas and what might disappoint you.</p>
+<h2>Editorial judgments, not probabilities</h2><p>Pace, romance, emotional load and comfort are editorial descriptions. List order is a recommendation, not a measured percentage of how much you will enjoy something.</p>
+<h2>Research and review scope</h2><p>The existing catalog was produced with research and editorial writing, including AI-assisted drafts. Researching a title is not the same as personally watching its entire run. Historical review dates do not certify a fresh full-series fact check. A title-by-title provenance and spoiler audit is still in progress.</p>
+<h2>Different readers want different things</h2><p>Read the main difference as carefully as the shared quality. Negative comparisons describe a mismatch with the feeling a list is seeking, not a universal reason to avoid a drama.</p>
+<h2>Endings</h2><p>Ending buttons start hidden and can be revealed and hidden again. You can opt in to tone labels. Legacy review prose is still being audited and may discuss endings; expandable comparisons are labeled accordingly. Collections explicitly about endings reveal their category by definition.</p>
+<h2>Metadata and streaming</h2><p>TMDB supplies metadata and posters, and JustWatch supplies availability through TMDB. Editorial episode counts take precedence. Ambiguous identity matches are not resolved by taking the first search result. Availability can be missing or stale, so confirm with the provider before subscribing.</p>
+<h2>Corrections</h2><p>Use <a href="/contact/">the contact page</a> to flag an error. Source URLs for checked corrections are retained in the repository. No advertising or affiliate commission changes the recommendation order.</p>`
 },
 {
   slug: 'about', updated: '2026-09-03',
@@ -1354,7 +1351,7 @@ ${AFF_LIVE ? `<h2>8. Money never moves a pick</h2>
 <h2>What this site is not</h2>
 <p>Not a database. TMDB and MyDramaList already do that better. Not a review site either. The single job here is the handoff: you loved that, so watch this, and here is exactly why the two connect.</p>
 <h2>How it stays free</h2>
-<p>Advertising. There are no paywalls and no accounts. Nobody pays for placement and no streaming service has any say in the picks. Your shelf is stored in your own browser, not on our servers.</p>
+<p>Advertising is planned but disabled in this repair release. There are no paywalls and no accounts. Nobody pays for placement and no streaming service has any say in the picks. Your shelf is stored in your own browser, not on our servers.</p>
 <h2>What is coming</h2>
 <p>The <a href="/collections/">mood collections</a> are live now, for the nights you cannot name a show and only know how you want to feel: quiet and slow, ends kindly, nothing heavy, twelve episodes or fewer. Next: pages for actors and for the couples people actually search for, then Chinese and Japanese dramas once the Korean catalogue is solid.</p>
 <h2>Talk to me</h2>
@@ -1371,7 +1368,7 @@ const ADS_LIVE = Boolean(ADSENSE);
    do. Whichever switch flips first re-dates the policy, and the wording below follows the flags. */
 const PRIVACY_UPDATED = (ADS_LIVE || AFF_LIVE)
   ? (ADS_LIVE_DATE || AFF_LIVE_DATE || new Date().toISOString().slice(0, 10))
-  : '2026-09-04';
+  : '2026-09-06';
 
 PROSE.push(
 {
@@ -1381,11 +1378,11 @@ PROSE.push(
   html: `
 <p class="eyebrow">Last updated ${esc(humanDate(PRIVACY_UPDATED))}</p>
 <h2>The short version</h2>
-<p>We do not ask for your name, your email, or an account. We cannot identify you. Saved dramas live in your own browser and never reach us.</p>
+<p>No account is required. Saved and watched lists stay in your browser by default. Hosting providers can process technical request information, including IP addresses, and contacting us discloses what you send. This is not a promise of anonymity.</p>
 <h2>What is stored on your device</h2>
-<p>When you save a drama to your shelf, the list is written to your browser local storage. It stays on that device, it is not sent anywhere, and clearing your browser data deletes it permanently. We cannot read it or recover it.</p>
+<p>Saved titles, watched titles, the hide-watched filter and ending-tone preference use browser local storage (dr.state.v1). Your older sd.shelf list is retained during migration. Region uses sd.region. These reading preferences are separate from advertising consent. Clear site data to remove both old and new records. If storage is blocked, changes last only for the current page session. The site has no recovery service.</p><p>A shared shelf URL includes saved title identifiers in its fragment. Anyone receiving that link can read and forward them. Shared links do not include watched history. The site does not send these lists to an analytics service.</p>
 <h2>Analytics</h2>
-<p>We may use Google Analytics to count page views and see which pages are worth expanding. This records aggregate data such as country, device type, referring page and pages visited. We do not use it to build profiles of individuals.</p>
+<p>Google Analytics and product-event tracking are disabled in this repair release, including when an analytics environment variable is present. Hosting access logs are separate: the host may process IP addresses, request paths, timestamps and device information to deliver and secure the site.</p><h2>Contact and retention</h2><p>If you email us, your email provider and ours process your address and message. Messages may be retained to respond and track corrections. Contact us to request deletion; provider backups or legally required records may persist. Browser preferences remain until you clear them. Hosting log retention is governed by the hosting provider configuration and policy; a specific retention period has not yet been verified.</p>
 <h2>Advertising</h2>
 ${ADS_LIVE ? `<p>This site carries advertising served by Google AdSense. Third-party vendors, including Google, use cookies to serve ads based on a reader&rsquo;s prior visits to this and other websites. Google use of advertising cookies enables it and its partners to serve ads based on a visit to this site and other sites on the internet. You can opt out of personalised advertising at <a href="https://www.google.com/settings/ads" rel="noopener nofollow">Google Ads Settings</a>, or opt out of third-party vendor cookies at <a href="https://www.aboutads.info/choices/" rel="noopener nofollow">aboutads.info</a>.</p>
 <p>Readers in the EEA, the UK and Switzerland are shown a consent prompt from a Google-certified consent management platform before any personalised advertising cookies are set. Nothing personalised is set until you choose. You can change or withdraw that choice at any time using <b>Cookie choices</b> at the bottom of any page.</p>` : `<p>There are no advertisements on this site today, and no advertising cookies are set. This section describes what will happen when advertising is introduced, so that the policy is in place before anything changes. The wording and the date at the top of this page are generated from the same setting that switches the ads on, so they change on the same day the ads do.</p>

@@ -1,0 +1,4607 @@
+[
+  {
+    "type": "identity",
+    "slug": "a-korean-odyssey",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "a-korean-odyssey",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "a-korean-odyssey",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "a-shop-for-killers",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "a-shop-for-killers",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "a-shop-for-killers",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "agent-kim-reactivated",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "agent-kim-reactivated",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "agent-kim-reactivated",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "agent-kim-reactivated",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "alchemy-of-souls",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "alchemy-of-souls",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "alchemy-of-souls",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "alchemy-of-souls-part-2",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "alchemy-of-souls-part-2",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "alchemy-of-souls-part-2",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "another-miss-oh",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "another-miss-oh",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "another-miss-oh",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "at-a-distance-spring-is-green",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "at-a-distance-spring-is-green",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "at-a-distance-spring-is-green",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "because-this-is-my-first-life",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "because-this-is-my-first-life",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "because-this-is-my-first-life",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "beyond-evil",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "beyond-evil",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "beyond-the-bar",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "beyond-the-bar",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "beyond-the-bar",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "bitter-sweet-hell",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "bitter-sweet-hell",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "bitter-sweet-hell",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "blood-free",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "blood-free",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "blood-free",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "bloodhounds",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "bloodhounds",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "bloodhounds",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "bloodhounds-season-2",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "bloodhounds-season-2",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "bloodhounds-season-2",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "bloody-flower",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "bloody-flower",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "bloody-flower",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "bon-appetit-your-majesty",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "bon-appetit-your-majesty",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "bon-appetit-your-majesty",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "boyfriend-on-demand",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "boyfriend-on-demand",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "brewing-love",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "brewing-love",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "brewing-love",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "brewing-love",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "buried-hearts",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "buried-hearts",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "buried-hearts",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "business-proposal",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "business-proposal",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "business-proposal",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "call-it-love",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "call-it-love",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "can-this-love-be-translated",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "can-this-love-be-translated",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "can-this-love-be-translated",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "captivating-the-king",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "captivating-the-king",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "captivating-the-king",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "captivating-the-king",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "castaway-diva",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "castaway-diva",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "castaway-diva",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "cheese-in-the-trap",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "cheese-in-the-trap",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "cheese-in-the-trap",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "cheese-in-the-trap",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "chicago-typewriter",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "chicago-typewriter",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "chicago-typewriter",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "chicken-nugget",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "chicken-nugget",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "chicken-nugget",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "chief-detective-1958",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "chief-detective-1958",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "chief-detective-1958",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "connection",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "connection",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "connection",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "crash-course-in-romance",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "crash-course-in-romance",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "crash-course-in-romance",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "crash-landing-on-you",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "crash-landing-on-you",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "crash-landing-on-you",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "daily-dose-of-sunshine",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "daily-dose-of-sunshine",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "daily-dose-of-sunshine",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "dear-hongrang",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "dear-hongrang",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "dear-hongrang",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "dear-my-friends",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "dear-my-friends",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "dear-my-friends",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "deaths-game",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "deaths-game",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "descendants-of-the-sun",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "descendants-of-the-sun",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "destined-with-you",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "destined-with-you",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "destined-with-you",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "divorce-attorney-shin",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "divorce-attorney-shin",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "divorce-attorney-shin",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "doubt",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "doubt",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "doubt",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "dp",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "dp",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "dp",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "dp",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "dp-season-2",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "dp-season-2",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "dp-season-2",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "dynamite-kiss",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "dynamite-kiss",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "dynamite-kiss",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "extraordinary-attorney-woo",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "extraordinary-attorney-woo",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "extraordinary-attorney-woo",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "extraordinary-you",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "extraordinary-you",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "extraordinary-you",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "extraordinary-you",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "family-by-choice",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "family-by-choice",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "family-by-choice",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "fight-for-my-way",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "fight-for-my-way",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "fight-for-my-way",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "flex-x-cop",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "flex-x-cop",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "flex-x-cop",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "flex-x-cop",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "flower-of-evil",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "flower-of-evil",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "flower-of-evil",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "genie-make-a-wish",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "genie-make-a-wish",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "genie-make-a-wish",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "genie-make-a-wish",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "goblin",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "goblin",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "goblin",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "gold-land",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "gold-land",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "gold-land",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "good-boy",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "good-boy",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "good-boy",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "good-partner",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "good-partner",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "good-partner",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "good-partner",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "gyeongseong-creature",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "gyeongseong-creature",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "gyeongseong-creature",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "gyeongseong-creature-season-2",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "gyeongseong-creature-season-2",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "gyeongseong-creature-season-2",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "he-is-psychometric",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "he-is-psychometric",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "he-is-psychometric",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "head-over-heels",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "head-over-heels",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "head-over-heels",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "her-private-life",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "her-private-life",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "her-private-life",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "her-private-life",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "hierarchy",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "hierarchy",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "hierarchy",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "hierarchy",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "hometown-cha-cha-cha",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "hometown-cha-cha-cha",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "hospital-playlist",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "hospital-playlist",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "hospital-playlist",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "hospital-playlist",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "hospital-playlist-season-2",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "hospital-playlist-season-2",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "hospital-playlist-season-2",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "hotel-del-luna",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "hotel-del-luna",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "hyper-knife",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "hyper-knife",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "hyper-knife",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "if-wishes-could-kill",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "if-wishes-could-kill",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "if-wishes-could-kill",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "if-you-wish-upon-me",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "if-you-wish-upon-me",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "if-you-wish-upon-me",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "if-you-wish-upon-me",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "itaewon-class",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "itaewon-class",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "itaewon-class",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "its-okay-thats-love",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "its-okay-thats-love",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "its-okay-thats-love",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "its-okay-thats-love",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "its-okay-to-not-be-okay",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "its-okay-to-not-be-okay",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "its-okay-to-not-be-okay",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "jeongnyeon",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "jeongnyeon",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "jeongnyeon",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "just-between-lovers",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "just-between-lovers",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "just-between-lovers",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "juvenile-justice",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "juvenile-justice",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "juvenile-justice",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "karma",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "karma",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "karma",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "king-the-land",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "king-the-land",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "king-the-land",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "king-the-land",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "kingdom",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "kingdom",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "kingdom",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "knight-flower",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "knight-flower",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "knight-flower",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "knight-flower",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "law-and-the-city",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "law-and-the-city",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "law-and-the-city",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "law-school",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "law-school",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "law-school",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "law-school",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "life-on-mars",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "life-on-mars",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "life-on-mars",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "light-shop",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "light-shop",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "light-shop",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "little-women",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "little-women",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "little-women",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "little-women",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "live",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "live",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "live",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "lost",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "lost",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "lost",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "love-next-door",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "love-next-door",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "love-next-door",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "love-scout",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "love-scout",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "love-scout",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "lovely-runner",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "lovely-runner",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "lovely-runner",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "lovely-runner",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "marry-my-husband",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "marry-my-husband",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "marry-my-husband",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "marry-my-husband",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "mask-girl",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "mask-girl",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "mask-girl",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "melo-movie",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "melo-movie",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "melo-movie",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "memories-of-the-alhambra",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "memories-of-the-alhambra",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "memories-of-the-alhambra",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "mercy-for-none",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "mercy-for-none",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "mercy-for-none",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "misaeng",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "misaeng",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "misaeng",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "miss-night-and-day",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "miss-night-and-day",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "miss-night-and-day",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "moon-lovers-scarlet-heart-ryeo",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "moon-lovers-scarlet-heart-ryeo",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "moon-lovers-scarlet-heart-ryeo",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "moon-lovers-scarlet-heart-ryeo",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "moonlight-drawn-by-clouds",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "moonlight-drawn-by-clouds",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "moonlight-drawn-by-clouds",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "moonlight-drawn-by-clouds",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "mouse",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "mouse",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "mouse",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "move-to-heaven",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "move-to-heaven",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "move-to-heaven",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "moving",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "moving",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "moving",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "mr-plankton",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "mr-plankton",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "mr-plankton",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "mr-plankton",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "mr-queen",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "mr-queen",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "mr-queen",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "mr-sunshine",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "mr-sunshine",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "mr-sunshine",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "my-dearest",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "my-dearest",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "my-dearest",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "my-dearest",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "my-demon",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "my-demon",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "my-demon",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "my-demon",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "my-id-is-gangnam-beauty",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "my-id-is-gangnam-beauty",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "my-id-is-gangnam-beauty",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "my-liberation-notes",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "my-liberation-notes",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "my-liberation-notes",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "my-love-from-another-star",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "my-love-from-another-star",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "my-love-from-another-star",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "my-mister",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "my-mister",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "my-mister",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "my-name",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "my-name",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "my-name",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "mystic-pop-up-bar",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "mystic-pop-up-bar",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "mystic-pop-up-bar",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "navillera",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "navillera",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "nine-puzzles",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "nine-puzzles",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "nine-puzzles",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "no-gain-no-love",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "no-gain-no-love",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "no-gain-no-love",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "no-gain-no-love",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "notes-from-the-last-row",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "notes-from-the-last-row",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "notes-from-the-last-row",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "nothing-uncovered",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "nothing-uncovered",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "nothing-uncovered",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "oh-my-ghost-clients",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "oh-my-ghost-clients",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "oh-my-ghost-clients",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "one-spring-night",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "one-spring-night",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "one-spring-night",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "our-beloved-summer",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "our-beloved-summer",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "our-beloved-summer",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "our-blues",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "our-blues",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "our-blues",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "our-sticky-love",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "our-sticky-love",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "our-sticky-love",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "our-universe",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "our-universe",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "our-universe",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "our-unwritten-seoul",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "our-unwritten-seoul",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "our-unwritten-seoul",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "parasyte-the-grey",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "parasyte-the-grey",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "parasyte-the-grey",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "perfect-crown",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "perfect-crown",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "perfect-crown",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "phantom-lawyer",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "phantom-lawyer",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "phantom-lawyer",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "phantom-lawyer",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "prison-playbook",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "prison-playbook",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "prison-playbook",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "prison-playbook",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "pyramid-game",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "pyramid-game",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "pyramid-game",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "queen-of-tears",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "queen-of-tears",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "queen-of-tears",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "racket-boys",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "racket-boys",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "racket-boys",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "racket-boys",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "reborn-rich",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "reborn-rich",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "reborn-rich",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "reborn-rich",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "reborn-rookie",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "reborn-rookie",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "reborn-rookie",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "reply-1988",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "reply-1988",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "reply-1988",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "reply-1997",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "reply-1997",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "reply-1997",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "reply-1997",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "resident-playbook",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "resident-playbook",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "resident-playbook",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "revenant",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "revenant",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "revenge-of-others",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "revenge-of-others",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "revenge-of-others",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "romance-is-a-bonus-book",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "romance-is-a-bonus-book",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "romance-is-a-bonus-book",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "romantic-doctor-teacher-kim",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "romantic-doctor-teacher-kim",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "romantic-doctor-teacher-kim",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "run-on",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "run-on",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "run-on",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "save-me",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "save-me",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "see-you-at-work-tomorrow",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "see-you-at-work-tomorrow",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "see-you-at-work-tomorrow",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "see-you-in-my-19th-life",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "see-you-in-my-19th-life",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "see-you-in-my-19th-life",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "serendipitys-embrace",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "serendipitys-embrace",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "serendipitys-embrace",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "signal",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "signal",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "signal",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "sirens-kiss",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "sirens-kiss",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "sirens-kiss",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "sky-castle",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "sky-castle",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "sky-castle",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "something-in-the-rain",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "something-in-the-rain",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "something-in-the-rain",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "spooky-in-love",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "spooky-in-love",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "spooky-in-love",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "spooky-in-love",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "spring-fever",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "spring-fever",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "spring-fever",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "spring-fever",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "squid-game",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "squid-game",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "squid-game-season-2",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "squid-game-season-2",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "squid-game-season-2",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "squid-game-season-3",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "squid-game-season-3",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "squid-game-season-3",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "squid-game-season-3",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "stranger",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "stranger",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "stranger",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "strangers-from-hell",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "strangers-from-hell",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "strangers-from-hell",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "strong-girl-bong-soon",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "strong-girl-bong-soon",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "summer-strike",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "summer-strike",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "summer-strike",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "suspicious-partner",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "suspicious-partner",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "suspicious-partner",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "tale-of-the-nine-tailed",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "tale-of-the-nine-tailed",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "tale-of-the-nine-tailed",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "tale-of-the-nine-tailed-1938",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "tale-of-the-nine-tailed-1938",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "tastefully-yours",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "tastefully-yours",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "tastefully-yours",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "taxi-driver",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "taxi-driver",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "taxi-driver",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "taxi-driver-season-2",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "taxi-driver-season-2",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "taxi-driver-season-2",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "taxi-driver-season-3",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "taxi-driver-season-3",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "taxi-driver-season-3",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "taxi-driver-season-3",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "teach-you-a-lesson",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "teach-you-a-lesson",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "teach-you-a-lesson",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "teach-you-a-lesson",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-8-show",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-8-show",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-8-show",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-8-show",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-apartment-job",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-apartment-job",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-apartment-job",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-art-of-sarah",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-art-of-sarah",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-art-of-sarah",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-atypical-family",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-atypical-family",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-atypical-family",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-auditors",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-auditors",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-auditors",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-east-palace",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-east-palace",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-east-palace",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-fiery-priest",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-fiery-priest",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-fiery-priest",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-frog",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-frog",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-frog",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-glory",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-glory",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-good-bad-mother",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-good-bad-mother",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-good-bad-mother",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-haunted-palace",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-haunted-palace",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-haunted-palace",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-haunted-palace",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-impossible-heir",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-impossible-heir",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-impossible-heir",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-impossible-heir",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-judge-from-hell",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-judge-from-hell",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-judge-returns",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-judge-returns",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-judge-returns",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-k2",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-k2",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-k2",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-k2",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-legend-of-kitchen-soldier",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-legend-of-kitchen-soldier",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-legend-of-kitchen-soldier",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-legend-of-the-blue-sea",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-legend-of-the-blue-sea",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-legend-of-the-blue-sea",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-light-in-your-eyes",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-light-in-your-eyes",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-light-in-your-eyes",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-potato-lab",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-potato-lab",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-potato-lab",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-price-of-confession",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-price-of-confession",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-price-of-confession",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-price-of-confession",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-red-sleeve",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-red-sleeve",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-red-sleeve",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-red-sleeve",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-tale-of-lady-ok",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-tale-of-lady-ok",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-tale-of-lady-ok",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-tale-of-lady-ok",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-trauma-code",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-trauma-code",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-trauma-code",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-trunk",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-trunk",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-trunk",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-whirlwind",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-whirlwind",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-whirlwind",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-wonderfools",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-wonderfools",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-wonderfools",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "the-worst-of-evil",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-worst-of-evil",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-worst-of-evil",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "the-worst-of-evil",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "thirty-but-seventeen",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "thirty-but-seventeen",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "thirty-but-seventeen",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "thirty-nine",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "thirty-nine",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "thirty-nine",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "through-the-darkness",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "through-the-darkness",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "to-my-beloved-thief",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "to-my-beloved-thief",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "to-my-beloved-thief",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "tomorrow",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "tomorrow",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "tomorrow",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "tomorrow",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "touch-your-heart",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "touch-your-heart",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "touch-your-heart",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "touch-your-heart",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "trigger",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "trigger",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "trigger",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "tunnel",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "tunnel",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "tunnel",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "twenty-five-twenty-one",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "twenty-five-twenty-one",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "twenty-five-twenty-one",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "twenty-five-twenty-one",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "twinkling-watermelon",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "twinkling-watermelon",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "twinkling-watermelon",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "twinkling-watermelon",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "typhoon-family",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "typhoon-family",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "typhoon-family",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "uncle-samsik",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "uncle-samsik",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "uncle-samsik",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "undercover-high-school",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "undercover-high-school",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "undercover-high-school",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "undercover-miss-hong",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "undercover-miss-hong",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "undercover-miss-hong",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "vagabond",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "vagabond",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "vagabond",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "vigilante",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "vigilante",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "vigilante",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "vincenzo",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "vincenzo",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "vincenzo",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "w-two-worlds",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "w-two-worlds",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "w-two-worlds",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "w-two-worlds",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "weak-hero-class-1",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "weak-hero-class-1",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "weak-hero-class-1",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "weak-hero-class-1",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "weak-hero-class-2",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "weak-hero-class-2",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "weak-hero-class-2",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "weightlifting-fairy-kim-bok-joo",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "weightlifting-fairy-kim-bok-joo",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "weightlifting-fairy-kim-bok-joo",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "welcome-to-samdal-ri",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "welcome-to-samdal-ri",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "welcome-to-samdal-ri",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "welcome-to-samdal-ri",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "whats-wrong-with-secretary-kim",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "whats-wrong-with-secretary-kim",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "whats-wrong-with-secretary-kim",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "when-life-gives-you-tangerines",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "when-life-gives-you-tangerines",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "when-life-gives-you-tangerines",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "when-the-camellia-blooms",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "when-the-camellia-blooms",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "when-the-camellia-blooms",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "when-the-phone-rings",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "when-the-phone-rings",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "when-the-phone-rings",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "while-you-were-sleeping",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "while-you-were-sleeping",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "while-you-were-sleeping",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "wonderful-world",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "wonderful-world",
+    "field": "endingText",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "wonderful-world",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "identity",
+    "slug": "youth-of-may",
+    "status": "needs-human-review"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "youth-of-may",
+    "field": "verdict",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "prose-review-hint",
+    "slug": "youth-of-may",
+    "field": "hookNote",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "a-korean-odyssey",
+    "slug": "hotel-del-luna",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "a-korean-odyssey",
+    "slug": "he-is-psychometric",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "a-shop-for-killers",
+    "slug": "mercy-for-none",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "agent-kim-reactivated",
+    "slug": "trigger",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "alchemy-of-souls",
+    "slug": "the-red-sleeve",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "alchemy-of-souls",
+    "slug": "moon-lovers-scarlet-heart-ryeo",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "another-miss-oh",
+    "slug": "my-mister",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "another-miss-oh",
+    "slug": "my-liberation-notes",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "at-a-distance-spring-is-green",
+    "slug": "weak-hero-class-1",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "because-this-is-my-first-life",
+    "slug": "weightlifting-fairy-kim-bok-joo",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "because-this-is-my-first-life",
+    "slug": "touch-your-heart",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "beyond-evil",
+    "slug": "life-on-mars",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "bloodhounds",
+    "slug": "weak-hero-class-1",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "boyfriend-on-demand",
+    "slug": "genie-make-a-wish",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "boyfriend-on-demand",
+    "slug": "my-love-from-another-star",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "call-it-love",
+    "slug": "the-trunk",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "chicago-typewriter",
+    "slug": "twinkling-watermelon",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "chicago-typewriter",
+    "slug": "my-dearest",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "chicago-typewriter",
+    "slug": "flower-of-evil",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "chicken-nugget",
+    "slug": "the-wonderfools",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "crash-landing-on-you",
+    "slug": "queen-of-tears",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "dear-my-friends",
+    "slug": "our-blues",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "dear-my-friends",
+    "slug": "the-light-in-your-eyes",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "dear-my-friends",
+    "slug": "live",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "dear-my-friends",
+    "slug": "its-okay-thats-love",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "descendants-of-the-sun",
+    "slug": "romantic-doctor-teacher-kim",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "descendants-of-the-sun",
+    "slug": "mr-sunshine",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "descendants-of-the-sun",
+    "slug": "vagabond",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "destined-with-you",
+    "slug": "goblin",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "dp",
+    "slug": "weak-hero-class-1",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "extraordinary-you",
+    "slug": "lovely-runner",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "extraordinary-you",
+    "slug": "twenty-five-twenty-one",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "family-by-choice",
+    "slug": "at-a-distance-spring-is-green",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "fight-for-my-way",
+    "slug": "when-the-camellia-blooms",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "goblin",
+    "slug": "mr-sunshine",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "he-is-psychometric",
+    "slug": "signal",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "he-is-psychometric",
+    "slug": "a-korean-odyssey",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "her-private-life",
+    "slug": "no-gain-no-love",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "her-private-life",
+    "slug": "touch-your-heart",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "hospital-playlist",
+    "slug": "prison-playbook",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "its-okay-thats-love",
+    "slug": "live",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "just-between-lovers",
+    "slug": "its-okay-to-not-be-okay",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "juvenile-justice",
+    "slug": "teach-you-a-lesson",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "kingdom",
+    "slug": "signal",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "kingdom",
+    "slug": "revenant",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "little-women",
+    "slug": "reborn-rich",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "little-women",
+    "slug": "taxi-driver",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "live",
+    "slug": "our-blues",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "live",
+    "slug": "dear-my-friends",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "lovely-runner",
+    "slug": "twinkling-watermelon",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "melo-movie",
+    "slug": "twenty-five-twenty-one",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "melo-movie",
+    "slug": "because-this-is-my-first-life",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "memories-of-the-alhambra",
+    "slug": "w-two-worlds",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "memories-of-the-alhambra",
+    "slug": "stranger",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "memories-of-the-alhambra",
+    "slug": "the-glory",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "misaeng",
+    "slug": "my-mister",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "moon-lovers-scarlet-heart-ryeo",
+    "slug": "my-dearest",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "moonlight-drawn-by-clouds",
+    "slug": "the-red-sleeve",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "moonlight-drawn-by-clouds",
+    "slug": "moon-lovers-scarlet-heart-ryeo",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "moonlight-drawn-by-clouds",
+    "slug": "descendants-of-the-sun",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "move-to-heaven",
+    "slug": "dp",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "moving",
+    "slug": "light-shop",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "mr-queen",
+    "slug": "my-demon",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "mr-sunshine",
+    "slug": "moon-lovers-scarlet-heart-ryeo",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "my-dearest",
+    "slug": "mr-sunshine",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "my-dearest",
+    "slug": "youth-of-may",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "my-demon",
+    "slug": "goblin",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "my-demon",
+    "slug": "sirens-kiss",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "my-id-is-gangnam-beauty",
+    "slug": "cheese-in-the-trap",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "my-id-is-gangnam-beauty",
+    "slug": "twenty-five-twenty-one",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "my-liberation-notes",
+    "slug": "my-mister",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "my-liberation-notes",
+    "slug": "because-this-is-my-first-life",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "my-love-from-another-star",
+    "slug": "crash-landing-on-you",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "my-love-from-another-star",
+    "slug": "the-legend-of-the-blue-sea",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "my-love-from-another-star",
+    "slug": "goblin",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "my-love-from-another-star",
+    "slug": "while-you-were-sleeping",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "my-mister",
+    "slug": "my-liberation-notes",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "my-name",
+    "slug": "flex-x-cop",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "one-spring-night",
+    "slug": "something-in-the-rain",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "one-spring-night",
+    "slug": "my-liberation-notes",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "one-spring-night",
+    "slug": "our-blues",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "one-spring-night",
+    "slug": "because-this-is-my-first-life",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "one-spring-night",
+    "slug": "call-it-love",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "our-blues",
+    "slug": "dear-my-friends",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "our-blues",
+    "slug": "live",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "parasyte-the-grey",
+    "slug": "strangers-from-hell",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "prison-playbook",
+    "slug": "hospital-playlist",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "prison-playbook",
+    "slug": "racket-boys",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "prison-playbook",
+    "slug": "reply-1988",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "pyramid-game",
+    "slug": "weak-hero-class-1",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "queen-of-tears",
+    "slug": "crash-landing-on-you",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "racket-boys",
+    "slug": "prison-playbook",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "reborn-rich",
+    "slug": "vincenzo",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "reborn-rich",
+    "slug": "little-women",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "reborn-rich",
+    "slug": "w-two-worlds",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "w-two-worlds",
+    "slug": "memories-of-the-alhambra",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "w-two-worlds",
+    "slug": "reborn-rich",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "weightlifting-fairy-kim-bok-joo",
+    "slug": "twenty-five-twenty-one",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "weightlifting-fairy-kim-bok-joo",
+    "slug": "because-this-is-my-first-life",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "weightlifting-fairy-kim-bok-joo",
+    "slug": "crash-course-in-romance",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "whats-wrong-with-secretary-kim",
+    "slug": "touch-your-heart",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "when-life-gives-you-tangerines",
+    "slug": "youth-of-may",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "when-the-camellia-blooms",
+    "slug": "when-life-gives-you-tangerines",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "when-the-camellia-blooms",
+    "slug": "fight-for-my-way",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "when-the-camellia-blooms",
+    "slug": "welcome-to-samdal-ri",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "when-the-phone-rings",
+    "slug": "dear-hongrang",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "while-you-were-sleeping",
+    "slug": "castaway-diva",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "while-you-were-sleeping",
+    "slug": "he-is-psychometric",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "while-you-were-sleeping",
+    "slug": "hotel-del-luna",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "wonderful-world",
+    "slug": "little-women",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "youth-of-may",
+    "slug": "my-dearest",
+    "status": "not-a-confirmed-error"
+  },
+  {
+    "type": "relationship-review-hint",
+    "seed": "youth-of-may",
+    "slug": "our-unwritten-seoul",
+    "status": "not-a-confirmed-error"
+  }
+]

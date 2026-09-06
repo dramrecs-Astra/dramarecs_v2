@@ -3,7 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node build.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "validate": "node tools/validate-pages.mjs && node tools/validate-data.mjs",
+    "build": "node tools/release-build.mjs",
+    "build:fixture": "node tools/release-build.mjs fixture",
+    "build:production": "node tools/release-build.mjs production"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  }
 }

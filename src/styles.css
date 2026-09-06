@@ -733,3 +733,26 @@ footer.site a:hover{color:var(--ink);background:var(--volt)}
   display:block;margin-bottom:var(--s2);font-size:var(--t-xs);font-weight:700;
   text-transform:uppercase;letter-spacing:.09em;color:var(--ink-4)
 }
+
+/* DR repair pass: existing MARQUEE typography and colors are intentionally preserved. */
+[hidden]{display:none!important}
+#shelfmount .gridlist{grid-template-columns:repeat(auto-fill,minmax(136px,190px));justify-content:start;gap:32px 24px}
+#shelfmount .plate{width:100%;max-width:190px;aspect-ratio:2/3}
+#shelfmount .pix{width:100%;height:100%;object-fit:cover}
+.shelfitem{min-width:0}.shelfactions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.watched,.comparebtn{font:inherit;font-size:.875rem;color:var(--ink);background:transparent;border:1px solid currentColor;padding:8px 12px;min-height:44px;cursor:pointer}
+.watched[aria-pressed=true],.comparebtn[aria-pressed=true]{font-weight:700}
+.why,.difference,.fullreason{max-width:70ch}.difference{margin-block:16px;line-height:1.65}
+.fullreason{margin-block:20px}.fullreason summary{cursor:pointer;min-height:44px;padding-block:10px}.fullreason p{margin-top:16px;line-height:1.7}
+.commitment,.availabilitynote{font-size:.875rem;line-height:1.5}.availabilitynote{display:block;max-width:65ch}
+.endingpref{display:flex;align-items:center;gap:12px;padding-block:16px;font-size:.875rem}
+.endingpref input{width:20px;height:20px}.searchstatus{padding:12px;max-width:70ch}
+.searchstatus button,.searchstatus a{display:inline-block;min-height:44px;padding:8px}
+.storagewarning{padding-block:16px;font-weight:600}.sharecopy{display:grid;gap:8px;width:100%}.sharecopy input{width:100%;min-width:0;padding:12px;font:inherit}
+.toast button{margin-left:16px;padding:8px 16px;min-height:44px;font:inherit;cursor:pointer}
+.comparison{margin-block:40px}.comparegrid{display:grid;grid-template-columns:1fr;gap:32px;margin-top:24px}.comparegrid article{min-width:0}.comparegrid p{max-width:65ch;line-height:1.7;margin-block:16px}
+:focus-visible{outline:3px solid var(--ink);outline-offset:4px}html{scroll-padding-top:100px}button,a,input,summary{scroll-margin-block:100px}
+@media(max-width:480px){#shelfmount .gridlist{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 20px}.shelfbar{flex-wrap:wrap}.refine{position:static}.recfoot{gap:16px}.toast{max-width:calc(100vw - 32px);overflow-wrap:anywhere}}
+@media(min-width:900px){.comparegrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.reasonpicker{display:grid;gap:12px;margin-block:24px}.reasonpicker label{font-weight:700}.reasonpicker select{font:inherit;padding:12px;width:100%;max-width:32rem;min-height:44px}.reasonpicker p,.reasonfit{max-width:65ch;line-height:1.6}.reasonfit{font-weight:600;margin-bottom:20px}
