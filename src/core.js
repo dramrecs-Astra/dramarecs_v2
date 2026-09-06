@@ -1,13 +1,14 @@
 /* Shared dependency-free browser/build logic. Tested in Node; no tracking. */
 (function (root) {
   'use strict';
-  function slugs(value) {
+  function uniqueSlugs(value) {
     return Array.isArray(value) ? Array.from(new Set(value.filter(function (s) {
       return typeof s === 'string' && s.length <= 120 && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(s);
-    }))).slice(0, 500) : [];
+    }))) : [];
   }
+  function slugs(value) { return uniqueSlugs(value).slice(0,500); }
   function createState(storage, warn) {
-    var key = 'dr.state.v1', memory, session = false, hadRecord = false;
+    var key = 'dr.state.v1', memory, session = false, hadRecord = false, lastError = null;
     function empty() { return {version:1,saved:[],watched:[],hideWatched:false,showEndingTones:false}; }
     function decode(raw) {
       var v = JSON.parse(raw || 'null');
@@ -15,6 +16,12 @@
       return {version:1,saved:slugs(v.saved),watched:slugs(v.watched),hideWatched:v.hideWatched === true,showEndingTones:v.showEndingTones === true};
     }
     function fail() { session = true; if (warn) warn('Changes are saved for this page session only. Browser storage is unavailable.'); }
+    function overCapacity(next) {
+      var field=['saved','watched'].find(function(f){return uniqueSlugs(next&&next[f]).length>500;});
+      if(!field)return false;
+      lastError=(field==='saved'?'Your shelf':'Your watched history')+' can hold up to 500 titles. Remove a title before adding more. Nothing changed.';
+      return true;
+    }
     var raw;
     try { raw=storage.getItem(key); } catch (_) { fail(); }
     try { memory=decode(raw);hadRecord=Boolean(memory); } catch (_) { memory=null; }
@@ -25,18 +32,21 @@
     }
     function read() { return JSON.parse(JSON.stringify(memory)); }
     function write(next) {
+      lastError=null;
+      // Reject before decoding, and again after a cross-tab merge. Never silently
+      // truncate a requested addition, shared import or Undo at the storage cap.
+      if(overCapacity(next))return false;
       next=decode(JSON.stringify(next)) || memory;
       var base=memory,latest=null;
       if (!session) {
         try {
           var stored=storage.getItem(key);
           latest=decode(stored);
-          // A cleared record must not resurrect this tab's old shelf/history.
           if(!latest&&stored==null&&hadRecord)latest=empty();
         } catch (_) { fail(); }
       }
-      // Merge this tab's changes into the newest stored state. localStorage has
-      // no atomic compare-and-swap: genuinely simultaneous writes are best-effort.
+      // localStorage has no atomic compare-and-swap: simultaneous writes remain
+      // best-effort. Unseen changes from a stale tab are merged before persisting.
       if (latest) {
         ['saved','watched'].forEach(function(field) {
           var merged=latest[field].filter(function(slug) {
@@ -47,11 +57,12 @@
             var following=next[field].slice(i+1).find(function(s){return merged.includes(s);});
             merged.splice(following?merged.indexOf(following):merged.length,0,slug);
           });
-          latest[field]=slugs(merged);
+          latest[field]=merged;
         });
         ['hideWatched','showEndingTones'].forEach(function(field) {
           if(next[field]!==base[field])latest[field]=next[field];
         });
+        if(overCapacity(latest))return false;
         memory=latest;
       } else memory=next;
       if (!session) {
@@ -60,9 +71,9 @@
       }
       return !session;
     }
-    return {read:read,write:write,sessionOnly:function(){return session;},
+    return {read:read,write:write,sessionOnly:function(){return session;},lastError:function(){return lastError;},
       refresh:function(){if(!session){try{var current=decode(storage.getItem(key));memory=current||empty();hadRecord=hadRecord||Boolean(current);}catch(_){fail();}}},
-      toggle:function(field,slug){if(!['saved','watched'].includes(field)||!slugs([slug]).length)return false;var next=read(),i=next[field].indexOf(slug);if(i<0)next[field].push(slug);else next[field].splice(i,1);write(next);return i<0;}
+      toggle:function(field,slug){if(!['saved','watched'].includes(field)||!slugs([slug]).length)return false;var next=read(),i=next[field].indexOf(slug);if(i<0)next[field].push(slug);else next[field].splice(i,1);write(next);return !lastError&&i<0;}
     };
   }
   function shared(hash) {

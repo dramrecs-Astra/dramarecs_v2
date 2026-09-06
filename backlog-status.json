@@ -1,10 +1,10 @@
 [
   {
     "id": "DR-01",
-    "status": "Implemented; browser QA pending",
-    "changed": "Restored populated shelf to gridlist; 190px poster cap, fixed 2:3 proportions, two mobile columns.",
-    "checked": "Static CSS/source review; optional browser matrix supplied.",
-    "remaining": "Run 360/390/768/1366/1440px at 0/1/2/6/30 saved titles."
+    "status": "Implemented; Chromium CI configured, execution pending",
+    "changed": "Shelf geometry and CSS are unchanged. The browser smoke runner now checks 25 combinations of 360/390/768/1366/1440px and 0/1/2/6/30 titles using synthetic loaded poster images, including aspect ratio, width cap and mobile columns.",
+    "checked": "Existing automated tests and the full fixture build pass. Browser runner syntax and workflow source checks pass; no Chromium execution completed in this sandbox.",
+    "remaining": "Wait for the first GitHub Actions browser result after upload. Safari/Firefox, physical devices and screen-reader checks remain pending."
   },
   {
     "id": "DR-02",
@@ -15,31 +15,31 @@
   },
   {
     "id": "DR-03",
-    "status": "Implemented; real-browser QA pending",
-    "changed": "Shelf removal now focuses the next or previous visible item, or the discovery link when empty. Undo restores the title at its original position and focuses the restored action. Saved and watched states remain independent.",
-    "checked": "Focus-aware tests against the actual app script: middle/last/only removal, watched Undo and shared import. DOM mocks are not real-browser proof.",
-    "remaining": "Run real keyboard, touch and screen-reader checks, including Safari/Firefox."
+    "status": "Focus repairs implemented; real-browser verification pending",
+    "changed": "Shelf title links and non-item controls retain focus across cross-tab rerendering. Removed title links focus a neighbor or discovery. Existing remove/Undo/comparison focus behavior is preserved.",
+    "checked": "Actual app DOM regressions cover retained/removed/final shelf links, shared-import control, removal/Undo and comparison controls.",
+    "remaining": "Configured Chromium cross-tab checks still need execution. Real keyboard, touch and assistive checks across browsers remain pending."
   },
   {
     "id": "DR-04",
-    "status": "Stale-tab repair implemented; simultaneous-write limitation remains",
-    "changed": "State writes merge this tab's saved/watched additions and removals into the latest stored record. Unrelated preferences and unseen saves survive delayed synchronization; removing a record elsewhere does not resurrect old history. Legacy migration and session-only fallback remain.",
-    "checked": "Stale-tab additions/removals, independent watched/preferences, shared import, Undo ordering, cleared storage, denied storage and original persistence regressions pass.",
-    "remaining": "localStorage has no atomic compare-and-swap: genuinely simultaneous writes remain best-effort. Real multi-tab browser QA and private-browsing checks remain pending; cross-device sync is not provided."
+    "status": "Capacity and stale-tab repairs implemented; simultaneous-write limitation remains",
+    "changed": "Saved/watched writes reject more than 500 distinct valid IDs before normalization and after stale-tab merging. Whole writes fail without truncation, a false Saved message or false Undo confirmation. Original stale-tab merge and session fallback remain.",
+    "checked": "500-item boundaries, removals then additions, duplicate IDs, atomic multi-field rejection, stale-tab merging, session fallback and capacity-blocked Undo regressions pass.",
+    "remaining": "localStorage is not atomic; genuinely simultaneous writes remain best-effort. The 500-item cap is retained, not expanded. Real multi-tab/private-browsing checks and cross-device sync remain outside this delivery."
   },
   {
     "id": "DR-05",
-    "status": "Catalog-schema repair implemented; browser QA pending",
-    "changed": "Catalog loading rejects malformed optional search/image fields, duplicate IDs, blank titles and an unexpectedly empty catalog instead of accepting data that breaks rendering. Error states retain saved IDs and allow Retry.",
-    "checked": "Malformed optional-field unit tests plus actual client shelf failure/retry integration tests; HTTP, timeout and JSON regression tests retained.",
-    "remaining": "Real-browser slow network, offline-request simulation and deployment cache checks remain pending. An intentionally empty catalog is not supported by this 219-title site."
+    "status": "Retry focus and schema repairs implemented; browser verification pending",
+    "changed": "Successful shelf retry focuses a connected action or discovery; another failure focuses the replacement Retry. Late completion does not steal focus after the reader moves elsewhere. Existing schema rejection preserves saved IDs.",
+    "checked": "DOM tests cover successful/empty/repeated-failure retry and late completion, with original catalog/network/retry regressions retained.",
+    "remaining": "Chromium CI retry checks are configured but unexecuted here. Real slow-network, caching and browser testing remain pending."
   },
   {
     "id": "DR-06",
-    "status": "Shared-fragment navigation repaired; browser QA pending",
-    "changed": "hashchange reparses and rerenders the active shared shelf, including malformed/empty links and return to the personal shelf. Stale copy text is cleared; useful focus is restored; late clipboard feedback for a different fragment is suppressed. Import does not replace the personal shelf.",
-    "checked": "Fragment transitions, loading-time navigation, malformed recovery, focused-row removal, copy-field focus and stale clipboard rejection DOM regressions pass.",
-    "remaining": "Real Back/Forward navigation, blocked clipboard, touch and screen-reader checks remain pending. No private or cross-device sharing service was added."
+    "status": "Shared import capacity and fragment repairs implemented; browser verification pending",
+    "changed": "Shared imports no longer truncate before state validation: an over-capacity import is all-or-nothing and reports Nothing changed. Shared controls retain focus on cross-tab updates; fragment navigation and clipboard safeguards are preserved.",
+    "checked": "Full and nearly-full shared imports, retained focus, shared-to-personal/fragment transitions and prior clipboard regressions pass in DOM tests.",
+    "remaining": "Real Back/Forward and import checks are configured in Chromium CI but not run here. Native clipboard/touch/assistive checks remain pending."
   },
   {
     "id": "DR-07",
@@ -57,10 +57,10 @@
   },
   {
     "id": "DR-09",
-    "status": "Input-method handling repaired; assistive QA pending",
-    "changed": "Composition events, isComposing and legacy keyCode 229 leave Enter/arrows/Escape to the input method. Stale suggestions close during composition; completed focused input redraws, while completion after blur does not reopen it. Retry restores input focus.",
-    "checked": "Korean composition lifecycle, each composing key, legacy event ordering, blur, delayed catalog completion and original ARIA tests pass in the actual client DOM mock.",
-    "remaining": "Real Korean/Chinese/Japanese IMEs, Safari/Firefox, mobile keyboards and screen readers need manual checks. Synthetic events are not native-input certification."
+    "status": "Filter focus and input-method repairs implemented; assistive verification pending",
+    "changed": "Clearing filters moves focus away from a newly hidden Clear or empty-state button to a visible filter. Original composition/isComposing/keyCode 229 handling and search ARIA remain.",
+    "checked": "DOM regressions for both clear controls pass, along with all prior composition, delayed-input and search-focus cases.",
+    "remaining": "Configured Chromium clear-focus tests await execution. Native Korean/Chinese/Japanese IMEs, mobile keyboards, other browsers and screen readers remain pending."
   },
   {
     "id": "DR-10",
@@ -99,10 +99,10 @@
   },
   {
     "id": "DR-15",
-    "status": "Partial",
-    "changed": "Ending buttons default hidden, reveal/hide reversibly; persisted tone preference; ending labels removed from collection cards; ending-collection warnings.",
-    "checked": "Default-output smoke checks; optional browser toggle checks.",
-    "remaining": "Legacy verdicts and some fit/caveat prose can still spoil endings. Full spoiler-safe editorial audit NOT completed."
+    "status": "Reveal controls implemented; spoiler-safe prose audit still partial",
+    "changed": "Removed unsupported spoiler-safety promises from homepage, browse, ending-collection metadata and terms templates. Ending collections explicitly disclose that membership reveals tone. Existing reveal controls remain unchanged.",
+    "checked": "Template regression and generated HTML scans reject the identified blanket safety language; all prior ending-control checks remain.",
+    "remaining": "Removing a promise is not removing every spoiler. Legacy verdicts, fit/caveat prose and all factual ending labels still need editorial review."
   },
   {
     "id": "DR-16",
@@ -141,10 +141,10 @@
   },
   {
     "id": "DR-21",
-    "status": "Partial",
-    "changed": "Removed Melo Movie batch/rating superlative; rewrote method/footer claims to disclose research/AI-draft and review limits.",
-    "checked": "Data gate rejects leaked batch wording; reviewed source text.",
-    "remaining": "No full 219-title factual or authorship certification; owner must confirm public process wording."
+    "status": "Public blanket-review copy corrected; editorial verification remains partial",
+    "changed": "Homepage metadata and catalog headings/descriptions/structured data no longer claim universal hand review. Catalog copy states that review coverage varies. Prior Melo Movie wording repair remains.",
+    "checked": "Source regression and all 341 generated HTML files checked for the identified blanket review/safety claims. No catalog or recommendation prose was rewritten in this pass.",
+    "remaining": "Full 219-title factual/authorship certification, editor identity and remaining public process/byline claims require owner/editorial confirmation. This is not a claim that all public copy is now verified."
   },
   {
     "id": "DR-22",
@@ -183,10 +183,10 @@
   },
   {
     "id": "DR-27",
-    "status": "Automated safeguards implemented; durable persistence pending",
-    "changed": "95% poster floor retained with URL validation; losses are checked for retained titles and per-region non-empty provider data, including rental/purchase records. Invalid snapshots stop the release. Normal failed release steps restore last-good bytes; only healthy non-fixture runs promote metadata after downstream checks.",
-    "checked": "Boundary and regional-degradation tests; orchestrator success/failure/fixture/preview tests; full simulated production pass; no-token production intentionally blocked.",
-    "remaining": "Live upstream checks and durable snapshot storage/scheduled refresh remain deployment work. Unexpected process termination is not a tested recovery path. Use npm run build, not the low-level generator."
+    "status": "Snapshot validation strengthened; durable storage and live verification pending",
+    "changed": "Hydrated overview/network, genre/provider arrays, rating bounds, availability status, retrieval dates, season dates and HTTPS link syntax are checked. Impossible dates fail; scheduled future season dates remain valid. Poster floor and retained-title/regional-loss guards are unchanged.",
+    "checked": "Malformed fields/date/URL cases, legacy omissions, leap dates, rating bounds and five-minute clock skew pass. Release tests prove invalid candidates restore exact last-good bytes and invalid baselines stop before generation. Full isolated simulated-TMDB production build passes.",
+    "remaining": "Live metadata accuracy/coverage and durable snapshot storage remain pending. Stricter validation intentionally blocks malformed snapshots; correct the identified row rather than deleting the baseline or lowering the 95% floor."
   },
   {
     "id": "DR-28",
@@ -253,10 +253,10 @@
   },
   {
     "id": "DR-37",
-    "status": "Implemented",
-    "changed": "Vercel/CI run validation, the regression suite, build, generated-link checks and inventory. Pure logic remains in shared modules; the current test report records the latest results.",
-    "checked": "Full dependency-free fixture pipeline passes; production metadata failure blocks as expected.",
-    "remaining": "Actual Vercel rollback and deploy remain untested; no repository or deployment was changed."
+    "status": "Build tests implemented; Chromium CI configured, first run pending",
+    "changed": "GitHub validation now installs pinned Playwright 1.58.2 as CI-only tooling, installs Chromium, runs browser smoke checks and uploads failure diagnostics. Read-only workflow permissions and a 20-minute job timeout are set. Vercel build command and package.json are unchanged.",
+    "checked": "184 Node tests, fixture release, 341-file link/structure/claim scans and isolated simulated-TMDB production release pass. Browser driver parses; launch is blocked by missing browser binaries in the sandbox.",
+    "remaining": "A green browser result is not yet available. GitHub Actions and Vercel are independent: branch protections/required checks and deployment gating are owner settings, not configured here. Native/other-browser/assistive/live/rollback testing remains pending."
   },
   {
     "id": "DR-38",
@@ -281,10 +281,10 @@
   },
   {
     "id": "DR-41",
-    "status": "Current inventory/status repaired; legacy research review pending",
-    "changed": "Inventory uses validated Vercel/GitHub/git evidence or null, includes a deterministic source fingerprint and actual generated HTML counts, and does not claim tests or reviews passed merely from counts. Current status/test reports are refreshed; historical research remains unverified.",
-    "checked": "Revision/fingerprint tests retained; current fixture inventory records 219 dramas, 101 lists, 341 HTML files, 338 sitemap entries and zero certified identity mappings.",
-    "remaining": "Historical research notes still need owner reconciliation. Historical first-pass release notes are not the current test report; see TEST-RESULTS.md."
+    "status": "Fingerprint coverage repaired; historical reconciliation pending",
+    "changed": "Fingerprint v2 includes .github source configuration, vercel.json and supported root runtime/ignore files. Exclusions are exact generated snapshot paths rather than broad filename patterns. Current inventory, status and test reports are refreshed.",
+    "checked": "Content-change regressions cover CI/deployment/runtime files and similarly named source files; actual revision evidence remains null for the supplied ZIP. Current fixture counts are 219 dramas, 101 lists, 341 HTML files and 338 sitemap entries.",
+    "remaining": "A source fingerprint does not attest to remote secrets, branch protection, production settings or deployments. Historical workbook/research/release notes still require owner reconciliation; TEST-RESULTS.md is current."
   },
   {
     "id": "DR-42",

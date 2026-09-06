@@ -20,6 +20,7 @@ function fixture(before=JSON.stringify(baseline)) {
  mkdirSync('dist',{recursive:true});writeFileSync('build-ran','yes');
  const metadata=${JSON.stringify(baseline)};metadata.a.poster=process.env.SIM_NO_POSTERS?null:'https://image.tmdb.org/t/p/w500/new.jpg';
  metadata.a.availabilityCheckedAt=new Date().toISOString();metadata.a.unrelatedEditorial='must not persist';
+ if(process.env.SIM_BAD_SNAPSHOT)metadata.a.overview={invalid:true};
  writeFileSync('data/metadata-snapshot.json',JSON.stringify(metadata));
  const payload=JSON.stringify({p:{US:['Netflix']},l:{}}).replace(/"/g,'&quot;');
  writeFileSync('dist/index.html','<script>window.DR_WATCH={};window.DR_AFF=false</script><span class="watch" data-watch="'+payload+'" data-title="Title A" data-region="US"><span class="prov">Old</span></span><small class="'+(process.env.SIM_BAD_TEMPLATE?'changed':'availabilitynote')+'">Old</small>');
@@ -35,3 +36,6 @@ test('production quality failure preserves last-good metadata',()=>{const before
 test('invalid baseline blocks before the builder can silently discard it',()=>{const f=fixture('[]');try{const r=f.run();assert.notEqual(r.status,0);assert.equal(f.bytes(),'[]');assert.equal(existsSync(path.join(f.root,'build-ran')),false);}finally{f.close();}});
 test('first failed build does not leave behind an unverified snapshot',()=>{const f=fixture(null);try{const r=f.run('production',{SIM_FAIL_SMOKE:'1'});assert.notEqual(r.status,0);assert.equal(f.bytes(),null);}finally{f.close();}});
 test('fixture flag remains prohibited in Vercel production',()=>{const f=fixture();try{const r=f.run('fixture',{VERCEL_ENV:'production'});assert.notEqual(r.status,0);assert.match(r.stderr,/Fixture builds cannot/);assert.equal(existsSync(path.join(f.root,'build-ran')),false);}finally{f.close();}});
+
+test('malformed candidate metadata fails release and restores exact last-good bytes',()=>{const before=JSON.stringify(baseline,null,4)+'\n';const f=fixture(before);try{const r=f.run('production',{SIM_BAD_SNAPSHOT:'1'});assert.notEqual(r.status,0);assert.match(r.stderr,/invalid overview/);assert.equal(f.bytes(),before);}finally{f.close();}});
+test('malformed hydrated fields in a baseline block before generation',()=>{const before=JSON.stringify({a:{...baseline.a,genres:{}}});const f=fixture(before);try{const r=f.run();assert.notEqual(r.status,0);assert.match(r.stderr,/invalid genres/);assert.equal(f.bytes(),before);assert.equal(existsSync(path.join(f.root,'build-ran')),false);}finally{f.close();}});

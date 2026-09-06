@@ -1,110 +1,129 @@
 {
-  "release": "Six approved defect groups, 2026-09-06",
-  "package": "Complete changed/new files only; no unchanged repository files",
-  "fileCountIncludingManifest": 14,
-  "source": "User-supplied dramarecs_v2-main ZIP, including prior 16-file follow-up; live GitHub revision not independently inspected",
-  "approvedGroups": [
-    "DR-04",
-    "DR-05/DR-07",
-    "DR-06",
-    "DR-09",
-    "DR-16",
-    "DR-22"
+  "release": "Approved six-target follow-up, 2026-09-06",
+  "package": "Complete changed/new files only; 15 replacements and 1 new file; no deletions",
+  "source": "User-supplied full repository ZIP; all files in the supplied smaller patch match it. Live GitHub revision not independently inspected.",
+  "fileCountIncludingManifest": 16,
+  "approvedTargets": [
+    "Capacity feedback and atomic rejection",
+    "Keyboard focus recovery",
+    "Snapshot schema/calendar validation",
+    "Unsupported public review/spoiler promises",
+    "Source fingerprint configuration coverage",
+    "Chromium CI with diagnostics"
   ],
-  "tests": 128,
+  "tests": 184,
+  "newTests": 56,
+  "regressionFailuresAgainstBaseline": 52,
   "generatedHtmlFiles": 341,
-  "instructions": "Extract and upload all paths together at repository root in one commit. Keep npm run build and existing TMDB token. See UPLOAD-SIX-FIXES.md.",
+  "browserStatus": "Configured for 31 Chromium checks; local launch unavailable, no browser checks completed",
+  "productionStatus": "Isolated simulated-TMDB full production release passes; live API/deployment not tested",
+  "sourceFingerprint": "79f01d331e8602771c59279ee1975651be65be2f932af8060d1105c12da01ac0",
+  "instructions": "Upload all paths together at the repository root. Keep npm run build and the existing TMDB token. See UPLOAD-SIX-FIXES.md.",
   "files": [
+    {
+      "path": ".github/workflows/validate.yml",
+      "action": "replace",
+      "bytes": 1123,
+      "sha256": "8d1612a49a0041483d39cb1183e0dabac51db478322326e7f136a54ace06eac6",
+      "baselineSha256": "fbd0ded6a4709c240ec4d8ddd408885b91f8dcb0e1bf61c6ba573424b9398785"
+    },
     {
       "path": "BACKLOG-STATUS.md",
       "action": "replace",
-      "bytes": 19877,
-      "sha256": "52cdb99fa85486412b63135be306808dfe4f278c0ef3b16f10259211edee573a",
-      "baselineSha256": "15467e1671e560c64eaa3e9a2d6953a36e37885e5c0aea7e25759e8ac76fd43d"
+      "bytes": 21739,
+      "sha256": "ab682253092514dce98f4de201b1b63b4fbba19b7751f9b942315a9a4dcebf2c",
+      "baselineSha256": "52cdb99fa85486412b63135be306808dfe4f278c0ef3b16f10259211edee573a"
     },
     {
       "path": "INVENTORY.json",
       "action": "replace",
-      "bytes": 936,
-      "sha256": "84b8cac16a6dc7557845b31b295e9239e3169a5a4311bccdf16ad80776b3321f",
-      "baselineSha256": "5f8682efb4aa2eac5bb2f836934c8150880a41ef1a4d973104a3ee34dc3ecf78"
+      "bytes": 1200,
+      "sha256": "b6e17f765f5a9ecf7ce3ad40473bf9fe48e33ebf74bf7f0b6709884479c0e405",
+      "baselineSha256": "84b8cac16a6dc7557845b31b295e9239e3169a5a4311bccdf16ad80776b3321f"
     },
     {
       "path": "TEST-RESULTS.md",
       "action": "replace",
-      "bytes": 5576,
-      "sha256": "4501f96f67a4d808f30bb82c760a3bc4737e75221d7416e13023a452bd38b446",
-      "baselineSha256": "d2d5d63f731424608b10830af6935ba93b58df2091ee2334afdcb28fc259ef67"
+      "bytes": 5730,
+      "sha256": "f75788dd0892e5109fd188bded4b99537d80fb9f25175ef34e5e6043c793fc93",
+      "baselineSha256": "4501f96f67a4d808f30bb82c760a3bc4737e75221d7416e13023a452bd38b446"
     },
     {
       "path": "UPLOAD-SIX-FIXES.md",
-      "action": "add",
-      "bytes": 4008,
-      "sha256": "3dcdf6899d1787d1de892bcb4e8699ca5b870b1f7946ee574d9de9d4f4bb159f",
-      "baselineSha256": null
+      "action": "replace",
+      "bytes": 5412,
+      "sha256": "88fb55c6f8a35aa342e3801ac942a27eb03e42e8516ffc0872531ee4c2d5df9b",
+      "baselineSha256": "3dcdf6899d1787d1de892bcb4e8699ca5b870b1f7946ee574d9de9d4f4bb159f"
     },
     {
       "path": "backlog-status.json",
       "action": "replace",
-      "bytes": 20341,
-      "sha256": "a21da54d03fe41bb885715eb6a6b085e8eff927f12cca60c2edf31b79c3a5cb0",
-      "baselineSha256": "c88b4893d267c7f7de04acdc18211c1bc57a1c0631765d077766b3f88586d0d2"
+      "bytes": 21797,
+      "sha256": "dbf5c37bb5d92f72269df754695679abdeafe70b57ae43667fc7c4523fc9d338",
+      "baselineSha256": "a21da54d03fe41bb885715eb6a6b085e8eff927f12cca60c2edf31b79c3a5cb0"
     },
     {
       "path": "build.mjs",
       "action": "replace",
-      "bytes": 103489,
-      "sha256": "d70af367fb1b662006c0e62bab682e733ef94817cd177b56aabc4256b6007481",
-      "baselineSha256": "1d423abf112b1b253644d099fe9b8e0390a064046b2dc6587887e0d4c9d9328e"
+      "bytes": 103683,
+      "sha256": "fa1afc0e59a133cc150165e97768f9ac1019aad01fcbbc5769d45df379adaf4c",
+      "baselineSha256": "d70af367fb1b662006c0e62bab682e733ef94817cd177b56aabc4256b6007481"
     },
     {
-      "path": "lib/editorial-evidence.mjs",
-      "action": "add",
-      "bytes": 2585,
-      "sha256": "e64bd40476fc170797b22493094d3a83693d92b500bbaf05d201e08a1ecaae11",
-      "baselineSha256": null
+      "path": "lib/data-quality.mjs",
+      "action": "replace",
+      "bytes": 8657,
+      "sha256": "39e313b58d840725ef4093f81c97d9fbace88195f43fe55657ed620ef836e88c",
+      "baselineSha256": "2b36b1b4c4cfc8b636eda6698112bba71168185aad0a5fd3eba5a28fb9d4c276"
     },
     {
       "path": "src/app.js",
       "action": "replace",
-      "bytes": 21939,
-      "sha256": "00ab2e40fd591d7846f8b945d325b85fbcceecdf14bbf4265b4e78a6e4d1fcc7",
-      "baselineSha256": "f46ad786fd813facfd419e2062115f88c5654db90efb577b8bf55755fe66bf14"
+      "bytes": 23661,
+      "sha256": "aa77b29a193a883c29b87bf521c82aa9e7ef82c289b32f8e68760437756e7d93",
+      "baselineSha256": "00ab2e40fd591d7846f8b945d325b85fbcceecdf14bbf4265b4e78a6e4d1fcc7"
     },
     {
       "path": "src/core.js",
       "action": "replace",
-      "bytes": 10526,
-      "sha256": "4cae016f7f907b88ed58bb05f1a137abd875961ae24d460f8c1db800b5cc540e",
-      "baselineSha256": "f8eb3040a01540b7c01284ff01deed5a15b8ede6aa026e3b61ef2a9b6e0c0646"
+      "bytes": 11189,
+      "sha256": "65f721a3cdbd21a115d04a9131d9b5034dae2d95c5213861bc63bdc944bb6581",
+      "baselineSha256": "4cae016f7f907b88ed58bb05f1a137abd875961ae24d460f8c1db800b5cc540e"
     },
     {
-      "path": "tests/dom-fixture.mjs",
+      "path": "tests/browser-smoke.mjs",
       "action": "replace",
-      "bytes": 7499,
-      "sha256": "d01daa39de156ac77d536ed472220670c1a2cb233eecd028574f14108f3317b5",
-      "baselineSha256": "ba0a0f06dfb4e6c2a82a9b9287a9e7f4a2656129a4a0035ff59489ea0afc4eba"
+      "bytes": 10562,
+      "sha256": "2564a7f35f80a22ce390ffc33c7987abf37a213254369040625876fe6692c542",
+      "baselineSha256": "5db14b42cf6fa8d106eddc75f800262982451275de406b7d2ed5871ebb54830e"
     },
     {
-      "path": "tests/editorial-evidence.test.mjs",
+      "path": "tests/followup.test.mjs",
       "action": "add",
-      "bytes": 5417,
-      "sha256": "7e8ea207a95dcee5fa8ee19b841870b922af30c39324dcd89c88fde45ed7a9c4",
+      "bytes": 11573,
+      "sha256": "d8237cde9783957f7a47fecdf092a6534ac8fa19f39f09adfdb4370467840dfd",
       "baselineSha256": null
     },
     {
-      "path": "tests/six-fixes.test.mjs",
-      "action": "add",
-      "bytes": 11916,
-      "sha256": "2ee15ebd3e50621c6f01500f9992d9efd62828fb665f63360b3d9a655ed72a0a",
-      "baselineSha256": null
+      "path": "tests/release-pipeline.test.mjs",
+      "action": "replace",
+      "bytes": 6516,
+      "sha256": "d4a6fb9c52af729e77f3222289c700bbad2f055371fb1ed998931ab36f25ed1a",
+      "baselineSha256": "c0f1d45b6818c62e42b3962c1f593b1c43e7f6b8ad3e9c840f95fd7a260e5ac5"
     },
     {
-      "path": "tools/validate-data.mjs",
+      "path": "tools/inventory.mjs",
       "action": "replace",
-      "bytes": 1778,
-      "sha256": "6cd5841b4d68fa5ec9c9c3abacde2e661790bcdb696176da1649f8b4226f9a04",
-      "baselineSha256": "654845d3af420b984409e3187267cfca01d462201156bb0af4284ba82e2293f7"
+      "bytes": 4662,
+      "sha256": "5a28215dc7b931161c88b414a14d296283868a2f7c39f4ea1afbb0a79af8ebe3",
+      "baselineSha256": "2e654a097e1899cc7328b87cb4fa81faa8df8d88a9bccd2a6829d559185c7039"
+    },
+    {
+      "path": "tools/smoke.mjs",
+      "action": "replace",
+      "bytes": 2388,
+      "sha256": "ffb97ad8988046146990175e91f9952381a6bdf32f11cc555679c3d0eddea4b7",
+      "baselineSha256": "0eb988094e97f3da1ef923e5221dac16bb5e3a9ecdb18b7af3222ef10e0dfd54"
     }
   ],
   "manifest": "CHANGED-FILES.json is also replaced. Its own checksum is intentionally not self-referential."

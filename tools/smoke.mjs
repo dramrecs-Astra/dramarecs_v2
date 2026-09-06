@@ -8,6 +8,7 @@ for(const file of files){
  const html=readFileSync(file,'utf8');
  if(/pagead2\.googlesyndication|googletagmanager\.com\/gtag|fundingchoicesmessages\.google|click\.linksynergy/.test(html))fail.push(`${file}: monetization/tracking must be disabled`);
  if(/\d+% match/.test(html))fail.push(`${file}: decorative match percentage`);
+ if(/Hand-reviewed|spoiler-safe|Every (?:K-)?drama we have reviewed|every (?:K-drama|title) we have reviewed/i.test(html))fail.push(`${file}: unsupported blanket review or spoiler-safety promise`);
  if(/>Ending: [^<]+<\/button>/.test(html))fail.push(`${file}: visible default ending outcome`);
  if(!html.includes('/assets/core.js')||!html.includes('/assets/app.js'))fail.push(`${file}: missing browser module`);
  for(const m of html.matchAll(/(?:href|src)="(\/[^"#?]*)(?:[^" ]*)"/g)){

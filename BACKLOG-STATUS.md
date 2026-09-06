@@ -1,22 +1,22 @@
 # Current DR-01 through DR-42 implementation status
 
-Six-fix follow-up, 2026-09-06. Approved groups: DR-04, DR-05/07, DR-06, DR-09, DR-16 and DR-22. This is six defect groups spanning seven backlog IDs, not six newly completed backlog items.
+Approved six-target follow-up, 2026-09-06: capacity, keyboard focus, snapshot schema, unsupported public promises, source fingerprint coverage and browser CI. These are six repair targets spanning several backlog IDs, not six newly completed backlog items.
 
-The supplied repository already contained the previous 16-file repair. Its 80 tests passed before this pass. The current suite passes 128 tests; fixture and isolated simulated-TMDB production builds pass checks across 341 HTML files and 834 streaming rows. There are 219 dramas, 101 recommendation lists and 338 sitemap entries. The 26 existing reciprocal-recommendation warnings remain non-blocking editorial review work.
+Both supplied ZIPs agree: the full repository already includes the prior 14-file patch. Its baseline passes 128 Node tests and the fixture release. This follow-up passes 184 Node tests (128 retained plus 56 added), fixture checks across 341 generated HTML files and a full isolated production build with simulated TMDB responses. There are 219 dramas, 101 recommendation lists, 338 sitemap entries and 834 checked streaming rows. The 26 reciprocal recommendation warnings remain non-blocking editorial work.
 
-Only the six approved groups received new functional work. Other assessments are carried forward, not freshly certified. Current reports supersede the historical workbook, old release notes and the prior 80-test report for these groups. Historical audit documents are not rewritten by this delivery.
+The 56 added tests produce 52 failures against the original implementation; four guard/boundary cases already passed. All pass with the supplied replacements. Chromium CI is configured, not certified: local launch could not start because the sandbox has no browser binary and no internet access to download one. The runner defines 31 browser checks; none completed here.
 
-The design, CSS/fonts, catalog data, working TMDB identity/season repair, 95% poster requirement and release-snapshot safeguards are preserved. Ads, analytics and affiliate tracking remain disabled. No GitHub or Vercel changes were made.
+Only the approved six targets received functional changes. Other statuses are carried forward, not newly certified. CSS, fonts, catalog/recommendation data, TMDB identity/search/season logic, package.json, Vercel settings, the 95% poster requirement and release-snapshot promotion/rollback mechanism are preserved. Ads, analytics and affiliate tracking remain disabled. No GitHub or deployment change was made.
 
-Automated/local tests are not real-browser, live API, factual, legal or commercial certification. See TEST-RESULTS.md for scope and limitations; UPLOAD-SIX-FIXES.md for installation. Partial statuses are not closed items.
+TEST-RESULTS.md and UPLOAD-SIX-FIXES.md are current. Historical workbook, audit and release notes are not rewritten. Removing an unsupported promise is not factual/editorial certification. Partial and pending items are not closed.
 
-## DR-01: Implemented; browser QA pending
+## DR-01: Implemented; Chromium CI configured, execution pending
 
-**Changed:** Restored populated shelf to gridlist; 190px poster cap, fixed 2:3 proportions, two mobile columns.
+**Changed:** Shelf geometry and CSS are unchanged. The browser smoke runner now checks 25 combinations of 360/390/768/1366/1440px and 0/1/2/6/30 titles using synthetic loaded poster images, including aspect ratio, width cap and mobile columns.
 
-**Checked:** Static CSS/source review; optional browser matrix supplied.
+**Checked:** Existing automated tests and the full fixture build pass. Browser runner syntax and workflow source checks pass; no Chromium execution completed in this sandbox.
 
-**Remaining:** Run 360/390/768/1366/1440px at 0/1/2/6/30 saved titles.
+**Remaining:** Wait for the first GitHub Actions browser result after upload. Safari/Firefox, physical devices and screen-reader checks remain pending.
 
 ## DR-02: Implemented; browser QA pending
 
@@ -26,37 +26,37 @@ Automated/local tests are not real-browser, live API, factual, legal or commerci
 
 **Remaining:** Run multi-page real-browser watched/undo/focus tests.
 
-## DR-03: Implemented; real-browser QA pending
+## DR-03: Focus repairs implemented; real-browser verification pending
 
-**Changed:** Shelf removal now focuses the next or previous visible item, or the discovery link when empty. Undo restores the title at its original position and focuses the restored action. Saved and watched states remain independent.
+**Changed:** Shelf title links and non-item controls retain focus across cross-tab rerendering. Removed title links focus a neighbor or discovery. Existing remove/Undo/comparison focus behavior is preserved.
 
-**Checked:** Focus-aware tests against the actual app script: middle/last/only removal, watched Undo and shared import. DOM mocks are not real-browser proof.
+**Checked:** Actual app DOM regressions cover retained/removed/final shelf links, shared-import control, removal/Undo and comparison controls.
 
-**Remaining:** Run real keyboard, touch and screen-reader checks, including Safari/Firefox.
+**Remaining:** Configured Chromium cross-tab checks still need execution. Real keyboard, touch and assistive checks across browsers remain pending.
 
-## DR-04: Stale-tab repair implemented; simultaneous-write limitation remains
+## DR-04: Capacity and stale-tab repairs implemented; simultaneous-write limitation remains
 
-**Changed:** State writes merge this tab's saved/watched additions and removals into the latest stored record. Unrelated preferences and unseen saves survive delayed synchronization; removing a record elsewhere does not resurrect old history. Legacy migration and session-only fallback remain.
+**Changed:** Saved/watched writes reject more than 500 distinct valid IDs before normalization and after stale-tab merging. Whole writes fail without truncation, a false Saved message or false Undo confirmation. Original stale-tab merge and session fallback remain.
 
-**Checked:** Stale-tab additions/removals, independent watched/preferences, shared import, Undo ordering, cleared storage, denied storage and original persistence regressions pass.
+**Checked:** 500-item boundaries, removals then additions, duplicate IDs, atomic multi-field rejection, stale-tab merging, session fallback and capacity-blocked Undo regressions pass.
 
-**Remaining:** localStorage has no atomic compare-and-swap: genuinely simultaneous writes remain best-effort. Real multi-tab browser QA and private-browsing checks remain pending; cross-device sync is not provided.
+**Remaining:** localStorage is not atomic; genuinely simultaneous writes remain best-effort. The 500-item cap is retained, not expanded. Real multi-tab/private-browsing checks and cross-device sync remain outside this delivery.
 
-## DR-05: Catalog-schema repair implemented; browser QA pending
+## DR-05: Retry focus and schema repairs implemented; browser verification pending
 
-**Changed:** Catalog loading rejects malformed optional search/image fields, duplicate IDs, blank titles and an unexpectedly empty catalog instead of accepting data that breaks rendering. Error states retain saved IDs and allow Retry.
+**Changed:** Successful shelf retry focuses a connected action or discovery; another failure focuses the replacement Retry. Late completion does not steal focus after the reader moves elsewhere. Existing schema rejection preserves saved IDs.
 
-**Checked:** Malformed optional-field unit tests plus actual client shelf failure/retry integration tests; HTTP, timeout and JSON regression tests retained.
+**Checked:** DOM tests cover successful/empty/repeated-failure retry and late completion, with original catalog/network/retry regressions retained.
 
-**Remaining:** Real-browser slow network, offline-request simulation and deployment cache checks remain pending. An intentionally empty catalog is not supported by this 219-title site.
+**Remaining:** Chromium CI retry checks are configured but unexecuted here. Real slow-network, caching and browser testing remain pending.
 
-## DR-06: Shared-fragment navigation repaired; browser QA pending
+## DR-06: Shared import capacity and fragment repairs implemented; browser verification pending
 
-**Changed:** hashchange reparses and rerenders the active shared shelf, including malformed/empty links and return to the personal shelf. Stale copy text is cleared; useful focus is restored; late clipboard feedback for a different fragment is suppressed. Import does not replace the personal shelf.
+**Changed:** Shared imports no longer truncate before state validation: an over-capacity import is all-or-nothing and reports Nothing changed. Shared controls retain focus on cross-tab updates; fragment navigation and clipboard safeguards are preserved.
 
-**Checked:** Fragment transitions, loading-time navigation, malformed recovery, focused-row removal, copy-field focus and stale clipboard rejection DOM regressions pass.
+**Checked:** Full and nearly-full shared imports, retained focus, shared-to-personal/fragment transitions and prior clipboard regressions pass in DOM tests.
 
-**Remaining:** Real Back/Forward navigation, blocked clipboard, touch and screen-reader checks remain pending. No private or cross-device sharing service was added.
+**Remaining:** Real Back/Forward and import checks are configured in Chromium CI but not run here. Native clipboard/touch/assistive checks remain pending.
 
 ## DR-07: Schema failure and retry recovery repaired; browser QA pending
 
@@ -74,13 +74,13 @@ Automated/local tests are not real-browser, live API, factual, legal or commerci
 
 **Remaining:** No actor-name search added; unrecognized titles stay unrecognized.
 
-## DR-09: Input-method handling repaired; assistive QA pending
+## DR-09: Filter focus and input-method repairs implemented; assistive verification pending
 
-**Changed:** Composition events, isComposing and legacy keyCode 229 leave Enter/arrows/Escape to the input method. Stale suggestions close during composition; completed focused input redraws, while completion after blur does not reopen it. Retry restores input focus.
+**Changed:** Clearing filters moves focus away from a newly hidden Clear or empty-state button to a visible filter. Original composition/isComposing/keyCode 229 handling and search ARIA remain.
 
-**Checked:** Korean composition lifecycle, each composing key, legacy event ordering, blur, delayed catalog completion and original ARIA tests pass in the actual client DOM mock.
+**Checked:** DOM regressions for both clear controls pass, along with all prior composition, delayed-input and search-focus cases.
 
-**Remaining:** Real Korean/Chinese/Japanese IMEs, Safari/Firefox, mobile keyboards and screen readers need manual checks. Synthetic events are not native-input certification.
+**Remaining:** Configured Chromium clear-focus tests await execution. Native Korean/Chinese/Japanese IMEs, mobile keyboards, other browsers and screen readers remain pending.
 
 ## DR-10: Partial
 
@@ -122,13 +122,13 @@ Automated/local tests are not real-browser, live API, factual, legal or commerci
 
 **Remaining:** Existing individual negative comparisons need human rewriting; reciprocity warnings retained.
 
-## DR-15: Partial
+## DR-15: Reveal controls implemented; spoiler-safe prose audit still partial
 
-**Changed:** Ending buttons default hidden, reveal/hide reversibly; persisted tone preference; ending labels removed from collection cards; ending-collection warnings.
+**Changed:** Removed unsupported spoiler-safety promises from homepage, browse, ending-collection metadata and terms templates. Ending collections explicitly disclose that membership reveals tone. Existing reveal controls remain unchanged.
 
-**Checked:** Default-output smoke checks; optional browser toggle checks.
+**Checked:** Template regression and generated HTML scans reject the identified blanket safety language; all prior ending-control checks remain.
 
-**Remaining:** Legacy verdicts and some fit/caveat prose can still spoil endings. Full spoiler-safe editorial audit NOT completed.
+**Remaining:** Removing a promise is not removing every spoiler. Legacy verdicts, fit/caveat prose and all factual ending labels still need editorial review.
 
 ## DR-16: Collection/client parity repaired; metadata review pending
 
@@ -170,13 +170,13 @@ Automated/local tests are not real-browser, live API, factual, legal or commerci
 
 **Remaining:** ZERO catalog mappings certified as verified. Manually confirm IDs and provenance.
 
-## DR-21: Partial
+## DR-21: Public blanket-review copy corrected; editorial verification remains partial
 
-**Changed:** Removed Melo Movie batch/rating superlative; rewrote method/footer claims to disclose research/AI-draft and review limits.
+**Changed:** Homepage metadata and catalog headings/descriptions/structured data no longer claim universal hand review. Catalog copy states that review coverage varies. Prior Melo Movie wording repair remains.
 
-**Checked:** Data gate rejects leaked batch wording; reviewed source text.
+**Checked:** Source regression and all 341 generated HTML files checked for the identified blanket review/safety claims. No catalog or recommendation prose was rewritten in this pass.
 
-**Remaining:** No full 219-title factual or authorship certification; owner must confirm public process wording.
+**Remaining:** Full 219-title factual/authorship certification, editor identity and remaining public process/byline claims require owner/editorial confirmation. This is not a claim that all public copy is now verified.
 
 ## DR-22: Evidence syntax strengthened; factual verification remains partial
 
@@ -218,13 +218,13 @@ Automated/local tests are not real-browser, live API, factual, legal or commerci
 
 **Remaining:** Verified direct title URLs and approved affiliate locale tests remain external.
 
-## DR-27: Automated safeguards implemented; durable persistence pending
+## DR-27: Snapshot validation strengthened; durable storage and live verification pending
 
-**Changed:** 95% poster floor retained with URL validation; losses are checked for retained titles and per-region non-empty provider data, including rental/purchase records. Invalid snapshots stop the release. Normal failed release steps restore last-good bytes; only healthy non-fixture runs promote metadata after downstream checks.
+**Changed:** Hydrated overview/network, genre/provider arrays, rating bounds, availability status, retrieval dates, season dates and HTTPS link syntax are checked. Impossible dates fail; scheduled future season dates remain valid. Poster floor and retained-title/regional-loss guards are unchanged.
 
-**Checked:** Boundary and regional-degradation tests; orchestrator success/failure/fixture/preview tests; full simulated production pass; no-token production intentionally blocked.
+**Checked:** Malformed fields/date/URL cases, legacy omissions, leap dates, rating bounds and five-minute clock skew pass. Release tests prove invalid candidates restore exact last-good bytes and invalid baselines stop before generation. Full isolated simulated-TMDB production build passes.
 
-**Remaining:** Live upstream checks and durable snapshot storage/scheduled refresh remain deployment work. Unexpected process termination is not a tested recovery path. Use npm run build, not the low-level generator.
+**Remaining:** Live metadata accuracy/coverage and durable snapshot storage remain pending. Stricter validation intentionally blocks malformed snapshots; correct the identified row rather than deleting the baseline or lowering the 95% floor.
 
 ## DR-28: Partial
 
@@ -298,13 +298,13 @@ Automated/local tests are not real-browser, live API, factual, legal or commerci
 
 **Remaining:** Genuinely selected need-based shortlists for collections remain editorial work.
 
-## DR-37: Implemented
+## DR-37: Build tests implemented; Chromium CI configured, first run pending
 
-**Changed:** Vercel/CI run validation, the regression suite, build, generated-link checks and inventory. Pure logic remains in shared modules; the current test report records the latest results.
+**Changed:** GitHub validation now installs pinned Playwright 1.58.2 as CI-only tooling, installs Chromium, runs browser smoke checks and uploads failure diagnostics. Read-only workflow permissions and a 20-minute job timeout are set. Vercel build command and package.json are unchanged.
 
-**Checked:** Full dependency-free fixture pipeline passes; production metadata failure blocks as expected.
+**Checked:** 184 Node tests, fixture release, 341-file link/structure/claim scans and isolated simulated-TMDB production release pass. Browser driver parses; launch is blocked by missing browser binaries in the sandbox.
 
-**Remaining:** Actual Vercel rollback and deploy remain untested; no repository or deployment was changed.
+**Remaining:** A green browser result is not yet available. GitHub Actions and Vercel are independent: branch protections/required checks and deployment gating are owner settings, not configured here. Native/other-browser/assistive/live/rollback testing remains pending.
 
 ## DR-38: Implemented
 
@@ -330,13 +330,13 @@ Automated/local tests are not real-browser, live API, factual, legal or commerci
 
 **Remaining:** A server-side submission destination, anti-spam/rate limits and success/failure tests must be configured.
 
-## DR-41: Current inventory/status repaired; legacy research review pending
+## DR-41: Fingerprint coverage repaired; historical reconciliation pending
 
-**Changed:** Inventory uses validated Vercel/GitHub/git evidence or null, includes a deterministic source fingerprint and actual generated HTML counts, and does not claim tests or reviews passed merely from counts. Current status/test reports are refreshed; historical research remains unverified.
+**Changed:** Fingerprint v2 includes .github source configuration, vercel.json and supported root runtime/ignore files. Exclusions are exact generated snapshot paths rather than broad filename patterns. Current inventory, status and test reports are refreshed.
 
-**Checked:** Revision/fingerprint tests retained; current fixture inventory records 219 dramas, 101 lists, 341 HTML files, 338 sitemap entries and zero certified identity mappings.
+**Checked:** Content-change regressions cover CI/deployment/runtime files and similarly named source files; actual revision evidence remains null for the supplied ZIP. Current fixture counts are 219 dramas, 101 lists, 341 HTML files and 338 sitemap entries.
 
-**Remaining:** Historical research notes still need owner reconciliation. Historical first-pass release notes are not the current test report; see TEST-RESULTS.md.
+**Remaining:** A source fingerprint does not attest to remote secrets, branch protection, production settings or deployments. Historical workbook/research/release notes still require owner reconciliation; TEST-RESULTS.md is current.
 
 ## DR-42: Comparison repaired; actor/couple discovery deferred
 

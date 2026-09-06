@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-06T09:16:50.217Z",
+  "generatedAt": "2026-09-06T09:44:36.072Z",
   "sourceRevision": null,
   "sourceRevisionEvidence": "unavailable; ZIPs do not prove a commit revision",
-  "sourceFingerprint": "858e1092401105b077acf4771dd69e6c0094f6c83f7faeebc92861af18e9fc52",
-  "sourceFingerprintAlgorithm": "sha256, sorted source paths plus bytes; excludes generated metadata snapshots",
+  "sourceFingerprint": "79f01d331e8602771c59279ee1975651be65be2f932af8060d1105c12da01ac0",
+  "sourceFingerprintAlgorithm": "sha256 v2, sorted source paths plus bytes; includes CI, deployment and runtime configuration; excludes only generated data/metadata-snapshot.json and data/.metadata-snapshot.pending.json within source trees",
   "dramas": 219,
   "recommendationLists": 101,
   "generatedHtmlFiles": 341,
@@ -14,6 +14,7 @@
     "Generated counts supersede historical inventory claims.",
     "This inventory does not claim that tests, editorial certification or a live deployment passed. See the release output and latest repair report.",
     "Researching is not personally watching. Legacy completion claims remain unverified.",
-    "No traffic, bot, conversion or revenue conclusions can be made without source exports."
+    "No traffic, bot, conversion or revenue conclusions can be made without source exports.",
+    "Fingerprint v2 includes source configuration, not remote secrets, branch protection, hosting settings or a verified deployment."
   ]
 }

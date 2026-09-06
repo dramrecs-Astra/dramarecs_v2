@@ -636,8 +636,8 @@ const HUBS = [
   {
     slug: 'k-dramas-with-happy-endings', nav: 'moods',
     word: 'Ends kindly', line: 'You can commit twenty hours without dread.',
-    h1: 'K-dramas with happy endings', title: 'K-dramas with happy endings, labelled and spoiler-safe',
-    standfirst: 'Every drama here ends happy or hopeful. We label the ending and hide the how behind a click, so you learn whether it treats you well without learning who it happens to.',
+    h1: 'K-dramas with happy endings', title: 'K-dramas with happy or hopeful ending labels',
+    standfirst: 'These titles carry happy or hopeful ending labels in our catalog. Collection membership reveals the ending tone; legacy review prose may discuss plot outcomes.',
     criterion: 'Ending labelled happy or hopeful.',
     where: (d) => /happy|hopeful/i.test(d.ending || ''),
     sort: (a, b) => (b.comfort || 0) - (a.comfort || 0) || (b.year || 0) - (a.year || 0)
@@ -941,7 +941,7 @@ ${built.length ? `<section class="band band--tint"><div class="wrap">
   <div class="sechead" style="margin-top:var(--s3)"><h2>Why not just ask an AI</h2></div>
   <div class="steps">
     <div class="step"><span class="n tnum">01</span><div><h3 style="font-size:1.1875rem">It answers, we commit</h3><p>Every pick here is written down, dated, and revised when readers push back. Ask a chatbot twice and you get two different lists.</p></div></div>
-    <div class="step"><span class="n tnum">02</span><div><h3 style="font-size:1.1875rem">Spoiler-safe endings</h3><p>Ending buttons stay hidden until you choose to reveal them. Legacy review prose is still being checked for spoilers.</p></div></div>
+    <div class="step"><span class="n tnum">02</span><div><h3 style="font-size:1.1875rem">Ending reveal controls</h3><p>Ending buttons stay hidden until you choose to reveal them. Legacy review prose is still being checked for spoilers.</p></div></div>
     <div class="step"><span class="n tnum">03</span><div><h3 style="font-size:1.1875rem">The stuff only fans track</h3><p>Which episode it stops being slow. How much it will cost you emotionally. Where availability has been reported, with a source check.</p></div></div>
   </div>
 </div></section>
@@ -958,7 +958,7 @@ ${built.length ? `<section class="band band--tint"><div class="wrap">
 </div></section>`;
   return layout({
     title: 'DramaRecs | Find your next K-drama by how the last one felt',
-    description: 'Hand-reviewed K-drama recommendations. Tell us what you loved and we explain exactly why each pick matches, plus endings, pacing, and where to watch.',
+    description: 'Explore K-drama recommendations by pacing, emotional tone and shared themes. Read fit notes, tradeoffs and regional streaming information; review coverage varies.',
     canonical: SITE_URL + '/', body, nav: '', ogImage: card(mosaic[0], 'DramaRecs: find your next K-drama by how the last one felt'),
     jsonld: {
       '@context': 'https://schema.org',
@@ -976,19 +976,19 @@ function pageBrowse(dramas, pages, built = []) {
   const body = `
 ${trail.html}
 <div class="wrap" style="padding-top:var(--s5)">
-  <h1 style="font-size:var(--t-2xl);letter-spacing:-.04em">Every drama we have reviewed</h1>
-  <p class="standfirst" style="max-width:60ch;margin-top:var(--s3)"><span class="hi tnum">${dramas.length} titles</span>, each with pace, emotional load, a spoiler-safe ending label, and a note on how long it takes to start working. ${pages.length} have a full similar-dramas page.</p>
+  <h1 style="font-size:var(--t-2xl);letter-spacing:-.04em">Every drama in our catalog</h1>
+  <p class="standfirst" style="max-width:60ch;margin-top:var(--s3)"><span class="hi tnum">${dramas.length} titles</span>, with pacing and emotional-load notes where available. Review coverage varies; ending labels require an explicit reveal on detail and recommendation pages, and legacy prose may contain spoilers. ${pages.length} have a full similar-dramas page.</p>
 </div>
 ${built.length ? `<div class="wrap"><div class="hubstrip"><span class="lbl">Or start from a mood</span>${built.map(({ hub, entries }) => `<a class="chip chip--link" href="/collections/${hub.slug}/">${esc(hub.word)} <span class="tnum">${entries.length}</span></a>`).join('')}<a class="chip chip--link" href="/collections/">All collections &rarr;</a></div></div>` : ''}
 <section class="band"><div class="wrap"><div class="gridlist">${dramas.map((d) => `<a class="gitem" href="/dramas/${d.slug}/" style="--hue:${d.hue || 40}">${plate(d, { link: false })}<h3>${esc(d.title)}</h3><p class="m tnum">${d.year} &middot; ${d.episodes} ep</p></a>`).join('')}</div></div></section>`;
   const jsonld = {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'CollectionPage', '@id': SITE_URL + '/dramas/', url: SITE_URL + '/dramas/', name: 'Every K-drama we have reviewed', isPartOf: { '@id': SITE_URL + '/#website' }, publisher: { '@id': SITE_URL + '/#org' } },
+      { '@type': 'CollectionPage', '@id': SITE_URL + '/dramas/', url: SITE_URL + '/dramas/', name: 'Every K-drama in our catalog', isPartOf: { '@id': SITE_URL + '/#website' }, publisher: { '@id': SITE_URL + '/#org' } },
       trail.node
     ]
   };
-  return layout({ title: 'All reviewed K-dramas | DramaRecs', description: 'Browse every K-drama we have reviewed, with pacing, emotional load, ending labels and streaming availability.', canonical: SITE_URL + '/dramas/', body, jsonld, nav: 'browse' });
+  return layout({ title: 'All K-dramas in our catalog | DramaRecs', description: 'Browse the K-drama catalog with pacing, emotional-load notes and regional streaming information. Review coverage varies by title.', canonical: SITE_URL + '/dramas/', body, jsonld, nav: 'browse' });
 }
 
 const PACE_WORD = (d) => PACE[Math.max(0, (d.pace || 3) - 1)];
@@ -1058,7 +1058,7 @@ ${trail.html}
 </div>
 <section class="band"><div class="wrap"><div class="moods">${built.map(({ hub, entries }) => `<a class="mood" href="/collections/${hub.slug}/"><span class="w">${esc(hub.word)}</span><span class="l">${esc(hub.line)}</span><span class="l tnum">${entries.length} titles</span></a>`).join('')}</div></div></section>
 <div class="wrap"><div class="note">
-  <p>Looking for something closer to a specific show instead? Start from the drama that wrecked you on <a href="/">the homepage</a>, or read <a href="/dramas/">every title we have reviewed</a>.</p>
+  <p>Looking for something closer to a specific show instead? Start from the drama that wrecked you on <a href="/">the homepage</a>, or read <a href="/dramas/">every title in our catalog</a>.</p>
 </div></div>`;
   const jsonld = {
     '@context': 'https://schema.org',
@@ -1418,7 +1418,7 @@ ${AFF_LIVE ? `<p>Some of the links in the <b>where to watch</b> rows are affilia
 <h2>Accuracy of streaming information</h2>
 <p>Streaming availability is pulled from TMDB and changes without notice. Always check the service before assuming a title is there. We are not responsible for a subscription bought on the strength of an out-of-date row.</p>
 <h2>Spoilers</h2>
-<p>We work hard to keep ending information spoiler-safe and behind a deliberate click. If you choose to reveal it, that was your decision.</p>
+<p>Ending labels and ending-detail buttons require an explicit reveal, except in ending-themed collections where membership discloses the ending tone. Legacy review prose may contain spoilers; a full spoiler audit remains incomplete.</p>
 <h2>External links</h2>
 <p>We link to streaming services, TMDB and other sites. We do not control them and are not responsible for their content or their terms.</p>
 ${AFF_LIVE ? `<p>Some of those links to streaming services are affiliate links, and DramaRecs may earn a commission if you subscribe through one. It costs you nothing and it does not affect what we recommend or how we rank it. The <a href="/privacy/">privacy policy</a> explains how it works.</p>` : ''}
