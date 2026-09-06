@@ -2356,7 +2356,7 @@
     "hookNote": "Episode 7 is the best hour in the run, which is very late for a ten episode show. Before that it is atmosphere and film references.",
     "ending": "Hopeful",
     "endingText": "Grief is not solved and the couple is. It ends on a working film set and a small, earned peace.",
-    "verdict": "Two people who love and resent cinema for opposite reasons, a critic and a director, circling each other through a decade of grief. The second story, an older brother and the woman he could not stay with, is stronger than the main one and knows it. Choi Woo Shik and Park Bo Young are quietly excellent and the show is beautifully shot. It is also slow in a way that reads as unfinished rather than restrained, and the per episode ratings are the lowest of any title in this batch, which is the honest signal: this is a mood you either sink into or bounce off. Watch it late at night or not at all.",
+    "verdict": "Two people who love and resent cinema for opposite reasons, a critic and a director, circling each other through a decade of grief. The second story, an older brother and the woman he could not stay with, is stronger than the main one and knows it. Choi Woo Shik and Park Bo Young are quietly excellent and the show is beautifully shot. It is also slow in a way that reads as unfinished rather than restrained. This is a mood you either sink into or bounce off. Watch it late at night or not at all.",
     "verdictUpdated": "2026-09-04",
     "aliases": [
       "Mello Mubi",
@@ -4927,7 +4927,14 @@
       "Severe Trauma Center: Golden Hour",
       "The Trauma Center: Heroes on Call",
       "Jungjeungoesangsenteo: Goldeun Awo"
-    ]
+    ],
+    "episodeSource": {
+      "url": "https://www.netflix.com/title/81677629",
+      "checked": "2026-09-06",
+      "scope": "Season 1",
+      "episodes": 8
+    },
+    "episodeScope": "Season 1"
   },
   {
     "slug": "the-trunk",
