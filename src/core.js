@@ -7,33 +7,62 @@
     }))).slice(0, 500) : [];
   }
   function createState(storage, warn) {
-    var key = 'dr.state.v1', memory, session = false;
+    var key = 'dr.state.v1', memory, session = false, hadRecord = false;
+    function empty() { return {version:1,saved:[],watched:[],hideWatched:false,showEndingTones:false}; }
     function decode(raw) {
       var v = JSON.parse(raw || 'null');
       if (!v || v.version !== 1) return null;
       return {version:1,saved:slugs(v.saved),watched:slugs(v.watched),hideWatched:v.hideWatched === true,showEndingTones:v.showEndingTones === true};
     }
     function fail() { session = true; if (warn) warn('Changes are saved for this page session only. Browser storage is unavailable.'); }
-    try {
-      try { memory = decode(storage.getItem(key)); } catch (_) { memory = null; }
-      if (!memory) {
-        var legacy;
-        try { legacy = JSON.parse(storage.getItem('sd.shelf') || '[]'); } catch (_) { legacy = []; }
-        memory = {version:1,saved:slugs(legacy),watched:[],hideWatched:false,showEndingTones:false};
-      }
-    } catch (_) { memory = {version:1,saved:[],watched:[],hideWatched:false,showEndingTones:false}; fail(); }
+    var raw;
+    try { raw=storage.getItem(key); } catch (_) { fail(); }
+    try { memory=decode(raw);hadRecord=Boolean(memory); } catch (_) { memory=null; }
+    if (!memory) {
+      var legacy;
+      try { legacy=JSON.parse(storage.getItem('sd.shelf') || '[]'); } catch (_) { legacy=[]; }
+      memory=empty();memory.saved=slugs(legacy);
+    }
     function read() { return JSON.parse(JSON.stringify(memory)); }
     function write(next) {
-      memory = decode(JSON.stringify(next)) || memory;
+      next=decode(JSON.stringify(next)) || memory;
+      var base=memory,latest=null;
       if (!session) {
-        try { storage.setItem(key, JSON.stringify(memory)); if (storage.getItem(key) !== JSON.stringify(memory)) throw new Error('Not persisted'); }
+        try {
+          var stored=storage.getItem(key);
+          latest=decode(stored);
+          // A cleared record must not resurrect this tab's old shelf/history.
+          if(!latest&&stored==null&&hadRecord)latest=empty();
+        } catch (_) { fail(); }
+      }
+      // Merge this tab's changes into the newest stored state. localStorage has
+      // no atomic compare-and-swap: genuinely simultaneous writes are best-effort.
+      if (latest) {
+        ['saved','watched'].forEach(function(field) {
+          var merged=latest[field].filter(function(slug) {
+            return !base[field].includes(slug)||next[field].includes(slug);
+          });
+          next[field].forEach(function(slug,i) {
+            if(base[field].includes(slug)||merged.includes(slug))return;
+            var following=next[field].slice(i+1).find(function(s){return merged.includes(s);});
+            merged.splice(following?merged.indexOf(following):merged.length,0,slug);
+          });
+          latest[field]=slugs(merged);
+        });
+        ['hideWatched','showEndingTones'].forEach(function(field) {
+          if(next[field]!==base[field])latest[field]=next[field];
+        });
+        memory=latest;
+      } else memory=next;
+      if (!session) {
+        try { storage.setItem(key,JSON.stringify(memory));if(storage.getItem(key)!==JSON.stringify(memory))throw new Error('Not persisted');hadRecord=true; }
         catch (_) { fail(); }
       }
       return !session;
     }
     return {read:read,write:write,sessionOnly:function(){return session;},
-      refresh:function(){if (!session) {try {memory=decode(storage.getItem(key))||{version:1,saved:[],watched:[],hideWatched:false,showEndingTones:false};} catch (_) {fail();}}},
-      toggle:function(field,slug){if (!['saved','watched'].includes(field)||!slugs([slug]).length)return false;var next=read(),i=next[field].indexOf(slug);if(i<0)next[field].push(slug);else next[field].splice(i,1);write(next);return i<0;}
+      refresh:function(){if(!session){try{var current=decode(storage.getItem(key));memory=current||empty();hadRecord=hadRecord||Boolean(current);}catch(_){fail();}}},
+      toggle:function(field,slug){if(!['saved','watched'].includes(field)||!slugs([slug]).length)return false;var next=read(),i=next[field].indexOf(slug);if(i<0)next[field].push(slug);else next[field].splice(i,1);write(next);return i<0;}
     };
   }
   function shared(hash) {
@@ -62,7 +91,14 @@
     }).filter(function(r){return r.score>0;}).sort(function(a,b){return b.score-a.score||a.it.t.localeCompare(b.it.t);}).slice(0,7).map(function(r){return r.it;});
   }
   function validIndex(data) {
-    if(!Array.isArray(data)||data.some(function(it){return !it||!slugs([it.slug]).length||typeof it.t!=='string';}))throw new Error('Invalid catalog response');
+    var seen=new Set();
+    if(!Array.isArray(data)||!data.length||data.some(function(it){
+      if(!it||typeof it!=='object'||Array.isArray(it)||!slugs([it.slug]).length||seen.has(it.slug)||typeof it.t!=='string'||!it.t.trim())return true;
+      seen.add(it.slug);
+      if(['n','a','img'].some(function(key){return it[key]!=null&&typeof it[key]!=='string';}))return true;
+      if(it.page!=null&&![0,1,false,true].includes(it.page))return true;
+      return ['y','hue'].some(function(key){return it[key]!=null&&(typeof it[key]!=='number'||!Number.isFinite(it[key]));});
+    }))throw new Error('Invalid catalog response');
     return data;
   }
   async function fetchIndex(fetcher,timeout) {

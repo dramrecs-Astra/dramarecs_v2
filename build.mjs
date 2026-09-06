@@ -8,6 +8,7 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { preserveEditorial, secondaryPicks, relatedLists, providerRecords, assertProductionQuality } from './lib/data-quality.mjs';
 import { findTmdbIdentity } from './lib/tmdb-identity.mjs';
+import './src/core.js';
 const PRODUCTION = process.env.VERCEL_ENV === 'production' || process.env.BUILD_MODE === 'production';
 if (PRODUCTION && process.env.BUILD_MODE === 'fixture') throw new Error('Fixture mode cannot be deployed to production');
 // Monetization stays disabled until certified CMP integration and its browser matrix are reviewed.
@@ -656,7 +657,7 @@ const HUBS = [
     h1: 'Short K-dramas', title: 'K-dramas with 12 episodes or fewer',
     standfirst: 'Twelve episodes or fewer. Episode lengths vary, so use the approximate total hours on each detail page to judge the commitment. This is an episode-count filter, not a promise of a weekend watch.',
     criterion: '12 episodes or fewer.',
-    where: (d) => (d.episodes || 99) <= 12,
+    where: (d) => globalThis.DRCore.shortEpisodes(d.episodes),
     sort: (a, b) => (a.episodes || 99) - (b.episodes || 99) || (b.year || 0) - (a.year || 0)
   },
   {

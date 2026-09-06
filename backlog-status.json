@@ -22,31 +22,31 @@
   },
   {
     "id": "DR-04",
-    "status": "Implemented",
-    "changed": "Versioned state, validated slug arrays, legacy migration, safe read/write, verification and visible session-only fallback.",
-    "checked": "Malformed legacy state, denied storage, quota and discarded-write tests.",
-    "remaining": "Cross-device persistence is intentionally not provided; private browsing may vary."
+    "status": "Stale-tab repair implemented; simultaneous-write limitation remains",
+    "changed": "State writes merge this tab's saved/watched additions and removals into the latest stored record. Unrelated preferences and unseen saves survive delayed synchronization; removing a record elsewhere does not resurrect old history. Legacy migration and session-only fallback remain.",
+    "checked": "Stale-tab additions/removals, independent watched/preferences, shared import, Undo ordering, cleared storage, denied storage and original persistence regressions pass.",
+    "remaining": "localStorage has no atomic compare-and-swap: genuinely simultaneous writes remain best-effort. Real multi-tab browser QA and private-browsing checks remain pending; cross-device sync is not provided."
   },
   {
     "id": "DR-05",
-    "status": "Implemented",
-    "changed": "Shared catalog loader has HTTP/schema/error/12-second timeout handling; shelf Retry retains IDs; no-JS explanation.",
-    "checked": "HTTP/JSON/timeout tests and actual client DOM-mock error test.",
-    "remaining": "Test slow/failed requests in a real browser."
+    "status": "Catalog-schema repair implemented; browser QA pending",
+    "changed": "Catalog loading rejects malformed optional search/image fields, duplicate IDs, blank titles and an unexpectedly empty catalog instead of accepting data that breaks rendering. Error states retain saved IDs and allow Retry.",
+    "checked": "Malformed optional-field unit tests plus actual client shelf failure/retry integration tests; HTTP, timeout and JSON regression tests retained.",
+    "remaining": "Real-browser slow network, offline-request simulation and deployment cache checks remain pending. An intentionally empty catalog is not supported by this 219-title site."
   },
   {
     "id": "DR-06",
-    "status": "Implemented; browser QA pending",
-    "changed": "Validated/bounded/deduplicated shared slugs; damaged-link screen; persistent copyable input; clear disclosure.",
-    "checked": "Share parser tests; clipboard fallback source review.",
-    "remaining": "Real-browser blocked-clipboard and shared import checks."
+    "status": "Shared-fragment navigation repaired; browser QA pending",
+    "changed": "hashchange reparses and rerenders the active shared shelf, including malformed/empty links and return to the personal shelf. Stale copy text is cleared; useful focus is restored; late clipboard feedback for a different fragment is suppressed. Import does not replace the personal shelf.",
+    "checked": "Fragment transitions, loading-time navigation, malformed recovery, focused-row removal, copy-field focus and stale clipboard rejection DOM regressions pass.",
+    "remaining": "Real Back/Forward navigation, blocked clipboard, touch and screen-reader checks remain pending. No private or cross-device sharing service was added."
   },
   {
     "id": "DR-07",
-    "status": "Implemented",
-    "changed": "Search redraws on asynchronous completion and distinguishes loading, failure/retry and no match.",
-    "checked": "Delayed-index and HTTP-failure tests against the actual app script.",
-    "remaining": "Real network/device behavior remains to be checked."
+    "status": "Schema failure and retry recovery repaired; browser QA pending",
+    "changed": "Malformed catalog data produces a retryable load error rather than a search crash. Retry prevents its removed button from being treated as an outside click and returns keyboard focus to the search input.",
+    "checked": "Malformed response followed by valid retry, keyboard focus and delayed-index/error/explicit-title regressions pass.",
+    "remaining": "Real browser/network checks remain pending; unrecognized queries are not replaced with unrelated titles."
   },
   {
     "id": "DR-08",
@@ -57,10 +57,10 @@
   },
   {
     "id": "DR-09",
-    "status": "Implemented; assistive QA pending",
-    "changed": "Option IDs, selected state, active descendant and synchronized closing. Retry/alternatives live outside listbox.",
-    "checked": "Arrow/Escape DOM tests, including Escape before delayed completion.",
-    "remaining": "Screen-reader and focus-navigation testing still required."
+    "status": "Input-method handling repaired; assistive QA pending",
+    "changed": "Composition events, isComposing and legacy keyCode 229 leave Enter/arrows/Escape to the input method. Stale suggestions close during composition; completed focused input redraws, while completion after blur does not reopen it. Retry restores input focus.",
+    "checked": "Korean composition lifecycle, each composing key, legacy event ordering, blur, delayed catalog completion and original ARIA tests pass in the actual client DOM mock.",
+    "remaining": "Real Korean/Chinese/Japanese IMEs, Safari/Firefox, mobile keyboards and screen readers need manual checks. Synthetic events are not native-input certification."
   },
   {
     "id": "DR-10",
@@ -106,10 +106,10 @@
   },
   {
     "id": "DR-16",
-    "status": "Filter repaired; metadata review pending",
-    "changed": "The 12-or-fewer client filter now requires a known, positive, whole episode count. Missing, blank, zero, negative, malformed or fractional values no longer qualify. Existing episode labeling and approximate totals are retained.",
-    "checked": "Pure boundary tests plus actual client filter test; previous editorial/season precedence tests retained.",
-    "remaining": "Catalog-wide episode/runtime/season verification remains pending. No new duration facts were invented."
+    "status": "Collection/client parity repaired; metadata review pending",
+    "changed": "The static short-drama collection now calls the same positive-whole-episode predicate as the client filter. Data validation rejects fractional catalog episode counts. The builder's TMDB enrichment and existing identity/season repair are unchanged.",
+    "checked": "Actual builder predicate evaluated against client boundary cases; real validator rejects fractional episodes; fixture and simulated-production builds pass with unchanged source data.",
+    "remaining": "Catalog-wide episode/runtime/season verification is still pending. This is not a total-viewing-time filter and adds no invented duration facts."
   },
   {
     "id": "DR-17",
@@ -148,10 +148,10 @@
   },
   {
     "id": "DR-22",
-    "status": "Partial",
-    "changed": "Prose-only style lint; attributed reporting no longer banned; dated-source requirements for structured factualClaims and verified identities.",
-    "checked": "Validator and data-check pipeline.",
-    "remaining": "Legacy unstructured claims are not automatically proven or rejected. Review queue flags are hints, not verified errors."
+    "status": "Evidence syntax strengthened; factual verification remains partial",
+    "changed": "Structured claims, verified identities and episode citations require well-formed HTTPS sources and valid calendar dates. Credential-bearing/malformed URLs, impossible dates, future timestamps, malformed claim arrays and mismatched episode evidence fail with item-level diagnostics.",
+    "checked": "URL/date boundary tests, time-zone handling, malformed shapes, valid/legacy examples and actual validator subprocess tests pass.",
+    "remaining": "Syntax does not prove link reachability, source contents, factual truth or human review. Legacy prose and the full identity/editorial review queue remain unverified. Date-only records allow up to UTC+14; timestamps require a zone."
   },
   {
     "id": "DR-23",
@@ -254,7 +254,7 @@
   {
     "id": "DR-37",
     "status": "Implemented",
-    "changed": "Vercel/CI run validation, 29 regression tests, build, generated-link checks and inventory. Pure logic extracted into shared modules.",
+    "changed": "Vercel/CI run validation, the regression suite, build, generated-link checks and inventory. Pure logic remains in shared modules; the current test report records the latest results.",
     "checked": "Full dependency-free fixture pipeline passes; production metadata failure blocks as expected.",
     "remaining": "Actual Vercel rollback and deploy remain untested; no repository or deployment was changed."
   },
@@ -282,8 +282,8 @@
   {
     "id": "DR-41",
     "status": "Current inventory/status repaired; legacy research review pending",
-    "changed": "Removed the hardcoded source revision. Inventory uses validated Vercel/GitHub/git evidence or null, includes a deterministic source fingerprint and actual generated HTML counts, and does not claim tests or reviews passed merely from counts. This seven-item status and current test evidence are refreshed.",
-    "checked": "Revision/fingerprint tests; fixture inventory: 219 dramas, 101 lists, 341 HTML files, 338 sitemap entries and zero certified identity mappings.",
+    "changed": "Inventory uses validated Vercel/GitHub/git evidence or null, includes a deterministic source fingerprint and actual generated HTML counts, and does not claim tests or reviews passed merely from counts. Current status/test reports are refreshed; historical research remains unverified.",
+    "checked": "Revision/fingerprint tests retained; current fixture inventory records 219 dramas, 101 lists, 341 HTML files, 338 sitemap entries and zero certified identity mappings.",
     "remaining": "Historical research notes still need owner reconciliation. Historical first-pass release notes are not the current test report; see TEST-RESULTS.md."
   },
   {

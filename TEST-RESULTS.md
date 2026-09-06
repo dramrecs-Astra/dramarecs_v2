@@ -1,28 +1,51 @@
-# Current verification: seven-item follow-up repair
+# Six-fix repair: verification and limits
 
-Date: 2026-09-06. Runtime: Node 22.23.1.
+Date: 2026-09-06. Source: the user-supplied dramarecs_v2-main ZIP, which already contains every file of the prior 16-file update. This is not an independently inspected live GitHub revision. Delivery contains full changed/new files only, not a repository replacement.
 
-This report supersedes the 29-test figures in the historical first-pass release notes. The supplied, already-repaired archive passed 39 tests before this pass. The user reports that its Vercel deployment is now clean; that live deployment was not independently inspected here.
+## Automated results
 
-## Executed
+- Baseline: 80 Node tests passed before changes.
+- Final: **128 tests pass, 0 failures** (80 retained plus 48 new).
+- Regression proof: running the 48 new cases against the original application/builder/validator yields 35 failures. Cases that already worked, or exercise the new helper on its own, account for the other 13. The final implementation passes all 48.
+- Fixture release: validation, all tests, generation, streaming normalization, local-link and structural smoke checks, and inventory pass across **341 HTML files**, **834 streaming rows**, **219 dramas**, **101 lists**, **338 sitemap entries**.
+- The generated 219-entry search index passes the stricter schema. Static short-collection filtering uses the same predicate as the browser; boundary tests evaluate the actual builder predicate.
+- Full production-mode pipeline also passes with **simulated TMDB responses in an isolated copy**, including snapshot promotion after downstream checks. All 219 simulated entries have posters. These are test responses, not verified IDs, artwork or live coverage. No simulated response, metadata snapshot, cache or token is shipped.
+- Production without a token or cached posters is intentionally blocked at 0% coverage. The 95% floor remains unchanged (at least 209 of 219 posters).
+- Configured sample ad/analytics/affiliate values cannot activate monetization: simulated-production HTML passes the no-tracking smoke checks.
+- The 26 existing reciprocal recommendation warnings remain non-blocking and unresolved. Citation syntax validation does not adjudicate these comparisons.
 
-- **80 mandatory Node tests passed**, zero failures or skipped tests. This includes the prior search/TMDB checks, focus-aware DOM-mock client tests, streaming/model/freshness tests, snapshot validation, regional degradation checks, provenance reporting and release-orchestrator integration tests.
-- Full `node tools/release-build.mjs fixture`: passed for 219 dramas and 101 recommendation lists. Content validation retained 26 existing reciprocity warnings, not new confirmed editorial errors.
-- Generated output: 341 HTML files, 338 sitemap entries, 834 streaming rows. Internal destination checks and static structure checks passed. No duplicate IDs or nested interactive controls were found in the generated HTML.
-- Full production pipeline with **simulated TMDB responses**: passed, including all five provider models across synthetic regional data. A 219-entry synthetic snapshot was saved only after downstream checks. None of those fake IDs, images, snapshots or caches is included in the delivery.
-- Production without a token or snapshot: failed intentionally at the unchanged 95% minimum poster coverage requirement. Fixture mode remained prohibited under `VERCEL_ENV=production`.
-- Sample old advertising, GA and affiliate environment variables were present during the simulated production run. Generated tracking/ad tag scans still passed: monetization remains disabled.
-- Release failure scenarios: failing smoke checks, changed streaming templates and production quality failures restored the prior snapshot's exact bytes. Failed first builds left no snapshot. Invalid snapshots stopped the release before the builder. Fixture builds and unhealthy previews did not replace last-good snapshots.
-- `build.mjs`, `lib/tmdb-identity.mjs`, `data/dramas.json`, all recommendation JSON, `src/styles.css` and font assets are unchanged from the supplied archive. The working title-fallback/season-lookup repair is retained.
+## Checks by repair
 
-## What these tests do NOT establish
+1. **DR-04, stale-tab writes:** unseen saves, removals, independent watched history/preferences, Undo position, shared import, cleared records and denied storage. Existing malformed storage/quota/session tests remain.
+2. **DR-05/07, catalog validation and Retry:** malformed aliases/names/images/year/hue/destination flag, duplicate slugs, empty responses and titles; search/shelf recovery without lost saved IDs; focus and keyboard selection after Retry.
+3. **DR-06, share fragments:** shared-to-shared, damaged-to-valid, empty, personal return, fragment change during loading, useful connected focus, cleared copy fields and delayed clipboard feedback.
+4. **DR-09, input methods:** composing Enter/arrows/Escape, legacy 229, completed Korean query, completion after blur, and delayed network completion during composition. Real native IMEs are not simulated by this mock.
+5. **DR-16, episode parity:** one shared predicate; rejects missing, fractional, malformed and out-of-range counts. Validator rejects fractional editorial episode counts before generation.
+6. **DR-22, evidence syntax:** HTTPS authority/credentials/format, real calendar dates, bounded time-zone allowance, future timestamps, malformed claim arrays, identity fields and episode source/count agreement. Legacy prose is not falsely certified.
 
-There is no installed browser binary here, and the sandbox has no internet access. DOM mocks test application behavior but do not certify visual layout, Safari/Firefox, real keyboard or screen-reader behavior. No live TMDB poster coverage, production network behavior, Core Web Vitals, consent flow, editorial facts or spoiler-safe prose was certified. No GitHub commit or Vercel deployment was made.
+## Commands and environment
 
-Snapshot persistence is local to the build filesystem. A durable CI artifact or reviewed repository snapshot still needs owner configuration. Direct `node build.mjs` is a low-level generator, not the checked release command; deploy with the existing `npm run build`.
+Runtime: Node v22.23.1. The sandbox has no internet access, no npm executable and no installed browser binary. Dependency-free commands were run directly:
 
-## Repair scope
+```sh
+node --test tests/*.test.mjs
+node tools/release-build.mjs fixture
+node tools/release-build.mjs production
+```
 
-DR-03: shelf focus and ordered Undo. DR-16: reject unknown/non-positive/fractional episode counts in the short filter. DR-23: regional uncertainty and dated freshness on both initial HTML and region changes. DR-25: distinct subscription, free, ad-supported, rental and purchase labels, retaining channel identity. DR-27: valid poster URLs, regional coverage and checked snapshot lifecycle. DR-41: actual revision evidence plus source fingerprint and refreshed status. DR-42: comparison action/removal focus and honest spoiler caveat.
+The last command was tested both with no metadata (expected failure) and with an isolated test-only fetch preloader supplying synthetic TMDB responses (expected success). The preloader never made network calls and is not included in this deployment bundle. Existing repository tests include identity/fallback/season and release-orchestrator simulations.
 
-See `BACKLOG-STATUS.md` for the full 42-item status, including unfinished external/editorial work.
+On Vercel **keep `npm run build` and your existing TMDB token**. Do not switch production to fixture mode. No npm packages, runtime upgrade, environment changes or generated files are required by this update.
+
+## Verified unchanged
+
+Byte comparisons confirm unchanged lib/tmdb-identity.mjs, lib/data-quality.mjs, tools/release-build.mjs, tools/streaming-output.mjs, package.json, catalog/recommendation data, CSS and fonts. build.mjs has exactly two scoped edits: importing the existing shared core and calling its short-episode predicate. TMDB enrichment/search/season code is unchanged. Streaming renderer functions in core remain unchanged.
+
+## Remaining checks and limitations
+
+- Real Chrome/Safari/Firefox, mobile layouts, Back/Forward, native input methods, screen readers and clipboard behavior need your Preview checks.
+- localStorage does not offer atomic compare-and-swap. The reproduced stale-tab overwrite is repaired by merging the latest stored state, but genuinely simultaneous writes cannot be guaranteed conflict-free. No cross-device synchronization was added.
+- The stricter loader treats an empty catalog as an error, appropriate for this 219-title site; empty saved/shared shelves still work.
+- Valid URL/date syntax is not proof of source reachability, contents, factual truth or human review. Zero identity mappings are newly certified. Existing director and Trauma Code guards remain intact.
+- Actual TMDB coverage, provider correctness, durable snapshot storage, native performance/accessibility, editorial review, consent, legal and monetization work remain pending.
+- No repository commit, external message or deployment was performed.

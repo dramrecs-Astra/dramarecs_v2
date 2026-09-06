@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-06T08:40:43.029Z",
+  "generatedAt": "2026-09-06T09:16:50.217Z",
   "sourceRevision": null,
   "sourceRevisionEvidence": "unavailable; ZIPs do not prove a commit revision",
-  "sourceFingerprint": "fc4ead686520795b49589a6cd82f9607d97d34072fc90c7a4c4f6ee9f012e76e",
+  "sourceFingerprint": "858e1092401105b077acf4771dd69e6c0094f6c83f7faeebc92861af18e9fc52",
   "sourceFingerprintAlgorithm": "sha256, sorted source paths plus bytes; excludes generated metadata snapshots",
   "dramas": 219,
   "recommendationLists": 101,

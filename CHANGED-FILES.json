@@ -1,123 +1,111 @@
 {
-  "release": "Seven-item follow-up repair, 2026-09-06",
-  "package": "changed and required new files only",
-  "source": "user-supplied dramarecs_v2-main archive, not an independently verified live GitHub commit",
-  "approvedBacklogItems": [
-    "DR-03",
+  "release": "Six approved defect groups, 2026-09-06",
+  "package": "Complete changed/new files only; no unchanged repository files",
+  "fileCountIncludingManifest": 14,
+  "source": "User-supplied dramarecs_v2-main ZIP, including prior 16-file follow-up; live GitHub revision not independently inspected",
+  "approvedGroups": [
+    "DR-04",
+    "DR-05/DR-07",
+    "DR-06",
+    "DR-09",
     "DR-16",
-    "DR-23",
-    "DR-25",
-    "DR-27",
-    "DR-41",
-    "DR-42"
+    "DR-22"
   ],
-  "instructions": "Upload every listed path plus this manifest together at the repository root in one commit. No git installation required. Keep npm run build.",
+  "tests": 128,
+  "generatedHtmlFiles": 341,
+  "instructions": "Extract and upload all paths together at repository root in one commit. Keep npm run build and existing TMDB token. See UPLOAD-SIX-FIXES.md.",
   "files": [
     {
       "path": "BACKLOG-STATUS.md",
       "action": "replace",
-      "bytes": 17136,
-      "sha256": "15467e1671e560c64eaa3e9a2d6953a36e37885e5c0aea7e25759e8ac76fd43d"
+      "bytes": 19877,
+      "sha256": "52cdb99fa85486412b63135be306808dfe4f278c0ef3b16f10259211edee573a",
+      "baselineSha256": "15467e1671e560c64eaa3e9a2d6953a36e37885e5c0aea7e25759e8ac76fd43d"
     },
     {
       "path": "INVENTORY.json",
       "action": "replace",
       "bytes": 936,
-      "sha256": "5f8682efb4aa2eac5bb2f836934c8150880a41ef1a4d973104a3ee34dc3ecf78"
+      "sha256": "84b8cac16a6dc7557845b31b295e9239e3169a5a4311bccdf16ad80776b3321f",
+      "baselineSha256": "5f8682efb4aa2eac5bb2f836934c8150880a41ef1a4d973104a3ee34dc3ecf78"
     },
     {
       "path": "TEST-RESULTS.md",
       "action": "replace",
-      "bytes": 3674,
-      "sha256": "d2d5d63f731424608b10830af6935ba93b58df2091ee2334afdcb28fc259ef67"
+      "bytes": 5576,
+      "sha256": "4501f96f67a4d808f30bb82c760a3bc4737e75221d7416e13023a452bd38b446",
+      "baselineSha256": "d2d5d63f731424608b10830af6935ba93b58df2091ee2334afdcb28fc259ef67"
+    },
+    {
+      "path": "UPLOAD-SIX-FIXES.md",
+      "action": "add",
+      "bytes": 4008,
+      "sha256": "3dcdf6899d1787d1de892bcb4e8699ca5b870b1f7946ee574d9de9d4f4bb159f",
+      "baselineSha256": null
     },
     {
       "path": "backlog-status.json",
       "action": "replace",
-      "bytes": 17932,
-      "sha256": "c88b4893d267c7f7de04acdc18211c1bc57a1c0631765d077766b3f88586d0d2"
+      "bytes": 20341,
+      "sha256": "a21da54d03fe41bb885715eb6a6b085e8eff927f12cca60c2edf31b79c3a5cb0",
+      "baselineSha256": "c88b4893d267c7f7de04acdc18211c1bc57a1c0631765d077766b3f88586d0d2"
     },
     {
-      "path": "lib/data-quality.mjs",
+      "path": "build.mjs",
       "action": "replace",
-      "bytes": 7281,
-      "sha256": "2b36b1b4c4cfc8b636eda6698112bba71168185aad0a5fd3eba5a28fb9d4c276"
+      "bytes": 103489,
+      "sha256": "d70af367fb1b662006c0e62bab682e733ef94817cd177b56aabc4256b6007481",
+      "baselineSha256": "1d423abf112b1b253644d099fe9b8e0390a064046b2dc6587887e0d4c9d9328e"
+    },
+    {
+      "path": "lib/editorial-evidence.mjs",
+      "action": "add",
+      "bytes": 2585,
+      "sha256": "e64bd40476fc170797b22493094d3a83693d92b500bbaf05d201e08a1ecaae11",
+      "baselineSha256": null
     },
     {
       "path": "src/app.js",
       "action": "replace",
-      "bytes": 20979,
-      "sha256": "f46ad786fd813facfd419e2062115f88c5654db90efb577b8bf55755fe66bf14"
+      "bytes": 21939,
+      "sha256": "00ab2e40fd591d7846f8b945d325b85fbcceecdf14bbf4265b4e78a6e4d1fcc7",
+      "baselineSha256": "f46ad786fd813facfd419e2062115f88c5654db90efb577b8bf55755fe66bf14"
     },
     {
       "path": "src/core.js",
       "action": "replace",
-      "bytes": 8776,
-      "sha256": "f8eb3040a01540b7c01284ff01deed5a15b8ede6aa026e3b61ef2a9b6e0c0646"
-    },
-    {
-      "path": "tests/data-quality.test.mjs",
-      "action": "replace",
-      "bytes": 6147,
-      "sha256": "2512356428a459556542a2669617e380155052fbdc633517ddac5b94d96f7b01"
+      "bytes": 10526,
+      "sha256": "4cae016f7f907b88ed58bb05f1a137abd875961ae24d460f8c1db800b5cc540e",
+      "baselineSha256": "f8eb3040a01540b7c01284ff01deed5a15b8ede6aa026e3b61ef2a9b6e0c0646"
     },
     {
       "path": "tests/dom-fixture.mjs",
-      "action": "add",
-      "bytes": 7303,
-      "sha256": "ba0a0f06dfb4e6c2a82a9b9287a9e7f4a2656129a4a0035ff59489ea0afc4eba"
-    },
-    {
-      "path": "tests/interactions.test.mjs",
-      "action": "add",
-      "bytes": 6677,
-      "sha256": "eae502a50664e3d2dcc251dbff47d471911cc01eec38254ec7ccb32a75e7d581"
-    },
-    {
-      "path": "tests/release-pipeline.test.mjs",
-      "action": "add",
-      "bytes": 5738,
-      "sha256": "c0f1d45b6818c62e42b3962c1f593b1c43e7f6b8ad3e9c840f95fd7a260e5ac5"
-    },
-    {
-      "path": "tests/repair.test.mjs",
-      "action": "add",
-      "bytes": 6315,
-      "sha256": "f1b66018e0d31b1d1a96f6e8a4d32c17a9e91b6fa09ce6cf96da131a191c0b28"
-    },
-    {
-      "path": "tools/inventory.mjs",
       "action": "replace",
-      "bytes": 4261,
-      "sha256": "2e654a097e1899cc7328b87cb4fa81faa8df8d88a9bccd2a6829d559185c7039"
+      "bytes": 7499,
+      "sha256": "d01daa39de156ac77d536ed472220670c1a2cb233eecd028574f14108f3317b5",
+      "baselineSha256": "ba0a0f06dfb4e6c2a82a9b9287a9e7f4a2656129a4a0035ff59489ea0afc4eba"
     },
     {
-      "path": "tools/release-build.mjs",
-      "action": "replace",
-      "bytes": 3119,
-      "sha256": "d27ca09d8dac53c00af2023f3f4eebf3390c922b380e957dfb29e157ec87a535"
-    },
-    {
-      "path": "tools/streaming-output.mjs",
+      "path": "tests/editorial-evidence.test.mjs",
       "action": "add",
-      "bytes": 3077,
-      "sha256": "787e5c78406d56eb4f3e7436c32201d68187c727570e1c5b252f65d4b6fed74f"
+      "bytes": 5417,
+      "sha256": "7e8ea207a95dcee5fa8ee19b841870b922af30c39324dcd89c88fde45ed7a9c4",
+      "baselineSha256": null
+    },
+    {
+      "path": "tests/six-fixes.test.mjs",
+      "action": "add",
+      "bytes": 11916,
+      "sha256": "2ee15ebd3e50621c6f01500f9992d9efd62828fb665f63360b3d9a655ed72a0a",
+      "baselineSha256": null
+    },
+    {
+      "path": "tools/validate-data.mjs",
+      "action": "replace",
+      "bytes": 1778,
+      "sha256": "6cd5841b4d68fa5ec9c9c3abacde2e661790bcdb696176da1649f8b4226f9a04",
+      "baselineSha256": "654845d3af420b984409e3187267cfca01d462201156bb0af4284ba82e2293f7"
     }
   ],
-  "manifestFile": "CHANGED-FILES.json (this manifest replaces the historical manifest; not self-hashed)",
-  "unchangedCriticalFiles": [
-    "build.mjs",
-    "lib/tmdb-identity.mjs",
-    "package.json",
-    "src/styles.css",
-    "data/dramas.json",
-    "data/pages/*.json"
-  ],
-  "excluded": [
-    "dist/",
-    ".tmdb-cache.json",
-    "data/metadata-snapshot.json",
-    "synthetic production data",
-    "original repository ZIP"
-  ]
+  "manifest": "CHANGED-FILES.json is also replaced. Its own checksum is intentionally not self-referential."
 }

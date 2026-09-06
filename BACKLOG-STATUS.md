@@ -1,12 +1,14 @@
 # Current DR-01 through DR-42 implementation status
 
-Follow-up date: 2026-09-06. This pass updates DR-03, DR-16, DR-23, DR-25, DR-27, DR-41 and DR-42. Other rows retain the prior assessment; they were not newly certified. No GitHub or Vercel changes were made.
+Six-fix follow-up, 2026-09-06. Approved groups: DR-04, DR-05/07, DR-06, DR-09, DR-16 and DR-22. This is six defect groups spanning seven backlog IDs, not six newly completed backlog items.
 
-The user reports the supplied baseline now deploys cleanly. Its 39 tests passed before this pass; the replacement files now pass 80 Node tests. Fixture and simulated-TMDB production output checks passed across 341 HTML files and 834 streaming rows, with 338 sitemap entries. There are 219 dramas and 101 recommendation lists. The 26 existing reciprocal-recommendation warnings remain.
+The supplied repository already contained the previous 16-file repair. Its 80 tests passed before this pass. The current suite passes 128 tests; fixture and isolated simulated-TMDB production builds pass checks across 341 HTML files and 834 streaming rows. There are 219 dramas, 101 recommendation lists and 338 sitemap entries. The 26 existing reciprocal-recommendation warnings remain non-blocking editorial review work.
 
-These are automated/local results, not real-browser, live TMDB, editorial, consent or commercial certification. The existing MARQUEE design/fonts, static architecture and working TMDB fallback/season repair are preserved. Ads, analytics and affiliate tracking remain disabled.
+Only the six approved groups received new functional work. Other assessments are carried forward, not freshly certified. Current reports supersede the historical workbook, old release notes and the prior 80-test report for these groups. Historical audit documents are not rewritten by this delivery.
 
-Use TEST-RESULTS.md for current verification; older 29-test release notes describe the historical first repair, not this delivery. Partial statuses are not closed items.
+The design, CSS/fonts, catalog data, working TMDB identity/season repair, 95% poster requirement and release-snapshot safeguards are preserved. Ads, analytics and affiliate tracking remain disabled. No GitHub or Vercel changes were made.
+
+Automated/local tests are not real-browser, live API, factual, legal or commercial certification. See TEST-RESULTS.md for scope and limitations; UPLOAD-SIX-FIXES.md for installation. Partial statuses are not closed items.
 
 ## DR-01: Implemented; browser QA pending
 
@@ -32,37 +34,37 @@ Use TEST-RESULTS.md for current verification; older 29-test release notes descri
 
 **Remaining:** Run real keyboard, touch and screen-reader checks, including Safari/Firefox.
 
-## DR-04: Implemented
+## DR-04: Stale-tab repair implemented; simultaneous-write limitation remains
 
-**Changed:** Versioned state, validated slug arrays, legacy migration, safe read/write, verification and visible session-only fallback.
+**Changed:** State writes merge this tab's saved/watched additions and removals into the latest stored record. Unrelated preferences and unseen saves survive delayed synchronization; removing a record elsewhere does not resurrect old history. Legacy migration and session-only fallback remain.
 
-**Checked:** Malformed legacy state, denied storage, quota and discarded-write tests.
+**Checked:** Stale-tab additions/removals, independent watched/preferences, shared import, Undo ordering, cleared storage, denied storage and original persistence regressions pass.
 
-**Remaining:** Cross-device persistence is intentionally not provided; private browsing may vary.
+**Remaining:** localStorage has no atomic compare-and-swap: genuinely simultaneous writes remain best-effort. Real multi-tab browser QA and private-browsing checks remain pending; cross-device sync is not provided.
 
-## DR-05: Implemented
+## DR-05: Catalog-schema repair implemented; browser QA pending
 
-**Changed:** Shared catalog loader has HTTP/schema/error/12-second timeout handling; shelf Retry retains IDs; no-JS explanation.
+**Changed:** Catalog loading rejects malformed optional search/image fields, duplicate IDs, blank titles and an unexpectedly empty catalog instead of accepting data that breaks rendering. Error states retain saved IDs and allow Retry.
 
-**Checked:** HTTP/JSON/timeout tests and actual client DOM-mock error test.
+**Checked:** Malformed optional-field unit tests plus actual client shelf failure/retry integration tests; HTTP, timeout and JSON regression tests retained.
 
-**Remaining:** Test slow/failed requests in a real browser.
+**Remaining:** Real-browser slow network, offline-request simulation and deployment cache checks remain pending. An intentionally empty catalog is not supported by this 219-title site.
 
-## DR-06: Implemented; browser QA pending
+## DR-06: Shared-fragment navigation repaired; browser QA pending
 
-**Changed:** Validated/bounded/deduplicated shared slugs; damaged-link screen; persistent copyable input; clear disclosure.
+**Changed:** hashchange reparses and rerenders the active shared shelf, including malformed/empty links and return to the personal shelf. Stale copy text is cleared; useful focus is restored; late clipboard feedback for a different fragment is suppressed. Import does not replace the personal shelf.
 
-**Checked:** Share parser tests; clipboard fallback source review.
+**Checked:** Fragment transitions, loading-time navigation, malformed recovery, focused-row removal, copy-field focus and stale clipboard rejection DOM regressions pass.
 
-**Remaining:** Real-browser blocked-clipboard and shared import checks.
+**Remaining:** Real Back/Forward navigation, blocked clipboard, touch and screen-reader checks remain pending. No private or cross-device sharing service was added.
 
-## DR-07: Implemented
+## DR-07: Schema failure and retry recovery repaired; browser QA pending
 
-**Changed:** Search redraws on asynchronous completion and distinguishes loading, failure/retry and no match.
+**Changed:** Malformed catalog data produces a retryable load error rather than a search crash. Retry prevents its removed button from being treated as an outside click and returns keyboard focus to the search input.
 
-**Checked:** Delayed-index and HTTP-failure tests against the actual app script.
+**Checked:** Malformed response followed by valid retry, keyboard focus and delayed-index/error/explicit-title regressions pass.
 
-**Remaining:** Real network/device behavior remains to be checked.
+**Remaining:** Real browser/network checks remain pending; unrecognized queries are not replaced with unrelated titles.
 
 ## DR-08: Implemented
 
@@ -72,13 +74,13 @@ Use TEST-RESULTS.md for current verification; older 29-test release notes descri
 
 **Remaining:** No actor-name search added; unrecognized titles stay unrecognized.
 
-## DR-09: Implemented; assistive QA pending
+## DR-09: Input-method handling repaired; assistive QA pending
 
-**Changed:** Option IDs, selected state, active descendant and synchronized closing. Retry/alternatives live outside listbox.
+**Changed:** Composition events, isComposing and legacy keyCode 229 leave Enter/arrows/Escape to the input method. Stale suggestions close during composition; completed focused input redraws, while completion after blur does not reopen it. Retry restores input focus.
 
-**Checked:** Arrow/Escape DOM tests, including Escape before delayed completion.
+**Checked:** Korean composition lifecycle, each composing key, legacy event ordering, blur, delayed catalog completion and original ARIA tests pass in the actual client DOM mock.
 
-**Remaining:** Screen-reader and focus-navigation testing still required.
+**Remaining:** Real Korean/Chinese/Japanese IMEs, Safari/Firefox, mobile keyboards and screen readers need manual checks. Synthetic events are not native-input certification.
 
 ## DR-10: Partial
 
@@ -128,13 +130,13 @@ Use TEST-RESULTS.md for current verification; older 29-test release notes descri
 
 **Remaining:** Legacy verdicts and some fit/caveat prose can still spoil endings. Full spoiler-safe editorial audit NOT completed.
 
-## DR-16: Filter repaired; metadata review pending
+## DR-16: Collection/client parity repaired; metadata review pending
 
-**Changed:** The 12-or-fewer client filter now requires a known, positive, whole episode count. Missing, blank, zero, negative, malformed or fractional values no longer qualify. Existing episode labeling and approximate totals are retained.
+**Changed:** The static short-drama collection now calls the same positive-whole-episode predicate as the client filter. Data validation rejects fractional catalog episode counts. The builder's TMDB enrichment and existing identity/season repair are unchanged.
 
-**Checked:** Pure boundary tests plus actual client filter test; previous editorial/season precedence tests retained.
+**Checked:** Actual builder predicate evaluated against client boundary cases; real validator rejects fractional episodes; fixture and simulated-production builds pass with unchanged source data.
 
-**Remaining:** Catalog-wide episode/runtime/season verification remains pending. No new duration facts were invented.
+**Remaining:** Catalog-wide episode/runtime/season verification is still pending. This is not a total-viewing-time filter and adds no invented duration facts.
 
 ## DR-17: Implemented; browser QA pending
 
@@ -176,13 +178,13 @@ Use TEST-RESULTS.md for current verification; older 29-test release notes descri
 
 **Remaining:** No full 219-title factual or authorship certification; owner must confirm public process wording.
 
-## DR-22: Partial
+## DR-22: Evidence syntax strengthened; factual verification remains partial
 
-**Changed:** Prose-only style lint; attributed reporting no longer banned; dated-source requirements for structured factualClaims and verified identities.
+**Changed:** Structured claims, verified identities and episode citations require well-formed HTTPS sources and valid calendar dates. Credential-bearing/malformed URLs, impossible dates, future timestamps, malformed claim arrays and mismatched episode evidence fail with item-level diagnostics.
 
-**Checked:** Validator and data-check pipeline.
+**Checked:** URL/date boundary tests, time-zone handling, malformed shapes, valid/legacy examples and actual validator subprocess tests pass.
 
-**Remaining:** Legacy unstructured claims are not automatically proven or rejected. Review queue flags are hints, not verified errors.
+**Remaining:** Syntax does not prove link reachability, source contents, factual truth or human review. Legacy prose and the full identity/editorial review queue remain unverified. Date-only records allow up to UTC+14; timestamps require a zone.
 
 ## DR-23: Implemented; live upstream QA pending
 
@@ -298,7 +300,7 @@ Use TEST-RESULTS.md for current verification; older 29-test release notes descri
 
 ## DR-37: Implemented
 
-**Changed:** Vercel/CI run validation, 29 regression tests, build, generated-link checks and inventory. Pure logic extracted into shared modules.
+**Changed:** Vercel/CI run validation, the regression suite, build, generated-link checks and inventory. Pure logic remains in shared modules; the current test report records the latest results.
 
 **Checked:** Full dependency-free fixture pipeline passes; production metadata failure blocks as expected.
 
@@ -330,9 +332,9 @@ Use TEST-RESULTS.md for current verification; older 29-test release notes descri
 
 ## DR-41: Current inventory/status repaired; legacy research review pending
 
-**Changed:** Removed the hardcoded source revision. Inventory uses validated Vercel/GitHub/git evidence or null, includes a deterministic source fingerprint and actual generated HTML counts, and does not claim tests or reviews passed merely from counts. This seven-item status and current test evidence are refreshed.
+**Changed:** Inventory uses validated Vercel/GitHub/git evidence or null, includes a deterministic source fingerprint and actual generated HTML counts, and does not claim tests or reviews passed merely from counts. Current status/test reports are refreshed; historical research remains unverified.
 
-**Checked:** Revision/fingerprint tests; fixture inventory: 219 dramas, 101 lists, 341 HTML files, 338 sitemap entries and zero certified identity mappings.
+**Checked:** Revision/fingerprint tests retained; current fixture inventory records 219 dramas, 101 lists, 341 HTML files, 338 sitemap entries and zero certified identity mappings.
 
 **Remaining:** Historical research notes still need owner reconciliation. Historical first-pass release notes are not the current test report; see TEST-RESULTS.md.
 
@@ -343,4 +345,3 @@ Use TEST-RESULTS.md for current verification; older 29-test release notes descri
 **Checked:** Actual app DOM tests for save, watched, Undo, multiple/final comparison removal and hidden original rows.
 
 **Remaining:** Real-browser/assistive checks and a full spoiler-safe prose audit remain pending. Actor/couple data and pages are still deliberately not fabricated.
-

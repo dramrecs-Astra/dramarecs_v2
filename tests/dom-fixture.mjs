@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 const unescape=s=>s.replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
 const escape=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
 const camel=s=>s.replace(/-([a-z])/g,(_,c)=>c.toUpperCase());
-export async function clientFixture({html='',saved=[],watched=[],hideWatched=false,index=[],hash='',region=null}={}) {
+export async function clientFixture({html='',saved=[],watched=[],hideWatched=false,index=[],hash='',region=null,fetcher=null}={}) {
   let document;
   class TextNode {constructor(text){this.textContent=text;this.parentNode=null;}get outerHTML(){return escape(this.textContent);}get children(){return [];}contains(el){return this===el;}}
   class Element {
@@ -31,14 +31,14 @@ export async function clientFixture({html='',saved=[],watched=[],hideWatched=fal
     addEventListener(k,fn){(this.listeners[k]||=[]).push(fn);}
     focus(){document.activeElement=this;}
     select(){}
-    click(){this.focus();const event={target:this,preventDefault(){}};if(this.onclick)this.onclick(event);for(const fn of this.listeners.click||[])fn(event);for(const fn of document.listeners.click||[])fn(event);}
+    click(){this.focus();const event={target:this,stopped:false,preventDefault(){},stopPropagation(){this.stopped=true;}};if(this.onclick)this.onclick(event);for(const fn of this.listeners.click||[])fn(event);if(!event.stopped)for(const fn of document.listeners.click||[])fn(event);}
     insertAdjacentHTML(where,html){const holder=new Element();holder.innerHTML=html;for(const el of [...holder.children])this.appendChild(el);}
   }
   document={body:new Element('body'),activeElement:null,listeners:{},querySelector(s){return this.body.querySelector(s);},querySelectorAll(s){return this.body.querySelectorAll(s);},createElement:t=>new Element(t),createTextNode:t=>new TextNode(t),addEventListener(k,fn){(this.listeners[k]||=[]).push(fn);}};
   document.activeElement=document.body;document.body.innerHTML='<main id="main">'+html+'</main>';
   const data={'dr.state.v1':JSON.stringify({version:1,saved,watched,hideWatched,showEndingTones:false})};if(region)data['sd.region']=region;
-  const events={};const context={document,URL,console,AbortController,setTimeout:(fn,n)=>{const t=setTimeout(fn,n);t.unref();return t;},clearTimeout,location:{hash,origin:'https://example.test'},navigator:{},localStorage:{getItem:k=>data[k]??null,setItem:(k,v)=>{data[k]=v;}},fetch:async()=>({ok:true,json:async()=>index}),addEventListener:(k,fn)=>{events[k]=fn;}};
+  const events={};const context={document,URL,console,AbortController,setTimeout:(fn,n)=>{const t=setTimeout(fn,n);t.unref();return t;},clearTimeout,location:{hash,origin:'https://example.test'},navigator:{},localStorage:{getItem:k=>data[k]??null,setItem:(k,v)=>{data[k]=v;}},fetch:fetcher||async function(){return {ok:true,json:async()=>index};},addEventListener:(k,fn)=>{events[k]=fn;}};
   context.window=context;context.globalThis=context;vm.createContext(context);vm.runInContext(readFileSync('src/core.js','utf8'),context);vm.runInContext(readFileSync('src/app.js','utf8'),context);
   await new Promise(r=>setImmediate(r));await new Promise(r=>setImmediate(r));
-  return {document,context,$:s=>document.querySelector(s),$$:s=>document.querySelectorAll(s),state:()=>JSON.parse(data['dr.state.v1']),storageEvent(next){data['dr.state.v1']=JSON.stringify({version:1,saved:[],watched:[],hideWatched:false,showEndingTones:false,...next});events.storage({key:'dr.state.v1'});}};
+  return {document,context,$:s=>document.querySelector(s),$$:s=>document.querySelectorAll(s),state:()=>JSON.parse(data['dr.state.v1']),hashChange(hash){context.location.hash=hash;if(events.hashchange)events.hashchange({});},storageEvent(next){data['dr.state.v1']=JSON.stringify({version:1,saved:[],watched:[],hideWatched:false,showEndingTones:false,...next});events.storage({key:'dr.state.v1'});}};
 }

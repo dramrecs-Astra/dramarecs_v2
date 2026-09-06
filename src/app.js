@@ -30,15 +30,15 @@
   }
   function actionButtons(slug){return '<button type="button" class="shelf" data-slug="'+esc(slug)+'" aria-pressed="false">Save for later</button> <button type="button" class="watched" data-slug="'+esc(slug)+'" aria-pressed="false">Already watched</button>';}
   document.addEventListener('click',function(e){var b=e.target.closest('button.shelf,button.watched');if(b)snapshotAction(b.classList.contains('watched')?'watched':'saved',b.dataset.slug,b);});
-  var input=$('#q'),box=$('#sug'),resultList=[],cursor=-1,searchState='loading',searchWanted=false,searchStatus;
+  var input=$('#q'),box=$('#sug'),resultList=[],cursor=-1,searchState='loading',searchWanted=false,searchStatus,composing=false;
   function target(it){return(it.page?'/dramas-like/':'/dramas/')+it.slug+'/';}
   function closeSearch(){searchWanted=false;box.classList.remove('open');box.innerHTML='';input.setAttribute('aria-expanded','false');input.removeAttribute('aria-activedescendant');cursor=-1;if(searchStatus)searchStatus.hidden=true;}
   function drawSearch(){
-    if(!input)return;var q=input.value.trim();if(!q||!searchWanted){closeSearch();return;}
+    if(!input||composing)return;var q=input.value.trim();if(!q||!searchWanted){closeSearch();return;}
     input.removeAttribute('aria-activedescendant');resultList=searchState==='ready'?core.search(catalog,q):[];
     box.innerHTML='';box.classList.remove('open');input.setAttribute('aria-expanded','false');searchStatus.hidden=false;
     if(searchState==='loading'){searchStatus.textContent='Loading titles...';return;}
-    if(searchState==='error'){searchStatus.innerHTML='Could not load titles. <button type="button" id="searchretry">Retry search</button>';$('#searchretry').onclick=startSearch;return;}
+    if(searchState==='error'){searchStatus.innerHTML='Could not load titles. <button type="button" id="searchretry">Retry search</button>';$('#searchretry').onclick=function(e){if(e)e.stopPropagation();startSearch();input.focus();};return;}
     if(!resultList.length){searchStatus.innerHTML='No matching title. <a href="/collections/">Browse collections</a> or <a href="/contact/">request a title</a>.';return;}
     searchStatus.textContent=resultList.length+' suggestions. Use the arrow keys to choose.';if(cursor>=resultList.length)cursor=-1;
     box.innerHTML=resultList.map(function(it,i){return '<a id="suggestion-'+i+'" role="option" aria-selected="'+(i===cursor)+'" href="'+target(it)+'" class="'+(i===cursor?'cursor':'')+'"><span class="t">'+esc(it.t)+'</span><span class="tag">'+(it.page?'Recommendations':'Review')+(state.read().watched.includes(it.slug)?' · Watched':'')+'</span><span class="y tnum">'+esc(it.y)+'</span></a>';}).join('');
@@ -47,9 +47,11 @@
   function startSearch(){searchState='loading';drawSearch();loadIndex().then(function(){searchState='ready';drawSearch();}).catch(function(){searchState='error';drawSearch();});}
   if(input){
     input.maxLength=160;input.setAttribute('aria-autocomplete','list');searchStatus=document.createElement('div');searchStatus.className='searchstatus';searchStatus.id='searchstatus';searchStatus.setAttribute('role','status');box.after(searchStatus);input.setAttribute('aria-describedby','searchstatus');
-    input.addEventListener('input',function(){searchWanted=true;cursor=-1;drawSearch();});input.addEventListener('focus',function(){searchWanted=true;drawSearch();});
-    function submit(){if(resultList.length&&searchState==='ready'&&searchWanted)location.href=target(resultList[Math.max(0,cursor)]);else{searchWanted=true;drawSearch();}}
-    input.addEventListener('keydown',function(e){if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();searchWanted=true;cursor=Math.max(0,Math.min(cursor+(e.key==='ArrowDown'?1:-1),resultList.length-1));drawSearch();}else if(e.key==='Enter'){e.preventDefault();submit();}else if(e.key==='Escape')closeSearch();});
+    input.addEventListener('compositionstart',function(){composing=true;closeSearch();});
+    input.addEventListener('compositionend',function(){composing=false;searchWanted=document.activeElement===input;cursor=-1;drawSearch();});
+    input.addEventListener('input',function(e){if(composing||(e&&e.isComposing))return;searchWanted=true;cursor=-1;drawSearch();});input.addEventListener('focus',function(){searchWanted=true;drawSearch();});
+    function submit(){if(composing)return;if(resultList.length&&searchState==='ready'&&searchWanted)location.href=target(resultList[Math.max(0,cursor)]);else{searchWanted=true;drawSearch();}}
+    input.addEventListener('keydown',function(e){if(composing||e.isComposing||e.keyCode===229)return;if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();searchWanted=true;cursor=Math.max(0,Math.min(cursor+(e.key==='ArrowDown'?1:-1),resultList.length-1));drawSearch();}else if(e.key==='Enter'){e.preventDefault();submit();}else if(e.key==='Escape')closeSearch();});
     if($('#gobtn'))$('#gobtn').onclick=submit;
     document.addEventListener('click',function(e){if(!e.target.closest('.searchblock'))closeSearch();});document.addEventListener('focusin',function(e){if(!e.target.closest('.searchblock'))closeSearch();});startSearch();
   }
@@ -70,7 +72,15 @@
   if($('.clearall'))$('.clearall').onclick=clearFilters;if($('#emptyclear'))$('#emptyclear').onclick=clearFilters;
   if($('#nofilterhits'))$('#nofilterhits').insertAdjacentHTML('beforeend','<p>Already watched everything? Turn off “Hide dramas I\'ve watched” above, or <a href="/collections/">try a different collection</a>. Your watched history is kept.</p>');
   var mount=$('#shelfmount'),sharedSlugs=null,shareError='',shelfReady=false;
-  if(mount){try{sharedSlugs=core.shared(location.hash);}catch(e){shareError=e.message;}}
+  function readSharedShelf(){sharedSlugs=null;shareError='';try{sharedSlugs=core.shared(location.hash);}catch(e){shareError=e.message;}}
+  if(mount){
+    readSharedShelf();
+    window.addEventListener('hashchange',function(){
+      readSharedShelf();var field=$('#sharelink'),hadCopyFocus=field&&document.activeElement===field;
+      if(field){field.value='';field.parentNode.hidden=true;}
+      sync();if(hadCopyFocus&&$('#shelfshare'))$('#shelfshare').focus();
+    });
+  }
   function renderShelf(){
     if(!mount||!shelfReady)return;
     if(shareError){mount.innerHTML='<div class="empty"><h2>Cannot open this shared shelf</h2><p>'+esc(shareError)+'</p><a href="/my-shelf/">Open your own shelf</a></div>';return;}
@@ -84,7 +94,13 @@
   }
   function startShelf(){mount.innerHTML='<p role="status">Loading your shelf...</p>';loadIndex().then(function(){shelfReady=true;renderShelf();syncButtons();}).catch(function(){mount.innerHTML='<div class="empty"><h2>Could not load your shelf</h2><p>Your saved titles are unchanged.</p><button type="button" class="btn" id="shelfretry">Retry</button></div>';$('#shelfretry').onclick=startShelf;});}
   if(mount)startShelf();
-  if($('#shelfshare'))$('#shelfshare').onclick=function(){if(shareError){toast(shareError);return;}var ids=sharedSlugs===null?state.read().saved:sharedSlugs;if(!ids.length){toast('Nothing to share yet.');return;}var url=location.origin+'/my-shelf/#s='+encodeURIComponent(ids.join(','));if(url.length>16000){toast('This shelf is too large for a share link. Share a smaller selection.');return;}var field=$('#sharelink');if(!field){var label=document.createElement('label');label.className='sharecopy';label.textContent='Anyone with this link can see these titles. Copy the link:';field=document.createElement('input');field.id='sharelink';field.readOnly=true;label.appendChild(field);$('.shelfbar').appendChild(label);}field.value=url;field.focus();field.select();if(navigator.clipboard)navigator.clipboard.writeText(url).then(function(){toast('Link copied. Anyone with it can see the shared titles.');}).catch(function(){toast('Select and copy the link shown beside Share.');});};
+  if($('#shelfshare'))$('#shelfshare').onclick=function(){
+    if(shareError){toast(shareError);return;}var ids=sharedSlugs===null?state.read().saved:sharedSlugs;if(!ids.length){toast('Nothing to share yet.');return;}
+    var url=location.origin+'/my-shelf/#s='+encodeURIComponent(ids.join(','));if(url.length>16000){toast('This shelf is too large for a share link. Share a smaller selection.');return;}
+    var field=$('#sharelink');if(!field){var label=document.createElement('label');label.className='sharecopy';label.textContent='Anyone with this link can see these titles. Copy the link:';field=document.createElement('input');field.id='sharelink';field.readOnly=true;label.appendChild(field);$('.shelfbar').appendChild(label);}
+    field.parentNode.hidden=false;field.value=url;field.focus();field.select();var sharedHash=location.hash;
+    if(navigator.clipboard)navigator.clipboard.writeText(url).then(function(){if(location.hash===sharedHash)toast('Link copied. Anyone with it can see the shared titles.');}).catch(function(){if(location.hash===sharedHash)toast('Select and copy the link shown beside Share.');});
+  };
   var spoilerButtons=$$('.spoiler');
   if(spoilerButtons.length){var label=document.createElement('label');label.className='endingpref wrap';label.innerHTML='<input type="checkbox" id="endingtones"> Show ending tone labels (spoilers)';$('#main').prepend(label);$('#endingtones').onchange=function(){var next=state.read();next.showEndingTones=this.checked;state.write(next);spoilerButtons.forEach(function(b){b.dataset.open='false';});syncSpoilers();};}
   function syncSpoilers(){var show=state.read().showEndingTones;if($('#endingtones'))$('#endingtones').checked=show;spoilerButtons.forEach(function(b){var open=b.dataset.open==='true';b.classList.toggle('shown',open);b.setAttribute('aria-expanded',String(open));b.textContent=open?b.dataset.label+'. '+b.dataset.text+' (Hide ending)':(show?'Ending: '+b.dataset.label+' (reveal details)':'Reveal ending (spoiler)');});}
