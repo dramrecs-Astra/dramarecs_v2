@@ -1,0 +1,27 @@
+DramaRecs TMDB search repair | 2026-09-06
+
+INSTALL THE REPAIR ZIP
+1. Extract the ZIP locally. Copy its build.mjs into the existing repository root, replacing build.mjs. Add lib/tmdb-identity.mjs inside the existing lib folder and tests/tmdb-identity.test.mjs inside the existing tests folder. Do not put these inside an extra nested folder and do not upload the ZIP itself as source.
+2. Commit ALL THREE code files together. Optional: commit this installation note too.
+3. Keep Vercel's build command as npm run build and keep TMDB_TOKEN configured for Production. Do not enable fixture mode or lower the poster threshold.
+4. Let Vercel build the new commit. Confirm the Source commit changed from cb6f0a4.
+5. If production remains below 95%, copy the new Poster diagnostics line and the final error. It now lists every missing-poster slug. Some titles may genuinely lack usable metadata or contain editorial year/identity errors; those need verification rather than blind matching.
+
+WHAT WAS FIXED
+The old enrichment code made one search using query || title. Several uploaded catalog queries include search-engine-style qualifiers, for example Live 2018 Korean drama police and Law School Korean. A miss never retried canonical or native names.
+The new helper retains the existing first search, adds a series-premiere-year API filter, and on no exact match retries canonical, Korean and supplied alias queries. It merges duplicate IDs and rejects ambiguous results. Exact name, premiere year and Korean-origin requirements remain intact. It never invents or auto-certifies an ID.
+Later-season entries use the existing explicit seasonOf relationship to search their base series. Episode counts, display years and season endpoint enrichment remain unchanged. Missing or year-conflicting parent records do not override identity.
+Production logs now list missing posters before enforcing the existing gate.
+
+UNCHANGED
+95% minimum poster coverage, poster/provider loss safeguards, director validator, editorial catalog, recommendation data, UI, fonts, static architecture, disabled advertising/analytics. No TMDB IDs were hardcoded or certified. No GitHub or Vercel changes were made by the assistant.
+
+TEST EVIDENCE
+39 Node tests pass (29 existing plus 10 new).
+Full fixture release pipeline passes, including data validation and output/link checks across 341 HTML files.
+Production build and HTML smoke checks pass with a synthetic TMDB transport. This is an integration test, NOT evidence of live coverage.
+Production with no posters fails as required; a regression case at 191/219 posters (87.2%) also still fails. The original 95% threshold was not changed.
+The synthetic transport, generated posters, metadata cache/snapshot and test token are NOT included in either ZIP.
+
+LIMITS
+The sandbox has no internet access, so real TMDB responses and actual Vercel production coverage could not be verified. This fixes a confirmed search-path defect but does not guarantee the next deployment will pass. Live metadata identity, editorial years, season scope and browser behavior still require verification. Existing release notes/backlog remain applicable; earlier test counts refer to the previous release.

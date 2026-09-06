@@ -6,7 +6,8 @@
 import { readFile, writeFile, mkdir, readdir, copyFile, rm } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
-import { resolveIdentity, preserveEditorial, secondaryPicks, relatedLists, providerRecords, assertProductionQuality } from './lib/data-quality.mjs';
+import { preserveEditorial, secondaryPicks, relatedLists, providerRecords, assertProductionQuality } from './lib/data-quality.mjs';
+import { findTmdbIdentity } from './lib/tmdb-identity.mjs';
 const PRODUCTION = process.env.VERCEL_ENV === 'production' || process.env.BUILD_MODE === 'production';
 if (PRODUCTION && process.env.BUILD_MODE === 'fixture') throw new Error('Fixture mode cannot be deployed to production');
 // Monetization stays disabled until certified CMP integration and its browser matrix are reviewed.
@@ -251,11 +252,10 @@ async function tmdb(pathname, params = {}) {
 let lastGood = {};
 if (existsSync('data/metadata-snapshot.json')) { try { lastGood = await readJson('data/metadata-snapshot.json'); } catch {} }
 
-async function enrich(d, country) {
+async function enrich(d, country, catalog) {
   let id = d.tmdb_id;
   if (!id) {
-    const found = await tmdb('/search/tv', { query: d.query || d.title, include_adult: 'false', language: 'en-US' });
-    id = resolveIdentity(d, found?.results || []);
+    id = await findTmdbIdentity(d, tmdb, catalog);
     if (id) console.log('  candidate identity (needs review): ' + d.slug + ' -> ' + id);
   }
   const previous = lastGood[d.slug];
@@ -1099,8 +1099,12 @@ async function main() {
 
   console.log(TOKEN ? 'TMDB token found. Enriching ' + raw.length + ' dramas...' : 'No TMDB_TOKEN set. Building with editorial data only.');
   const dramas = [];
-  for (const d of raw) dramas.push(await enrich(d, site.country));
-  if (PRODUCTION) assertProductionQuality(dramas, Object.values(lastGood));
+  for (const d of raw) dramas.push(await enrich(d, site.country, raw));
+  if (PRODUCTION) {
+    const missing = dramas.filter(d => !d.poster);
+    if (missing.length) console.warn('Poster diagnostics: ' + (dramas.length - missing.length) + '/' + dramas.length + ' covered; minimum ' + Math.ceil(dramas.length * .95) + '. Missing: ' + missing.map(d => d.slug).join(', '));
+    assertProductionQuality(dramas, Object.values(lastGood));
+  }
 
   const bySlug = Object.fromEntries(dramas.map((d) => [d.slug, d]));
 
