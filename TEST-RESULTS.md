@@ -1,51 +1,39 @@
-# Six-target follow-up: verification and limits
+# Current test evidence: ten-repair batch
 
-Date: 2026-09-06. Source: the two user-supplied ZIPs. Every file of the smaller patch matches the full repository. No live GitHub revision was independently inspected.
+As of 2026-09-06. Supersedes earlier six-fix delivery totals.
 
-## Results
+- Supplied source baseline: 184 existing Node tests pass.
+- New regression suite: 70 tests. On the unmodified baseline, 50 fail and 20 boundary/guard cases already pass.
+- Repaired release: 254 tests pass, 0 failures, 0 skipped.
+- Command executed: `node tools/release-build.mjs fixture`. This executes both validators, all Node tests, fixture build, streaming output checks, HTML smoke checks and inventory generation.
+- Current validators: 219 dramas / 101 lists, 26 non-blocking reciprocity warnings.
+- Fixture output: 341 HTML files, 338 sitemap entries, 834 streaming rows checked. Local links/required controls/no-tracking checks pass.
+- Replacement JavaScript files pass Node syntax checks.
+- Browser setup is tested by invoking its actual serialized initialization callback in a Node VM. This does not execute Chromium.
 
-- Baseline: 128 Node tests passed and fixture checks passed across 341 HTML files.
-- Final: **184 Node tests pass, zero failures**: 128 retained plus 56 added.
-- Regression proof: the 56 added cases yield 52 failures against the original implementation; four compatibility/boundary cases already passed. The nine existing release-orchestrator cases also passed in that comparison.
-- Fixture pipeline: validation, tests, generation, streaming normalization, local links, source-order/structural checks, known public-claim scans and inventory pass.
-- Fixture inventory: 219 dramas, 101 recommendation lists, 341 HTML files, 338 sitemap entries, 834 streaming rows. Zero newly certified identity mappings.
-- Isolated simulated-TMDB production pipeline: passes, including snapshot validation and promotion after downstream checks. Synthetic posters cover all 219 titles. Sample ad/GA/affiliate environment variables still emit no tracking tags. No simulated snapshot, cache, response, token or generated HTML is shipped.
-- No-token/no-snapshot production: intentionally fails at 0% poster coverage. The 95% gate still requires at least 209 of 219 valid posters. Do not use fixture mode to bypass it on Vercel.
-- The 26 existing reciprocal-recommendation warnings remain non-blocking and unresolved.
+## Ten target results
 
-## Scope of the six repairs
+- B10-01: Browser fixture origin guard and seed readback. Skips opaque/unrelated origins; actual-origin denial and discarded writes surface; existing state retained. (DR-01 / DR-37; `tests/browser-smoke.mjs`)
+- B10-02: Reject oversized shared shelves. 500 valid unique slugs accepted; 501 rejected without partial import. (DR-06; `src/core.js`)
+- B10-03: Synchronous clipboard failures and missing API. Getter/write throws and promise rejection keep a copyable field and manual instructions. (DR-06; `src/app.js`)
+- B10-04: Stale clipboard completion across navigation. Navigation and copy-attempt sequence invalidates old success/failure feedback, including return to same hash. (DR-06; `src/app.js`)
+- B10-05: Recommendation array and entry schema. Malformed picks/against and entries return field diagnostics, not method/type crashes. (DR-22; `tools/validate-pages.mjs`)
+- B10-06: Calendar-valid recommendation review dates. Real YYYY-MM-DD required; impossible/future dates rejected with bounded date-only time-zone allowance. (DR-22; `tools/validate-pages.mjs`)
+- B10-07: Prose field type validation. Non-string standfirst, pick/anti-pick why and catalog verdict/endingText/hookNote rejected before lint. (DR-22; `tools/validate-pages.mjs`)
+- B10-08: Positive whole season identifiers. Explicit season requires positive safe integer and existing parent/label rules. (DR-19 / DR-22; `tools/validate-pages.mjs`)
+- B10-09: Explicit invalid TMDB IDs. Explicit zero/null/false/string/fractional/negative IDs rejected; absent or positive safe integer allowed. (DR-20; `tools/validate-data.mjs`)
+- B10-10: Full catalog-title exemption from filler lint. Captivating the King allowed in prose; unrelated masterpiece or partial title Captivating the Kingdom still rejected. (DR-22; `tools/validate-pages.mjs`)
 
-1. **Capacity:** distinct valid-ID limits are checked before decoding and after cross-tab merging. Over-capacity writes/imports/Undo are rejected as a whole, with an explicit message and no false Saved/Undone feedback. Saved and watched caps are independent. Session fallback and 500-item limits remain.
-2. **Keyboard focus:** shelf retry success/empty/failure restores useful focus without stealing it after the user moves away. Cross-tab updates preserve title links and shared controls, or move to a neighbor/discovery when removed. Clear-filter controls no longer retain focus while hidden. Existing removal, Undo, comparison, search and input-method behavior stays covered.
-3. **Snapshot validation:** checks hydrated text/list/rating/status fields, strict real calendar dates, zoned retrieval timestamps, five-minute clock skew and HTTPS link syntax. Valid legacy omissions and future scheduled season dates remain supported. Integration tests verify exact last-good restoration after malformed candidates and early rejection of malformed baselines.
-4. **Public copy:** identified Hand-reviewed, universal catalog-review and spoiler-safety promises are replaced with scoped wording across homepage, catalog, collection metadata and terms. Generated HTML and source guards reject regressions. This does not verify remaining bylines, underlying claims or all prose.
-5. **Inventory:** fingerprint v2 includes CI/deployment/runtime source files and exact snapshot exclusions. It is not a deployment attestation and cannot observe remote settings or secrets.
-6. **Browser CI:** pinned Playwright 1.58.2 is installed only in GitHub Actions, with Chromium and Linux dependencies; the runner uploads JSON results, and screenshots/HTML/traces on test failure. The read-only validation job has a 20-minute timeout. It does not commit changes or deploy.
+## Limits
 
-## Browser status: configured, execution still pending
+The user-reported Chromium job failed. A green rerun is still required after uploading these files. Playwright/Chromium are not installed in this sandbox; it has no internet access for installation. Native clipboard, physical-device, screen-reader, Safari/Firefox and field-performance checks remain pending.
 
-The browser runner parses, and workflow source assertions pass. Local launch was attempted but could not start because the browser executable is absent. The sandbox has no internet access to download it. **No real-browser check passed here.**
+Fixture mode intentionally produces no live poster data and does not demonstrate production poster coverage. This delivery did not run live TMDB or a full simulated-TMDB production build. Existing isolated release-pipeline and metadata regression tests passed as part of the 254-test suite. The 95% production poster floor was not lowered; no production guard or browser exception assertion was disabled.
 
-The runner defines 31 Chromium checks: 25 shelf width/count combinations with synthetic loaded images, plus delayed search, watched/persistence/Undo/ending/pilot interactions, retry and actual storage events, clear-filter focus, capacity/import rejection, and shared-fragment Back/Forward. External requests are blocked; fixture artwork never becomes production metadata. The first green Actions run is still required after upload. Safari/Firefox, screen readers, physical devices, native IMEs, real clipboard restrictions, live APIs and measured CWV are not covered by this result.
+No editorial truth, identity certification, consent/CMP approval, revenue, live deployment or remote repository state is certified. Ads, analytics and affiliate tracking remain disabled.
 
-GitHub Actions and Vercel run independently. Adding tests does not make them a required deployment gate. Branch protection and required-check settings were not changed.
+## Reproducibility
 
-## Environment and commands
-
-Node v22.23.1. Dependency-free verification ran directly:
-
-```sh
-node --test tests/*.test.mjs
-node tools/release-build.mjs fixture
-node tools/release-build.mjs production
-node --check tests/browser-smoke.mjs
-node tests/browser-smoke.mjs
-```
-
-Production was tested with a test-only fetch preloader in an isolated copy (pass) and with no token/metadata (expected block). Browser invocation stopped at launch, not at an application assertion. No npm installation or internet request was performed by this sandbox.
-
-## Preserved and remaining
-
-CSS/fonts/assets, all catalog and recommendation data, lib/tmdb-identity.mjs, tools/release-build.mjs, tools/streaming-output.mjs, package.json and vercel.json are unchanged. build.mjs changes public strings only; identity/search/season enrichment is unchanged. The 95% poster and regional degradation checks retain their behavior.
-
-localStorage remains non-atomic; true simultaneous writes are best-effort. Catalog-wide editorial, source, metadata and identity verification; durable snapshot storage; commercial/consent/legal integrations; real devices and live data remain pending. Ads, analytics and affiliate tracking remain disabled. No repository commit, deployment or external message was made.
+Input ZIP comment: `a21c723f5eb58c442a1cc12c81220ce0bf1d668a` (archive-provided reference, not independent GitHub verification).
+Input archive SHA-256: `e89b1872b1d79b0d5535d146efd543165a8ff19cd4e430d93cd34f87313e260d`.
+Tested source fingerprint: `d936a5a1f0d8d8f6d5dc044a7e791bd5f65ad72ea0125c74d57cb0cecd25c9e9`. Generated status/workbook/manifest files are not in the source fingerprint scope.

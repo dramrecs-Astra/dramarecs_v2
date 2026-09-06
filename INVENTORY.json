@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-06T09:44:36.072Z",
+  "generatedAt": "2026-09-06T10:15:27.250Z",
   "sourceRevision": null,
   "sourceRevisionEvidence": "unavailable; ZIPs do not prove a commit revision",
-  "sourceFingerprint": "79f01d331e8602771c59279ee1975651be65be2f932af8060d1105c12da01ac0",
+  "sourceFingerprint": "d936a5a1f0d8d8f6d5dc044a7e791bd5f65ad72ea0125c74d57cb0cecd25c9e9",
   "sourceFingerprintAlgorithm": "sha256 v2, sorted source paths plus bytes; includes CI, deployment and runtime configuration; excludes only generated data/metadata-snapshot.json and data/.metadata-snapshot.pending.json within source trees",
   "dramas": 219,
   "recommendationLists": 101,

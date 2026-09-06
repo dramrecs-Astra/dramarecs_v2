@@ -8,7 +8,7 @@ for(const d of dramas) {
   if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(d.slug)) errors.push('Invalid slug '+d.slug);
   for(const k of ['episodes','runtime']) if(!Number.isFinite(d[k]) || d[k]<=0) errors.push(`${d.slug}: invalid ${k}`);
   if(!Number.isInteger(d.episodes)) errors.push(`${d.slug}: episodes must be a whole number`);
-  if(d.tmdb_id && (!Number.isInteger(d.tmdb_id)||d.tmdb_id<1)) errors.push(`${d.slug}: invalid TMDB ID`);
+  if(Object.prototype.hasOwnProperty.call(d,'tmdb_id') && (!Number.isSafeInteger(d.tmdb_id)||d.tmdb_id<1)) errors.push(`${d.slug}: invalid TMDB ID`);
 }
 // Explicit evidence must have usable syntax. This cannot prove factual truth or
 // certify legacy prose, identity mappings, source contents or human review.

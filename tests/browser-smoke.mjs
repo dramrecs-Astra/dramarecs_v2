@@ -43,14 +43,17 @@ try {
    if(url.hostname==='image.tmdb.org')return route.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="500" height="750"><rect width="500" height="750" fill="#62514c"/><text x="30" y="70" fill="#f5eee8" font-size="25">TEST ARTWORK</text></svg>'});
    return route.abort();
   });
-  if(saved)await context.addInitScript(saved=>{
-   // The init script also runs in the initial about:blank document, whose
-   // opaque origin can reject localStorage access before the real page loads.
-   try{
-    const storage=window.localStorage;
-    if(!storage.getItem('dr.state.v1'))storage.setItem('dr.state.v1',JSON.stringify({version:1,saved,watched:[],hideWatched:false,showEndingTones:false}));
-   }catch(_){}
-  },saved);
+  if(saved)await context.addInitScript(({saved,base})=>{
+   // Ignore opaque initial documents and unrelated origins BEFORE storage access.
+   // Actual test-origin failures must reach the pageerror assertion, not disappear.
+   if(window.location.origin!==base)return;
+   const storage=window.localStorage,key='dr.state.v1';
+   if(storage.getItem(key)===null){
+    const seed=JSON.stringify({version:1,saved,watched:[],hideWatched:false,showEndingTones:false});
+    storage.setItem(key,seed);
+    if(storage.getItem(key)!==seed)throw new Error('Browser fixture storage seed did not persist');
+   }
+  },{saved,base});
   const errors=[];context.on('page',p=>{p.setDefaultTimeout(10000);p.on('pageerror',e=>errors.push(e.message));});
   const page=await context.newPage(),file=name.replace(/[^a-z0-9-]/gi,'-');
   let failed=false;

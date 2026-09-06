@@ -80,12 +80,12 @@
   }
   if($('.clearall'))$('.clearall').onclick=clearFilters;if($('#emptyclear'))$('#emptyclear').onclick=clearFilters;
   if($('#nofilterhits'))$('#nofilterhits').insertAdjacentHTML('beforeend','<p>Already watched everything? Turn off “Hide dramas I\'ve watched” above, or <a href="/collections/">try a different collection</a>. Your watched history is kept.</p>');
-  var mount=$('#shelfmount'),sharedSlugs=null,shareError='',shelfReady=false;
+  var mount=$('#shelfmount'),sharedSlugs=null,shareError='',shelfReady=false,shareAttempt=0;
   function readSharedShelf(){sharedSlugs=null;shareError='';try{sharedSlugs=core.shared(location.hash);}catch(e){shareError=e.message;}}
   if(mount){
     readSharedShelf();
     window.addEventListener('hashchange',function(){
-      readSharedShelf();var field=$('#sharelink'),hadCopyFocus=field&&document.activeElement===field;
+      shareAttempt++;readSharedShelf();var field=$('#sharelink'),hadCopyFocus=field&&document.activeElement===field;
       if(field){field.value='';field.parentNode.hidden=true;}
       sync();if(hadCopyFocus&&$('#shelfshare'))$('#shelfshare').focus();
     });
@@ -120,8 +120,16 @@
     if(shareError){toast(shareError);return;}var ids=sharedSlugs===null?state.read().saved:sharedSlugs;if(!ids.length){toast('Nothing to share yet.');return;}
     var url=location.origin+'/my-shelf/#s='+encodeURIComponent(ids.join(','));if(url.length>16000){toast('This shelf is too large for a share link. Share a smaller selection.');return;}
     var field=$('#sharelink');if(!field){var label=document.createElement('label');label.className='sharecopy';label.textContent='Anyone with this link can see these titles. Copy the link:';field=document.createElement('input');field.id='sharelink';field.readOnly=true;label.appendChild(field);$('.shelfbar').appendChild(label);}
-    field.parentNode.hidden=false;field.value=url;field.focus();field.select();var sharedHash=location.hash;
-    if(navigator.clipboard)navigator.clipboard.writeText(url).then(function(){if(location.hash===sharedHash)toast('Link copied. Anyone with it can see the shared titles.');}).catch(function(){if(location.hash===sharedHash)toast('Select and copy the link shown beside Share.');});
+    field.parentNode.hidden=false;field.value=url;field.focus();field.select();var sharedHash=location.hash,attempt=++shareAttempt;
+    function currentCopy(){return attempt===shareAttempt&&location.hash===sharedHash&&field.value===url&&!field.parentNode.hidden;}
+    function manualCopy(){if(currentCopy())toast('Select and copy the link shown beside Share.');}
+    // Clipboard access and writeText can throw before returning a promise.
+    // The visible field remains usable with no Clipboard API or denied access.
+    try{
+      var clipboard=navigator.clipboard;
+      if(!clipboard||typeof clipboard.writeText!=='function'){manualCopy();return;}
+      Promise.resolve(clipboard.writeText(url)).then(function(){if(currentCopy())toast('Link copied. Anyone with it can see the shared titles.');},manualCopy);
+    }catch(_){manualCopy();}
   };
   var spoilerButtons=$$('.spoiler');
   if(spoilerButtons.length){var label=document.createElement('label');label.className='endingpref wrap';label.innerHTML='<input type="checkbox" id="endingtones"> Show ending tone labels (spoilers)';$('#main').prepend(label);$('#endingtones').onchange=function(){var next=state.read();next.showEndingTones=this.checked;state.write(next);spoilerButtons.forEach(function(b){b.dataset.open='false';});syncSpoilers();};}

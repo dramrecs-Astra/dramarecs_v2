@@ -80,8 +80,12 @@
     if (!hash || !/[#&]s=/.test(hash)) return null;
     if (hash.length > 16000) throw new Error('This shared shelf link is too long.');
     var m = /[#&]s=([^&]*)/.exec(hash);
-    try { return slugs(decodeURIComponent(m[1]).split(',')); }
+    var decoded;
+    try { decoded=decodeURIComponent(m[1]); }
     catch (_) { throw new Error('This shared shelf link is damaged.'); }
+    var ids=uniqueSlugs(decoded.split(','));
+    if(ids.length>500)throw new Error('This shared shelf exceeds the 500-title limit. Nothing was imported.');
+    return ids;
   }
   function normalize(value) {
     return String(value || '').toLowerCase().replace(/[\u2019'`.,:;!?]/g,'').replace(/\s+/g,' ').trim()

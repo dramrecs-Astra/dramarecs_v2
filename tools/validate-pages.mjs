@@ -1,44 +1,38 @@
 #!/usr/bin/env node
-/**
- * validate-pages.mjs
- * Run from the repo root:  node tools/validate-pages.mjs
- *
- * Checks every file in data/pages/ against the house rules before you commit,
- * so a broken page never reaches Vercel:
- *   - the seed exists in data/dramas.json
- *   - every pick slug exists in data/dramas.json
- *   - 5 to 7 picks, 3 anti-picks
- *   - match scores strictly descending, none above 96
- *   - no em dashes or en dashes anywhere
- *   - no banned AI filler words
- *   - critic voice: no sourced opinions ("viewers say", "every thread", "fans describe")
- *   - never two seasons of the same show as picks on one page
- *   - catalog blurbs obey the same voice, dash and filler rules as the pages do
- *   - season entries carry their own label, meters, hook, ending and verdict
- *   - no duplicate picks, no pick that is also the seed
- *   - a pick is never also listed in that page's `against`
- *   - reciprocity warning: if page A picks B, B should not anti-pick A
- * Exits 1 on any error. Warnings do not fail the run.
+/** Validate catalog/page structure before prose lint and relationship checks.
+ * Legacy scores stay internal. Citation syntax does not certify factual truth.
+ * Zero to three conditional anti-picks are allowed; attributed reporting is allowed.
+ * Existing catalog titles are exempt from filler lint only as whole-title spans.
  */
 import { readFileSync, readdirSync, existsSync } from "node:fs";
-
-// Reported voice. The research happens upstream of the writing, not inside it.
-// A critic writes "the pacing drags", never "viewers say the pacing drags". See VOICE.md.
-const ATTRIBUTION = []; // Attributed reception is allowed; provenance checks live in validate-data.mjs.
+import { checkedDate } from "../lib/editorial-evidence.mjs";
+const ATTRIBUTION = [];
 
 const BANNED = ["masterpiece","tapestry","rollercoaster","delves into","delve into","testament to","seamlessly","captivating","navigates","poignant reminder","a must-watch","in today's fast-paced"];
 const SEASON_OWN = ["pace","romance","heavy","comfort","hook","hookNote","ending","endingText","verdict"];
 const DASHES = /[\u2014\u2013]/;
 
 if (!existsSync("data/dramas.json")) { console.error("Run this from the repo root."); process.exit(1); }
-const catalog = new Set(JSON.parse(readFileSync("data/dramas.json","utf8")).map(d => d.slug));
 const files = readdirSync("data/pages").filter(f => f.endsWith(".json")).sort();
 const rawCatalog = JSON.parse(readFileSync("data/dramas.json","utf8"));
+const errors = [], warnings = [];
+const object = value => value!==null && typeof value==='object' && !Array.isArray(value);
+if(!Array.isArray(rawCatalog)){console.error('dramas.json: catalog must be an array');process.exit(1);}
+for(const [i,d] of rawCatalog.entries()){
+  if(!object(d)){errors.push(`dramas.json: entry ${i+1} must be an object`);continue;}
+  for(const key of ['slug','title'])if(typeof d[key]!=='string'||!d[key].trim())errors.push(`dramas.json: entry ${i+1} ${key} must be a non-empty string`);
+  for(const key of ['endingText','hookNote','verdict','seasonOf','seasonLabel'])if(d[key]!==undefined&&typeof d[key]!=='string')errors.push(`dramas.json: ${d.slug} ${key} must be a string`);
+  if(Object.prototype.hasOwnProperty.call(d,'season')&&(!Number.isSafeInteger(d.season)||d.season<1))errors.push(`dramas.json: ${d.slug} season must be a positive whole number`);
+}
+if(errors.length){console.error(errors.join('\n'));process.exit(1);}
+const catalog = new Set(rawCatalog.map(d=>d.slug));
 const titles = new Map(rawCatalog.map(d => [d.slug, d.title]));
 const catalogTitle = (slug) => titles.get(slug);
 const seasonOf = new Map(rawCatalog.filter(d => d.seasonOf).map(d => [d.slug, d.seasonOf]));
-
-const errors = [], warnings = [];
+// Mask only complete catalog titles. Banned words outside those spans still fail.
+const escapePattern = value => value.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+const titlePattern = new RegExp('(?<![\\p{L}\\p{N}_])(?:'+[...new Set(titles.values())].sort((a,b)=>b.length-a.length).map(escapePattern).join('|')+')(?![\\p{L}\\p{N}_])','giu');
+const proseForLint = text => text.replace(titlePattern,' ');
 const pagesBySeed = new Map();
 
 for (const file of files) {
@@ -46,6 +40,19 @@ for (const file of files) {
   let page;
   try { page = JSON.parse(readFileSync(path,"utf8")); }
   catch (e) { errors.push(`${file}: invalid JSON (${e.message})`); continue; }
+  if(!object(page)){errors.push(`${file}: page must be an object`);continue;}
+  const before=errors.length;
+  if(typeof page.seed!=='string'||!page.seed.trim())errors.push(`${file}: seed must be a non-empty string`);
+  if(typeof page.standfirst!=='string')errors.push(`${file}: standfirst must be a string`);
+  if(!Array.isArray(page.picks))errors.push(`${file}: picks must be an array`);
+  if(page.against!==undefined&&!Array.isArray(page.against))errors.push(`${file}: against must be an array`);
+  for(const key of ['picks','against'])if(Array.isArray(page[key]))page[key].forEach((entry,i)=>{
+    if(!object(entry)){errors.push(`${file}: ${key} ${i+1} must be an object`);return;}
+    const id=key==='picks'?'slug':'title';
+    if(typeof entry[id]!=='string'||!entry[id].trim())errors.push(`${file}: ${key} ${i+1} ${id} must be a non-empty string`);
+    if(typeof entry.why!=='string')errors.push(`${file}: ${key} ${i+1} why must be a string`);
+  });
+  if(errors.length>before)continue;
   pagesBySeed.set(page.seed, page);
 
   const expected = file.replace(/\.json$/, "");
@@ -56,7 +63,7 @@ for (const file of files) {
   if (picks.length < 5 || picks.length > 7) errors.push(`${file}: ${picks.length} picks (need 5 to 7)`);
   if ((page.against || []).length > 3) errors.push(`${file}: ${(page.against||[]).length} anti-picks (allow zero to three)`);
   if (!page.standfirst || page.standfirst.length < 120) warnings.push(`${file}: standfirst is short`);
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(page.reviewed || "")) errors.push(`${file}: missing or malformed "reviewed" date`);
+  if (typeof page.reviewed!=="string" || !/^\d{4}-\d{2}-\d{2}$/.test(page.reviewed) || !checkedDate(page.reviewed)) errors.push(`${file}: reviewed must be a real, non-future YYYY-MM-DD date`);
 
   const seen = new Set();
   let last = Infinity;
@@ -106,9 +113,10 @@ for (const file of files) {
   }
 
   const blob = prose.map(([,text]) => text).join(" ");
+  const lintBlob = proseForLint(blob);
   if (DASHES.test(blob)) errors.push(`${file}: contains an em dash or en dash`);
   for (const w of BANNED) {
-    if (new RegExp(`\\b${w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}\\b`,"i").test(blob)) errors.push(`${file}: banned phrase "${w}"`);
+    if (new RegExp(`\\b${w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}\\b`,"i").test(lintBlob)) errors.push(`${file}: banned phrase "${w}"`);
   }
 }
 
@@ -125,7 +133,7 @@ for (const d of rawCatalog) {
     }
     if (DASHES.test(text)) errors.push(`dramas.json: ${d.slug} ${field} contains an em dash or en dash`);
     for (const w of BANNED) {
-      if (new RegExp(`\\b${w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}\\b`,"i").test(text)) errors.push(`dramas.json: ${d.slug} ${field} uses banned phrase "${w}"`);
+      if (new RegExp(`\\b${w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}\\b`,"i").test(proseForLint(text))) errors.push(`dramas.json: ${d.slug} ${field} uses banned phrase "${w}"`);
     }
   }
   if (d.verdict && d.verdict.length < 200) warnings.push(`dramas.json: ${d.slug} verdict is thin (${d.verdict.length} chars, want 3 to 5 sentences)`);

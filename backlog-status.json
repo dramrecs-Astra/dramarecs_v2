@@ -1,296 +1,422 @@
 [
   {
     "id": "DR-01",
-    "status": "Implemented; Chromium CI configured, execution pending",
-    "changed": "Shelf geometry and CSS are unchanged. The browser smoke runner now checks 25 combinations of 360/390/768/1366/1440px and 0/1/2/6/30 titles using synthetic loaded poster images, including aspect ratio, width cap and mobile columns.",
-    "checked": "Existing automated tests and the full fixture build pass. Browser runner syntax and workflow source checks pass; no Chromium execution completed in this sandbox.",
-    "remaining": "Wait for the first GitHub Actions browser result after upload. Safari/Firefox, physical devices and screen-reader checks remain pending."
+    "status": "Shelf implementation retained; browser rerun pending",
+    "changed": "Shelf geometry and CSS are unchanged. The browser smoke runner now checks 25 combinations of 360/390/768/1366/1440px and 0/1/2/6/30 titles using synthetic loaded poster images, including aspect ratio, width cap and mobile columns. Browser fixture now skips non-test origins without touching storage and exposes failures on the test origin.",
+    "checked": "254 Node tests pass, including origin-scoped browser seeding regressions. Fixture structure checks pass across 341 HTML files. This is not a rendering pass.",
+    "remaining": "The user-reported Chromium run failed on localStorage access. Updated fixture setup is supplied, but a green Chromium rerun has not been observed. Physical devices, other browsers and screen readers remain pending.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Implementation changed in this batch; see checked evidence."
   },
   {
     "id": "DR-02",
     "status": "Implemented; browser QA pending",
     "changed": "Independent saved/watched state; persistent hide-watched filter; watched search badges; clear filters retains history.",
     "checked": "State persistence unit tests and watched-search DOM test.",
-    "remaining": "Run multi-page real-browser watched/undo/focus tests."
+    "remaining": "Run multi-page real-browser watched/undo/focus tests.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-03",
     "status": "Focus repairs implemented; real-browser verification pending",
     "changed": "Shelf title links and non-item controls retain focus across cross-tab rerendering. Removed title links focus a neighbor or discovery. Existing remove/Undo/comparison focus behavior is preserved.",
     "checked": "Actual app DOM regressions cover retained/removed/final shelf links, shared-import control, removal/Undo and comparison controls.",
-    "remaining": "Configured Chromium cross-tab checks still need execution. Real keyboard, touch and assistive checks across browsers remain pending."
+    "remaining": "Configured Chromium cross-tab checks still need execution. Real keyboard, touch and assistive checks across browsers remain pending.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-04",
     "status": "Capacity and stale-tab repairs implemented; simultaneous-write limitation remains",
     "changed": "Saved/watched writes reject more than 500 distinct valid IDs before normalization and after stale-tab merging. Whole writes fail without truncation, a false Saved message or false Undo confirmation. Original stale-tab merge and session fallback remain.",
     "checked": "500-item boundaries, removals then additions, duplicate IDs, atomic multi-field rejection, stale-tab merging, session fallback and capacity-blocked Undo regressions pass.",
-    "remaining": "localStorage is not atomic; genuinely simultaneous writes remain best-effort. The 500-item cap is retained, not expanded. Real multi-tab/private-browsing checks and cross-device sync remain outside this delivery."
+    "remaining": "localStorage is not atomic; genuinely simultaneous writes remain best-effort. The 500-item cap is retained, not expanded. Real multi-tab/private-browsing checks and cross-device sync remain outside this delivery.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-05",
     "status": "Retry focus and schema repairs implemented; browser verification pending",
     "changed": "Successful shelf retry focuses a connected action or discovery; another failure focuses the replacement Retry. Late completion does not steal focus after the reader moves elsewhere. Existing schema rejection preserves saved IDs.",
     "checked": "DOM tests cover successful/empty/repeated-failure retry and late completion, with original catalog/network/retry regressions retained.",
-    "remaining": "Chromium CI retry checks are configured but unexecuted here. Real slow-network, caching and browser testing remain pending."
+    "remaining": "Chromium CI retry checks are configured but unexecuted here. Real slow-network, caching and browser testing remain pending.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-06",
-    "status": "Shared import capacity and fragment repairs implemented; browser verification pending",
-    "changed": "Shared imports no longer truncate before state validation: an over-capacity import is all-or-nothing and reports Nothing changed. Shared controls retain focus on cross-tab updates; fragment navigation and clipboard safeguards are preserved.",
-    "checked": "Full and nearly-full shared imports, retained focus, shared-to-personal/fragment transitions and prior clipboard regressions pass in DOM tests.",
-    "remaining": "Real Back/Forward and import checks are configured in Chromium CI but not run here. Native clipboard/touch/assistive checks remain pending."
+    "status": "Shared-size and clipboard repairs implemented; browser QA pending",
+    "changed": "Shared imports no longer truncate before state validation: an over-capacity import is all-or-nothing and reports Nothing changed. Shared controls retain focus on cross-tab updates; fragment navigation and clipboard safeguards are preserved. Shared links with more than 500 distinct valid titles now fail explicitly, rather than truncating. Clipboard getter/method exceptions, promise rejection and missing API retain manual copying. Attempt IDs suppress stale completion after navigation or overlapping copies.",
+    "checked": "New regressions cover 500/501 unique-title boundaries, duplicates, invalid IDs, no partial import, clipboard getter/write/rejection/missing cases, hash round trips and overlapping requests. All 254 Node tests pass.",
+    "remaining": "Native clipboard permissions, mobile/touch, real Back/Forward and cross-browser checks remain pending. 500-title cap is retained. No cross-device storage synchronization added.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Implementation changed in this batch; see checked evidence."
   },
   {
     "id": "DR-07",
     "status": "Schema failure and retry recovery repaired; browser QA pending",
     "changed": "Malformed catalog data produces a retryable load error rather than a search crash. Retry prevents its removed button from being treated as an outside click and returns keyboard focus to the search input.",
     "checked": "Malformed response followed by valid retry, keyboard focus and delayed-index/error/explicit-title regressions pass.",
-    "remaining": "Real browser/network checks remain pending; unrecognized queries are not replaced with unrelated titles."
+    "remaining": "Real browser/network checks remain pending; unrecognized queries are not replaced with unrelated titles.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-08",
     "status": "Implemented",
     "changed": "Natural query normalization, aliases and typo matching; Recommendations/Review labels; homepage missing-list destinations corrected.",
     "checked": "Title/alias/typo/phrase unit tests and full local-link scan.",
-    "remaining": "No actor-name search added; unrecognized titles stay unrecognized."
+    "remaining": "No actor-name search added; unrecognized titles stay unrecognized.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-09",
     "status": "Filter focus and input-method repairs implemented; assistive verification pending",
     "changed": "Clearing filters moves focus away from a newly hidden Clear or empty-state button to a visible filter. Original composition/isComposing/keyCode 229 handling and search ARIA remain.",
     "checked": "DOM regressions for both clear controls pass, along with all prior composition, delayed-input and search-focus cases.",
-    "remaining": "Configured Chromium clear-focus tests await execution. Native Korean/Chinese/Japanese IMEs, mobile keyboards, other browsers and screen readers remain pending."
+    "remaining": "Configured Chromium clear-focus tests await execution. Native Korean/Chinese/Japanese IMEs, mobile keyboards, other browsers and screen readers remain pending.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-10",
     "status": "Partial",
     "changed": "Wide rows retained; short fit and caveat extracted from existing prose; full comparison expandable; commitment separated.",
     "checked": "Generated markup smoke check; existing fonts/palette preserved.",
-    "remaining": "Automated extraction is not an editorial rewrite. Manually refine summaries and test layouts."
+    "remaining": "Automated extraction is not an editorial rewrite. Manually refine summaries and test layouts.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-11",
     "status": "Experimental pilot",
     "changed": "My Liberation Notes has three reason-specific subsets and explicit connection explanations; original order always available.",
     "checked": "Schema/source checks; optional browser pilot test supplied.",
-    "remaining": "One seed only. Fan testing and human editorial approval required before extending."
+    "remaining": "One seed only. Fan testing and human editorial approval required before extending.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-12",
     "status": "Implemented",
     "changed": "Removed visible match percentages and probability-like method copy; retained legacy numbers only as internal source data.",
     "checked": "All 341 generated HTML files scanned for match percentages.",
-    "remaining": "Editorial quality of each fit/caveat remains a separate review."
+    "remaining": "Editorial quality of each fit/caveat remains a separate review.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-13",
     "status": "Implemented",
     "changed": "Own curated picks take precedence; fallback co-occurrences rank deterministically and disclose the relationship basis.",
     "checked": "Curated preference and file-order invariance unit tests.",
-    "remaining": "Fallback explanation is overlap, not a personalized taste claim."
+    "remaining": "Fallback explanation is overlap, not a personalized taste claim.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-14",
     "status": "Partial",
     "changed": "Conditional section framing; zero to three anti-picks permitted by validation.",
     "checked": "Validator passes; title/slug data excluded from prose lint.",
-    "remaining": "Existing individual negative comparisons need human rewriting; reciprocity warnings retained."
+    "remaining": "Existing individual negative comparisons need human rewriting; reciprocity warnings retained.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-15",
     "status": "Reveal controls implemented; spoiler-safe prose audit still partial",
     "changed": "Removed unsupported spoiler-safety promises from homepage, browse, ending-collection metadata and terms templates. Ending collections explicitly disclose that membership reveals tone. Existing reveal controls remain unchanged.",
     "checked": "Template regression and generated HTML scans reject the identified blanket safety language; all prior ending-control checks remain.",
-    "remaining": "Removing a promise is not removing every spoiler. Legacy verdicts, fit/caveat prose and all factual ending labels still need editorial review."
+    "remaining": "Removing a promise is not removing every spoiler. Legacy verdicts, fit/caveat prose and all factual ending labels still need editorial review.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-16",
     "status": "Collection/client parity repaired; metadata review pending",
     "changed": "The static short-drama collection now calls the same positive-whole-episode predicate as the client filter. Data validation rejects fractional catalog episode counts. The builder's TMDB enrichment and existing identity/season repair are unchanged.",
     "checked": "Actual builder predicate evaluated against client boundary cases; real validator rejects fractional episodes; fixture and simulated-production builds pass with unchanged source data.",
-    "remaining": "Catalog-wide episode/runtime/season verification is still pending. This is not a total-viewing-time filter and adds no invented duration facts."
+    "remaining": "Catalog-wide episode/runtime/season verification is still pending. This is not a total-viewing-time filter and adds no invented duration facts.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-17",
     "status": "Implemented; browser QA pending",
     "changed": "Detail title and verdict now precede sidebar in source; mobile filter strip is non-sticky at narrow widths.",
     "checked": "Generated detail source-order smoke check.",
-    "remaining": "Check 200% zoom, sticky controls and focused elements on devices."
+    "remaining": "Check 200% zoom, sticky controls and focused elements on devices.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-18",
     "status": "Known correction implemented",
     "changed": "Removed incorrect shared-director claim; retained traceable source URLs and correction scope/date.",
     "checked": "Fresh public credits checked; regression guard for the known claim.",
-    "remaining": "Other writer/director/cast claims remain in the review queue."
+    "remaining": "Other writer/director/cast claims remain in the review queue.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-19",
-    "status": "Partial",
-    "changed": "Editorial episode/runtime values take precedence, season fallback cannot take whole-series counts; Trauma Code stays at eight with Netflix source.",
-    "checked": "Metadata precedence/season tests and generated Trauma Code smoke check.",
-    "remaining": "Catalog-wide season/broadcast normalization and identity pins still pending."
+    "status": "Season schema repaired; catalog metadata review remains partial",
+    "changed": "Editorial episode/runtime values take precedence, season fallback cannot take whole-series counts; Trauma Code stays at eight with Netflix source. Explicit season identifiers must now be positive safe whole numbers; invalid types/zero/fractions are blocked before generation.",
+    "checked": "Season schema rejection/acceptance regressions and existing TMDB identity, episode precedence and season lookup tests pass. Trauma Code 8-episode structure check passes.",
+    "remaining": "Catalog-wide season/broadcast normalization and identity pins still pending.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Implementation changed in this batch; see checked evidence."
   },
   {
     "id": "DR-20",
-    "status": "Partial",
-    "changed": "No first-result fallback: auto candidates require exact title/alias, year and KR origin; ambiguity declines a match; identity review status explicit.",
-    "checked": "Exact/ambiguous identity unit tests.",
-    "remaining": "ZERO catalog mappings certified as verified. Manually confirm IDs and provenance."
+    "status": "Explicit-ID validation repaired; identity certification still pending",
+    "changed": "No first-result fallback: auto candidates require exact title/alias, year and KR origin; ambiguity declines a match; identity review status explicit. Explicit tmdb_id values, including zero, null and false, must be positive safe integers; absence remains allowed without fabricated mappings.",
+    "checked": "New real-validator regressions and existing identity resolution tests pass. Fresh inventory still reports zero verified catalog identity mappings.",
+    "remaining": "ZERO catalog mappings certified as verified. Manually confirm IDs and provenance.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Implementation changed in this batch; see checked evidence."
   },
   {
     "id": "DR-21",
     "status": "Public blanket-review copy corrected; editorial verification remains partial",
     "changed": "Homepage metadata and catalog headings/descriptions/structured data no longer claim universal hand review. Catalog copy states that review coverage varies. Prior Melo Movie wording repair remains.",
     "checked": "Source regression and all 341 generated HTML files checked for the identified blanket review/safety claims. No catalog or recommendation prose was rewritten in this pass.",
-    "remaining": "Full 219-title factual/authorship certification, editor identity and remaining public process/byline claims require owner/editorial confirmation. This is not a claim that all public copy is now verified."
+    "remaining": "Full 219-title factual/authorship certification, editor identity and remaining public process/byline claims require owner/editorial confirmation. This is not a claim that all public copy is now verified.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-22",
-    "status": "Evidence syntax strengthened; factual verification remains partial",
-    "changed": "Structured claims, verified identities and episode citations require well-formed HTTPS sources and valid calendar dates. Credential-bearing/malformed URLs, impossible dates, future timestamps, malformed claim arrays and mismatched episode evidence fail with item-level diagnostics.",
-    "checked": "URL/date boundary tests, time-zone handling, malformed shapes, valid/legacy examples and actual validator subprocess tests pass.",
-    "remaining": "Syntax does not prove link reachability, source contents, factual truth or human review. Legacy prose and the full identity/editorial review queue remain unverified. Date-only records allow up to UTC+14; timestamps require a zone."
+    "status": "Page schema, review dates and title-aware lint repaired; facts unverified",
+    "changed": "Structured claims, verified identities and episode citations require well-formed HTTPS sources and valid calendar dates. Credential-bearing/malformed URLs, impossible dates, future timestamps, malformed claim arrays and mismatched episode evidence fail with item-level diagnostics. Recommendation arrays and entries, prose types and catalog prose are checked before use. Reviewed dates require a real, non-future calendar date. Full catalog-title spans are exempt from banned-word lint; unrelated filler still fails.",
+    "checked": "New real-validator tests cover malformed arrays/entries, dates, prose, full-title boundaries and filler outside title spans. Current catalog/page validation passes with 26 non-blocking reciprocal recommendation warnings.",
+    "remaining": "Validation proves syntax/shape, not source truth, link reachability or actual human review. Legacy prose attribution, negative comparisons, ending spoilers and full identity review remain pending.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Implementation changed in this batch; see checked evidence."
   },
   {
     "id": "DR-23",
     "status": "Implemented; live upstream QA pending",
     "changed": "Initial HTML and region changes share the same streaming renderer and region-specific freshness wording. Empty results remain unconfirmed, dates age after 24 hours, and fallback data is marked potentially outdated.",
     "checked": "Renderer parity, empty-region, invalid/future date, stale-cache and actual region-change DOM tests; synthetic production output.",
-    "remaining": "Real API failure/staleness and browser integration checks still required. Retrieval dates are not independent provider verification."
+    "remaining": "Real API failure/staleness and browser integration checks still required. Retrieval dates are not independent provider verification.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-24",
     "status": "Implemented",
     "changed": "Netflix collection explicitly fixed to US metadata; no in-your-region/today promise; unknown coverage has an honest empty state.",
     "checked": "Generated fixed-US page smoke check; source region filter verified.",
-    "remaining": "No live region-dependent collection membership; that is deliberately not promised."
+    "remaining": "No live region-dependent collection membership; that is deliberately not promised.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-25",
     "status": "Plan presentation implemented; live/browser QA pending",
     "changed": "All available subscription, free, ad-supported, rent and buy records now receive distinct labels. Channel/reseller names remain intact. Rent/buy options use an availability source instead of a subscription search destination; filtering still uses the subscription/free/ad-supported data.",
     "checked": "Model/identity/link tests, static/client parity, rental exclusion from Netflix filtering, and simulated token-backed production output.",
-    "remaining": "Verify live regional provider results and compact layouts. No price or direct-title-link certification, affiliate approval or purchase availability guarantee is implied."
+    "remaining": "Verify live regional provider results and compact layouts. No price or direct-title-link certification, affiliate approval or purchase availability guarantee is implied.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-26",
     "status": "Implemented for current plain links",
     "changed": "Shared resolver retained; destination copy says Search or Check availability; tracking disabled.",
     "checked": "Generated/client source consistency review and tracking-tag scans.",
-    "remaining": "Verified direct title URLs and approved affiliate locale tests remain external."
+    "remaining": "Verified direct title URLs and approved affiliate locale tests remain external.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-27",
     "status": "Snapshot validation strengthened; durable storage and live verification pending",
     "changed": "Hydrated overview/network, genre/provider arrays, rating bounds, availability status, retrieval dates, season dates and HTTPS link syntax are checked. Impossible dates fail; scheduled future season dates remain valid. Poster floor and retained-title/regional-loss guards are unchanged.",
     "checked": "Malformed fields/date/URL cases, legacy omissions, leap dates, rating bounds and five-minute clock skew pass. Release tests prove invalid candidates restore exact last-good bytes and invalid baselines stop before generation. Full isolated simulated-TMDB production build passes.",
-    "remaining": "Live metadata accuracy/coverage and durable snapshot storage remain pending. Stricter validation intentionally blocks malformed snapshots; correct the identified row rather than deleting the baseline or lowering the 95% floor."
+    "remaining": "Live metadata accuracy/coverage and durable snapshot storage remain pending. Stricter validation intentionally blocks malformed snapshots; correct the identified row rather than deleting the baseline or lowering the 95% floor.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-28",
     "status": "Partial",
     "changed": "TMDB notice/link retained and visible JustWatch attribution/source check added.",
     "checked": "Generated footer/provider template review.",
-    "remaining": "Approved TMDB logo asset and commercial-contract-specific requirements still need confirmation. Licensing itself was treated as resolved."
+    "remaining": "Approved TMDB logo asset and commercial-contract-specific requirements still need confirmation. Licensing itself was treated as resolved.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-29",
     "status": "Safeguarded; integration pending",
     "changed": "Ads, CMP, GA and tracking are intentionally disabled in this repair release even if old environment variables are present.",
     "checked": "Build with sample ad/GA/affiliate variables produced no tracking tags.",
-    "remaining": "This is NOT a functioning certified CMP implementation. Consent acceptance/denial/withdrawal/failure testing is still required before monetization."
+    "remaining": "This is NOT a functioning certified CMP implementation. Consent acceptance/denial/withdrawal/failure testing is still required before monetization.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-30",
     "status": "Partial",
     "changed": "Policy describes local state, share disclosure, IP/hosting/contact processing, disabled analytics and uncertain retention honestly.",
     "checked": "Generated policy and source behavior reviewed.",
-    "remaining": "Owner/legal review and actual hosting/contact retention settings remain pending."
+    "remaining": "Owner/legal review and actual hosting/contact retention settings remain pending.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-31",
     "status": "Safeguarded",
     "changed": "All routes are currently ad-ineligible because monetization is disabled globally, including utility pages and staging.",
     "checked": "341 generated HTML files scanned for ad/analytics scripts, including configured-variable fixture build.",
-    "remaining": "Per-page eligibility must be implemented and tested before re-enabling ads; noindex is not being used as an ad gate."
+    "remaining": "Per-page eligibility must be implemented and tested before re-enabling ads; noindex is not being used as an ad gate.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-32",
     "status": "Deferred; ads disabled",
     "changed": "No live ad slots are emitted in this release.",
     "checked": "No-ad smoke check.",
-    "remaining": "Actual reserved sizes, uniform labels, no-fill and consent layout tests remain unimplemented."
+    "remaining": "Actual reserved sizes, uniform labels, no-fill and consent layout tests remain unimplemented.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-33",
     "status": "Safeguarded; placement work pending",
     "changed": "Client filter changes cannot request or refresh ads; no active ad units are shipped.",
     "checked": "No-ad smoke check and client source review.",
-    "remaining": "Visible-content-aware placement must be implemented before monetization; disabling ads is not completion of that feature."
+    "remaining": "Visible-content-aware placement must be implemented before monetization; disabling ads is not completion of that feature.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-34",
     "status": "External; safely disabled",
     "changed": "Affiliate environment variables cannot activate tracking in this release.",
     "checked": "Sample-variable build confirms no affiliate wrappers.",
-    "remaining": "Program acceptance, allowed destinations and country-specific tracking must be verified externally."
+    "remaining": "Program acceptance, allowed destinations and country-specific tracking must be verified externally.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-35",
     "status": "Deferred; planning corrected",
     "changed": "Unsupported current analytics/bot conclusions moved out of current status and labeled unverified history; telemetry remains off.",
     "checked": "Generated inventory and current planning reviewed.",
-    "remaining": "No analytics exports available and no consent-aware funnel shipped. Instrument only after consent integration."
+    "remaining": "No analytics exports available and no consent-aware funnel shipped. Instrument only after consent integration.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-36",
     "status": "Partial",
     "changed": "Netflix inventory no longer claims best-to-worst curation or current local availability.",
     "checked": "Generated copy inspected.",
-    "remaining": "Genuinely selected need-based shortlists for collections remain editorial work."
+    "remaining": "Genuinely selected need-based shortlists for collections remain editorial work.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-37",
-    "status": "Build tests implemented; Chromium CI configured, first run pending",
-    "changed": "GitHub validation now installs pinned Playwright 1.58.2 as CI-only tooling, installs Chromium, runs browser smoke checks and uploads failure diagnostics. Read-only workflow permissions and a 20-minute job timeout are set. Vercel build command and package.json are unchanged.",
-    "checked": "184 Node tests, fixture release, 341-file link/structure/claim scans and isolated simulated-TMDB production release pass. Browser driver parses; launch is blocked by missing browser binaries in the sandbox.",
-    "remaining": "A green browser result is not yet available. GitHub Actions and Vercel are independent: branch protections/required checks and deployment gating are owner settings, not configured here. Native/other-browser/assistive/live/rollback testing remains pending."
+    "status": "Build tests pass; browser fixture repaired, Chromium rerun pending",
+    "changed": "Browser init seeding now runs only on the exact local test-server origin, preserves existing state and checks storage readback. Denial or silently discarded writes on the real origin can no longer be swallowed. Existing CI workflow and exception assertions remain enabled.",
+    "checked": "254 Node tests pass: 184 retained and 70 added. The new suite produces 50 failures on the input source and zero on the repaired source. Fixture release and 341-HTML/834-streaming-row checks pass. Browser driver syntax and serialized callback tests pass, not a Chromium execution.",
+    "remaining": "User-reported browser run failed. No successful rerun is available. Playwright/Chromium are unavailable in this sandbox, which has no internet access to install them. Live TMDB, real devices, assistive tools, field performance and owner-managed deployment gating remain pending.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Implementation changed in this batch; see checked evidence."
   },
   {
     "id": "DR-38",
     "status": "Implemented",
     "changed": "Displayed shared-pick count is set intersection; ranking cross-links kept separately; lower link totals no longer treated as automatic breakage in current notes.",
     "checked": "Intersection/ranking unit test.",
-    "remaining": "Editorial suitability still outranks graph metrics."
+    "remaining": "Editorial suitability still outranks graph metrics.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-39",
     "status": "Partial",
     "changed": "Responsive TMDB srcset/sizes, lazy shelf images, intrinsic image dimensions; self-hosted fonts retained.",
     "checked": "Source/generated markup review; optional browser matrix supplied.",
-    "remaining": "No real-browser screenshots or measured LCP/INP/CLS; above-fold image priority still needs profiling."
+    "remaining": "No real-browser screenshots or measured LCP/INP/CLS; above-fold image priority still needs profiling.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-40",
     "status": "Deferred",
     "changed": "Existing email/contact fallback retained; no fake form success or unconfigured server endpoint shipped.",
     "checked": "No external messages sent.",
-    "remaining": "A server-side submission destination, anti-spam/rate limits and success/failure tests must be configured."
+    "remaining": "A server-side submission destination, anti-spam/rate limits and success/failure tests must be configured.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   },
   {
     "id": "DR-41",
-    "status": "Fingerprint coverage repaired; historical reconciliation pending",
-    "changed": "Fingerprint v2 includes .github source configuration, vercel.json and supported root runtime/ignore files. Exclusions are exact generated snapshot paths rather than broad filename patterns. Current inventory, status and test reports are refreshed.",
-    "checked": "Content-change regressions cover CI/deployment/runtime files and similarly named source files; actual revision evidence remains null for the supplied ZIP. Current fixture counts are 219 dramas, 101 lists, 341 HTML files and 338 sitemap entries.",
-    "remaining": "A source fingerprint does not attest to remote secrets, branch protection, production settings or deployments. Historical workbook/research/release notes still require owner reconciliation; TEST-RESULTS.md is current."
+    "status": "All 42 workbook statuses reconciled; historical research notes remain historical",
+    "changed": "Fingerprint v2 includes .github source configuration, vercel.json and supported root runtime/ignore files. Exclusions are exact generated snapshot paths rather than broad filename patterns. Current inventory, status and test reports are refreshed. Supplied workbook now maps every DR-01 through DR-42 row to current implementation, this-pass evidence and remaining acceptance. Fresh counts replace outdated Read first inventory; historical findings are explicitly labeled.",
+    "checked": "Workbook IDs compared one-to-one with all 42 source status records. 42 Status cells updated; no duplicate or missing IDs. Original seven worksheets preserved; Current evidence and Batch 10 sheets added. New source fingerprint and package manifest generated.",
+    "remaining": "Workbook update does not certify historical research, all editorial claims, deployment state, remote settings or external approvals. Older narrative notes remain historical; this report and refreshed statuses govern this delivery.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Implementation changed in this batch; see checked evidence."
   },
   {
     "id": "DR-42",
     "status": "Comparison repaired; actor/couple discovery deferred",
     "changed": "Comparison save/watched actions preserve focus through rerendering. Direct removal controls focus a neighboring comparison or a visible original/filter control. The unsupported no-ending-spoilers promise is replaced with an explicit caveat about legacy plot prose.",
     "checked": "Actual app DOM tests for save, watched, Undo, multiple/final comparison removal and hidden original rows.",
-    "remaining": "Real-browser/assistive checks and a full spoiler-safe prose audit remain pending. Actor/couple data and pages are still deliberately not fabricated."
+    "remaining": "Real-browser/assistive checks and a full spoiler-safe prose audit remain pending. Actor/couple data and pages are still deliberately not fabricated.",
+    "statusAsOf": "2026-09-06",
+    "evidenceScope": "Supplied source archive plus Node/fixture checks in this delivery; no remote commit, deployment, live API or real-browser certification.",
+    "thisPass": "Carried forward from inspected source status. Existing Node tests and fixture checks rerun as part of 254-test release; no new item-specific browser/editorial certification."
   }
 ]
