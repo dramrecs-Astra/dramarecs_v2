@@ -15,10 +15,10 @@
   },
   {
     "id": "DR-03",
-    "status": "Implemented; browser QA pending",
-    "changed": "Separate shelf title links, Remove and Already watched controls, persistent Undo action; shared import merges.",
-    "checked": "Source review; optional browser action test supplied.",
-    "remaining": "Check keyboard focus and undo on actual browsers."
+    "status": "Implemented; real-browser QA pending",
+    "changed": "Shelf removal now focuses the next or previous visible item, or the discovery link when empty. Undo restores the title at its original position and focuses the restored action. Saved and watched states remain independent.",
+    "checked": "Focus-aware tests against the actual app script: middle/last/only removal, watched Undo and shared import. DOM mocks are not real-browser proof.",
+    "remaining": "Run real keyboard, touch and screen-reader checks, including Safari/Firefox."
   },
   {
     "id": "DR-04",
@@ -106,10 +106,10 @@
   },
   {
     "id": "DR-16",
-    "status": "Partial",
-    "changed": "Uniform 12-or-fewer episode filter; removed weekend-length promise; approximate total hours on recommendations and details.",
-    "checked": "Unit tests protect editorial episode/runtime precedence.",
-    "remaining": "Most durations and season scope still need verification; approximate totals are not verified viewing times."
+    "status": "Filter repaired; metadata review pending",
+    "changed": "The 12-or-fewer client filter now requires a known, positive, whole episode count. Missing, blank, zero, negative, malformed or fractional values no longer qualify. Existing episode labeling and approximate totals are retained.",
+    "checked": "Pure boundary tests plus actual client filter test; previous editorial/season precedence tests retained.",
+    "remaining": "Catalog-wide episode/runtime/season verification remains pending. No new duration facts were invented."
   },
   {
     "id": "DR-17",
@@ -155,10 +155,10 @@
   },
   {
     "id": "DR-23",
-    "status": "Implemented; upstream QA pending",
-    "changed": "Empty data is availability unconfirmed, with source links; dated/stale notes and last-good fallback implemented.",
-    "checked": "Generated text check and provider coverage safety tests.",
-    "remaining": "Real API failure/staleness integration still needs network testing."
+    "status": "Implemented; live upstream QA pending",
+    "changed": "Initial HTML and region changes share the same streaming renderer and region-specific freshness wording. Empty results remain unconfirmed, dates age after 24 hours, and fallback data is marked potentially outdated.",
+    "checked": "Renderer parity, empty-region, invalid/future date, stale-cache and actual region-change DOM tests; synthetic production output.",
+    "remaining": "Real API failure/staleness and browser integration checks still required. Retrieval dates are not independent provider verification."
   },
   {
     "id": "DR-24",
@@ -169,10 +169,10 @@
   },
   {
     "id": "DR-25",
-    "status": "Partial",
-    "changed": "Channel/reseller identity retained; no four-brand truncation; raw provider IDs and purchase models preserved in metadata records.",
-    "checked": "Provider record test verifies ID/name/model preservation.",
-    "remaining": "UI still focuses subscription/free/ad-supported options, not full rent/buy model presentation."
+    "status": "Plan presentation implemented; live/browser QA pending",
+    "changed": "All available subscription, free, ad-supported, rent and buy records now receive distinct labels. Channel/reseller names remain intact. Rent/buy options use an availability source instead of a subscription search destination; filtering still uses the subscription/free/ad-supported data.",
+    "checked": "Model/identity/link tests, static/client parity, rental exclusion from Netflix filtering, and simulated token-backed production output.",
+    "remaining": "Verify live regional provider results and compact layouts. No price or direct-title-link certification, affiliate approval or purchase availability guarantee is implied."
   },
   {
     "id": "DR-26",
@@ -183,10 +183,10 @@
   },
   {
     "id": "DR-27",
-    "status": "Partial",
-    "changed": "Request timeout/retry, timestamped 24-hour cache, last-good snapshot support, 95% poster floor and catastrophic provider-loss gate.",
-    "checked": "Quality-gate unit tests; no-token production build correctly fails.",
-    "remaining": "No token/network available here. Durable snapshot persistence and scheduled refresh need deployment setup; this archive has no real poster snapshot."
+    "status": "Automated safeguards implemented; durable persistence pending",
+    "changed": "95% poster floor retained with URL validation; losses are checked for retained titles and per-region non-empty provider data, including rental/purchase records. Invalid snapshots stop the release. Normal failed release steps restore last-good bytes; only healthy non-fixture runs promote metadata after downstream checks.",
+    "checked": "Boundary and regional-degradation tests; orchestrator success/failure/fixture/preview tests; full simulated production pass; no-token production intentionally blocked.",
+    "remaining": "Live upstream checks and durable snapshot storage/scheduled refresh remain deployment work. Unexpected process termination is not a tested recovery path. Use npm run build, not the low-level generator."
   },
   {
     "id": "DR-28",
@@ -281,16 +281,16 @@
   },
   {
     "id": "DR-41",
-    "status": "Partial",
-    "changed": "Generated counts and review queue; current state corrected to 219/101; historical contradictory counts and completion claims explicitly separated.",
-    "checked": "Inventory matches 338 sitemap entries in fixture build and 26 existing validator warnings.",
-    "remaining": "Legacy research notes and content priorities still need owner reconciliation; no old history silently erased."
+    "status": "Current inventory/status repaired; legacy research review pending",
+    "changed": "Removed the hardcoded source revision. Inventory uses validated Vercel/GitHub/git evidence or null, includes a deterministic source fingerprint and actual generated HTML counts, and does not claim tests or reviews passed merely from counts. This seven-item status and current test evidence are refreshed.",
+    "checked": "Revision/fingerprint tests; fixture inventory: 219 dramas, 101 lists, 341 HTML files, 338 sitemap entries and zero certified identity mappings.",
+    "remaining": "Historical research notes still need owner reconciliation. Historical first-pass release notes are not the current test report; see TEST-RESULTS.md."
   },
   {
     "id": "DR-42",
-    "status": "Comparison pilot implemented; discovery deferred",
-    "changed": "Up to three recommendation comparisons using current commitment, fit/caveat and watched/saved state; no ending outcomes copied into comparison controls.",
-    "checked": "Source reviewed; optional browser tests.",
-    "remaining": "Actual source prose may still contain spoilers. Verified actor/couple schema and pages intentionally not fabricated."
+    "status": "Comparison repaired; actor/couple discovery deferred",
+    "changed": "Comparison save/watched actions preserve focus through rerendering. Direct removal controls focus a neighboring comparison or a visible original/filter control. The unsupported no-ending-spoilers promise is replaced with an explicit caveat about legacy plot prose.",
+    "checked": "Actual app DOM tests for save, watched, Undo, multiple/final comparison removal and hidden original rows.",
+    "remaining": "Real-browser/assistive checks and a full spoiler-safe prose audit remain pending. Actor/couple data and pages are still deliberately not fabricated."
   }
 ]

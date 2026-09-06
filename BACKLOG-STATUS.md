@@ -1,10 +1,12 @@
-# DR-01 through DR-42: implementation status
+# Current DR-01 through DR-42 implementation status
 
-Scope: supplied v2 archive, current MARQUEE design and fonts retained. No GitHub writes or deployments. “Implemented” describes source implementation, not completion of all browser, editorial, legal or external acceptance checks.
+Follow-up date: 2026-09-06. This pass updates DR-03, DR-16, DR-23, DR-25, DR-27, DR-41 and DR-42. Other rows retain the prior assessment; they were not newly certified. No GitHub or Vercel changes were made.
 
-Verified baseline: 219 dramas, 101 recommendation lists, 26 validator warnings. The older 152/41 audit does not describe this ZIP. No recommendation source files were removed.
+The user reports the supplied baseline now deploys cleanly. Its 39 tests passed before this pass; the replacement files now pass 80 Node tests. Fixture and simulated-TMDB production output checks passed across 341 HTML files and 834 streaming rows, with 338 sitemap entries. There are 219 dramas and 101 recommendation lists. The 26 existing reciprocal-recommendation warnings remain.
 
-Tests: 29 Node unit/DOM-mock tests pass; generated-output checks pass over 341 HTML files; 338 sitemap entries in fixture build. Browser binaries and network access were unavailable, so no real-browser/CWV claim is made.
+These are automated/local results, not real-browser, live TMDB, editorial, consent or commercial certification. The existing MARQUEE design/fonts, static architecture and working TMDB fallback/season repair are preserved. Ads, analytics and affiliate tracking remain disabled.
+
+Use TEST-RESULTS.md for current verification; older 29-test release notes describe the historical first repair, not this delivery. Partial statuses are not closed items.
 
 ## DR-01: Implemented; browser QA pending
 
@@ -22,13 +24,13 @@ Tests: 29 Node unit/DOM-mock tests pass; generated-output checks pass over 341 H
 
 **Remaining:** Run multi-page real-browser watched/undo/focus tests.
 
-## DR-03: Implemented; browser QA pending
+## DR-03: Implemented; real-browser QA pending
 
-**Changed:** Separate shelf title links, Remove and Already watched controls, persistent Undo action; shared import merges.
+**Changed:** Shelf removal now focuses the next or previous visible item, or the discovery link when empty. Undo restores the title at its original position and focuses the restored action. Saved and watched states remain independent.
 
-**Checked:** Source review; optional browser action test supplied.
+**Checked:** Focus-aware tests against the actual app script: middle/last/only removal, watched Undo and shared import. DOM mocks are not real-browser proof.
 
-**Remaining:** Check keyboard focus and undo on actual browsers.
+**Remaining:** Run real keyboard, touch and screen-reader checks, including Safari/Firefox.
 
 ## DR-04: Implemented
 
@@ -126,13 +128,13 @@ Tests: 29 Node unit/DOM-mock tests pass; generated-output checks pass over 341 H
 
 **Remaining:** Legacy verdicts and some fit/caveat prose can still spoil endings. Full spoiler-safe editorial audit NOT completed.
 
-## DR-16: Partial
+## DR-16: Filter repaired; metadata review pending
 
-**Changed:** Uniform 12-or-fewer episode filter; removed weekend-length promise; approximate total hours on recommendations and details.
+**Changed:** The 12-or-fewer client filter now requires a known, positive, whole episode count. Missing, blank, zero, negative, malformed or fractional values no longer qualify. Existing episode labeling and approximate totals are retained.
 
-**Checked:** Unit tests protect editorial episode/runtime precedence.
+**Checked:** Pure boundary tests plus actual client filter test; previous editorial/season precedence tests retained.
 
-**Remaining:** Most durations and season scope still need verification; approximate totals are not verified viewing times.
+**Remaining:** Catalog-wide episode/runtime/season verification remains pending. No new duration facts were invented.
 
 ## DR-17: Implemented; browser QA pending
 
@@ -182,13 +184,13 @@ Tests: 29 Node unit/DOM-mock tests pass; generated-output checks pass over 341 H
 
 **Remaining:** Legacy unstructured claims are not automatically proven or rejected. Review queue flags are hints, not verified errors.
 
-## DR-23: Implemented; upstream QA pending
+## DR-23: Implemented; live upstream QA pending
 
-**Changed:** Empty data is availability unconfirmed, with source links; dated/stale notes and last-good fallback implemented.
+**Changed:** Initial HTML and region changes share the same streaming renderer and region-specific freshness wording. Empty results remain unconfirmed, dates age after 24 hours, and fallback data is marked potentially outdated.
 
-**Checked:** Generated text check and provider coverage safety tests.
+**Checked:** Renderer parity, empty-region, invalid/future date, stale-cache and actual region-change DOM tests; synthetic production output.
 
-**Remaining:** Real API failure/staleness integration still needs network testing.
+**Remaining:** Real API failure/staleness and browser integration checks still required. Retrieval dates are not independent provider verification.
 
 ## DR-24: Implemented
 
@@ -198,13 +200,13 @@ Tests: 29 Node unit/DOM-mock tests pass; generated-output checks pass over 341 H
 
 **Remaining:** No live region-dependent collection membership; that is deliberately not promised.
 
-## DR-25: Partial
+## DR-25: Plan presentation implemented; live/browser QA pending
 
-**Changed:** Channel/reseller identity retained; no four-brand truncation; raw provider IDs and purchase models preserved in metadata records.
+**Changed:** All available subscription, free, ad-supported, rent and buy records now receive distinct labels. Channel/reseller names remain intact. Rent/buy options use an availability source instead of a subscription search destination; filtering still uses the subscription/free/ad-supported data.
 
-**Checked:** Provider record test verifies ID/name/model preservation.
+**Checked:** Model/identity/link tests, static/client parity, rental exclusion from Netflix filtering, and simulated token-backed production output.
 
-**Remaining:** UI still focuses subscription/free/ad-supported options, not full rent/buy model presentation.
+**Remaining:** Verify live regional provider results and compact layouts. No price or direct-title-link certification, affiliate approval or purchase availability guarantee is implied.
 
 ## DR-26: Implemented for current plain links
 
@@ -214,13 +216,13 @@ Tests: 29 Node unit/DOM-mock tests pass; generated-output checks pass over 341 H
 
 **Remaining:** Verified direct title URLs and approved affiliate locale tests remain external.
 
-## DR-27: Partial
+## DR-27: Automated safeguards implemented; durable persistence pending
 
-**Changed:** Request timeout/retry, timestamped 24-hour cache, last-good snapshot support, 95% poster floor and catastrophic provider-loss gate.
+**Changed:** 95% poster floor retained with URL validation; losses are checked for retained titles and per-region non-empty provider data, including rental/purchase records. Invalid snapshots stop the release. Normal failed release steps restore last-good bytes; only healthy non-fixture runs promote metadata after downstream checks.
 
-**Checked:** Quality-gate unit tests; no-token production build correctly fails.
+**Checked:** Boundary and regional-degradation tests; orchestrator success/failure/fixture/preview tests; full simulated production pass; no-token production intentionally blocked.
 
-**Remaining:** No token/network available here. Durable snapshot persistence and scheduled refresh need deployment setup; this archive has no real poster snapshot.
+**Remaining:** Live upstream checks and durable snapshot storage/scheduled refresh remain deployment work. Unexpected process termination is not a tested recovery path. Use npm run build, not the low-level generator.
 
 ## DR-28: Partial
 
@@ -326,18 +328,19 @@ Tests: 29 Node unit/DOM-mock tests pass; generated-output checks pass over 341 H
 
 **Remaining:** A server-side submission destination, anti-spam/rate limits and success/failure tests must be configured.
 
-## DR-41: Partial
+## DR-41: Current inventory/status repaired; legacy research review pending
 
-**Changed:** Generated counts and review queue; current state corrected to 219/101; historical contradictory counts and completion claims explicitly separated.
+**Changed:** Removed the hardcoded source revision. Inventory uses validated Vercel/GitHub/git evidence or null, includes a deterministic source fingerprint and actual generated HTML counts, and does not claim tests or reviews passed merely from counts. This seven-item status and current test evidence are refreshed.
 
-**Checked:** Inventory matches 338 sitemap entries in fixture build and 26 existing validator warnings.
+**Checked:** Revision/fingerprint tests; fixture inventory: 219 dramas, 101 lists, 341 HTML files, 338 sitemap entries and zero certified identity mappings.
 
-**Remaining:** Legacy research notes and content priorities still need owner reconciliation; no old history silently erased.
+**Remaining:** Historical research notes still need owner reconciliation. Historical first-pass release notes are not the current test report; see TEST-RESULTS.md.
 
-## DR-42: Comparison pilot implemented; discovery deferred
+## DR-42: Comparison repaired; actor/couple discovery deferred
 
-**Changed:** Up to three recommendation comparisons using current commitment, fit/caveat and watched/saved state; no ending outcomes copied into comparison controls.
+**Changed:** Comparison save/watched actions preserve focus through rerendering. Direct removal controls focus a neighboring comparison or a visible original/filter control. The unsupported no-ending-spoilers promise is replaced with an explicit caveat about legacy plot prose.
 
-**Checked:** Source reviewed; optional browser tests.
+**Checked:** Actual app DOM tests for save, watched, Undo, multiple/final comparison removal and hidden original rows.
 
-**Remaining:** Actual source prose may still contain spoilers. Verified actor/couple schema and pages intentionally not fabricated.
+**Remaining:** Real-browser/assistive checks and a full spoiler-safe prose audit remain pending. Actor/couple data and pages are still deliberately not fabricated.
+

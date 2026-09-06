@@ -1,14 +1,19 @@
 {
-  "generatedAt": "2026-09-05T20:27:51.152Z",
-  "sourceRevision": "be2d867d9c2125918beb85dac901e8193e2bfc8b",
+  "generatedAt": "2026-09-06T08:40:43.029Z",
+  "sourceRevision": null,
+  "sourceRevisionEvidence": "unavailable; ZIPs do not prove a commit revision",
+  "sourceFingerprint": "fc4ead686520795b49589a6cd82f9607d97d34072fc90c7a4c4f6ee9f012e76e",
+  "sourceFingerprintAlgorithm": "sha256, sorted source paths plus bytes; excludes generated metadata snapshots",
   "dramas": 219,
   "recommendationLists": 101,
+  "generatedHtmlFiles": 341,
   "verifiedIdentityMappings": 0,
   "datedEpisodeSources": 1,
   "sitemapEntries": 338,
   "notes": [
-    "Generated counts supersede the historical 152-list audit.",
-    "Researching is not personally watching. Legacy completion claims are unverified.",
+    "Generated counts supersede historical inventory claims.",
+    "This inventory does not claim that tests, editorial certification or a live deployment passed. See the release output and latest repair report.",
+    "Researching is not personally watching. Legacy completion claims remain unverified.",
     "No traffic, bot, conversion or revenue conclusions can be made without source exports."
   ]
 }

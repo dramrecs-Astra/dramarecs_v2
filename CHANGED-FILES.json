@@ -1,162 +1,123 @@
-[
-  {
-    "file": ".env.example",
-    "change": "added",
-    "sha256": "6ca6f38b44cd3fd9a71269f90dea513bb0362cf4ca8a2657ac82d3d472d80810"
-  },
-  {
-    "file": ".github/workflows/validate.yml",
-    "change": "modified",
-    "sha256": "fbd0ded6a4709c240ec4d8ddd408885b91f8dcb0e1bf61c6ba573424b9398785"
-  },
-  {
-    "file": ".gitignore",
-    "change": "added",
-    "sha256": "65dfaa7b86b9d3a519587339bbf297758e76e0f3bbb9b58442c429ae1795047e"
-  },
-  {
-    "file": "BACKLOG-STATUS.md",
-    "change": "added",
-    "sha256": "dbf5017fd5b21542518474d28d61fd9d17fcf788dfe127245a08365652f1602d"
-  },
-  {
-    "file": "DramaRecs-action-plan.xlsx",
-    "change": "modified",
-    "sha256": "c89a6206b87a0443ba0ef6173d6afefa59b41f031f7d964a55646c3ed06a787f"
-  },
-  {
-    "file": "EDITORIAL-REVIEW-QUEUE.json",
-    "change": "added",
-    "sha256": "e84990bee3035bddf1d692a7979443650a663e68f2001bf5c134932283fccd93"
-  },
-  {
-    "file": "EDITORIAL.md",
-    "change": "modified",
-    "sha256": "f27ef3d5928c996704334b4579676446489a1ee55e060e7b1f32f46016cf7db4"
-  },
-  {
-    "file": "INVENTORY.json",
-    "change": "added",
-    "sha256": "afe679f385c835d0b4b3f4e206665f2630422935aa79c2738d3b080677b1412c"
-  },
-  {
-    "file": "PLANS.md",
-    "change": "modified",
-    "sha256": "e14a6b771270a7167687379676810378c5991a4239f934b6d91fbe550338ab42"
-  },
-  {
-    "file": "PROJECT-STATE.json",
-    "change": "modified",
-    "sha256": "a49b41be2157f8c95b15db9517d82137b03d9dd34dc659cd025f0e6ac54ccdb9"
-  },
-  {
-    "file": "README.md",
-    "change": "modified",
-    "sha256": "66fad7b0f75365426f93ea7e18831f96fbb03067f59d5d31743cead31508b26a"
-  },
-  {
-    "file": "RELEASE-NOTES.md",
-    "change": "added",
-    "sha256": "fea5c2c55acf8df0ece359ff1df2417ceffa6928f14b5891b15afddfae9bf534"
-  },
-  {
-    "file": "TEST-RESULTS.md",
-    "change": "added",
-    "sha256": "bc8f0c410fcb0207606d84405d7a3c44199959177e5477258322b731c8430618"
-  },
-  {
-    "file": "backlog-status.json",
-    "change": "added",
-    "sha256": "c574447e92e8e3863a17ffa95bb52c242635244c0ff5b928ef9771bdc9128c52"
-  },
-  {
-    "file": "build.mjs",
-    "change": "modified",
-    "sha256": "feac074a9fc0efaf67ec8d13c051876329d027ac7abcb21b080dc329ae1543aa"
-  },
-  {
-    "file": "data/dramas.json",
-    "change": "modified",
-    "sha256": "bb703005f47868b827f9c2a51e568b046a25c48f4eedaf3f55383b705073281d"
-  },
-  {
-    "file": "data/pages/my-liberation-notes.json",
-    "change": "modified",
-    "sha256": "a76eac3f3d9e5d95cbc509d6fa93fe59cc22bd2c2744a546a84bcbbbee99e815"
-  },
-  {
-    "file": "lib/data-quality.mjs",
-    "change": "added",
-    "sha256": "faec4d525c8b90c0c5ba764510b482b86aa18227edb110b8e913aee131462596"
-  },
-  {
-    "file": "package.json",
-    "change": "modified",
-    "sha256": "f23922c75e6bb11e912f1c0ca490b126f071d58616c7a9a7ada7675a36ae1dd1"
-  },
-  {
-    "file": "src/app.js",
-    "change": "modified",
-    "sha256": "86c6b8e740e07d13af00b49a641dd8464264761d7307c21cf492e014d5c6d500"
-  },
-  {
-    "file": "src/core.js",
-    "change": "added",
-    "sha256": "018768d5faea2c03b179193e93737e992ca67fd1941736100cc78e311dcc599f"
-  },
-  {
-    "file": "src/styles.css",
-    "change": "modified",
-    "sha256": "d2cedf9bbef4a9aa0e21790c9ab02a958e6d9c6bdc20201115a06e9b74e30a8a"
-  },
-  {
-    "file": "tests/browser-smoke.mjs",
-    "change": "added",
-    "sha256": "5db14b42cf6fa8d106eddc75f800262982451275de406b7d2ed5871ebb54830e"
-  },
-  {
-    "file": "tests/client.test.mjs",
-    "change": "added",
-    "sha256": "67821aa40ee0d0eeb7257192ed8c0b63cdc0df0934767b378aae6d05f99c6b47"
-  },
-  {
-    "file": "tests/core.test.mjs",
-    "change": "added",
-    "sha256": "b3e23a5c349b4b3770f638727af0930203d964efda3a474b1671e37e53e5baf2"
-  },
-  {
-    "file": "tests/data-quality.test.mjs",
-    "change": "added",
-    "sha256": "8183dcd4860752e9bffd55e009c384361a1c00155a3d2a77c427958911e7e926"
-  },
-  {
-    "file": "tools/inventory.mjs",
-    "change": "added",
-    "sha256": "cbb29fae7d19f98e8f345247b6fb53b319136ba7d05f15fa355ecc7cf6501d6f"
-  },
-  {
-    "file": "tools/release-build.mjs",
-    "change": "added",
-    "sha256": "cbc2b08a055ce266b5a3c0b8af454b1adf92ebe2729bcf411f69b144f8cb1fcd"
-  },
-  {
-    "file": "tools/smoke.mjs",
-    "change": "added",
-    "sha256": "0eb988094e97f3da1ef923e5221dac16bb5e3a9ecdb18b7af3222ef10e0dfd54"
-  },
-  {
-    "file": "tools/validate-data.mjs",
-    "change": "added",
-    "sha256": "654845d3af420b984409e3187267cfca01d462201156bb0af4284ba82e2293f7"
-  },
-  {
-    "file": "tools/validate-pages.mjs",
-    "change": "modified",
-    "sha256": "7b2d72bc964b182bb8ebcf635aa01dd4538d08645c4b9c9e93c1b950627acfe9"
-  },
-  {
-    "file": "vercel.json",
-    "change": "modified",
-    "sha256": "65dffc9b6517f407cefacbb264c3ee7d03305e4f527939ccb49f5de207b85fe1"
-  }
-]
+{
+  "release": "Seven-item follow-up repair, 2026-09-06",
+  "package": "changed and required new files only",
+  "source": "user-supplied dramarecs_v2-main archive, not an independently verified live GitHub commit",
+  "approvedBacklogItems": [
+    "DR-03",
+    "DR-16",
+    "DR-23",
+    "DR-25",
+    "DR-27",
+    "DR-41",
+    "DR-42"
+  ],
+  "instructions": "Upload every listed path plus this manifest together at the repository root in one commit. No git installation required. Keep npm run build.",
+  "files": [
+    {
+      "path": "BACKLOG-STATUS.md",
+      "action": "replace",
+      "bytes": 17136,
+      "sha256": "15467e1671e560c64eaa3e9a2d6953a36e37885e5c0aea7e25759e8ac76fd43d"
+    },
+    {
+      "path": "INVENTORY.json",
+      "action": "replace",
+      "bytes": 936,
+      "sha256": "5f8682efb4aa2eac5bb2f836934c8150880a41ef1a4d973104a3ee34dc3ecf78"
+    },
+    {
+      "path": "TEST-RESULTS.md",
+      "action": "replace",
+      "bytes": 3674,
+      "sha256": "d2d5d63f731424608b10830af6935ba93b58df2091ee2334afdcb28fc259ef67"
+    },
+    {
+      "path": "backlog-status.json",
+      "action": "replace",
+      "bytes": 17932,
+      "sha256": "c88b4893d267c7f7de04acdc18211c1bc57a1c0631765d077766b3f88586d0d2"
+    },
+    {
+      "path": "lib/data-quality.mjs",
+      "action": "replace",
+      "bytes": 7281,
+      "sha256": "2b36b1b4c4cfc8b636eda6698112bba71168185aad0a5fd3eba5a28fb9d4c276"
+    },
+    {
+      "path": "src/app.js",
+      "action": "replace",
+      "bytes": 20979,
+      "sha256": "f46ad786fd813facfd419e2062115f88c5654db90efb577b8bf55755fe66bf14"
+    },
+    {
+      "path": "src/core.js",
+      "action": "replace",
+      "bytes": 8776,
+      "sha256": "f8eb3040a01540b7c01284ff01deed5a15b8ede6aa026e3b61ef2a9b6e0c0646"
+    },
+    {
+      "path": "tests/data-quality.test.mjs",
+      "action": "replace",
+      "bytes": 6147,
+      "sha256": "2512356428a459556542a2669617e380155052fbdc633517ddac5b94d96f7b01"
+    },
+    {
+      "path": "tests/dom-fixture.mjs",
+      "action": "add",
+      "bytes": 7303,
+      "sha256": "ba0a0f06dfb4e6c2a82a9b9287a9e7f4a2656129a4a0035ff59489ea0afc4eba"
+    },
+    {
+      "path": "tests/interactions.test.mjs",
+      "action": "add",
+      "bytes": 6677,
+      "sha256": "eae502a50664e3d2dcc251dbff47d471911cc01eec38254ec7ccb32a75e7d581"
+    },
+    {
+      "path": "tests/release-pipeline.test.mjs",
+      "action": "add",
+      "bytes": 5738,
+      "sha256": "c0f1d45b6818c62e42b3962c1f593b1c43e7f6b8ad3e9c840f95fd7a260e5ac5"
+    },
+    {
+      "path": "tests/repair.test.mjs",
+      "action": "add",
+      "bytes": 6315,
+      "sha256": "f1b66018e0d31b1d1a96f6e8a4d32c17a9e91b6fa09ce6cf96da131a191c0b28"
+    },
+    {
+      "path": "tools/inventory.mjs",
+      "action": "replace",
+      "bytes": 4261,
+      "sha256": "2e654a097e1899cc7328b87cb4fa81faa8df8d88a9bccd2a6829d559185c7039"
+    },
+    {
+      "path": "tools/release-build.mjs",
+      "action": "replace",
+      "bytes": 3119,
+      "sha256": "d27ca09d8dac53c00af2023f3f4eebf3390c922b380e957dfb29e157ec87a535"
+    },
+    {
+      "path": "tools/streaming-output.mjs",
+      "action": "add",
+      "bytes": 3077,
+      "sha256": "787e5c78406d56eb4f3e7436c32201d68187c727570e1c5b252f65d4b6fed74f"
+    }
+  ],
+  "manifestFile": "CHANGED-FILES.json (this manifest replaces the historical manifest; not self-hashed)",
+  "unchangedCriticalFiles": [
+    "build.mjs",
+    "lib/tmdb-identity.mjs",
+    "package.json",
+    "src/styles.css",
+    "data/dramas.json",
+    "data/pages/*.json"
+  ],
+  "excluded": [
+    "dist/",
+    ".tmdb-cache.json",
+    "data/metadata-snapshot.json",
+    "synthetic production data",
+    "original repository ZIP"
+  ]
+}
