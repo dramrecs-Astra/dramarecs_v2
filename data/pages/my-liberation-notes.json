@@ -1,27 +1,112 @@
 {
   "seed": "my-liberation-notes",
   "reviewed": "2026-08-22",
-  "standfirst": "What made it hit was not the romance. It was three siblings commuting out of a town nobody chose, and a stranger who drank his way through it beside them. These six chase that feeling, not the plot.",
+  "standfirst": "If you loved the quiet adult loneliness, ordinary work and family life in My Liberation Notes, start here. These picks follow that thread; the romance or the performers may lead you somewhere different.",
   "picks": [
-    { "slug": "my-mister", "match": 96,
-      "why": "<b>Same writer.</b> Park Hae-young wrote both, and it shows in every silence. Three worn-down brothers, one young woman with nothing left to lose, and a neighbourhood that slowly decides to hold them. If you loved the Yeom siblings' unglamorous exhaustion, this is the same wound one register deeper. Difference: there is a surveillance plot running underneath it, so it has a spine of dread Liberation Notes never wants, and it is crueller for much longer before it turns kind." },
-    { "slug": "our-blues", "match": 89,
-      "why": "Jeju instead of Sanpo, and the loneliness is shared out across a whole market town rather than one family. Told in overlapping chapters, so each stretch gives you a different tired adult to sit with. Difference: warmer, and it cries far more openly. It is also an anthology, so no one family gets to accumulate the way the Yeoms do." },
-    { "slug": "when-life-gives-you-tangerines", "match": 85,
-      "why": "A whole life measured in seasons on Jeju, from a stubborn girl to a grandmother. Shares the same conviction that ordinary endurance deserves a camera. Difference: much bigger emotional swings, and a score that wants your tears where Liberation Notes withholds on purpose. It will also make you phone your mother." },
-    { "slug": "because-this-is-my-first-life", "match": 78,
-      "why": "The closest thing to <em>Liberation Notes</em> in romance form: two guarded people in their thirties negotiating a contract marriage because rent in Seoul is a horror story. Same dry humour about wasted commutes and money worries. Difference: it is a romance with a plot and a proper resolution, so none of the shapeless drifting that is the whole substance of Liberation Notes." },
-    { "slug": "move-to-heaven", "match": 74,
-      "why": "A trauma-cleaning crew clearing out the homes of the newly dead. No romance at all, and that is the point: it is purely about noticing people the world stopped noticing. Ten episodes, so it is the shortest route to this particular ache. Difference: episodic and much gentler, and it is about strangers rather than a family you cannot leave. Grief rather than numbness." },
-    { "slug": "live", "match": 70,
-      "why": "Noh Hee-kyung writing beat cops at a neighbourhood police station. Sits in the same class exhaustion: people doing unglamorous work for not enough money and staying decent about it. Same respect for ordinary lives. Difference: it is a procedural with cases and consequences, so it moves. Nobody here has time to stand in a field saying nothing." }
+    {
+      "slug": "my-mister",
+      "match": 96,
+      "why": "<b>Same writer.</b> Park Hae-young wrote both, and it shows in every silence. Three worn-down brothers, one young woman with nothing left to lose, and a neighbourhood that slowly decides to hold them. If you loved the Yeom siblings' unglamorous exhaustion, this is the same wound one register deeper. Difference: there is a surveillance plot running underneath it, so it has a spine of dread Liberation Notes never wants, and it is crueller for much longer before it turns kind."
+    },
+    {
+      "slug": "our-blues",
+      "match": 89,
+      "why": "Jeju instead of Sanpo, and the loneliness is shared out across a whole market town rather than one family. Told in overlapping chapters, so each stretch gives you a different tired adult to sit with. Difference: warmer, and it cries far more openly. It is also an anthology, so no one family gets to accumulate the way the Yeoms do."
+    },
+    {
+      "slug": "when-life-gives-you-tangerines",
+      "match": 85,
+      "why": "A whole life measured in seasons on Jeju, from a stubborn girl to a grandmother. Shares the same conviction that ordinary endurance deserves a camera. Difference: much bigger emotional swings, and a score that wants your tears where Liberation Notes withholds on purpose. It will also make you phone your mother."
+    },
+    {
+      "slug": "because-this-is-my-first-life",
+      "match": 78,
+      "why": "The closest thing to <em>Liberation Notes</em> in romance form: two guarded people in their thirties negotiating a contract marriage because rent in Seoul is a horror story. Same dry humour about wasted commutes and money worries. Difference: it is a romance with a plot and a proper resolution, so none of the shapeless drifting that is the whole substance of Liberation Notes."
+    },
+    {
+      "slug": "move-to-heaven",
+      "match": 74,
+      "why": "A trauma-cleaning crew clearing out the homes of the newly dead. No romance at all, and that is the point: it is purely about noticing people the world stopped noticing. Ten episodes, so it is the shortest route to this particular ache. Difference: episodic and much gentler, and it is about strangers rather than a family you cannot leave. Grief rather than numbness."
+    },
+    {
+      "slug": "live",
+      "match": 70,
+      "why": "Noh Hee-kyung writing beat cops at a neighbourhood police station. Sits in the same class exhaustion: people doing unglamorous work for not enough money and staying decent about it. Same respect for ordinary lives. Difference: it is a procedural with cases and consequences, so it moves. Nobody here has time to stand in a field saying nothing."
+    }
   ],
   "against": [
-    { "title": "Crash Landing on You",
-      "why": "The default pick, and genuinely great, but it is a high-concept fantasy romance with a soundtrack that tells you when to feel things. Wrong register entirely." },
-    { "title": "Goblin",
-      "why": "Immortals, fate, sweeping mythology. If the appeal of <em>Liberation Notes</em> was that nothing supernatural ever happens, this is the opposite trade." },
-    { "title": "Something in the Rain",
-      "why": "Close on paper: same director, similarly quiet adults. But the second half turns into a relationship endurance test rather than a study of a life." }
-  ]
+    {
+      "title": "Crash Landing on You",
+      "why": "The default pick, and genuinely great, but it is a high-concept fantasy romance with a soundtrack that tells you when to feel things. Wrong register entirely."
+    },
+    {
+      "title": "Goblin",
+      "why": "Immortals, fate, sweeping mythology. If the appeal of <em>Liberation Notes</em> was that nothing supernatural ever happens, this is the opposite trade."
+    },
+    {
+      "title": "Something in the Rain",
+      "why": "Less suitable if you want everyday exhaustion without sustained romantic conflict: similarly quiet adults, but its second half becomes a relationship endurance test. It does not share a director with My Liberation Notes."
+    }
+  ],
+  "sources": [
+    {
+      "claim": "The two dramas have different directors. My Liberation Notes: Kim Seok-yoon; Something in the Rain: Ahn Pan-seok.",
+      "urls": [
+        "https://asianwiki.com/My_Liberation_Notes",
+        "https://en.wikipedia.org/wiki/Ahn_Pan-seok"
+      ],
+      "checked": "2026-09-06"
+    }
+  ],
+  "corrections": [
+    {
+      "date": "2026-09-06",
+      "scope": "Director comparison and prescriptive lead-in only; not a complete re-review."
+    }
+  ],
+  "reasons": [
+    {
+      "id": "adult-lives",
+      "label": "Quiet adult lives",
+      "picks": [
+        {
+          "slug": "my-mister",
+          "why": "The existing comparison connects ordinary exhaustion and a neighborhood that notices people."
+        },
+        {
+          "slug": "live",
+          "why": "The existing comparison connects unglamorous work and respect for ordinary lives. It has a busier procedural plot."
+        }
+      ]
+    },
+    {
+      "id": "romance",
+      "label": "A more central romance",
+      "picks": [
+        {
+          "slug": "because-this-is-my-first-life",
+          "why": "The existing comparison puts the romance first while keeping money worries and guarded adults."
+        }
+      ]
+    },
+    {
+      "id": "community",
+      "label": "A wider community ensemble",
+      "picks": [
+        {
+          "slug": "our-blues",
+          "why": "The existing comparison moves from one family to overlapping stories across a market town."
+        },
+        {
+          "slug": "when-life-gives-you-tangerines",
+          "why": "The existing comparison follows ordinary endurance across generations, with larger emotional swings."
+        }
+      ]
+    }
+  ],
+  "reasonPilot": {
+    "status": "experimental",
+    "basis": "Existing relationship prose; human fan testing pending.",
+    "date": "2026-09-06"
+  }
 }
